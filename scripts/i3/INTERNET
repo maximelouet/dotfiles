@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Saumon i3blocks scripts : INTERNET (wired/wifi network info with external ip on middle click)
+
+
+case $BLOCK_BUTTON in
+	2) IP=$(curl -s "ifconfig.me/ip" | tr -d '\n'); notify-send "External IP address" $IP; echo $IP | xclip -i -selection clipboard ;;
+esac
+
+
+enp4s0Status=$(cat -- "$(readlink -e -- /sys/class/net/enp4s0/operstate)")
+wlp3s0Status=$(cat -- "$(readlink -e -- /sys/class/net/wlp3s0/operstate)")
+
+if [ "$enp4s0Status" = "up" ]; then
+	echo -n '<span color="#19ef5d"><b></b>  '
+	ip addr show enp4s0 | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'
+	echo -n '</span> on'
+	iwgetid -r | tr -d '\n'
+elif [ "$wlp3s0Status" = "up" ]; then
+	echo -n '<span color="#19ef5d"><b></b>  '
+	ip addr show wlp3s0 | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'
+	echo -n '</span> on '
+	iwgetid -r | tr -d '\n'
+else
+	echo -n '<span color="#fa3826" font-weight="bold">INTERNET ?</span>'
+fi

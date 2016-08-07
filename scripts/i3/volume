@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Saumon i3blocks scripts : volume (display main volume, mute on middle click and change on scroll)
+
+
+case $BLOCK_BUTTON in
+	2) amixer -q -D pulse set Master toggle;; # middle click : toggle mute
+	4) amixer -q -D pulse set Master '2%+';; # scroll up : increase vol by 2%
+	5) amixer -q -D pulse set Master '2%-';; # scroll down : decrease vol by 2%
+esac
+
+
+amixer=$(amixer -D pulse get Master)
+volume=$(echo $amixer | grep -o "[0-9]*%" | tail -n1 | tr -d '\n')
+
+if [[ $(echo "$amixer" | grep off) ]]; then
+	echo -n "<span color='#fa8026'>  (muted) $volume</span>"
+else
+	echo -n "  $volume"
+fi
+
