@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Saumon i3blocks scripts : separator (display a separator symbol)
+
+echo -n '<span color="#ffffff">  〉</span>'

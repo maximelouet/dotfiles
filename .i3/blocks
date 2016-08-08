@@ -2,66 +2,52 @@
 
 
 command=/data/Scripts/i3/$BLOCK_NAME
-full_text= 〉
+full_text=
 align=center
 color=#cccccc
 separator=false
-separator_block_width=7
+separator_block_width=4
 markup=pango
+interval=once
 
 
-
-[mpd]
-full_text=
-interval=10
-
-[separator]
 
 [disk]
-full_text=
 interval=30
 
 [separator]
 
 [INTERNET]
-full_text=
 interval=5
 
 [separator]
 
 [brightness]
-full_text=
-interval=once
 signal=11
 
 [separator]
 
 [volume]
-full_text=
-interval=once
+interval=30
 signal=10
 
 [separator]
 
 [battery]
-full_text=
 interval=20
 signal=12
 
 [separator]
 
 [load]
-full_text=
 interval=10
 
 [separator]
 
 [date]
-full_text=
 interval=60
 
 [time]
-full_text=
 command=date '+%H:%M:%S'
 interval=1
 
