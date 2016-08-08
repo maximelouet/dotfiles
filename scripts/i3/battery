@@ -18,10 +18,13 @@ if [ \( "$battStatus" = "Charging" \) -o \( "$battRemain" = "discharg" \) ]; the
 else
 	if [ $battCapacity -lt "20" ]; then
 		color="#fa3826"
+		icon=""
 	elif [ $battCapacity -lt "50" ]; then
 		color="#fa8026"
+		icon=""
 	else
 		color="#cccccc"
+		icon=""
 	fi
-	echo -n "<span color='$color'>  $battCapacity% ($battRemain)</span>"
+	echo -n "<span color='$color'>$icon  $battCapacity% ($battRemain)</span>"
 fi
