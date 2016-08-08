@@ -154,18 +154,17 @@ bindsym $mod+r mode "resize"
 bar {
 	status_command i3blocks -c ~/.i3/blocks
         position bottom
-        separator_symbol "|"
-        font pango:Noto Sans, Icons 10
+        font pango:Noto Sans, Icons 10.5
         colors {
-            background #2c2f32
-            statusline #DEDEDE
+            background #1c3542
+            statusline #cccccc
 
 #           <colorclass> <border> <background> <text>
-            focused_workspace  #4c7899 #096BAA #ffffff
-            active_workspace   #333333 #5f676a #ffffff
-            inactive_workspace #333333 #222222 #999999
-            urgent_workspace   #2f343a #900000 #ffffff
-            binding_mode       #2f343a #900000 #ffffff
+            focused_workspace  #12846e #12846e #ffffff
+            active_workspace   #12846e #12846e #ffffff
+            inactive_workspace #22445a #22445a #999999
+            urgent_workspace   #902020 #902020 #ffffff
+            binding_mode       #902020 #902020 #ffffff
         }
 }
 
@@ -174,10 +173,12 @@ bar {
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #3F8AC2 #096BAA #ffffff #00DA8E
+client.focused          #199c95 #199c95 #ffffff #00DA8E
 client.focused_inactive #333333 #5F676A #ffffff #484e50
-client.unfocused        #333333 #424242 #888888 #292d2e
-client.urgent           #C10004 #900000 #ffffff #900000
+client.unfocused        #333333 #424242 #8f8f8f #292d2e
+client.urgent           #902020 #902020 #ffffff #900000
+
+for_window [class=".*"] title_format " %title"
 
 
 bindsym mod4+e exec thunar
