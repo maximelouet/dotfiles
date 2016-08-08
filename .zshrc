@@ -122,6 +122,7 @@ alias wtf='dmesg'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias song='curl http://cigix.noip.me/update.php; echo'
 alias apt-get='echo "pauvre bite";:'
+alias gti='echo "pauvre merde\n";git'
 
 c() { cd "$@" && ls; }
 
