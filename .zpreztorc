@@ -97,7 +97,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 POWERLEVEL9K_TIME_BACKGROUND='033'
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='033'
