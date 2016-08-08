@@ -1,5 +1,4 @@
 """ Saumon vim config """
-"" https://maximelouet.me ""
 
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -20,11 +19,6 @@ map Q gq
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
