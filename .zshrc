@@ -127,9 +127,6 @@ alias gti='echo "pauvre merde\n";git'
 c() { cd "$@" && ls; }
 
 
-
-
-
-
+eval $(keychain -q --eval main github)
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
