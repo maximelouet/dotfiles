@@ -33,6 +33,13 @@ case "$1" in
                 ;;
         esac
         ;;
+    jack/headphone)
+        case "$2" in
+            HEADPHONE)
+                pkill -RTMIN+10 i3blocks
+                ;;
+        esac
+        ;;
     button/lid)
         case "$3" in
             close)
