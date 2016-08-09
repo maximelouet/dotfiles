@@ -1,0 +1,40 @@
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 875,
+       "width": 799,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Mozilla Firefox",
+    "percent": 0.5,
+    "swallows": [
+       {
+          "class": "^Firefox$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "normal",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 658,
+       "width": 1292,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Terminal",
+    "percent": 0.5,
+    "swallows": [
+       {
+          "class": "^Xfce4\\-terminal$"
+       }
+    ],
+    "type": "con"
+}
+
