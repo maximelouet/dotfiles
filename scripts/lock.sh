@@ -1,15 +1,18 @@
 #!/bin/sh
 
+export DISPLAY=:0
+
 img=/tmp/screenlock.png
 
 scrot $img
-convert $img -level 0%,100%,0.4 \
-	-filter Gaussian -resize 20% -define filter:sigma=1.5 -resize 500.5% \
+convert $img -level 0%,100% \
+	-gamma 0.4,0.35,0.35 \
+	-filter Gaussian -resize 20% -define filter:sigma=0.5 -resize 500% \
 	-font "Noto-Sans" -pointsize 40 -gravity center \
-	-annotate +0+140 'Jean Pierre Foucault' -blur 0x4 \
-	-fill white -annotate +0+138 'Jean Pierre Foucault' \
+	-annotate +0+140 'Jean Pierre Foucault' -blur 0x3 \
+	-fill white -annotate +0+139 'Jean Pierre Foucault' \
 	/home/saumon/static/icons/lock.png -gravity center -composite \
 	$img
 
-i3lock -n -i $img
+i3lock -f -i $img
 
