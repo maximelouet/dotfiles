@@ -7,6 +7,7 @@ export EDITOR='vim'
 export MANPAGER='most'
 export VISUAL='vim'
 export PAGER='most'
+export BROWSER='firefox'
 
 alias vi='vim'
 
@@ -90,7 +91,6 @@ backup_server() {
 }
 
 
-alias xflock4='i3lock -i /home/saumon/static/lockscreen.png'
 alias ls='ls --group-directories-first --color=auto -h'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -111,7 +111,6 @@ alias calc='bc'
 alias ne='emacs -nw'
 alias u='up && ls'
 alias fucking='sudo'
-alias sl='sl -c'
 alias temp='cat /sys/class/thermal/thermal_zone0/temp'
 
 alias whyami='echo "Ask your mom"'
@@ -130,3 +129,5 @@ c() { cd "$@" && ls; }
 eval $(keychain -q --eval main github)
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+unalias sl
