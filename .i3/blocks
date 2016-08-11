@@ -11,6 +11,10 @@ markup=pango
 interval=once
 
 
+[mpd]
+interval=10
+
+[separator]
 
 [disk]
 interval=30
@@ -48,7 +52,7 @@ interval=10
 interval=60
 
 [time]
-command=date '+%H:%M:%S'
+command=date '+%H:%M:%S '
 interval=1
 
 
