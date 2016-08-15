@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Saumon i3blocks scripts : volume (display main volume, mute on middle click and change on scroll)
+# Saumon i3blocks scripts : volume (display main volume, mute on right click and change on scroll)
 
 
 case $BLOCK_BUTTON in
-	2) amixer -q -D pulse set Master toggle;; # middle click : toggle mute
+	3) amixer -q -D pulse set Master toggle;; # right click : toggle mute
 	4) amixer -q -D pulse set Master '2%+';; # scroll up : increase vol by 2%
 	5) amixer -q -D pulse set Master '2%-';; # scroll down : decrease vol by 2%
 esac
