@@ -80,7 +80,7 @@ rg() {
 }
 
 ly(){
-    cat "/data/Lyrics/*$**";
+    cat /data/Lyrics/*"$*"*;
 }
 backup_server() {
     echo "Backing up /var/www...";
