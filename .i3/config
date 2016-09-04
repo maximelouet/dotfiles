@@ -187,7 +187,7 @@ bindsym Print exec --no-startup-id /data/Scripts/screenshot.sh
 
 bindsym $super+e exec thunar
 bindsym $super+KP_Enter exec galculator
-bindsym $super+w exec dmenu_run -nb '#1c3542' -nf '#dddddd' -sb '#12846e' -fn 'Noto Sans-11'
+bindsym $super+w exec --no-startup-id dmenu_run -nb '#1c3542' -nf '#dddddd' -sb '#12846e' -fn 'Noto Sans-11'
 bindsym $super+f exec firefox
 bindsym $super+s exec subl3
 
