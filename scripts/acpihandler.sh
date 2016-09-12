@@ -4,12 +4,20 @@
 
 case "$1" in
     button/power)
-        sudo -u saumon /data/Scripts/lock.sh
-        echo -n mem >/sys/power/state
+        case "$2" in
+            PBTN|PWRF)
+                sudo -u saumon /data/Scripts/lock.sh
+                echo -n mem >/sys/power/state
+                ;;
+        esac
         ;;
     button/sleep)
-        sudo -u saumon /data/Scripts/lock.sh
-        echo -n mem >/sys/power/state
+        case "$2" in
+            SLPB|SBTN)
+                sudo -u saumon /data/Scripts/lock.sh
+                echo -n mem >/sys/power/state
+                ;;  
+        esac
         ;;
     ac_adapter)
         pkill -RTMIN+12 i3blocks
