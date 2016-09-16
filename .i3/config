@@ -5,6 +5,7 @@
 
 # ALIASES
 set $mod Mod1
+set $alt Mod1
 set $super Mod4
 set $workspace1 " 1 "
 set $workspace2 " 2 "
