@@ -1,23 +1,21 @@
 <?xml version="1.0"?>
-<FileZilla3 version="3.20.0" platform="*nix">
-	<Layout Builddate="2016-07-27" Buildtime="21:32:44">
+<FileZilla3 version="3.21.0" platform="*nix">
+	<Layout Builddate="2016-08-23" Buildtime="17:10:41">
 		<Resources>
-			<xrc file="inputdialog.xrc" date="1469648010" />
-			<xrc file="menus.xrc" date="1469648010" />
-			<xrc file="dialogs.xrc" date="1469648010" />
-			<xrc file="toolbar.xrc" date="1469648010" />
-			<xrc file="certificate.xrc" date="1469648010" />
-			<xrc file="settings.xrc" date="1469648010" />
-			<xrc file="netconfwizard.xrc" date="1469648010" />
-			<xrc file="quickconnectbar.xrc" date="1469648010" />
-			<xrc file="sitemanager.xrc" date="1469648010" />
-			<xrc file="update.xrc" date="1469648010" />
+			<xrc file="inputdialog.xrc" date="1471965090" />
+			<xrc file="menus.xrc" date="1471965090" />
+			<xrc file="dialogs.xrc" date="1471965090" />
+			<xrc file="toolbar.xrc" date="1471965090" />
+			<xrc file="certificate.xrc" date="1471965090" />
+			<xrc file="settings.xrc" date="1471965090" />
+			<xrc file="netconfwizard.xrc" date="1471965090" />
+			<xrc file="quickconnectbar.xrc" date="1471965090" />
+			<xrc file="sitemanager.xrc" date="1471965090" />
+			<xrc file="update.xrc" date="1471965090" />
 		</Resources>
 		<Language id="en_US" date="">
-			<Font font="Ubuntu Mono 11" width="875" height="14" />
-			<Dialog name="Site Manager" width="686" />
-			<Dialog name="Settings" width="575" />
-			<Dialog name="Netconf" width="535" />
+			<Font font="Noto Sans 11" width="882" height="20" />
+			<Dialog name="Settings" width="589" />
 		</Language>
 	</Layout>
 </FileZilla3>
