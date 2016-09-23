@@ -203,10 +203,11 @@ exec --no-startup-id i3-msg 'workspace $ws1; append_layout /home/saumon/.i3/star
 exec firefox
 exec $terminal
 
-exec --no-startup-id feh --bg-fill /home/saumon/static/wallpaper/straight.jpeg
+exec --no-startup-id feh --bg-fill --no-fehbg /home/saumon/static/wallpaper/straight.jpeg
 exec --no-startup-id xset r rate 185 26
 exec --no-startup-id dunst
 exec --no-startup-id clipster -d
 exec --no-startup-id redshift -l 48.8086:2.2701
 exec --no-startup-id compton --config /home/saumon/.config/compton.conf -b
 exec --no-startup-id udiskie -c /home/saumon/.config/udiskie/config.yml
+exec --no-startup-id xautolock -locker "/home/saumon/scripts/lock.sh" -time 2
