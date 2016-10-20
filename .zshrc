@@ -37,20 +37,24 @@ for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
 
 
 
-up(){
+up() {
 	local d=""
 	limit=$1
 	for ((i=1 ; i <= limit ; i++))
 		do
 			d=$d/..
 		done
-	 d=$(echo $d | sed -e 's/^\///')
-	 if [ -z "$d" ]; then
-		 d=..
-	 fi
-	 cd $d
+	d=$(echo $d | sed -e 's/^\///')
+	if [ -z "$d" ]; then
+		d=..
+	fi
+	cd $d
 }
 
+prepare_repo() {
+	blih repository create $1
+	blih repository setacl $1 ramassage-tek r
+}
 
 
 function extract() {
@@ -139,9 +143,9 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias maj='sudo pkcon update'
-alias install='sudo pkcon install'
-alias remove='sudo pkcon remove'
+alias maj='sudo zypper update'
+alias install='sudo zypper install'
+alias remove='sudo zypper remove'
 alias tree='tree -C'
 
 alias mv='mv -v'
@@ -155,9 +159,9 @@ alias u='up && ls'
 alias fucking='sudo'
 alias temp='cat /sys/class/thermal/thermal_zone0/temp'
 alias week='date +%V'
-alias update-grub='sudo grub2-mkconfig -o /boot/grub/grub.cfg'
+alias update-grub='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
 alias song='curl http://cigix.noip.me/update.php; echo'
-alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias diskspace_report='df -P -kHl'
 # alias riplaco='ping 8.8.8.8 | grep -E --only-match --color=never "[0-9\.]+ ms"'
 alias riplaco='wpa_gui'
