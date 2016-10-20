@@ -4,18 +4,20 @@
 
 
 case $BLOCK_BUTTON in
-	3) amixer -q -D pulse set Master toggle;; # right click : toggle mute
-	4) amixer -q -D pulse set Master '2%+';; # scroll up : increase vol by 2%
-	5) amixer -q -D pulse set Master '2%-';; # scroll down : decrease vol by 2%
+	3) amixer -q set Master toggle;; # right click : toggle mute
+	4) amixer -q set Master '2%+';; # scroll up : increase vol by 2%
+	5) amixer -q set Master '2%-';; # scroll down : decrease vol by 2%
 esac
 
 
-amixer=$(amixer -D pulse get Master)
-volume=$(echo $amixer | grep -o "[0-9]*%" | tail -n1 | tr -d '\n')
+amixer=$(amixer get Master)
+volume=$(echo $amixer | grep -o "[0-9]*" | tail -n1 | tr -d '\n')
 
 if [[ $(echo "$amixer" | grep off) ]]; then
-	echo -n "<span color='#fa8026'>  (muted) $volume</span>"
+	echo -n "<span color='#fa8026'>  (muted) $volume%</span>"
+elif [ $volume -ge 50 ]; then
+	echo -n "  $volume%"
 else
-	echo -n "  $volume"
+	echo -n "  $volume%"
 fi
 

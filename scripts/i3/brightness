@@ -9,6 +9,6 @@ case $BLOCK_BUTTON in
 esac
 
 
-echo -n " "
+echo -n "  "
 light | xargs printf %.0f
 echo -n "%"

@@ -14,4 +14,4 @@ else
 	color="#cccccc"
 fi
 
-echo -n "<span color='$color'>  $load</span>"
+echo -n "<span color='$color'>  $load</span>"

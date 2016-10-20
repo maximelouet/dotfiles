@@ -6,15 +6,15 @@ act() {
     paused=$(echo "$status" | grep "paused")
     repeat=$(echo "$status" | grep "repeat: on")
     if [[ $playing ]]; then
-        echo -n '<span color="#19ef5d">' # playing icon
+	echo -n '<span color="#19ef5d">' # playing icon
         echo -n '  '
         echo -n "$status" | head -n1 | tr -d '\n'
     elif [[ $paused ]]; then
-        echo -n '<span color="#fa8026">' # paused icon
+        echo -n '<span color="#fa8026">' # paused icon
         echo -n '  '
         echo -n "$status" | head -n1 | tr -d '\n'
     else
-        echo -n '<span color="#fa3826">' # music icon
+        echo -n '<span color="#999">' # music icon
         echo -n '  '
         echo -n "Stopped"
     fi
