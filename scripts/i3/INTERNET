@@ -4,7 +4,7 @@
 
 
 case $BLOCK_BUTTON in
-	2) IP=$(curl -s "ifconfig.me/ip" | tr -d '\n'); notify-send "External IP address" $IP; echo $IP | xclip -i -selection clipboard ;;
+	2) IP=$(curl -s "ifconfig.me/ip" | tr -d '\n'); notify-send "External IP address" $IP; echo -n $IP | xclip -i -selection clipboard ;;
 esac
 
 
