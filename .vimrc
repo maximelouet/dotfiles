@@ -1,4 +1,4 @@
-""" Saumon vim config """
+" Saumon vim config
 
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -89,15 +89,21 @@ imap :wqa<Enter> <Esc>:wqa<Cr>
 command Allman :g/^.*\S.*{\s*$/execute 's/\s*{\s*$/\r{/' | normal == \
 
 set number
-
+set noeol
 set laststatus=2
 
 set autoread
 
 syntax enable
-set background=dark
+" set background=dark
 " let g:solarized_termcolors=256
 " colorscheme solarized
 
-set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
+let g:airline_powerline_fonts = 1
+
+" set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
 setlocal cm=blowfish2
+
+
+" EPITECH
+let g:epi_login = 'maxime.louet'

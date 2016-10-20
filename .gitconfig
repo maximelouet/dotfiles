@@ -1,19 +1,14 @@
 [user]
-  name = Maxime Louet
-  email = saumon@maximelouet.me
+	name = Maxime Louet
+	email = maxime.louet@epitech.eu
 [core]
-  editor = vim
-[merge]
-  tool = vimdiff
-[pull]
-  rebase = true
-[push]
-  default = current
+	editor = vim
 [alias]
-  amend = commit --amend --no-edit --reset-author
-  tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
-  st = status
-  abort = rebase --abort
-  continue = rebase --continue
-  co = checkout
-  re = !git fetch && git rebase origin/master
+	cm = commit --verbose
+	cmm = commit --verbose -m
+ 	amend = commit --amend --no-edit --reset-author
+	tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
+	st = status
+	abort = rebase --abort
+	continue = rebase --continue
+	re = !git fetch && git rebase origin/master
