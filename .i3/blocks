@@ -1,7 +1,7 @@
 # Saumon i3blocks config file
 
 
-command=/data/Scripts/i3/$BLOCK_NAME
+command=/data/scripts/i3/$BLOCK_NAME
 full_text=
 align=center
 color=#cccccc
@@ -10,14 +10,13 @@ separator_block_width=4
 markup=pango
 interval=once
 
-
 [mpd]
 interval=10
 
 [separator]
 
 [disk]
-interval=30
+interval=60
 
 [separator]
 
@@ -38,7 +37,7 @@ signal=10
 [separator]
 
 [battery]
-interval=20
+interval=30
 signal=12
 
 [separator]
