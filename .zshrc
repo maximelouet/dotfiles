@@ -143,9 +143,10 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias maj='sudo zypper update'
-alias install='sudo zypper install'
-alias remove='sudo zypper remove'
+alias maj='yaourt -Syua'
+alias install='yaourt -S'
+alias remove='yaourt -R'
+alias remover='yaourt -Rns'
 alias tree='tree -C'
 
 alias mv='mv -v'
@@ -198,11 +199,12 @@ alias :q='exit'
 c() { cd "$@" && ls; }
 
 # Enable aliases to be sudo’ed
-alias sudo='sudo '
+#alias sudo='sudo '
 
 
 alias t='tree'
 alias pls='sl'
+alias ne='emacs'
 
 # EPITECH
 
@@ -215,9 +217,9 @@ export SAVEHIST=1000
 export WATCH='all'
 alias j='jobs'
 alias emacs='emacs -nw'
-alias ne='emacs'
 
 export TEKUSER="maxime.louet@epitech.eu"
+export USER_NICKNAME="Maxime Louet"
 
 ### C Graphical Programming Environement Variable
 export LIBRARY_PATH=$LIBRARY_PATH:/home/saumon/.graph_programming/lib
