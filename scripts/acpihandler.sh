@@ -2,11 +2,13 @@
 
 # Saumon ACPI actions
 
+lockcommand="xautolock -locknow"
+
 case "$1" in
     button/power)
         case "$2" in
             PBTN|PWRF)
-                sudo -u saumon /data/Scripts/lock.sh
+                sudo -u saumon $lockcommand
                 echo -n mem >/sys/power/state
                 ;;
         esac
@@ -14,7 +16,7 @@ case "$1" in
     button/sleep)
         case "$2" in
             SLPB|SBTN)
-                sudo -u saumon /data/Scripts/lock.sh
+                sudo -u saumon $lockcommand
                 echo -n mem >/sys/power/state
                 ;;  
         esac
