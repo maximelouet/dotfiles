@@ -6,7 +6,6 @@ let s:comMap = {
 
 function! s:Epistrtime()
     let old_time = v:lc_time
-    language time en_US
     let str = strftime("%a %b %d %T %Y")
     exec 'language time '.old_time
     return str
@@ -53,10 +52,10 @@ function! epitech#header#Put()
     let l:ret = append(1, l:mcom . " µFILENAMEµ for µPROJECTNAMEµ in µPATHFILEµ")
     let l:ret = append(2, l:mcom . " ")
     let l:ret = append(3, l:mcom . " Made by µNAMEµ")
-    let l:ret = append(4, l:mcom . " Login   <µLOGINµ@epitech.eu>")
+    let l:ret = append(4, l:mcom . " Login   <maxime.louet@epitech.eu>")
     let l:ret = append(5, l:mcom . " ")
     let l:ret = append(6, l:mcom . " Started on  µCREATDAYµ µNAMEµ")
-    let l:ret = append(7, l:mcom . " Last update µLASTUPDATEµ µLOGINLASTµ")
+    let l:ret = append(7, l:mcom . " Last update µLASTUPDATEµ Maxime Louet")
     let l:ret = append(8, l:ecom)
     let l:ret = append(9, "")
     call s:InsertFirst()

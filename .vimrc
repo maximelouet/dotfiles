@@ -1,109 +1,132 @@
-" Saumon vim config
-
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
+"Manage plugins with Vundle
 set nocompatible
-set backspace=indent,eol,start
-set history=50
-set ruler
-set showcmd
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"Load all plugins
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'ervandew/supertab'
+Plugin 'raimondi/delimitmate'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'sjl/gundo.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/goyo.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+"End loading plugins
+call vundle#end()
+
+"256 colors
+set t_Co=256
+
+"Snippets
+let g:UltiSnipsSnippetsDir = "~/.vim/my_snippets"
+let g:UltiSnipsSnippetDirectories=["my_snippets", "UltiSnips"]
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+
+
+let g:powerline_pycmd = "py3"
+
+"Syntax coloration
+let g:jellybeans_use_lowcolor_black = 0
+colorscheme jellybeans
+
+"Syntax processing
+syntax on
+
+"Syntaxt check with Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 1
+
+"vim-markdown configuration
+let g:vim_markdown_folding_disabled = 1
+
+"Correct indentation
+filetype plugin indent on
+
+"Invisibles
+set listchars=tab:..,eol:¬,trail:~
+set list
+hi NonText ctermfg=241 ctermbg=none
+hi SpecialKey ctermfg=241 ctermbg=none
+
+"Correct indentation (for Epitech currently)
+set softtabstop=2
+set shiftwidth=2
+
+"But still insert tab
+inoremap <F2> <C-V><Tab>
+
+"Show line numbers
+set number
+set relativenumber
+
+"Set line cursor
+set cursorline
+hi cursorline ctermbg=234
+hi cursorlinenr ctermbg=234 ctermfg=none
+hi SignColumn ctermbg=234
+
+"Wildmenu
+set wildmenu
+
+"Avoid useless redraw
+set lazyredraw
+
+"Show matching chars
+set showmatch
+hi MatchParen ctermfg=red ctermbg=none
+
+"Better search
 set incsearch
+set hlsearch
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  " autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
+"Powerline
+let powerlineLocalPath = "/usr/lib/python3.5/site-packages/powerline/bindings/vim"
+if isdirectory(powerlineLocalPath)
+  set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
 else
+  python from powerline.vim import setup as powerline_setup
+  python powerline_setup()
+  python del powerline_setup
+endif
+set laststatus=2
 
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+"More than 80 chars is bad
+if exists('+colorcolumn')
+  hi colorcolumn ctermbg=234
+  set colorcolumn=80
+else
+  match OverLength /\%81v.\+/
 endif
 
-if has('langmap') && exists('+langnoremap')
-  " Prevent that the langmap option applies to characters that result from a
-  " mapping.  If unset (default), this may break plugins (but it's backward
-  " compatible).
-  set langnoremap
-endif
+"Keyboard shortcuts
+nnoremap <F6> :GundoToggle<CR>
+nnoremap <F5> :NERDTreeTabsToggle<CR>
+
+
 
 " because that happens way too much
 imap :w<Enter> <Esc>:w<Cr>
+imap :x<Enter> <Esc>:x<Cr>
 imap :wq<Enter> <Esc>:wq<Cr>
 imap :wa<Enter> <Esc>:wa<Cr>
 imap :wqa<Enter> <Esc>:wqa<Cr>
-
-
-" TODO create parent directory    execute ':silent !mkdir -p %:h'
-
-" TODO  W sudo write (clement)
-
-" set everything in Allman
-command Allman :g/^.*\S.*{\s*$/execute 's/\s*{\s*$/\r{/' | normal == \
-
-set number
-set noeol
-set laststatus=2
-
-set autoread
-
-syntax enable
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme solarized
-
-let g:airline_powerline_fonts = 1
-
-" set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
-setlocal cm=blowfish2
-
-
-" EPITECH
-let g:epi_login = 'maxime.louet'
