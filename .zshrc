@@ -52,8 +52,13 @@ up() {
 }
 
 prepare_repo() {
-	blih repository create $1
-	blih repository setacl $1 ramassage-tek r
+	blih -u $TEKUSER repository create $1
+	blih -u $TEKUSER repository setacl $1 ramassage-tek r
+	git clone git@git.epitech.eu:/$TEKUSER/$1 $1
+	cd $1
+	git commit -m "Initial commit" --allow-empty
+	git push
+
 }
 
 
@@ -129,7 +134,6 @@ update_libmy() {
 alias nettoyer_les_fichiers_de_merde_de_emacs_de_merde='mr_clean'
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-unalias sl
 
 alias -g ls='ls --group-directories-first --color=auto -ph'
 
@@ -186,6 +190,10 @@ alias gti='echo "pauvre merde\n";git'
 # music play/pause
 alias pp="mpc toggle"
 
+alias vim='vim -O'
+alias v='vim -O'
+
+alias ccat='highlight -O ansi'
 
 # vimrc editing
 alias ve='vim ~/.vimrc'
@@ -206,6 +214,8 @@ alias t='tree'
 alias pls='sl'
 alias ne='emacs'
 
+alias net='sudo netctl'
+
 # EPITECH
 
 ulimit -c 0
@@ -222,6 +232,14 @@ export TEKUSER="maxime.louet@epitech.eu"
 export USER_NICKNAME="Maxime Louet"
 
 ### C Graphical Programming Environement Variable
-export LIBRARY_PATH=$LIBRARY_PATH:/home/saumon/.graph_programming/lib
-export LD_LIBRARY_PATH=$LIBRARY_PATH:/home/saumon/.graph_programming/lib
-export CPATH=$CPATH:/home/saumon/.graph_programming/include
+export LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
+export LD_LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
+export CPATH=$CPATH:/data/.graph_programming/include
+
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+
+# Ignore .o when opening files with vim
+zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
