@@ -6,7 +6,7 @@ call vundle#begin()
 
 "Load all plugins
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'ervandew/supertab'
@@ -19,6 +19,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -35,12 +36,11 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
-
-let g:powerline_pycmd = "py3"
-
 "Syntax coloration
 let g:jellybeans_use_lowcolor_black = 0
 colorscheme jellybeans
+"set background=dark
+"colorscheme solarized
 
 "Syntax processing
 syntax on
@@ -78,31 +78,32 @@ inoremap <F2> <C-V><Tab>
 "Show line numbers
 set number
 set relativenumber
+hi linenr ctermbg=none
 
 "Set line cursor
 set cursorline
 hi cursorline ctermbg=234
 hi cursorlinenr ctermbg=234 ctermfg=none
 hi SignColumn ctermbg=234
+hi cursorlinenr ctermbg=0
 
 "Wildmenu
 set wildmenu
 
-"Avoid useless redraw
-set lazyredraw
-
 "Show matching chars
 set showmatch
-hi MatchParen ctermfg=red ctermbg=none
+hi MatchParen ctermfg=5 ctermbg=none
 
 "Better search
 set incsearch
 set hlsearch
 
+let g:powerline_pycmd = "py3"
+
 "Powerline
-let powerlineLocalPath = "/usr/lib/python3.5/site-packages/powerline/bindings/vim"
+let powerlineLocalPath = "/usr/lib/python3.5/site-packages/powerline/bindings"
 if isdirectory(powerlineLocalPath)
-  set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
+  set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings
 else
   python from powerline.vim import setup as powerline_setup
   python powerline_setup()
@@ -112,7 +113,7 @@ set laststatus=2
 
 "More than 80 chars is bad
 if exists('+colorcolumn')
-  hi colorcolumn ctermbg=234
+  hi colorcolumn ctermbg=0
   set colorcolumn=80
 else
   match OverLength /\%81v.\+/
@@ -125,8 +126,8 @@ nnoremap <F5> :NERDTreeTabsToggle<CR>
 
 
 " because that happens way too much
-imap :w<Enter> <Esc>:w<Cr>
-imap :x<Enter> <Esc>:x<Cr>
-imap :wq<Enter> <Esc>:wq<Cr>
-imap :wa<Enter> <Esc>:wa<Cr>
-imap :wqa<Enter> <Esc>:wqa<Cr>
+imap :w<Enter> <Esc>:w<Cr> i
+imap :x<Enter> <Esc>:x<Cr> i
+imap :wq<Enter> <Esc>:wq<Cr> i
+imap :wa<Enter> <Esc>:wa<Cr> i
+imap :wqa<Enter> <Esc>:wqa<Cr> i
