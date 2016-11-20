@@ -37,10 +37,8 @@ let g:UltiSnipsJumpForwardTrigger = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
 "Syntax coloration
-let g:jellybeans_use_lowcolor_black = 0
-colorscheme jellybeans
-"set background=dark
-"colorscheme solarized
+set background=dark
+colorscheme solarized
 
 "Syntax processing
 syntax on
@@ -82,9 +80,6 @@ hi linenr ctermbg=none
 
 "Set line cursor
 set cursorline
-hi cursorline ctermbg=234
-hi cursorlinenr ctermbg=234 ctermfg=none
-hi SignColumn ctermbg=234
 hi cursorlinenr ctermbg=0
 
 "Wildmenu
