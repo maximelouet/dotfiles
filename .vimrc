@@ -18,10 +18,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'vim-airline/vim-airline'
 
 "End loading plugins
 call vundle#end()
@@ -42,6 +42,9 @@ colorscheme solarized
 
 "Syntax processing
 syntax on
+
+"Powerline
+let g:airline_powerline_fonts = 1
 
 "Syntaxt check with Syntastic
 set statusline+=%#warningmsg#
@@ -93,17 +96,6 @@ hi MatchParen ctermfg=5 ctermbg=none
 set incsearch
 set hlsearch
 
-let g:powerline_pycmd = "py3"
-
-"Powerline
-let powerlineLocalPath = "/usr/lib/python3.5/site-packages/powerline/bindings"
-if isdirectory(powerlineLocalPath)
-  set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings
-else
-  python from powerline.vim import setup as powerline_setup
-  python powerline_setup()
-  python del powerline_setup
-endif
 set laststatus=2
 
 "More than 80 chars is bad

@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/saumon/.zprezto'
-let g:netrw_dirhist_2='/home/saumon/.config/udiskie'
-let g:netrw_dirhist_3='/data/Scripts/i3'
-let g:netrw_dirhist_4='/data/Github/config/scripts/i3'
-let g:netrw_dirhist_5='/home/maxime.louet/.zprezto'
-let g:netrw_dirhist_6='/home/saumon/pool/CPool_Day03/.git'
