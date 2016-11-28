@@ -76,6 +76,7 @@ set softtabstop=2
 set shiftwidth=2
 
 "But still insert tab
+inoremap ² <C-V><Tab>
 inoremap <F2> <C-V><Tab>
 
 "Show line numbers

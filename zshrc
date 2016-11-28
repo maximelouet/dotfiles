@@ -6,6 +6,7 @@ export PAGER='less -X'
 export MANPAGER='less -X'
 export BROWSER='firefox'
 export EDITOR='vim'
+export VISUAL='vim'
 
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
@@ -50,16 +51,6 @@ up() {
 		d=..
 	fi
 	cd $d
-}
-
-prepare_repo() {
-	blih -u $TEKUSER repository create $1
-	blih -u $TEKUSER repository setacl $1 ramassage-tek r
-	git clone git@git.epitech.eu:/$TEKUSER/$1 $1
-	cd $1
-	git commit -m "Initial commit" --allow-empty
-	git push
-
 }
 
 
@@ -198,11 +189,9 @@ alias v='vim -O'
 
 alias ccat='highlight -O ansi'
 
-# vimrc editing
 alias ve='vim ~/.vimrc'
-
-# zsh profile editing
 alias ze='vim ~/.zshrc'
+alias ie='vim ~/.i3/config'
 
 
 alias :q='exit'
@@ -232,6 +221,39 @@ alias emacs='emacs -nw'
 
 export TEKUSER="maxime.louet@epitech.eu"
 export USER_NICKNAME="Maxime Louet"
+
+alias blih='blih -u $TEKUSER'
+
+prepus() {
+	blih -u $TEKUSER repository create $1
+	blih -u $TEKUSER repository setacl $1 ramassage-tek r
+	git clone git.epitech.eu:/$TEKUSER/$1 $1
+	cd $1
+	git commit -m "Initial commit" --allow-empty
+	git push
+}
+
+repo() {
+	case "$1" in
+	  prepare)
+	    prepus
+	    ;;
+	  list)
+	    blih repository list | sort
+	    ;;
+	  delete)
+	    blih repository delete $2
+	    ;;
+	  getacl)
+	    blih repository getacl $2
+	    ;;
+	  setacl)
+	    blih repository setacl $2 $3 $4
+	    ;;
+	esac
+
+}
+
 
 ### C Graphical Programming Environement Variable
 export LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib

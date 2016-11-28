@@ -1,12 +1,13 @@
 # vim: set et ts=4 sts=4 sw=4:
 
-# Saumon i3 config file - https://github.com/maximelouet/config/blob/master/.i3/config
+# Saumon i3 config file - https://github.com/maximelouet/config
 
 
 # ALIASES
 set $mod Mod1
 set $alt Mod1
 set $super Mod4
+set $ctrl Control
 set $ws1 " 1 "
 set $ws2 " 2 "
 set $ws3 " 3 "
@@ -21,7 +22,7 @@ set $terminal "xfce4-terminal"
 
 
 # FONT
-font pango:Noto Sans 11
+font pango:Noto Sans 12.5
 
 
 # CHANGE FOCUS
@@ -97,7 +98,7 @@ bindsym $mod+Shift+r restart
 
 
 # EXIT i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
 
 
 # RESIZE MODE
@@ -130,9 +131,9 @@ mode "resize" {
 # BAR
 
 bar {
-    status_command i3blocks -c ~/.i3/blocks
+    status_command i3blocks -c /data/.i3/blocks
     position bottom
-    font pango:Noto Sans, Icons 10.5
+    font pango:Noto Sans, Awesome 13
 
     colors {
         background #1c3542
@@ -171,43 +172,40 @@ for_window [class="Firefox"] border pixel 1
 # SHORTCUTS: misc
 
 bindsym $mod+Shift+A kill
-bindsym $super+l exec /data/Scripts/lock.sh
+bindsym $super+l exec --no-startup-id "xautolock -locknow"
+bindcode 37+9 exec --no-startup-id "xautolock -locknow"
 bindsym $mod+f fullscreen toggle
 bindsym F11 fullscreen toggle
 
-bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 5 && pkill -RTMIN+11 i3blocks"
-bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5 && pkill -RTMIN+11 i3blocks"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '2%+' && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '2%-' && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks"
-bindsym XF86TouchpadToggle exec --no-startup-id "/data/Scripts/toggletouchpad.sh"
-bindsym Print exec --no-startup-id /data/Scripts/screenshot.sh
+bindsym Control_R+F5 exec --no-startup-id "light -U 5 && pkill -RTMIN+11 i3blocks"
+bindsym Control_R+F6 exec --no-startup-id "light -A 5 && pkill -RTMIN+11 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset Master '2%+' && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset Master '2%-' && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "amixer set Master toggle && pkill -RTMIN+10 i3blocks"
+# bindsym XF86TouchpadToggle exec --no-startup-id "/data/Scripts/toggletouchpad.sh"
+bindsym Print exec --no-startup-id "/data/scripts/screenshot.sh"
 
 
 # SHORTCUTS: programs
 
-bindsym $super+e exec thunar
-bindsym $super+KP_Enter exec galculator
-bindsym $super+w exec --no-startup-id dmenu_run -nb '#1c3542' -nf '#dddddd' -sb '#12846e' -fn 'Noto Sans-11'
-bindsym $super+f exec firefox
-bindsym $super+s exec subl3
+bindsym $super+e exec "thunar"
+bindsym $super+Return exec "gnome-calculator"
+bindsym $super+w exec --no-startup-id "dmenu_run -nb '#1c3542' -nf '#dddddd' -sb '#12846e' -fn 'Noto Sans-13'"
+bindsym $super+f exec "firefox"
 
 bindsym $mod+Return exec $terminal
-bindsym $super+c exec clipster -s
+bindsym $super+c exec "clipster -s"
 
 
 
 # STARTUP
 
-exec --no-startup-id i3-msg 'workspace $ws1; append_layout /home/saumon/.i3/startuplayout.json'
-exec firefox
-exec $terminal
-
-exec --no-startup-id feh --bg-fill --no-fehbg /home/saumon/static/wallpaper/straight.jpeg
-exec --no-startup-id xset r rate 185 26
-exec --no-startup-id dunst
-exec --no-startup-id clipster -d
-exec --no-startup-id redshift -l 48.8086:2.2701
-exec --no-startup-id compton --config /home/saumon/.config/compton.conf -b
-exec --no-startup-id udiskie -c /home/saumon/.config/udiskie/config.yml
-exec --no-startup-id xautolock -locker "/home/saumon/scripts/lock.sh" -time 2
+exec --no-startup-id "/data/.fehbg"
+exec --no-startup-id "xset r rate 170 26"
+exec --no-startup-id "xset m 3/2 100"
+# exec --no-startup-id dunst
+exec --no-startup-id "clipster -d"
+exec --no-startup-id "redshift -l 48.8075:2.2620"
+exec --no-startup-id "compton --config /data/.config/compton.conf -b"
+exec --no-startup-id "xautolock -locker '/data/scripts/lock.sh' -time 2"
+exec --no-startup-id "setxkbmap -option \"caps:swapescape\""
