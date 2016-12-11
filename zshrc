@@ -125,7 +125,7 @@ update_libmy() {
 
 alias nettoyer_les_fichiers_de_merde_de_emacs_de_merde='mr_clean'
 
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+source "/data/.zprezto/init.zsh"
 
 unalias grc
 
@@ -270,3 +270,5 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
 
 alias norman='python2 ~/downloads/HelpMeNorman.py -nocheat -verbose -return -printline -score '
 alias timestamp='date +%s'
+
+source /data/.zshrc_private
