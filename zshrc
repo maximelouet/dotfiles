@@ -267,3 +267,6 @@ source /usr/share/fzf/completion.zsh
 
 # Ignore .o when opening files with vim
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
+
+alias norman='python2 ~/downloads/HelpMeNorman.py -nocheat -verbose -return -printline -score '
+alias timestamp='date +%s'

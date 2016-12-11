@@ -22,6 +22,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 "End loading plugins
 call vundle#end()
@@ -47,6 +48,8 @@ set synmaxcol=200 " don’t try to highlight super long lines
 
 "Powerline
 let g:airline_powerline_fonts = 1
+
+let g:airline_theme = 'powerlineish'
 
 "Syntaxt check with Syntastic
 set statusline+=%#warningmsg#
@@ -106,8 +109,8 @@ set laststatus=2
 " 80-character lines (= Mozilla guidelines)
 set textwidth=80	" line length above which to break a line
 set colorcolumn=+0	" highlight the textwidth limit
-set nowrap
-set linebreak
+" set nowrap
+" set linebreak
 
 "Keyboard shortcuts
 nnoremap <F6> :GundoToggle<CR>
@@ -128,3 +131,12 @@ set scrolloff=5 " number of screen lines to show around the cursor
 
 " xx will delete the line without copying it into the default register
 "nnoremap xx "_dd
+
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
