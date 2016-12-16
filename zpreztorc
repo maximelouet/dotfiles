@@ -44,7 +44,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the query found color.
-zstyle ':prezto:module:autosuggestions:color' found 'fg=10'
+zstyle ':prezto:module:autosuggestions:color' found 'fg=8'
 
 #
 # Editor

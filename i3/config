@@ -8,6 +8,7 @@ set $mod Mod1
 set $alt Mod1
 set $super Mod4
 set $ctrl Control
+set $ws0 " 0 "
 set $ws1 " 1 "
 set $ws2 " 2 "
 set $ws3 " 3 "
@@ -17,8 +18,8 @@ set $ws6 " 6 "
 set $ws7 " 7 "
 set $ws8 " 8 "
 set $ws9 " 9 "
-set $ws10 " 10 "
-set $terminal "xfce4-terminal"
+set $ws10 " 0 "
+set $terminal "termite"
 
 
 # FONT
@@ -64,6 +65,7 @@ bindsym $mod+d focus child
 
 
 # SWITCH TO WORKSPACE
+bindcode $mod+49 workspace $ws0
 bindcode $mod+10 workspace $ws1
 bindcode $mod+11 workspace $ws2
 bindcode $mod+12 workspace $ws3
@@ -77,6 +79,7 @@ bindcode $mod+19 workspace $ws10
 
 
 # MOVE TO WORKSPACE
+bindcode $mod+Shift+49 move container to workspace $ws0
 bindcode $mod+Shift+10 move container to workspace $ws1
 bindcode $mod+Shift+11 move container to workspace $ws2
 bindcode $mod+Shift+12 move container to workspace $ws3
@@ -158,8 +161,7 @@ client.focused_inactive #333333 #5F676A #ffffff #484e50
 client.unfocused        #333333 #424242 #8f8f8f #292d2e
 client.urgent           #902020 #902020 #ffffff #900000
 
-for_window [class=".*"] title_format " %title"
-hide_edge_borders both
+new_window none
 
 for_window [class="(?i)galculator"] floating enable
 for_window [window_role="(?i)pop-up"] floating enable
@@ -168,19 +170,17 @@ for_window [title="Network Operations Manager"] floating enable
 
 for_window [class="WireFrame"] floating enable
 
-for_window [class="Firefox"] border pixel 1
-
 
 # SHORTCUTS: misc
 
 bindsym $mod+Shift+A kill
-bindsym $super+l exec --no-startup-id "xautolock -locknow"
-bindcode 135 exec --no-startup-id "xautolock -locknow"
+bindsym $super+l exec --no-startup-id "/data/scripts/lock.sh"
+bindcode 135 exec --no-startup-id "mpg123 /data/AH.mp3"
 bindsym $mod+f fullscreen toggle
 bindsym F11 fullscreen toggle
 
-bindsym Control_R+F5 exec --no-startup-id "light -U 5 && pkill -RTMIN+11 i3blocks"
-bindsym Control_R+F6 exec --no-startup-id "light -A 5 && pkill -RTMIN+11 i3blocks"
+bindcode 232 exec --no-startup-id "light -U 5 && pkill -RTMIN+11 i3blocks"
+bindcode 233 exec --no-startup-id "light -A 5 && pkill -RTMIN+11 i3blocks"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset Master '2%+' && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset Master '2%-' && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioMute exec --no-startup-id "amixer set Master toggle && pkill -RTMIN+10 i3blocks"
@@ -199,11 +199,10 @@ bindsym $mod+Return exec $terminal
 bindsym $super+c exec "clipster -s"
 
 
-
 # STARTUP
 
-exec --no-startup-id "/data/.fehbg"
-exec --no-startup-id "xset r rate 170 26"
+exec_always --no-startup-id "/data/.fehbg"
+exec_always --no-startup-id "xset r rate 170 26"
 exec --no-startup-id "xset m 3/2 100"
 # exec --no-startup-id dunst
 exec --no-startup-id "clipster -d"

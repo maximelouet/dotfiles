@@ -105,7 +105,7 @@ man() {
 		LESS_TERMCAP_se=$(printf "\e[0m") \
 		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
 		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
+		LESS_TERMCAP_ue=$(printf "\e[1;32m") \
 		GROFF_NO_SGR=1 \
 		PAGER="less -X" \
 		_NROFF_U=1 \
@@ -181,6 +181,8 @@ alias apt-get='echo "pauvre bite";:'
 alias pacman='echo "pauvre cul";:'
 alias gti='echo "pauvre merde\n";git'
 
+alias yaoi='yaourt'
+
 # music play/pause
 alias pp="mpc toggle"
 
@@ -211,7 +213,7 @@ alias net='sudo netctl'
 # EPITECH
 
 ulimit -c 0
-export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/heimdal/bin:/usr/heimdal/sbin"
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/data/.gem/ruby/2.3.0/bin"
 export HISTSIZE=1000
 export MAIL="/u/all/${USER}/mail/${USER}"
 export SAVEHIST=1000
@@ -264,11 +266,12 @@ export CPATH=$CPATH:/data/.graph_programming/include
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Ignore .o when opening files with vim
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
 
-alias norman='python2 ~/downloads/HelpMeNorman.py -nocheat -verbose -return -printline -score '
+alias norman='python2 /data/scripts/norman.py -nocheat -verbose -return -printline -score '
 alias timestamp='date +%s'
 
 source /data/.zshrc_private

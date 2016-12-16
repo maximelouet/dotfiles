@@ -38,8 +38,8 @@ let g:UltiSnipsJumpForwardTrigger = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
 "Syntax coloration
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 "Syntax processing
 syntax on
@@ -85,11 +85,17 @@ inoremap <F2> <C-V><Tab>
 "Show line numbers
 set number
 set relativenumber
-hi linenr ctermbg=none
+hi linenr ctermbg=0
 
 "Set line cursor
 set cursorline
-hi cursorlinenr ctermbg=0
+"hi cursorlinenr ctermbg=NONE
+hi CursorLine cterm=NONE ctermbg=black guibg=black
+
+" highlight yank plugin
+map y <Plug>(highlightedyank)
+hi HighlightedyankRegion cterm=reverse gui=reverse
+
 
 "Wildmenu
 set wildmenu
@@ -115,6 +121,12 @@ set colorcolumn=+0	" highlight the textwidth limit
 "Keyboard shortcuts
 nnoremap <F6> :GundoToggle<CR>
 nnoremap <F5> :NERDTreeTabsToggle<CR>
+
+" rip
+" nnoremap <Esc> ggdG
+
+" swap files
+set directory=~/.vim/swapfiles
 
 " persistent undo across sessions
 set undofile
