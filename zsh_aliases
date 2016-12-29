@@ -119,13 +119,15 @@ repo() {
 # systemctl
 user_commands=(
   list-units is-active status show help list-unit-files
-  is-enabled list-jobs show-environment cat)
+  is-enabled list-jobs show-environment cat
+)
 
 sudo_commands=(
   start stop reload restart try-restart isolate kill
   reset-failed enable disable reenable preset mask unmask
   link load cancel set-environment unset-environment
-  edit)
+  edit
+)
 
 for c in $user_commands; do; alias sc-$c="systemctl $c"; done
 for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
@@ -163,6 +165,7 @@ alias ln='ln -v'
 # edit shortcuts
 alias ve='vi ~/.vimrc'
 alias ze='vim ~/.zshrc'
+alias zea='vim ~/.zsh_aliases'
 alias ie='vim ~/.i3/config'
 alias pe='sudo vim /etc/pacman.conf'
 alias ne='sudo vim /etc/nginx/nginx.conf'
