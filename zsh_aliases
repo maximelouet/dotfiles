@@ -1,0 +1,222 @@
+# Saumon shell aliases and functions
+
+
+# go up in directory tree
+function up() {
+	local d=""
+	limit=$1
+	for ((i=1 ; i <= limit ; i++))
+		do
+			d=$d/..
+		done
+	d=$(echo $d | sed -e 's/^\///')
+	if [ -z "$d" ]; then
+		d=..
+	fi
+	cd $d
+}
+
+# cd and ls
+function c() {
+  cd "$@" && ls
+}
+
+# give access rights to files
+function cx() {
+  chmod +x $*
+}
+
+# delete temporary files
+function mr_clean() {
+	find -name "*~" -delete -o -name "#*#" -delete -o -name "a.out" -delete
+}
+
+# colored man pages
+function man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_ue=$(printf "\e[1;32m") \
+    GROFF_NO_SGR=1 \
+    PAGER="less -X" \
+    _NROFF_U=1 \
+    man "$@"
+}
+
+# extract a file of any format
+function extract() {
+  if [ -f "$1" ] ; then
+    local filename=$(basename "$1")
+    local foldername="${filename%%.*}"
+    local fullpath=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1"`
+    local didfolderexist=false
+    if [ -d "$foldername" ]; then
+      didfolderexist=true
+      read -p "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
+      echo
+      if [[ $REPLY =~ ^[Nn]$ ]]; then
+        return
+      fi
+    fi
+    mkdir -p "$foldername" && cd "$foldername"
+    case $1 in
+      *.tar.bz2) tar xjf "$fullpath" ;;
+      *.tar.gz) tar xzf "$fullpath" ;;
+      *.tar.xz) tar Jxvf "$fullpath" ;;
+      *.tar.Z) tar xzf "$fullpath" ;;
+      *.tar) tar xf "$fullpath" ;;
+      *.taz) tar xzf "$fullpath" ;;
+      *.tb2) tar xjf "$fullpath" ;;
+      *.tbz) tar xjf "$fullpath" ;;
+      *.tbz2) tar xjf "$fullpath" ;;
+      *.tgz) tar xzf "$fullpath" ;;
+      *.txz) tar Jxvf "$fullpath" ;;
+      *.zip) unzip "$fullpath" ;;
+      *) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# prepare an epitech repo
+prepus() {
+	blih -u $TEKUSER repository create $1
+	blih -u $TEKUSER repository setacl $1 ramassage-tek r
+	git clone git.epitech.eu:/$TEKUSER/$1 $1
+	cd $1
+	git commit -m "Initial commit" --allow-empty
+	git push
+}
+
+# useful epitech repo commands
+repo() {
+	case "$1" in
+	  prepare)
+	    prepus
+	    ;;
+	  list)
+	    blih repository list | sort
+	    ;;
+	  delete)
+	    blih repository delete $2
+	    ;;
+	  getacl)
+	    blih repository getacl $2
+	    ;;
+	  setacl)
+	    blih repository setacl $2 $3 $4
+	    ;;
+	esac
+
+}
+
+
+# systemctl
+user_commands=(
+  list-units is-active status show help list-unit-files
+  is-enabled list-jobs show-environment cat)
+
+sudo_commands=(
+  start stop reload restart try-restart isolate kill
+  reset-failed enable disable reenable preset mask unmask
+  link load cancel set-environment unset-environment
+  edit)
+
+for c in $user_commands; do; alias sc-$c="systemctl $c"; done
+for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
+
+
+alias vi='vim'
+
+# colors everywhere
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# ls
+alias ls='ls --color=auto --group-directories-first -ph'
+alias l='ls'
+alias la='ls -A'
+alias ll='ls -l'
+alias lla='ls -lA'
+
+# package management
+alias maj='yaourt -Syua'
+alias install='yaourt -S'
+alias remove='yaourt -Rn'
+alias remover='yaourt -Rnsu'
+alias search='yaourt'
+
+# verbose operations
+alias mv='mv -v'
+alias rm='rm -I -v'
+alias cp='cp -v'
+alias ln='ln -v'
+
+# edit shortcuts
+alias ve='vi ~/.vimrc'
+alias ze='vim ~/.zshrc'
+alias ie='vim ~/.i3/config'
+alias pe='sudo vim /etc/pacman.conf'
+alias ne='sudo vim /etc/nginx/nginx.conf'
+
+# corrections
+alias gti='echo "pauvre merde\n";git'
+alias mkae='echo "pauvre merde\n";make'
+alias ma,='man'
+
+# funny
+alias whyami='echo "Ask your mom";:'
+alias putain='echo "Wesh ta gueule";:'
+alias bonsoir='echo "Bonsoir.";:'
+alias mama='echo "Mama ?";:'
+alias wtf='dmesg'
+alias rtfm='man'
+alias bite='echo "owi bit";:'
+alias apt-get='echo "pauvre bite";:'
+alias yaoi='yaourt'
+alias fucking='sudo'
+alias ="echo \"Moi aussi je t'aime\";:"
+alias meurs='echo "Non."'
+
+# misc
+alias tree='tree -C'
+alias calc='bc'
+alias temp='cat /sys/class/thermal/thermal_zone0/temp'
+alias week='date +%V'
+alias update-grub='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
+alias song='curl http://cigix.noip.me/update.php; echo'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias diskspace='df -P -kHl'
+alias riplaco='ping -i 1.5 8.8.8.8 | grep -E --only-match --color=never "[0-9\.]+ ms"'
+alias path='echo $PATH | tr -s ":" "\n"' # pretty print the path
+alias ff='find $1 -type f -name' # find a file
+alias ccat='highlight -O ansi' # cat file with syntax highlighting
+alias :q='exit'
+alias timestamp='date +%s'
+alias norman='python2 /data/scripts/norman.py -nocheat -verbose -return -printline -score ' # moulinette epitech
+
+# shortcuts
+alias j='jobs'
+alias u='up && ls'
+alias t='tree'
+alias m='make'
+alias net='sudo netctl'
+
+# music play/pause
+alias pp="mpc toggle"
+
+# open
+alias vim='vim -O'
+alias v='vim -O'
+
+# epitech
+alias emacs='emacs -nw'
+alias blih='blih -u $TEKUSER'
