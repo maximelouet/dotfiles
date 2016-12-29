@@ -77,7 +77,6 @@ bindcode $mod+17 workspace $ws8
 bindcode $mod+18 workspace $ws9
 bindcode $mod+19 workspace $ws10
 
-
 # MOVE TO WORKSPACE
 bindcode $mod+Shift+49 move container to workspace $ws0
 bindcode $mod+Shift+10 move container to workspace $ws1
@@ -202,8 +201,9 @@ bindsym $super+c exec "clipster -s"
 # STARTUP
 
 exec_always --no-startup-id "/data/.fehbg"
-exec_always --no-startup-id "xset r rate 170 26"
-exec --no-startup-id "xset m 3/2 100"
+exec_always --no-startup-id "xset r rate 180 26"
+exec_always --no-startup-id "xset b 100 600 50"
+exec_always --no-startup-id "xset m 7/4 100"
 # exec --no-startup-id dunst
 exec --no-startup-id "clipster -d"
 exec --no-startup-id "redshift -l 48.8075:2.2620"
