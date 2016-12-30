@@ -205,6 +205,8 @@ alias ccat='highlight -O ansi' # cat file with syntax highlighting
 alias :q='exit'
 alias timestamp='date +%s'
 alias norman='python2 /data/scripts/norman.py -nocheat -verbose -return -printline -score ' # moulinette epitech
+alias beep_disable='xset b 0 600 50'
+alias beep_enable='xset b 100 600 50'
 
 # shortcuts
 alias j='jobs'
