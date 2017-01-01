@@ -174,15 +174,15 @@ for_window [class="WireFrame"] floating enable
 
 bindsym $mod+Shift+A kill
 bindsym $super+l exec --no-startup-id "/data/scripts/lock.sh"
-bindcode 135 exec --no-startup-id "mpg123 /data/AH.mp3"
+bindcode 135 exec --no-startup-id "mpg123 /data/static/AH.mp3"
 bindsym $mod+f fullscreen toggle
 bindsym F11 fullscreen toggle
 
-bindcode 232 exec --no-startup-id "light -U 5 && pkill -RTMIN+11 i3blocks"
-bindcode 233 exec --no-startup-id "light -A 5 && pkill -RTMIN+11 i3blocks"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset Master '2%+' && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset Master '2%-' && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMute exec --no-startup-id "amixer set Master toggle && pkill -RTMIN+10 i3blocks"
+bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
+bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 /data/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 /data/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 /data/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
 # bindsym XF86TouchpadToggle exec --no-startup-id "/data/Scripts/toggletouchpad.sh"
 bindsym Print exec --no-startup-id "/data/scripts/screenshot.sh"
 
