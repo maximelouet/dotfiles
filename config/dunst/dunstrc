@@ -10,103 +10,45 @@
     ignore_newline = no
     format = "<b>%s</b>\n%b"
 
-    sticky_history = yes
-
     sort = yes
     indicate_hidden = yes
-    show_age_threshold = 60
-    idle_threshold = 120
-
-    alignment = right
-    word_wrap = yes
+    alignment = center
     bounce_freq = 0
-
-    geometry = "0x5-30+20"
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    geometry = "200x5-10+10"
     transparency = 0
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    sticky_history = yes
     line_height = 0
     separator_height = 2
-    separator_color = frame
     padding = 8
     horizontal_padding = 8
-
-    monitor = 0
-    follow = none
-
-    startup_notification = false
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/google-chrome
-
-[shortcuts]
-    close = mod4+n
-    close_all = mod4+shift+n
-    history = mod4+ctrl+n
-    context = mod4+shift+ctrl+n
+    separator_color = "#4e4e4e"
 
 [frame]
-    width = 0
+    width = 1
+    color = "#3a3a3a"
+
+[shortcuts]
+    close = ctrl+space
+    context = ctrl+shift+period
+
 [urgency_low]
-    background = "#16a085"
-    foreground = "#ffffff"
-    timeout = 10
+    background = "#3a3a3a"
+    foreground = "#87d7d7"
+    timeout = 20
+
 [urgency_normal]
-    background = "#2980b9"
-    foreground = "#ffffff"
-    timeout = 10
+    background = "#3a3a3a"
+    foreground = "#d8af5f"
+    timeout = 20
+
 [urgency_critical]
-    background = "#c0392b"
-    foreground = "#ffffff"
+    background = "#3a3a3a"
+    foreground = "#ffafaf"
     timeout = 0
-
-
-# Every section that isn't one of the above is interpreted as a rules
-# to override settings for certain messages.
-# Messages can be matched by 'appname', 'summary', 'body' or 'icon'
-# and you can override the 'timeout', 'urgency', 'foreground', 'background'
-# and 'format'.
-# Shell-like globbing will get expanded.
-#
-# SCRIPTING
-# you can specify a script that gets run when the rule matches by setting
-# the 'script' option.
-# The script will be called as follows:
-# script appname summary body icon urgency
-# where urgency can be "LOW", "NORMAL" or "CRITICAL".
-#
-# NOTE: if you don't want a notification to be displayed, set the format to ""
-# NOTE: It might be helpful to run dunst -print in a terminal in order to find
-# fitting options for rules.
-
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
-
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
-
-#[ignore]
-## This notification will not be displayed
-#    summary = "foobar"
-#    format = ""
-
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
-#[signed_off]
-#    appname = Pidgin
-#    summary = *signed off*
-#    urgency = low
-#
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
-#
 
