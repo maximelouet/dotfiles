@@ -215,6 +215,10 @@ alias t='tree'
 alias m='make'
 alias net='sudo netctl'
 
+# forecast
+alias meteo="curl wttr.in/Paris"
+alias moon="curl wttr.in/Moon"
+
 # open
 alias vim='vim -O'
 alias v='vim -O'
