@@ -1,5 +1,7 @@
 # Saumon
 
+source "/data/.zprezto/init.zsh" # prezto
+
 export TERM="xterm-256color"
 export DEFAULT_USER=saumon
 export PAGER='less -X'
@@ -13,7 +15,9 @@ export CASE_SENSITIVE="true" # case-sensitive completion
 export CLICOLOR=1
 export DISPLAY="${DISPLAY:-:0}"
 
-source "/data/.zprezto/init.zsh"
+export HISTFILE=/data/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=50000
 
 
 # EPITECH
