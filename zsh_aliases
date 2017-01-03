@@ -200,7 +200,7 @@ alias diskspace='df -P -kHl'
 alias riplaco='ping -i 1.5 8.8.8.8 | grep -E --only-match --color=never "[0-9\.]+ ms"'
 alias path='echo $PATH | tr -s ":" "\n"' # pretty print the path
 alias ff='find $1 -type f -name' # find a file
-alias pp="mpc toggle > /dev/null"
+alias pp="mpc toggle | tail -n2 | head -n1 | tr -d '[' | awk '{print \$1}' | tr -d ']' | tr '\n' ' ' | sed 's/playing//' | sed 's/paused//' && mpc status | head -n1"
 alias ccat='highlight -O ansi' # cat file with syntax highlighting
 alias :q='exit'
 alias timestamp='date +%s'
