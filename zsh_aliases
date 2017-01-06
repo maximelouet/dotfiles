@@ -31,7 +31,7 @@ function mr_clean() {
 	find -name "*~" -delete -o -name "#*#" -delete -o -name "a.out" -delete
 }
 
-# colored man pages
+# better man pages
 function man() {
   env \
     LESS_TERMCAP_md=$'\e[01;31m' \
