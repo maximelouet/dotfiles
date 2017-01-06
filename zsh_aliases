@@ -3,17 +3,17 @@
 
 # go up in directory tree
 function up() {
-	local d=""
-	limit=$1
-	for ((i=1 ; i <= limit ; i++))
-		do
-			d=$d/..
-		done
-	d=$(echo $d | sed -e 's/^\///')
-	if [ -z "$d" ]; then
-		d=..
-	fi
-	cd $d
+  local d=""
+  limit=$1
+  for ((i=1 ; i <= limit ; i++))
+  do
+    d=$d/..
+  done
+  d=$(echo $d | sed -e 's/^\///')
+  if [ -z "$d" ]; then
+    d=..
+  fi
+  cd $d
 }
 
 # cd and ls
@@ -28,22 +28,22 @@ function cx() {
 
 # delete temporary files
 function mr_clean() {
-	find -name "*~" -delete -o -name "#*#" -delete -o -name "a.out" -delete
+  find -name "*~" -delete -o -name "#*#" -delete -o -name "a.out" -delete
 }
 
 # better man pages
 function man() {
   env \
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    GROFF_NO_SGR=1 \
-    PAGER="less -X" \
-    _NROFF_U=1 \
-    man "$@"
+  LESS_TERMCAP_md=$'\e[01;31m' \
+  LESS_TERMCAP_me=$'\e[0m' \
+  LESS_TERMCAP_se=$'\e[0m' \
+  LESS_TERMCAP_so=$'\e[01;44;33m' \
+  LESS_TERMCAP_ue=$'\e[0m' \
+  LESS_TERMCAP_us=$'\e[01;32m' \
+  GROFF_NO_SGR=1 \
+  PAGER="less -X" \
+  _NROFF_U=1 \
+  man "$@"
 }
 
 # extract a file of any format
@@ -58,7 +58,7 @@ function extract() {
       read -p "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
       echo
       if [[ $REPLY =~ ^[Nn]$ ]]; then
-        return
+	return
       fi
     fi
     mkdir -p "$foldername" && cd "$foldername"
@@ -84,33 +84,33 @@ function extract() {
 
 # prepare an epitech repo
 function prepus() {
-	blih -u $TEKUSER repository create $1
-	blih -u $TEKUSER repository setacl $1 ramassage-tek r
-	git clone git.epitech.eu:/$TEKUSER/$1 $1
-	cd $1
-	git commit -m "Initial commit" --allow-empty
-	git push
+  blih -u $TEKUSER repository create $1
+  blih -u $TEKUSER repository setacl $1 ramassage-tek r
+  git clone git.epitech.eu:/$TEKUSER/$1 $1
+  cd $1
+  git commit -m "Initial commit" --allow-empty
+  git push
 }
 
 # useful epitech repo commands
 function repo() {
-	case "$1" in
-	  prepare)
-	    prepus
-	    ;;
-	  list)
-	    blih repository list | sort
-	    ;;
-	  delete)
-	    blih repository delete $2
-	    ;;
-	  getacl)
-	    blih repository getacl $2
-	    ;;
-	  setacl)
-	    blih repository setacl $2 $3 $4
-	    ;;
-	esac
+  case "$1" in
+    prepare)
+      prepus
+      ;;
+    list)
+      blih repository list | sort
+      ;;
+    delete)
+      blih repository delete $2
+      ;;
+    getacl)
+      blih repository getacl $2
+      ;;
+    setacl)
+      blih repository setacl $2 $3 $4
+      ;;
+  esac
 }
 
 
