@@ -83,7 +83,7 @@ function extract() {
 }
 
 # prepare an epitech repo
-prepus() {
+function prepus() {
 	blih -u $TEKUSER repository create $1
 	blih -u $TEKUSER repository setacl $1 ramassage-tek r
 	git clone git.epitech.eu:/$TEKUSER/$1 $1
@@ -93,7 +93,7 @@ prepus() {
 }
 
 # useful epitech repo commands
-repo() {
+function repo() {
 	case "$1" in
 	  prepare)
 	    prepus
@@ -111,7 +111,6 @@ repo() {
 	    blih repository setacl $2 $3 $4
 	    ;;
 	esac
-
 }
 
 
