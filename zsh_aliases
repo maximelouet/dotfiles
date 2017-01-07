@@ -113,6 +113,12 @@ function repo() {
   esac
 }
 
+# copy libmy and remove dev files
+function libmy_copy() {
+  cp -r /data/tek/libmy .
+  rm -rf libmy/.git libmy/.gitignore libmy/README.md libmy/tests.c libmy/tests
+}
+
 
 # systemctl
 user_commands=(
