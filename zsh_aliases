@@ -221,7 +221,7 @@ alias m='make'
 alias net='sudo netctl'
 
 # forecast
-alias meteo="curl wttr.in/Paris"
+alias weather="curl wttr.in/Paris"
 alias moon="curl wttr.in/Moon"
 
 # open
