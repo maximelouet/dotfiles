@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-fill '/data/static/wallpaper/lgbt.jpg' 
+feh  --bg-fill '/data/static/current-wallpaper'
