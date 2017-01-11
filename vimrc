@@ -89,8 +89,9 @@ hi linenr ctermbg=0
 
 "Set line cursor
 set cursorline
-"hi cursorlinenr ctermbg=NONE
-hi CursorLine cterm=NONE ctermbg=black guibg=black
+hi cursorlinenr ctermbg=0
+hi CursorLine cterm=NONE ctermbg=0
+hi linenr ctermbg=NONE
 
 " highlight yank plugin
 map y <Plug>(highlightedyank)
