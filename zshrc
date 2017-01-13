@@ -22,7 +22,7 @@ export SAVEHIST=50000
 
 # EPITECH
 ulimit -c 0
-export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/data/.gem/ruby/2.3.0/bin"
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/data/.gem/ruby/2.4.0/bin"
 export MAIL="/u/all/${USER}/mail/${USER}"
 export WATCH='all'
 
