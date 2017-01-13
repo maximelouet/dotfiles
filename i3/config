@@ -77,6 +77,18 @@ bindcode $mod+17 workspace $ws8
 bindcode $mod+18 workspace $ws9
 bindcode $mod+19 workspace $ws10
 
+bindcode $super+49 workspace $ws0
+bindcode $super+10 workspace $ws1
+bindcode $super+11 workspace $ws2
+bindcode $super+12 workspace $ws3
+bindcode $super+13 workspace $ws4
+bindcode $super+14 workspace $ws5
+bindcode $super+15 workspace $ws6
+bindcode $super+16 workspace $ws7
+bindcode $super+17 workspace $ws8
+bindcode $super+18 workspace $ws9
+bindcode $super+19 workspace $ws10
+
 # MOVE TO WORKSPACE
 bindcode $mod+Shift+49 move container to workspace $ws0
 bindcode $mod+Shift+10 move container to workspace $ws1
@@ -191,11 +203,12 @@ bindsym Print exec --no-startup-id "/data/scripts/screenshot.sh"
 # SHORTCUTS: programs
 
 bindsym $super+e exec "thunar"
-bindsym $super+Return exec "gnome-calculator"
 bindsym $super+w exec --no-startup-id "dmenu_run -nb '#1c3542' -nf '#dddddd' -sb '#12846e' -fn 'Noto Sans-13'"
 bindsym $super+f exec "firefox"
 
+#bindsym $mod+Return exec "gnome-calculator"
 bindsym $mod+Return exec $terminal
+bindsym $super+Return exec $terminal
 bindsym $super+c exec "clipster -s"
 
 
