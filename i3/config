@@ -203,7 +203,7 @@ bindsym Print exec --no-startup-id "/data/scripts/screenshot.sh"
 # SHORTCUTS: programs
 
 bindsym $super+e exec "thunar"
-bindsym $super+w exec --no-startup-id "dmenu_run -nb '#1c3542' -nf '#dddddd' -sb '#12846e' -fn 'Noto Sans-13'"
+bindsym $super+w exec --no-startup-id "rofi -show run"
 bindsym $super+f exec "firefox"
 
 #bindsym $mod+Return exec "gnome-calculator"
