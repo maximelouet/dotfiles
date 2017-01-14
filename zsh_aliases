@@ -116,7 +116,7 @@ function repo() {
 # copy libmy and remove dev files
 function libmy_copy() {
   cp -r /data/tek/libmy .
-  rm -rf libmy/.git libmy/.gitignore libmy/README.md libmy/tests.c libmy/tests
+  rm -rf libmy/.git libmy/.gitignore libmy/README.md libmy/tests.c libmy/tests libmy/.travis.yml
 }
 
 
