@@ -34,6 +34,8 @@ noheadless=(
   config/termite
   config/dunst
   config/compton.conf
+  Xresources
+  xinitrc
 )
 
 
