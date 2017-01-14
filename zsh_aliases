@@ -160,6 +160,16 @@ alias remove='yaourt -Rn'
 alias remover='yaourt -Rnsu'
 alias search='yaourt'
 
+# arch keyring
+alias key-update='sudo pacman-key --populate archlinux'
+alias key-add='gpg --recv-key'
+function key-sign()
+{
+  sudo pacman-key -r $1
+  sudo pacman-key -f $1
+  sudo pacman-key --lsign-key $1
+}
+
 # verbose operations
 alias mv='mv -v'
 alias rm='rm -I -v'
