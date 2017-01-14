@@ -1,6 +1,6 @@
 [user]
 	name = Maxime Louet
-	email = maxime.louet@epitech.eu
+	email = saumon@maximelouet.me
 [core]
 	editor = vim
 [alias]
@@ -17,3 +17,5 @@
 	continue = rebase --continue
 	re = !git fetch && git rebase origin/master
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+[color]
+	ui = auto
