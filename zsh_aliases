@@ -229,7 +229,6 @@ alias j='jobs'
 alias u='up && ls'
 alias t='tree'
 alias m='make'
-alias net='sudo netctl'
 
 # forecast
 alias weather="curl wttr.in"
