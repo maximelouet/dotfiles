@@ -159,6 +159,7 @@ alias install='yaourt -S'
 alias remove='yaourt -Rn'
 alias remover='yaourt -Rnsu'
 alias search='yaourt'
+alias pkclean='paccache -rk 2'
 
 # arch keyring
 alias key-update='sudo pacman-key --populate archlinux'
