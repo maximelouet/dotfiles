@@ -241,3 +241,4 @@ alias v='vim -O'
 # epitech
 alias emacs='emacs -nw'
 alias blih='blih -u $TEKUSER'
+alias mysh='/data/tek/PSU/PSU_2016_minishell1/mysh'
