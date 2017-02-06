@@ -114,7 +114,7 @@ zstyle ':prezto:module:prompt' theme 'agnoster'
 # zstyle ':prezto:module:screen:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
-zstyle ':prezto:module:screen:auto-start' remote 'yes'
+zstyle ':prezto:module:screen:auto-start' remote 'no'
 
 #
 # SSH
