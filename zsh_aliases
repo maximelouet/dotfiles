@@ -98,17 +98,21 @@ function repo() {
     prepare)
       prepus
       ;;
+    create)
+      blih -u $TEKUSER repository create $2
+      blih -u $TEKUSER repository setacl $2 ramassage-tek r
+      ;;
     list)
-      blih repository list | sort
+      blih -u $TEKUSER repository list | sort
       ;;
     delete)
-      blih repository delete $2
+      blih -u $TEKUSER repository delete $2
       ;;
     getacl)
-      blih repository getacl $2
+      blih -u $TEKUSER repository getacl $2
       ;;
     setacl)
-      blih repository setacl $2 $3 $4
+      blih -u $TEKUSER repository setacl $2 $3 $4
       ;;
   esac
 }
