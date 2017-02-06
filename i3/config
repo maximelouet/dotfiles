@@ -8,6 +8,7 @@ set $mod Mod1
 set $alt Mod1
 set $super Mod4
 set $ctrl Control
+set $shift Shift
 set $ws0 " 0 "
 set $ws1 " 1 "
 set $ws2 " 2 "
@@ -186,9 +187,12 @@ for_window [title="Segfault Simulator"] floating enable
 
 bindsym $mod+Shift+A kill
 bindsym $super+l exec --no-startup-id "/data/scripts/lock.sh"
-bindcode 135 exec --no-startup-id "mpg123 /data/static/AH.mp3"
 bindsym $mod+f fullscreen toggle
 bindsym F11 fullscreen toggle
+
+# SHORTCUTS: cancer
+bindsym $ctrl+$shift+a exec --no-startup-id "play /data/static/cancer/AH.mp3"
+bindsym $ctrl+$shift+e exec --no-startup-id "play /data/static/cancer/EQUILIBRE.wav"
 
 bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
 bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
