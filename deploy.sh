@@ -137,8 +137,13 @@ fi
 echo -e "\n\nSTEP 2: cloning prezto for zsh..."
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
+## Set saumon theme
+echo -e "\n\nSTEP 3: copying saumon theme..."
+echo "ln -s $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup"
+ln -s $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup
+
 ## Copy new dotfiles
-echo -e "\n\nSTEP 3: copying dotfiles..."
+echo -e "\n\nSTEP 4: copying dotfiles..."
 for f in $files
 do
   echo "ln -s $SDIR/$f $DDIR/.$f"
