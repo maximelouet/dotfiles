@@ -39,6 +39,11 @@ noheadless=(
   xinitrc
 )
 
+createdirs=(
+  vim/undodir
+  vim/swapfiles
+)
+
 
 ## Prompt for settings
 
@@ -156,3 +161,11 @@ if [ $headless -eq 0 ]; then
     ln -s $SDIR/$f $DDIR/.$f
   done
 fi
+
+## Create needed directories
+echo -e "\n\nSTEP 5: creating some needed directories"
+for d in $createdirs
+do
+  echo "mkdir $DDIR/.$d"
+  mkdir $DDIR/.$d
+done
