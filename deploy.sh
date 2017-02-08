@@ -13,6 +13,7 @@ remove=(
   bashrc
   mybashrc
   zcompdump
+  zprezto
 )
 
 files=(
@@ -124,6 +125,13 @@ do
   echo "mv $DDIR/.$f $BDIR/"
   mv $DDIR/.$f $BDIR/
 done
+if [ $headless -eq 0 ]; then
+  for f in $noheadless
+  do
+    echo "mv $DDIR/.$f $BDIR/"
+    mv $DDIR/.$f $BDIR/
+  done
+fi
 
 ## Clone prezto
 echo -e "\n\nSTEP 2: cloning prezto for zsh..."
