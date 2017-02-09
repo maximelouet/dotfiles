@@ -32,6 +32,7 @@ files=(
   emacs
   screenrc
   tmux.conf
+  taskrc
 )
 
 noheadless=(
