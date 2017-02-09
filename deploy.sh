@@ -1,13 +1,18 @@
 #!/bin/zsh
 
+# exit in case of error
+set -e
+
 defaultSDIR=$(pwd) # dotfiles source
 defaultDDIR=~ # dotfiles destination
+dataSymlink="/data"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+DIM='\e[2m'
 RESET='\033[0m'
 
-echo "Saumon dotfiles deploy script"
+echo "${RESET}Welcome to the Saumon dotfiles deploy script!"
 
 remove=(
   bashrc
@@ -47,33 +52,46 @@ createdirs=(
 
 ## Prompt for settings
 
-echo -ne "\nSource directory (${GREEN}$defaultSDIR${RESET}) "
+echo -ne "\nSource directory (${GREEN}$defaultSDIR${RESET}): "
 read SDIR
 if [ ${#SDIR} -lt 1 ]; then
   SDIR=$defaultSDIR
 fi
 
-echo -ne "Destination directory (${GREEN}$defaultDDIR${RESET}) "
+echo -ne "Destination directory (${GREEN}$defaultDDIR${RESET}): "
 read DDIR
 if [ ${#DDIR} -lt 1 ]; then
   DDIR=$defaultDDIR
 fi
 
 defaultBDIR=$DDIR/OLD_dotfiles # backup directory for current dotfiles
-echo -ne "Backup directory (${GREEN}$defaultBDIR${RESET}) "
+echo -ne "Backup directory (${GREEN}$defaultBDIR${RESET}): "
 read BDIR
 if [ ${#BDIR} -lt 1 ]; then
   BDIR=$defaultBDIR
 fi
+if [ -e "$BDIR" ]; then
+  echo -ne "${RED}Warning${RESET}: this directory already exists. Proceed and delete it ? (Y/n): "
+  read proceed
+  if [ ${#proceed} -gt 0 ]; then
+    echo
+    case $proceed in
+      [Yyo]* ) echo "rm -rf $BDIR"; rm -rf "$BDIR";;
+      *      ) echo "Rip"; exit 42;;
+    esac
+  else
+    echo "rm -rf $BDIR"
+    rm -rf "$BDIR"
+  fi
+fi
 
-echo -n "Is this a headless server? (y/N) "
+echo -n "Is this a headless server? (y/N): "
 read headless
 if [ ${#headless} -gt 0 ]; then
-  echo
   case $headless in
     [Yyo]* ) headless=1;;
     [Nn]*  ) headless=0;;
-    *      ) echo "Wtf?"; exit 42;;
+    *      ) echo -e "\n${RED}Wtf?${RESET}"; exit 42;;
   esac
 else
   headless=0
@@ -84,71 +102,83 @@ fi
 
 echo -e "\nCurrent settings:"
 echo -e "\tSource:\t\t$SDIR\n\tDestination:\t$DDIR\n\tBackup:\t\t$BDIR"
-echo -ne "\tHeadless: "
+echo -ne "\tHeadless:\t"
 if [ $headless -eq 1 ]; then
   echo "yes"
 else
   echo "no"
 fi
 
-echo -n "Is this correct ? (Y/n) "
+echo -ne "\nIs this correct ? (Y/n): "
 read yn
 echo
 
 if [ ${#yn} -gt 0 ]; then
   case $yn in
     [Yyo]* ) echo;;
-    [Nn]*  ) echo "Aborted."; exit 1;;
-    *      ) echo "Wtf?"; exit 42;;
+    [Nn]*  ) echo -e "${RED}Aborted.${RESET}"; exit 1;;
+    *      ) echo -e "${RED}Wtf?${RESET}"; exit 42;;
   esac
 fi
 
-echo -n "Create /data symlink? This is mandatory for many dotfiles. (Y/n) "
-read data
-echo
-if [ ${#data} -lt 1 ]; then
-  echo "sudo ln -s $DDIR /data"; sudo ln -s $DDIR /data;echo;
+if [ -e "$dataSymlink" -a -h "$dataSymlink" ]; then
+  echo "Note: symlink $dataSymlink already exists."
+elif [ -e "$dataSymlink" ]; then
+  echo "Warning: file $dataSymlink exists but is not a symlink."
 else
-  case $data in
-    [Yyo]* ) echo;echo "sudo ln -s $DDIR /data"; sudo ln -s $DDIR /data;echo;;
-    [Nn]*  ) echo;;
-    *      ) echo "Wtf?"; exit 42;;
-  esac
+  echo -n "Symlink $dataSymlink does not exist."
+  echo -n " Create it now? This is mandatory for many dotfiles. (Y/n): "
+  read data
+  echo
+  if [ ${#data} -lt 1 ]; then
+    echo "sudo ln -s $DDIR /data"; sudo ln -s $DDIR /data;echo;
+  else
+    case $data in
+      [Yyo]* ) echo -e "\nsudo ln -s $DDIR /data"; sudo ln -s $DDIR /data;echo;;
+      [Nn]*  ) echo;;
+      *      ) echo -e "${RED}Wtf?${RESET}"; exit 42;;
+    esac
+  fi
 fi
 
+sleep 1
 
-## Move all current dotfiles into the backup directory
-echo -e "\nSTEP 1: moving current dotfiles into backup directory..."
-mkdir $BDIR
-for f in $remove
-do
-  echo "mv $DDIR/.$f $BDIR/"
-  mv $DDIR/.$f $BDIR/
-done
-for f in $files
-do
-  echo "mv $DDIR/.$f $BDIR/"
-  mv $DDIR/.$f $BDIR/
+## Move current dotfiles that will be overwritten into the backup directory
+echo -e "\n${GREEN}STEP 1: moving current dotfiles into backup directory...${RESET}"
+echo "mkdir -p $BDIR"
+mkdir -p $BDIR
+for f in $remove $files; do
+  if [ -e "$DDIR/.$f" ]; then
+    echo "mv -f $DDIR/.$f $BDIR/"
+    mv -f $DDIR/.$f $BDIR/
+  fi
 done
 if [ $headless -eq 0 ]; then
-  for f in $noheadless
-  do
-    echo "mv $DDIR/.$f $BDIR/"
-    mv $DDIR/.$f $BDIR/
+  for f in $noheadless; do
+    if [ -e "$DDIR/.$f" ]; then
+      echo "mv -f $DDIR/.$f $BDIR/"
+      mv -f $DDIR/.$f $BDIR/
+    fi
   done
 fi
 
+sleep 1
+
 ## Clone prezto
-echo -e "\n\nSTEP 2: cloning prezto for zsh..."
+echo -e "\n\n${GREEN}STEP 2: cloning prezto for zsh...${RESET}"
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
+sleep 1
+
 ## Set saumon theme
-echo -e "\n\nSTEP 3: copying saumon theme..."
+echo -e "\n\n${GREEN}STEP 3: copying saumon theme...${RESET}"
 echo "ln -s $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup"
 ln -s $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup
 
+sleep 1
+
 ## Copy new dotfiles
-echo -e "\n\nSTEP 4: copying dotfiles..."
+echo -e "\n\n${GREEN}STEP 4: copying dotfiles...${RESET}"
 for f in $files
 do
   echo "ln -s $SDIR/$f $DDIR/.$f"
@@ -162,10 +192,16 @@ if [ $headless -eq 0 ]; then
   done
 fi
 
+sleep 1
+
 ## Create needed directories
-echo -e "\n\nSTEP 5: creating some needed directories"
+echo -e "\n\n${GREEN}STEP 5: creating some needed directories...${RESET}"
 for d in $createdirs
 do
-  echo "mkdir $DDIR/.$d"
-  mkdir $DDIR/.$d
+  echo "mkdir -p $DDIR/.$d"
+  mkdir -p $DDIR/.$d
 done
+
+sleep 1
+
+echo -e "\n\n${GREEN}Done!${RESET}"
