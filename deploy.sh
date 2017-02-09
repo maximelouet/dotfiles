@@ -33,6 +33,7 @@ files=(
   screenrc
   tmux.conf
   taskrc
+  yaourtrc
 )
 
 noheadless=(
