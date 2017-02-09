@@ -40,11 +40,14 @@ files=(
 noheadless=(
   i3
   gtkrc-2.0
+  Xresources
+  xinitrc
   config/termite
   config/dunst
   config/compton.conf
-  Xresources
-  xinitrc
+  config/udiskie
+  config/user-dirs.dirs
+  config/user-dirs.locale
 )
 
 createdirs=(
@@ -175,8 +178,8 @@ sleep 1
 
 ## Set saumon theme
 echo -e "\n\n${GREEN}STEP 3: copying saumon theme...${RESET}"
-echo "ln -s $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup"
-ln -s $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup
+echo "ln -sf $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup"
+ln -sf $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_saumon_setup
 
 sleep 1
 
@@ -184,14 +187,14 @@ sleep 1
 echo -e "\n\n${GREEN}STEP 4: copying dotfiles...${RESET}"
 for f in $files
 do
-  echo "ln -s $SDIR/$f $DDIR/.$f"
-  ln -s $SDIR/$f $DDIR/.$f
+  echo "ln -sf $SDIR/$f $DDIR/.$f"
+  ln -sf $SDIR/$f $DDIR/.$f
 done
 if [ $headless -eq 0 ]; then
   for f in $noheadless
   do
-    echo "ln -s $SDIR/$f $DDIR/.$f"
-    ln -s $SDIR/$f $DDIR/.$f
+    echo "ln -sf $SDIR/$f $DDIR/.$f"
+    ln -sf $SDIR/$f $DDIR/.$f
   done
 fi
 
