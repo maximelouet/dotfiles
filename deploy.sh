@@ -34,6 +34,7 @@ files=(
   tmux.conf
   taskrc
   yaourtrc
+  npmrc
 )
 
 noheadless=(
