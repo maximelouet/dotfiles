@@ -48,6 +48,7 @@ noheadless=(
   config/udiskie
   config/user-dirs.dirs
   config/user-dirs.locale
+  config/cava
 )
 
 createdirs=(
