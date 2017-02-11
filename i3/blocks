@@ -15,11 +15,6 @@ interval=10
 
 [separator]
 
-[disk]
-interval=60
-
-[separator]
-
 [INTERNET]
 interval=5
 
