@@ -16,4 +16,4 @@ This repo currently contains configuration files for:
 
 ... and other programs that I may or may not use. I also included some files from /etc, located in the `etc/` directory.
 
-I created a `deploy.sh` script that automatically links all the dotfiles to a specified directory (usually $HOME). **This script is a work in progress, use at your own risk!**
+I created a `deploy.sh` script that automatically links all the dotfiles to a specified directory (by default $HOME).
