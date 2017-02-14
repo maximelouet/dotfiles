@@ -114,6 +114,9 @@ function repo() {
     setacl)
       blih -u $TEKUSER repository setacl $2 $3 $4
       ;;
+    clone)
+      git clone git@git.epitech.eu:/$2
+      ;;
   esac
 }
 
