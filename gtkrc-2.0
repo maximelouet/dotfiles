@@ -1,4 +1,3 @@
-include "~/.gtkrc-2.0.mine"
 gtk-theme-name="Arc"
 gtk-icon-theme-name="Flat-Remix"
 gtk-font-name="Cantarell 11"
