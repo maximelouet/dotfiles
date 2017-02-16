@@ -219,6 +219,12 @@ bindsym $super+Return exec $terminal
 bindsym $super+c exec "clipster -s"
 
 
+# ASSIGNMENTS
+
+assign [class="Caprine"] $ws3
+assign [class="Slack"] $ws4
+
+
 # STARTUP
 
 exec_always --no-startup-id "/data/.fehbg"
