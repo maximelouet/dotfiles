@@ -197,6 +197,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 /data/scripts/
 bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 /data/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
 # bindsym XF86TouchpadToggle exec --no-startup-id "/data/Scripts/toggletouchpad.sh"
 bindsym Print exec --no-startup-id "/data/scripts/screenshot.sh"
+bindsym XF86Display exec lxrandr
 
 
 # SHORTCUTS: cancer
