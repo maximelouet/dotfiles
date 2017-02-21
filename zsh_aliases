@@ -144,8 +144,6 @@ for c in $user_commands; do; alias sc-$c="systemctl $c"; done
 for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
 
 
-alias vi='vim'
-
 # colors everywhere
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -185,12 +183,12 @@ alias cp='cp -v'
 alias ln='ln -v'
 
 # edit shortcuts
-alias ve='vi ~/.vimrc'
-alias ze='vim ~/.zshrc'
-alias zea='vim ~/.zsh_aliases'
-alias ie='vim ~/.i3/config'
-alias pe='sudo vim /etc/pacman.conf'
-alias ne='sudo vim /etc/nginx/nginx.conf'
+alias ve='v ~/.config/nvim/init.vim'
+alias ze='v ~/.zshrc'
+alias zea='v ~/.zsh_aliases'
+alias ie='v ~/.i3/config'
+alias pe='sudo v /etc/pacman.conf'
+alias ne='sudo v /etc/nginx/nginx.conf'
 
 # corrections
 alias gti='echo "pauvre merde\n";git'
@@ -242,10 +240,19 @@ alias weather="curl wttr.in"
 alias moon="curl wttr.in/Moon"
 
 # open
-alias vim='vim -O'
-alias v='vim -O'
+alias v='nvim'
+alias vi='v'
+alias vim='v'
+
 
 # epitech
 alias emacs='emacs -nw'
 alias blih='blih -u $TEKUSER'
 alias mysh='/data/tek/PSU/PSU_2016_minishell1/mysh'
+
+
+# testing
+alias l="exa --sort=Name"
+alias ll="l -l"
+alias la="l -a"
+alias lla="l -la"
