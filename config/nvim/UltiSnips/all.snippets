@@ -1,0 +1,38 @@
+global !p
+import time
+import locale
+
+locale.setlocale(locale.LC_ALL, 'C');
+
+def getTime():
+  return time.strftime("%c")
+
+endglobal
+
+
+snippet header "Epitech standard epitech"
+/*
+** `!p snip.rv = snip.fn` for $0 in `!p snip.rv = path`
+**
+** Made by Maxime Louet
+** Login   <maxime.louet@epitech.eu>
+**
+** Started on  `!p snip.rv = getTime()` Maxime Louet
+** Last update `!p snip.rv = getTime()` Maxime Louet
+*/
+endsnippet
+
+snippet struct "Norm-compliant structures"
+typedef struct	s_$0
+{
+  int		cul;
+}		t_$1;
+endsnippet
+
+snippet main "Basic main"
+int	main(int ac, const char **av)
+{
+  $0
+  return (0);
+}
+endsnippet

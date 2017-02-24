@@ -25,8 +25,7 @@ files=(
   zshrc
   zsh_aliases
   zpreztorc
-  vim
-  vimrc
+  config/nvim
   fehbg
   gitconfig
   emacs
@@ -52,8 +51,8 @@ noheadless=(
 )
 
 createdirs=(
-  vim/undodir
-  vim/swapfiles
+  local/share/nvim/undodir
+  local/share/nvim/swapfiles
 )
 
 
@@ -201,8 +200,17 @@ fi
 
 sleep 1
 
+## Install Vim Plug
+echo -e "\n\n${GREEN}STEP 5: installing vim-plug...${RESET}"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+command -v pip2 >/dev/null 2>&1 && pip2 install --user --upgrade neovim
+command -v pip3 >/dev/null 2>&1 && pip3 install --user --upgrade neovim
+
+sleep 1
+
 ## Create needed directories
-echo -e "\n\n${GREEN}STEP 5: creating some needed directories...${RESET}"
+echo -e "\n\n${GREEN}STEP 6: creating some needed directories...${RESET}"
 for d in $createdirs
 do
   echo "mkdir -p $DDIR/.$d"
