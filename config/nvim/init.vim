@@ -132,3 +132,7 @@ imap :x<Enter> <Esc>:x<Cr> i
 imap :wq<Enter> <Esc>:wq<Cr> i
 imap :wa<Enter> <Esc>:wa<Cr> i
 imap :wqa<Enter> <Esc>:wqa<Cr> i
+
+
+" wtf
+let g:netrw_dirhistmax = 0
