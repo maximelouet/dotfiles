@@ -188,7 +188,7 @@ for_window [title="Segfault Simulator"] floating enable
 bindsym $mod+Shift+A kill
 bindsym $super+l exec --no-startup-id "/data/scripts/lock.sh"
 bindsym $mod+f fullscreen toggle
-bindsym F11 fullscreen toggle
+# bindsym F11 fullscreen toggle
 
 bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
 bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
@@ -214,7 +214,7 @@ bindsym $super+e exec "thunar"
 bindsym $super+w exec --no-startup-id "rofi -show run"
 bindsym $super+f exec "chromium"
 
-#bindsym $mod+Return exec "gnome-calculator"
+# bindsym $mod+Return exec "gnome-calculator"
 bindsym $mod+Return exec $terminal
 bindsym $super+Return exec $terminal
 bindsym $super+c exec "clipster -s"
