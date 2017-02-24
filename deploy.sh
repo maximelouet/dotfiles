@@ -204,8 +204,8 @@ sleep 1
 echo -e "\n\n${GREEN}STEP 5: installing vim-plug...${RESET}"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-command -v pip2 >/dev/null 2>&1 && pip2 install --user --upgrade neovim
-command -v pip3 >/dev/null 2>&1 && pip3 install --user --upgrade neovim
+
+nvim +PlugInstall +qall
 
 sleep 1
 
