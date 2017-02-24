@@ -1,4 +1,2 @@
 *.swp
-vim/undodir/*
-vim/swapfiles/*
-scripts/vps
+config/nvim/plugged/
