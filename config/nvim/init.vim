@@ -9,7 +9,7 @@ Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
-Plug 'arakashic/nvim-colors-solarized'
+Plug 'maximelouet/nvim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
