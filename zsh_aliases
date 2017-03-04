@@ -151,12 +151,16 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# ls
-alias ls='ls --color=auto --group-directories-first -ph'
+# ls (exa)
+alias ls='exa --sort=Name --group-directories-first'
 alias l='ls'
-alias la='ls -A'
+alias lg='ls -g'
+alias la='ls -a'
+alias lag='la -g'
 alias ll='ls -l'
-alias lla='ls -lA'
+alias llg='ll -g'
+alias lla='ls -la'
+alias llag='lla -g'
 
 # package management
 alias maj='yaourt -Syua'
@@ -250,10 +254,3 @@ alias vim='v'
 alias emacs='emacs -nw'
 alias blih='blih -u $TEKUSER'
 alias mysh='/data/tek/PSU/PSU_2016_minishell1/mysh'
-
-
-# testing
-alias l="exa --sort=Name"
-alias ll="l -l"
-alias la="l -a"
-alias lla="l -la"
