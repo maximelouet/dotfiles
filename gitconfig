@@ -9,6 +9,7 @@
 	cmm = commit --verbose -m
 	st = status
 	p = pull
+	poule = pull
 	pa = pull --all
 	c = checkout
  	amend = commit --amend --no-edit --reset-author
