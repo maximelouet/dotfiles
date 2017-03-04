@@ -143,6 +143,10 @@ sudo_commands=(
 for c in $user_commands; do; alias sc-$c="systemctl $c"; done
 for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
 
+# open
+alias v='nvim'
+alias vi='v'
+alias vim='v'
 
 # colors everywhere
 alias dir='dir --color=auto'
@@ -191,8 +195,8 @@ alias ve='v ~/.config/nvim/init.vim'
 alias ze='v ~/.zshrc'
 alias zea='v ~/.zsh_aliases'
 alias ie='v ~/.i3/config'
-alias pe='sudo v /etc/pacman.conf'
-alias ne='sudo v /etc/nginx/nginx.conf'
+alias pe='sudo nvim /etc/pacman.conf'
+alias ne='sudo nvim /etc/nginx/nginx.conf'
 
 # corrections
 alias gti='echo "pauvre merde\n";git'
@@ -243,12 +247,6 @@ alias m='make'
 # forecast
 alias weather="curl wttr.in"
 alias moon="curl wttr.in/Moon"
-
-# open
-alias v='nvim'
-alias vi='v'
-alias vim='v'
-
 
 # epitech
 alias emacs='emacs -nw'
