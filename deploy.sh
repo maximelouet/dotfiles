@@ -37,7 +37,7 @@ files=(
 )
 
 noheadless=(
-  i3
+  config/i3
   gtkrc-2.0
   Xresources
   xinitrc

@@ -146,7 +146,7 @@ mode "resize" {
 # BAR
 
 bar {
-    status_command i3blocks -c /data/.i3/blocks
+    status_command i3blocks -c /data/.config/i3/blocks
     position bottom
     font pango:Noto Sans, Awesome 13
 

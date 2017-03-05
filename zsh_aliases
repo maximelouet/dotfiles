@@ -194,7 +194,7 @@ alias ln='ln -v'
 alias ve='v ~/.config/nvim/init.vim'
 alias ze='v ~/.zshrc'
 alias zea='v ~/.zsh_aliases'
-alias ie='v ~/.i3/config'
+alias ie='v ~/.config/i3/config'
 alias pe='sudo nvim /etc/pacman.conf'
 alias ne='sudo nvim /etc/nginx/nginx.conf'
 
