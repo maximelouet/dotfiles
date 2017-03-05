@@ -157,7 +157,7 @@ alias egrep='egrep --color=auto'
 
 # ls (exa)
 alias ls='exa --sort=Name --group-directories-first'
-alias l='ls'
+alias l='ls -l'
 alias lg='ls -g'
 alias la='ls -a'
 alias lag='la -g'
