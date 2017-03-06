@@ -173,12 +173,12 @@ alias egrep='egrep --color=auto'
 # ls (exa)
 alias ls='exa --sort=Name --group-directories-first'
 alias l='ls -l'
-alias lg='ls -g'
+alias lg='l -g'
 alias la='ls -a'
 alias lag='la -g'
-alias ll='ls -l'
+alias ll='l'
 alias llg='ll -g'
-alias lla='ls -la'
+alias lla='l -a'
 alias llag='lla -g'
 
 # package management
