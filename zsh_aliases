@@ -15,6 +15,21 @@ function up() {
   fi
   cd $d
 }
+# shortcut: go up in directory tree
+function u() {
+  local d=""
+  limit=$1
+  for ((i=1 ; i <= limit ; i++))
+  do
+    d=$d/..
+  done
+  d=$(echo $d | sed -e 's/^\///')
+  if [ -z "$d" ]; then
+    d=..
+  fi
+  cd $d
+  ls
+}
 
 # cd and ls
 function c() {
@@ -239,7 +254,6 @@ alias beep_enable='xset b 100 600 50'
 
 # shortcuts
 alias j='jobs'
-alias u='up && ls'
 alias t='tree'
 alias ta='tree -a'
 alias m='make'
