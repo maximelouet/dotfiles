@@ -43,12 +43,13 @@ rofi.color-urgent:      argb:003a3a3a, #626262, argb:003a3a3a, argb:003a3a3a, ar
 rofi.color-active:      argb:003a3a3a, #626262, argb:003a3a3a, argb:003a3a3a, argb:ff8787f7
 rofi.separator-style:   none
 rofi.fullscreen:        true
-rofi.padding:           130
+rofi.padding:           200
 rofi.hide-scrollbar:    true
 rofi.line-margin:       5
 rofi.fake-transparency: false
 rofi.yoffset:           0
 rofi.xoffset:           0
-rofi.width:             1366
+rofi.width:             1200
 rofi.opacity:           90
+rofi.font:              Noto Sans 14
 
