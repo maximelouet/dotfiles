@@ -97,6 +97,11 @@ function extract() {
   fi
 }
 
+# decode base64 shortcut
+function b64d() {
+  echo -n $1 | base64 -d
+}
+
 # prepare an epitech repo
 function prepus() {
   blih -u $TEKUSER repository create $1
