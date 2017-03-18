@@ -175,6 +175,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# colors FUCKING EVERYWHERE
+alias make='colormake'
+alias valgrind='colour-valgrind'
+
 # ls (exa)
 alias ls='exa --sort=Name --group-directories-first'
 alias l='ls -l'
