@@ -217,6 +217,7 @@ alias zea='v ~/.zsh_aliases'
 alias ie='v ~/.config/i3/config'
 alias pe='sudo nvim /etc/pacman.conf'
 alias ne='sudo nvim /etc/nginx/nginx.conf'
+alias me='sudo nvim /etc/pacman.d/mirrorlist'
 
 # corrections
 alias gti='echo "pauvre merde\n";git'
