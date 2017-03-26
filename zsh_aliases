@@ -98,8 +98,8 @@ function extract() {
 }
 
 # decode base64 shortcut
-function b64d() {
-  echo -n $1 | base64 -d
+function bd() {
+  echo -n $1 | base64 -d && echo -n $1 | base64 -d | xclip -selection clipboard
 }
 
 # prepare an epitech repo
