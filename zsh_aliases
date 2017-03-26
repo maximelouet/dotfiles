@@ -15,7 +15,7 @@ function up() {
   fi
   cd $d
 }
-# go up in directory tree and print new directory listing
+# go up in directory tree and ls
 function u() {
   local d=""
   limit=$1
