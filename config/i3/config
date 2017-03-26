@@ -21,6 +21,7 @@ set $ws8 " 8 "
 set $ws9 " 9 "
 set $ws10 " π "
 set $terminal "termite"
+set $home /data
 
 
 # FONT
@@ -146,7 +147,7 @@ mode "resize" {
 # BAR
 
 bar {
-    status_command i3blocks -c /data/.config/i3/blocks
+    status_command i3blocks -c $home/.config/i3/blocks
     position bottom
     font pango:Noto Sans, Awesome 13
 
@@ -191,25 +192,25 @@ for_window [title="Segfault Simulator"] floating enable
 # SHORTCUTS: misc
 
 bindsym $mod+Shift+A kill
-bindsym $super+l exec --no-startup-id "/data/scripts/lock.sh"
+bindsym $super+l exec --no-startup-id "$home/scripts/lock.sh"
 bindsym $mod+f fullscreen toggle
 # bindsym F11 fullscreen toggle
 
-bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
-bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 /data/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
-bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 /data/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 /data/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 /data/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
-#bindsym XF86TouchpadToggle exec --no-startup-id "/data/scripts/toggletouchpad.sh"
-bindsym Print exec --no-startup-id "/data/scripts/screenshot.sh"
-bindsym $super+Print exec --no-startup-id "/data/scripts/fscreenshot.sh"
+bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 $home/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
+bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 $home/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 $home/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 $home/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 $home/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
+#bindsym XF86TouchpadToggle exec --no-startup-id "$home/scripts/toggletouchpad.sh"
+bindsym Print exec --no-startup-id "$home/scripts/screenshot.sh"
+bindsym $super+Print exec --no-startup-id "$home/scripts/fscreenshot.sh"
 #bindsym XF86Display exec lxrandr
 
 
 # SHORTCUTS: cancer
 
-bindcode 135 exec --no-startup-id "play /data/static/cancer/AH.mp3"
-bindcode $ctrl+135 exec --no-startup-id "play /data/static/cancer/EQUILIBRE.wav"
+bindcode 135 exec --no-startup-id "play $home/static/cancer/AH.mp3"
+bindcode $ctrl+135 exec --no-startup-id "play $home/static/cancer/EQUILIBRE.wav"
 
 
 # SHORTCUTS: programs
@@ -232,14 +233,14 @@ assign [class="Slack"] $ws4
 
 # STARTUP
 
-exec_always --no-startup-id "/data/.fehbg"
+exec_always --no-startup-id "$home/.fehbg"
 exec_always --no-startup-id "xset r rate 180 26"
 exec_always --no-startup-id "xset b 100 600 50"
 exec_always --no-startup-id "xset m 7/4 100"
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "clipster -d -f /data/.config/clipster/clipster.ini"
+exec --no-startup-id "clipster -d -f $home/.config/clipster/clipster.ini"
 exec --no-startup-id "redshift -l 48.8075:2.2620"
-exec --no-startup-id "compton --config /data/.config/compton.conf -b"
+exec --no-startup-id "compton --config $home/.config/compton.conf -b"
 exec --no-startup-id "dunst"
-exec --no-startup-id "udiskie -c /data/.config/udiskie/config.yml"
+exec --no-startup-id "udiskie -c $home/.config/udiskie/config.yml"
 exec --no-startup-id "setxkbmap -option \"caps:swapescape\""
