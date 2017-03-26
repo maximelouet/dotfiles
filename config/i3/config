@@ -176,7 +176,11 @@ client.urgent           #902020 #902020 #ffffff #900000
 # no borders on new windows
 new_window none
 
-for_window [class="(?i)galculator"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="Gpicview"] floating enable
+for_window [class="imv"] floating enable
+for_window [class="File-roller"] floating enable
 for_window [window_role="(?i)pop-up"] floating enable
 for_window [window_role="(?i)about"] floating enable
 for_window [title="Network Operations Manager"] floating enable
