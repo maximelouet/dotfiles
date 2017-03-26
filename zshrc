@@ -6,6 +6,7 @@ export TERM="xterm-256color"
 export DEFAULT_USER=saumon
 export PAGER='less -X'
 export MANPAGER='less -X'
+export TERMINAL="termite"
 export BROWSER='chromium'
 export EDITOR='nvim'
 export VISUAL='nvim'
