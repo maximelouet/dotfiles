@@ -173,6 +173,7 @@ client.focused_inactive #333333 #5F676A #ffffff #484e50
 client.unfocused        #333333 #424242 #8f8f8f #292d2e
 client.urgent           #902020 #902020 #ffffff #900000
 
+# no borders on new windows
 new_window none
 
 for_window [class="(?i)galculator"] floating enable
@@ -232,7 +233,7 @@ exec_always --no-startup-id "xset r rate 180 26"
 exec_always --no-startup-id "xset b 100 600 50"
 exec_always --no-startup-id "xset m 7/4 100"
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "clipster -dp"
+exec --no-startup-id "clipster -f /data/.config/clipster/clipster.ini"
 exec --no-startup-id "redshift -l 48.8075:2.2620"
 exec --no-startup-id "compton --config /data/.config/compton.conf -b"
 exec --no-startup-id "dunst"

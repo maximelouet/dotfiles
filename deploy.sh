@@ -48,6 +48,7 @@ noheadless=(
   config/user-dirs.dirs
   config/user-dirs.locale
   config/cava
+  config/clipster
 )
 
 createdirs=(
