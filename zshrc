@@ -38,9 +38,8 @@ export WATCH='all'
 export TEKUSER="maxime.louet@epitech.eu"
 export USER_NICKNAME="Maxime Louet"
 
-
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+[[ -e /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -e /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
@@ -49,5 +48,4 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
 
 
 source /data/.zsh_aliases
-
-source /data/.zsh_private
+[[ -e /data/.zsh_private ]] && source /data/.zsh_private
