@@ -178,7 +178,7 @@ for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
 
 
 # open
-if has_nvim; then
+if has_command nvim; then
   alias v='nvim'
   alias vi='nvim'
   alias vim='nvim'

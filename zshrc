@@ -2,9 +2,9 @@
 
 source "/data/.zprezto/init.zsh" # prezto
 
-function has_nvim()
+function has_command()
 {
-  command -v nvim > /dev/null 2>&1;
+  command -v $1 > /dev/null 2>&1;
 }
 
 export TERM="xterm-256color"
@@ -13,7 +13,7 @@ export PAGER='less -X'
 export MANPAGER='less -X'
 export TERMINAL="termite"
 export BROWSER='chromium'
-if has_nvim; then
+if has_command nvim; then
   export EDITOR='nvim'
   export VISUAL='nvim'
 else
