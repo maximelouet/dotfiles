@@ -2,14 +2,24 @@
 
 source "/data/.zprezto/init.zsh" # prezto
 
+function has_nvim()
+{
+  command -v nvim > /dev/null 2>&1;
+}
+
 export TERM="xterm-256color"
 export DEFAULT_USER=saumon
 export PAGER='less -X'
 export MANPAGER='less -X'
 export TERMINAL="termite"
 export BROWSER='chromium'
-export EDITOR='nvim'
-export VISUAL='nvim'
+if has_nvim; then
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+else
+  export EDITOR='vim'
+  export VISUAL='vim'
+fi
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 export CASE_SENSITIVE="true" # case-sensitive completion
