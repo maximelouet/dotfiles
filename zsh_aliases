@@ -180,11 +180,13 @@ for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
 # open
 if has_nvim; then
   alias v='nvim'
+  alias vi='nvim'
+  alias vim='nvim'
 else
   alias v='vim'
+  alias vi='vim'
+  alias vim='vim'
 fi
-alias vi='v'
-alias vim='v'
 
 # colors everywhere
 alias dir='dir --color=auto'
