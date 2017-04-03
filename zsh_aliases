@@ -196,11 +196,19 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # colors FUCKING EVERYWHERE
-alias make='colormake'
-alias valgrind='colour-valgrind'
+if has_command colormake; then
+  alias make='colormake'
+fi
+if has_command colour-valgrind; then
+  alias valgrind='colour-valgrind'
+fi
 
-# ls (exa)
-alias ls='exa --sort=Name --group-directories-first'
+# directory listing
+if has_command exa; then
+  alias ls='exa --sort=Name --group-directories-first'
+else
+  alias ls='ls --color=always --group-directories-first -h'
+fi
 alias l='ls -l'
 alias lg='l -g'
 alias la='ls -a'
@@ -211,12 +219,20 @@ alias lla='l -a'
 alias llag='lla -g'
 
 # package management
-alias maj='yaourt -Syua'
-alias install='yaourt -S'
-alias remove='yaourt -Rn'
-alias remover='yaourt -Rnsu'
-alias search='yaourt'
-alias pkclean='paccache -rk 2'
+if has_command yaourt; then
+  alias maj='yaourt -Syua'
+  alias install='yaourt -S'
+  alias remove='yaourt -Rn'
+  alias remover='yaourt -Rnsu'
+  alias search='yaourt'
+  alias pkclean='paccache -rk 2'
+else
+  alias maj='sudo apt update && sudo apt dist-upgrade'
+  alias install='sudo apt install'
+  alias remove='sudo apt remove'
+  alias remover='sudo apt remove --purge'
+  alias search='sudo apt-cache search'
+fi
 
 # arch keyring
 alias key-update='sudo pacman-key --populate archlinux'
