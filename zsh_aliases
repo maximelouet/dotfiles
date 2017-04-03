@@ -140,6 +140,14 @@ function repo() {
   esac
 }
 
+# load epitech graph programming env variables
+function graph_prog() {
+  export LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
+  export LD_LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
+  export CPATH=$CPATH:/data/.graph_programming/include
+}
+
+
 # archlinux news
 function news() {
   echo -e "$(echo $(curl --silent https://www.archlinux.org/feeds/news/ | sed -e ':a;N;$!ba;s/\n/ /g') | \

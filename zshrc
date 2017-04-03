@@ -31,19 +31,12 @@ export HISTSIZE=10000
 export SAVEHIST=50000
 
 
-# EPITECH
 ulimit -c 0
-export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/data/.local/bin:/data/.gem/ruby/2.4.0/bin:~/.npm-global/bin"
-export MAIL="/u/all/${USER}/mail/${USER}"
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/data/.local/bin:~/.npm-global/bin"
 export WATCH='all'
 
 export TEKUSER="maxime.louet@epitech.eu"
 export USER_NICKNAME="Maxime Louet"
-
-### C Graphical Programming
-export LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
-export LD_LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
-export CPATH=$CPATH:/data/.graph_programming/include
 
 
 source /usr/share/fzf/key-bindings.zsh
