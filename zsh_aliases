@@ -279,7 +279,7 @@ alias i3-info='i3-msg -t get_tree | jq'
 
 # shortcuts
 alias j='jobs'
-alias t='tree'
+alias t='task'
 alias ta='tree -a'
 alias m='make'
 

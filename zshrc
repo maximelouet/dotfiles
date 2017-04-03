@@ -48,3 +48,5 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
 source /data/.zsh_aliases
 
 source /data/.zsh_private
+
+task
