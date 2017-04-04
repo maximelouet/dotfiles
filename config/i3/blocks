@@ -42,9 +42,16 @@ interval=10
 
 [separator]
 
+[updates]
+interval=1200
+
+[separator]
+
 [date]
 interval=60
 
 [time]
-command=date '+%H:%M:%S '
+command=date '+%H:%M:%S'
 interval=1
+
+[separator]
