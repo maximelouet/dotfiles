@@ -25,6 +25,7 @@ export LC_ALL='en_US.UTF-8';
 export CASE_SENSITIVE="true" # case-sensitive completion
 export CLICOLOR=1
 export DISPLAY="${DISPLAY:-:0}"
+export TZ='Europe/Paris'
 
 export HISTFILE=/data/.zsh_history
 export HISTSIZE=10000
