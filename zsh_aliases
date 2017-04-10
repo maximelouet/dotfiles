@@ -285,6 +285,7 @@ alias yaoi='yaourt'
 alias fucking='sudo'
 alias ="echo \"Moi aussi je t'aime\";:"
 alias meurs='echo "Non."'
+alias ah='play /data/static/cancer/AH.mp3 > /dev/null 2>&1'
 
 # misc
 alias tree='tree -C'
