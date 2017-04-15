@@ -58,7 +58,7 @@ EDITFILES=0
 #TERMINALTITLE=1
 
 # Command
-PACMAN="pacmatic"
+#PACMAN="pacman"
 #MAKEPKG="makepkg"
 #DIFFEDITCMD="vimdiff"
 
