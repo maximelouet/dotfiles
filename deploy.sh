@@ -185,8 +185,18 @@ ln -sf $SDIR/saumon.zsh-theme $DDIR/.zprezto/modules/prompt/functions/prompt_sau
 
 sleep 1
 
+## Create needed directories
+echo -e "\n\n${GREEN}STEP 4: creating some needed directories...${RESET}"
+for d in $createdirs
+do
+  echo "mkdir -p $DDIR/.$d"
+  mkdir -p $DDIR/.$d
+done
+
+sleep 1
+
 ## Copy new dotfiles
-echo -e "\n\n${GREEN}STEP 4: copying dotfiles...${RESET}"
+echo -e "\n\n${GREEN}STEP 5: copying dotfiles...${RESET}"
 for f in $files
 do
   echo "ln -sf $SDIR/$f $DDIR/.$f"
@@ -203,21 +213,11 @@ fi
 sleep 1
 
 ## Install Vim Plug
-echo -e "\n\n${GREEN}STEP 5: installing vim-plug...${RESET}"
+echo -e "\n\n${GREEN}STEP 6: installing vim-plug...${RESET}"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 nvim +PlugInstall +qall
-
-sleep 1
-
-## Create needed directories
-echo -e "\n\n${GREEN}STEP 6: creating some needed directories...${RESET}"
-for d in $createdirs
-do
-  echo "mkdir -p $DDIR/.$d"
-  mkdir -p $DDIR/.$d
-done
 
 sleep 1
 
