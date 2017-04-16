@@ -217,11 +217,16 @@ if has_command exa; then
 else
   alias ls='ls --color=always --group-directories-first -h'
 fi
-alias l='ls -l'
+alias ll='ls -l'
+alias l='ll'
+if has_command exa; then
+  alias lt='exa --sort=modified -r --group-directories-first -l'
+else
+  alias lt='ll -t'
+fi
 alias lg='l -g'
 alias la='ls -a'
 alias lag='la -g'
-alias ll='l'
 alias llg='ll -g'
 alias lla='l -a'
 alias llag='lla -g'
