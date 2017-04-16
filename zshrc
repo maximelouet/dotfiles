@@ -33,7 +33,7 @@ export SAVEHIST=50000
 
 
 ulimit -c 0
-export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/data/.local/bin:~/.npm-global/bin"
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/data/.local/bin"
 export WATCH='all'
 
 export TEKUSER="maxime.louet@epitech.eu"
