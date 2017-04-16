@@ -313,6 +313,7 @@ alias j='jobs'
 alias t='task'
 alias ta='tree -a'
 alias m='make'
+alias rrm="rf -rf"
 
 # forecast
 alias weather="curl wttr.in"
