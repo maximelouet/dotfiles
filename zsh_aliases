@@ -147,7 +147,6 @@ function graph_prog() {
   export CPATH=$CPATH:/data/.graph_programming/include
 }
 
-
 # archlinux news
 function news() {
   echo -e "$(echo $(curl --silent https://www.archlinux.org/feeds/news/ | sed -e ':a;N;$!ba;s/\n/ /g') | \
@@ -165,6 +164,11 @@ function news() {
   sed -e 's/&lt;[^ç]*ç//g' |
   sed -e 's/[ç£§]//g')\n" | tail -n +5 | head -n 30
   echo -e "...\nhttps://www.archlinux.org/news/\n"
+}
+
+# command stats
+function zsh_stats() {
+  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n20
 }
 
 
@@ -318,7 +322,6 @@ alias j='jobs'
 alias t='task'
 alias ta='tree -a'
 alias m='make'
-alias rrm="rf -rf"
 
 # forecast
 alias weather="curl wttr.in"
