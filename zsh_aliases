@@ -171,6 +171,18 @@ function zsh_stats() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n20
 }
 
+# reset escape and ne aliases for noobs
+function alias_noob() {
+  setxkbmap -option
+  alias ne="emacs -nw"
+}
+
+# re-set escape and ne aliases for saumon
+function alias_saumon() {
+  setxkbmap -option caps:swapescape
+  alias ne="sudo vim /etc/nginx/nginx.conf"
+}
+
 
 # systemctl
 user_commands=(
@@ -272,9 +284,9 @@ alias ve='v ~/.config/nvim/init.vim'
 alias ze='v ~/.zshrc'
 alias zea='v ~/.zsh_aliases'
 alias ie='v ~/.config/i3/config'
-alias pe='sudo nvim /etc/pacman.conf'
-alias ne='sudo nvim /etc/nginx/nginx.conf'
-alias me='sudo nvim /etc/pacman.d/mirrorlist'
+alias pe='sudo vim /etc/pacman.conf'
+alias ne='sudo vim /etc/nginx/nginx.conf'
+alias me='sudo vim /etc/pacman.d/mirrorlist'
 
 # corrections
 alias gti='echo "pauvre merde";git'
