@@ -12,10 +12,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'maximelouet/nvim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Plugins configurations
 
+let g:deoplete#enable_at_startup = 1 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1 " needed for powerline
 
