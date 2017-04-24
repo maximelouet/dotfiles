@@ -52,7 +52,6 @@ noheadless=(
 )
 
 createdirs=(
-  config/nvim
   local/share/nvim/undodir
   local/share/nvim/swapfiles
 )
