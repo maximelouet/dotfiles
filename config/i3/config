@@ -192,7 +192,7 @@ for_window [title="Segfault Simulator"] floating enable
 # SHORTCUTS: misc
 
 bindsym $mod+Shift+A kill
-bindsym $super+l exec --no-startup-id "$home/scripts/lock.sh"
+bindsym $super+l exec --no-startup-id "dm-tool lock"
 bindsym $mod+f fullscreen toggle
 # bindsym F11 fullscreen toggle
 
@@ -235,8 +235,8 @@ assign [class="Slack"] $ws4
 # STARTUP
 
 exec_always --no-startup-id "$home/.fehbg"
-exec_always --no-startup-id "xset r rate 180 26"
-exec_always --no-startup-id "xset b 100 600 50"
+exec_always --no-startup-id "xset r rate 190 27"
+exec_always --no-startup-id "xset b 0 600 50"
 exec_always --no-startup-id "xset m 7/4 100"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "clipster -d -f $home/.config/clipster/clipster.ini"
