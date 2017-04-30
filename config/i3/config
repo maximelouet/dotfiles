@@ -192,7 +192,7 @@ for_window [title="Segfault Simulator"] floating enable
 # SHORTCUTS: misc
 
 bindsym $mod+Shift+A kill
-bindsym $super+l exec --no-startup-id "dm-tool lock"
+bindsym $super+l exec --no-startup-id "/data/scripts/lock.sh"
 bindsym $mod+f fullscreen toggle
 # bindsym F11 fullscreen toggle
 
