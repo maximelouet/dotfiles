@@ -323,7 +323,7 @@ alias i3-info='i3-msg -t get_tree | jq'
 alias j='jobs'
 alias t='task'
 alias ta='tree -a'
-alias m='make'
+alias m='make -j'
 
 # forecast
 alias weather="curl wttr.in"
