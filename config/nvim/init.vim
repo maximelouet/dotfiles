@@ -5,6 +5,7 @@ let $VIMHOME = glob('/data/.config/nvim')
 " Plug (owi)
 call plug#begin()
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -12,14 +13,15 @@ Plug 'airblade/vim-gitgutter'
 Plug 'maximelouet/nvim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Plugins configurations
 
-let g:deoplete#enable_at_startup = 1 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1 " needed for powerline
+let g:airline_skip_empty_sections = 1
+let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+let g:airline_theme = 'badwolf'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -43,21 +45,20 @@ set background=dark " or light
 colorscheme solarized
 
 
-
-
 set termguicolors
 
-set shell=/usr/bin/zsh
+set shell=/bin/zsh
 set t_Co=256
 
-set showmode          	" display current mode blow the status line
-set showtabline=2     	" show tabbar even for a single buffer
-set laststatus=2      	" always show the status line
-set ruler             	" display line/col position in the status line
-set cursorline        	" highlight current line
-set splitbelow        	" consistency with most tiling WMs (wmii, i3…)
-set splitright        	" consistency with most tiling WMs (wmii, i3…)
-set virtualedit=block 	" easier rectangular selections
+set showmode          " display current mode blow the status line
+set showtabline=2     " show tabbar even for a single buffer
+set laststatus=2      " always show the status line
+set ruler             " display line/col position in the status line
+set cursorline        " highlight current line
+set splitbelow        " consistency with most tiling WMs (wmii, i3…)
+set splitright        " consistency with most tiling WMs (wmii, i3…)
+set virtualedit=block " easier rectangular selections
+set noerrorbells      " no beeps
 
 " Display relative line numbers
 set relativenumber
@@ -67,6 +68,10 @@ set number
 
 set scrolloff=3       	" number of screen lines to show around the cursor
 
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
 
 set encoding=utf-8
 
@@ -89,25 +94,24 @@ set hlsearch        	" highlight search results
 set incsearch       	" incremental search: find as you type
 
 
-
-"Invisibles
-set listchars=tab:..,eol:¬,trail:~
+" Invisibles
+set listchars=tab:··,eol:¬,trail:~
 set list
 hi NonText ctermfg=241 ctermbg=none
 hi SpecialKey ctermfg=241 ctermbg=none
 
-"Correct indentation (for Epitech currently)
+" Correct indentation (for Epitech currently)
 set softtabstop=2
 set shiftwidth=2
 
-"But still insert tab
+" But still insert tab
 inoremap ² <C-V><Tab>
 inoremap <F2> <C-V><Tab>
 
-"Show line numbers
+" Show line numbers
 hi linenr ctermbg=0
 
-"Set line cursor
+" Set line cursor
 set cursorline
 hi cursorlinenr ctermbg=0
 hi CursorLine cterm=NONE ctermbg=0
