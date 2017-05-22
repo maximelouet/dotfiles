@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Saumon i3blocks scripts : battery (battery percentage and state)
+
+
+battInfo=$(acpi)
+battStatus=$(echo $battInfo | awk '/ / {print $3}' | tr -d ',')
+battCapacity=$(echo $battInfo | awk '/ / {print $4}' | tr -d '%,\n')
+battRemain=$(echo $battInfo | awk '/ / {print $5}' | sed 's/...$//' | tr -d '\n')
+
+if [ \( "$battStatus" = "Charging" \) -o \( "$battRemain" = "discharg" \) -o \( ${#battRemain} -lt "1" \) ]; then
+	if [ \( $battCapacity -lt "90" \) -o \( ${#battRemain} -lt "1" \) ]; then
+		color="#19ef5d"
+	else
+		color="#cccccc"
+	fi
+	if [ $battCapacity -lt "95" ]; then
+		echo -n "<span color='$color'>  $battCapacity%</span>"
+	else
+		echo -n "<span color='$color'>  $battCapacity%</span>"
+	fi
+else
+	if [ $battCapacity -lt "20" ]; then
+		color="#fa3826"
+		icon=""
+	elif [ $battCapacity -lt "50" ]; then
+		color="#fa8026"
+		icon=""
+	else
+		color="#cccccc"
+		icon=""
+	fi
+	echo -n "<span color='$color'>$icon  $battCapacity% ($battRemain)</span>"
+fi

@@ -21,7 +21,6 @@ set $ws8 " 8 "
 set $ws9 " 9 "
 set $ws10 " π "
 set $terminal "termite"
-set $home /data
 
 
 # FONT
@@ -59,11 +58,6 @@ bindsym $mod+Shift+space floating toggle
 floating_modifier $mod
 # toggle focus between floating and tiling windows
 bindsym $mod+space focus mode_toggle
-
-
-# FOCUS PARENT/CHILD
-bindsym $mod+q focus parent
-bindsym $mod+d focus child
 
 
 # SWITCH TO WORKSPACE
@@ -123,16 +117,11 @@ bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym m resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -147,7 +136,7 @@ mode "resize" {
 # BAR
 
 bar {
-    status_command i3blocks -c $home/.config/i3/blocks
+    status_command i3blocks -c ~/.config/i3/blocks
     position bottom
     font pango:Noto Sans, Awesome 13
 
@@ -192,26 +181,24 @@ for_window [title="Segfault Simulator"] floating enable
 # SHORTCUTS: misc
 
 bindsym $mod+Shift+A kill
-bindsym $super+l exec --no-startup-id "/data/scripts/lock.sh"
+bindsym $super+l exec --no-startup-id "~/scripts/lock.sh"
 bindsym $mod+f fullscreen toggle
 # bindsym F11 fullscreen toggle
 
-bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 $home/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
-bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 $home/scripts/i3/brightness && pkill -RTMIN+11 i3blocks"
-bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 $home/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 $home/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 $home/scripts/i3/volume && pkill -RTMIN+10 i3blocks"
-#bindsym XF86TouchpadToggle exec --no-startup-id "$home/scripts/toggletouchpad.sh"
-bindsym Print exec --no-startup-id "$home/scripts/screenshot.sh"
-bindsym $super+Print exec --no-startup-id "$home/scripts/fscreenshot.sh"
-#bindsym XF86Display exec lxrandr
+bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts && pkill -RTMIN+11 i3blocks"
+bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym Print exec --no-startup-id "~/scripts/screenshot.sh"
+bindsym $super+Print exec --no-startup-id "~/scripts/fscreenshot.sh"
 
 
 # SHORTCUTS: cancer
 
-bindcode 135 exec --no-startup-id "play $home/static/cancer/AH.mp3"
-bindcode $ctrl+135 exec --no-startup-id "play $home/static/cancer/EQUILIBRE.wav"
-bindcode $alt+135 exec --no-startup-id "play $home/static/cancer/wdatsm.mp3"
+bindcode 135 exec --no-startup-id "play ~/static/cancer/AH.mp3"
+bindcode $ctrl+135 exec --no-startup-id "play ~/static/cancer/EQUILIBRE.wav"
+bindcode $alt+135 exec --no-startup-id "play ~/static/cancer/wdatsm.mp3"
 
 
 # SHORTCUTS: programs
@@ -234,14 +221,14 @@ assign [class="Slack"] $ws4
 
 # STARTUP
 
-exec_always --no-startup-id "$home/.fehbg"
+exec_always --no-startup-id "~/.fehbg"
 exec_always --no-startup-id "xset r rate 190 27"
 exec_always --no-startup-id "xset b 0 600 50"
 exec_always --no-startup-id "xset m 7/4 100"
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "clipster -d -f $home/.config/clipster/clipster.ini"
+exec --no-startup-id "clipster -d -f ~/.config/clipster/clipster.ini"
 exec --no-startup-id "redshift -l 48.8075:2.2620"
-exec --no-startup-id "compton --config $home/.config/compton.conf -b"
+exec --no-startup-id "compton --config ~/.config/compton.conf -b"
 exec --no-startup-id "dunst"
-exec --no-startup-id "udiskie -c $home/.config/udiskie/config.yml"
+exec --no-startup-id "udiskie -c ~/.config/udiskie/config.yml"
 exec_always --no-startup-id "setxkbmap -option caps:swapescape"

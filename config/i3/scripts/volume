@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Saumon i3blocks scripts : volume (display main volume, mute on right click and change on scroll)
+
+
+case $BLOCK_BUTTON in
+	3) pactl set-sink-mute 0 toggle;; # right click : toggle mute
+	4) pactl set-sink-volume 0 +2% ;; # scroll up : increase vol by 2%
+	5) pactl set-sink-volume 0 -2%;; # scroll down : decrease vol by 2%
+esac
+
+
+muted=$(pactl list sinks | grep "Mute: " | awk '{print $2}')
+volume=$(pactl list sinks | grep "Volume: " | head -n1 | awk '{print $5}' | tr -d '%')
+
+if [[ "$muted" == "yes" ]]; then
+	echo -n "<span color='#fa8026'>  (muted) $volume%</span>"
+elif [ $volume -ge 40 ]; then
+	echo -n "  $volume%"
+else
+	echo -n "  $volume%"
+fi
+
