@@ -2,5 +2,5 @@
 
 # Saumon i3blocks scripts : ping (display actual ping)
 
-ping=$(ping -c 1 8.8.8.8 | tail -n1 | awk '{print $4}' | cut -d '/' -f 2 | awk -F. '{print $1}' | tr -d '\n')
-perl -e 'print sprintf "% 2sms",shift' $ping
+ping -c 1 8.8.8.8 | tail -n1 | awk '{print $4}' | cut -d '/' -f 2 | awk -F. '{print $1}' | tr -d '\n'
+echo -n '<span font_size="small"> ms</span>'

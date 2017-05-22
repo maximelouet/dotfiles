@@ -11,4 +11,4 @@ esac
 
 echo -n "  "
 light | xargs printf %.0f
-echo -n "%"
+echo -n "<span font_size=\"small\">%</span>"

@@ -23,7 +23,7 @@ elif [ "$statusWIFI" = "up" ]; then
 	if [ "$IPaddr" = "" ]; then
 		echo -n '<span color="#fa8026"><b></b>  (no IP)</span>'
 	else
-		echo -n "<span color=\"#19ef5d\"><b></b>  $IPaddr</span> on $NetName"
+		echo -n "<span color=\"#19ef5d\"><b></b>  $IPaddr</span> <span font_size=\"small\">on</span> $NetName"
 	fi
 else
 	echo -n '<span color="#fa3826" font-weight="bold">INTERNET ?</span>'
