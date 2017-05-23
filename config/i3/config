@@ -185,7 +185,7 @@ bindsym $super+l exec --no-startup-id "~/scripts/lock.sh"
 bindsym $mod+f fullscreen toggle
 # bindsym F11 fullscreen toggle
 
-bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts && pkill -RTMIN+11 i3blocks"
+bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
 bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
 bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
