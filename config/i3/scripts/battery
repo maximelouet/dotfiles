@@ -30,5 +30,5 @@ else
 		color="#cccccc"
 		icon=""
 	fi
-	echo -n "<span color='$color'>$icon  $battCapacity<span font_size=\"small\">% ($battRemain)</span></span>"
+	echo -n "<span color='$color'>$icon  $battCapacity<span font_size=\"small\">%</span> ($battRemain)</span>"
 fi
