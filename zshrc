@@ -50,3 +50,19 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
 
 source /data/.zsh_aliases
 [[ -e /data/.zsh_private ]] && source /data/.zsh_private
+
+# fg when pressing Ctrl+Z
+function fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    if [[ $(jobs | wc -l) -gt 0 ]]; then
+      BUFFER="fg"
+      zle accept-line
+    fi
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
