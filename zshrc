@@ -32,7 +32,7 @@ export HISTSIZE=10000
 export SAVEHIST=50000
 
 ulimit -c 0
-export PATH="/usr/bin:/usr/local/bin:/usr/local/sbin:$HOME/.npm-global/bin:$HOME/.local/bin"
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/.npm-global/bin:$HOME/.local/bin"
 export WATCH='all'
 
 # Ignore .o when opening files with vim
