@@ -1,5 +1,9 @@
 # Saumon shell aliases and functions
 
+function has_command()
+{
+  command -v $1 > /dev/null 2>&1;
+}
 
 # go up in directory tree
 function up() {
@@ -43,48 +47,23 @@ function cx() {
 
 # delete temporary files
 function mr_clean() {
-  find -name "*~" -delete -o -name "#*#" -delete -o -name "a.out" -delete
+  find -name "*~" -delete -o -name "#*#" -delete -o -name "a.out" -delete -o -name ".#*" -delete
 }
 
 # better man pages
-function man() {
-  env \
-  LESS_TERMCAP_md=$'\e[01;31m' \
-  LESS_TERMCAP_me=$'\e[0m' \
-  LESS_TERMCAP_se=$'\e[0m' \
-  LESS_TERMCAP_so=$'\e[01;44;33m' \
-  LESS_TERMCAP_ue=$'\e[0m' \
-  LESS_TERMCAP_us=$'\e[01;32m' \
-  GROFF_NO_SGR=1 \
-  PAGER="less -X" \
-  _NROFF_U=1 \
-  man "$@"
-}
-
-# extract a file of any format
-function extract() {
-  if [ -f "$1" ] ; then
-    local filename=$(basename "$1")
-    local fullpath=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1"`
-    case $1 in
-      *.tar.bz2) tar xjf "$fullpath" ;;
-      *.tar.gz) tar xzf "$fullpath" ;;
-      *.tar.xz) tar Jxvf "$fullpath" ;;
-      *.tar.Z) tar xzf "$fullpath" ;;
-      *.tar) tar xf "$fullpath" ;;
-      *.taz) tar xzf "$fullpath" ;;
-      *.tb2) tar xjf "$fullpath" ;;
-      *.tbz) tar xjf "$fullpath" ;;
-      *.tbz2) tar xjf "$fullpath" ;;
-      *.tgz) tar xzf "$fullpath" ;;
-      *.txz) tar Jxvf "$fullpath" ;;
-      *.zip) unzip "$fullpath" ;;
-      *) echo "'$1' cannot be extracted via extract()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
+#function man() {
+#  env \
+#  LESS_TERMCAP_md=$'\e[01;31m' \
+#  LESS_TERMCAP_me=$'\e[0m' \
+#  LESS_TERMCAP_se=$'\e[0m' \
+#  LESS_TERMCAP_so=$'\e[01;44;33m' \
+#  LESS_TERMCAP_ue=$'\e[0m' \
+#  LESS_TERMCAP_us=$'\e[01;32m' \
+#  GROFF_NO_SGR=1 \
+#  PAGER="less -X" \
+#  _NROFF_U=1 \
+#  man "$@"
+#}
 
 # decode base64 shortcut
 function bd() {
@@ -93,10 +72,10 @@ function bd() {
 
 # prepare an epitech repo
 function prepus() {
-  blih -u $TEKUSER repository create $1
-  blih -u $TEKUSER repository setacl $1 ramassage-tek r
-  git clone git.epitech.eu:/$TEKUSER/$1 $1
-  cd $1
+  blih -u "$TEKLOGIN" repository create "$1"
+  blih -u "$TEKLOGIN" repository setacl "$1" ramassage-tek r
+  git clone "git@git.epitech.eu:/$TEKLOGIN/$1" "$1"
+  cd "$1"
   git commit -m "Initial commit" --allow-empty
   git push
 }
@@ -105,35 +84,32 @@ function prepus() {
 function repo() {
   case "$1" in
     prepare)
-      prepus
+      blih -u "$TEKLOGIN" repository create "$2"
+      blih -u "$TEKLOGIN" repository setacl "$2" ramassage-tek r
+      git clone "git@git.epitech.eu:/$TEKLOGIN/$2" "$2"
+      cd "$2"
+      git commit -m "Initial commit" --allow-empty
+      git push
       ;;
     create)
-      blih -u $TEKUSER repository create $2
-      blih -u $TEKUSER repository setacl $2 ramassage-tek r
+      blih -u "$TEKLOGIN" repository create "$2"
       ;;
     list)
-      blih -u $TEKUSER repository list | sort
+      blih -u "$TEKLOGIN" repository list | sort
       ;;
     delete)
-      blih -u $TEKUSER repository delete $2
+      blih -u "$TEKLOGIN" repository delete "$2"
       ;;
     getacl)
-      blih -u $TEKUSER repository getacl $2
+      blih -u "$TEKLOGIN" repository getacl "$2"
       ;;
     setacl)
-      blih -u $TEKUSER repository setacl $2 $3 $4
+      blih -u "$TEKLOGIN" repository setacl "$2" "$3" "$4"
       ;;
     clone)
-      git clone git@git.epitech.eu:/$TEKUSER/$2
+      git clone "git@git.epitech.eu:/$TEKLOGIN/$2"
       ;;
   esac
-}
-
-# load epitech graph programming env variables
-function graph_prog() {
-  export LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
-  export LD_LIBRARY_PATH=$LIBRARY_PATH:/data/.graph_programming/lib
-  export CPATH=$CPATH:/data/.graph_programming/include
 }
 
 # archlinux news
@@ -269,10 +245,10 @@ alias cp='cp -v'
 alias ln='ln -v'
 
 # edit shortcuts
-alias ve='v ~/.config/nvim/init.vim'
-alias ze='v ~/.zshrc'
-alias zea='v ~/.zsh_aliases'
-alias ie='v ~/.config/i3/config'
+alias ve="vim $HOME/.config/nvim/init.vim"
+alias ze="vim $HOME/.zshrc"
+alias zea="vim $HOME/.zsh_aliases"
+alias ie="vim $HOME/.config/i3/config"
 alias pe='sudo vim /etc/pacman.conf'
 alias ne='sudo vim /etc/nginx/nginx.conf'
 alias me='sudo vim /etc/pacman.d/mirrorlist'
@@ -295,7 +271,7 @@ alias yaoi='yaourt'
 alias fucking='sudo'
 alias ="echo \"Moi aussi je t'aime\";:"
 alias meurs='echo "Non."'
-alias ah='play /data/static/cancer/AH.mp3 > /dev/null 2>&1'
+alias ah="play $HOME/static/cancer/AH.mp3 > /dev/null 2>&1"
 
 # misc
 alias tree='tree -C'
@@ -312,26 +288,27 @@ alias path='echo $PATH | tr -s ":" "\n"'
 alias ff='find $1 -type f -name'
 alias pp="mpc toggle | tail -n2 | head -n1 | tr -d '[' | awk '{print \$1}' | tr -d ']' | tr '\n' ' ' | sed 's/playing//' | sed 's/paused//' && mpc status | head -n1"
 alias ccat='highlight -O ansi'
-alias :q='exit'
 alias timestamp='date +%s'
 alias norman='python2 /data/scripts/norman.py -nocheat -verbose -return -printline -score '
-alias beep_disable='xset b 0 600 50'
+alias beep_disable='xset b off'
 alias beep_enable='xset b 100 600 50'
 alias i3-info='i3-msg -t get_tree | jq'
+alias :q='exit'
 
 # shortcuts
 alias j='jobs'
 alias t='task'
 alias ta='tree -a'
 alias m='make -j'
+alias e='unarchive'
 
 # forecast
-alias weather="curl wttr.in"
-alias moon="curl wttr.in/Moon"
+alias weather='curl wttr.in'
+alias moon='curl wttr.in/Moon'
 
 # wine programs
 alias ida="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/IDA\ 6.8/idaq64.exe &"
 
 # epitech
 alias emacs='emacs -nw'
-alias blih='blih -u $TEKUSER'
+alias blih="blih -u $TEKLOGIN"
