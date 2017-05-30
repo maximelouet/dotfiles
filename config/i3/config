@@ -223,7 +223,7 @@ assign [class="Slack"] $ws4
 
 exec_always --no-startup-id "~/.fehbg"
 exec_always --no-startup-id "xset r rate 190 27"
-exec_always --no-startup-id "xset b 0 600 50"
+exec_always --no-startup-id "xset b off"
 exec_always --no-startup-id "xset m 7/4 100"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "clipster -d -f ~/.config/clipster/clipster.ini"
