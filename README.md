@@ -2,11 +2,9 @@
 
 My main personal configuration files.
 
-i3blocks scripts have been moved to another repository: [i3blocks-scripts](https://github.com/maximelouet/i3blocks-scripts).
-
 This repo currently contains configuration files for:
 
-* **[i3](https://i3wm.org/)** (`config/i3/config`) with **[i3blocks](https://github.com/vivien/i3blocks)** (`config/i3/blocks`)
+* **[i3](https://i3wm.org/)** (`config/i3/config`) with **[i3blocks](https://github.com/vivien/i3blocks)** (`config/i3/blocks`) and shell scripts for it (`config/i3/scripts`)
 * **[zsh](https://www.zsh.org/)** (`zshrc`) and many aliases (`zsh_aliases`), with **[prezto](https://github.com/sorin-ionescu/prezto/)** (`zpreztorc`) and a customized agnoster theme (`saumon.zsh-theme`)
 * **[neovim](https://neovim.io/)** (`config/nvim/`) with **[vim-airline](https://github.com/vim-airline/vim-airline)** and some other plugins
 * **[git](https://git-scm.com/)** (`gitconfig`)
