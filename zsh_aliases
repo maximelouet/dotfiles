@@ -295,6 +295,9 @@ alias beep_enable='xset b 100 600 50'
 alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
 
+# useful
+alias sp='git add --all && git commit -m "Sync commit" && git push'
+
 # shortcuts
 alias j='jobs'
 alias t='task'
