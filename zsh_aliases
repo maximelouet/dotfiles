@@ -252,6 +252,7 @@ alias ie="vim $HOME/.config/i3/config"
 alias pe='sudo vim /etc/pacman.conf'
 alias ne='sudo vim /etc/nginx/nginx.conf'
 alias me='sudo vim /etc/pacman.d/mirrorlist'
+alias he='sudo vim /etc/hosts'
 
 # corrections
 alias gti='echo "pauvre merde";git'
