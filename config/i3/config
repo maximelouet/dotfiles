@@ -198,7 +198,7 @@ bindsym $super+Print exec --no-startup-id "~/scripts/fscreenshot.sh"
 
 bindcode 135 exec --no-startup-id "play ~/static/cancer/AH.mp3"
 bindcode $ctrl+135 exec --no-startup-id "play ~/static/cancer/EQUILIBRE.wav"
-bindcode $alt+135 exec --no-startup-id "play ~/static/cancer/wdatsm.mp3"
+bindcode $alt+135 exec --no-startup-id "play ~/static/cancer/google-it.mp3"
 
 
 # SHORTCUTS: programs
