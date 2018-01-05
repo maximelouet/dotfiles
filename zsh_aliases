@@ -229,7 +229,7 @@ else
 fi
 
 # arch keyring
-alias key-update='sudo pacman-key --populate archlinux'
+alias key-update='sudo rm -rf /etc/pacman.d/gnupg ; sudo pacman-key --init; sudo pacman-key --populate archlinux; sudo pacman -S archlinux-keyring ;sudo pacman-key --refresh'
 alias key-add='gpg --recv-key'
 function key-sign()
 {
