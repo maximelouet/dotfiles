@@ -148,6 +148,21 @@ function alias_saumon() {
   alias ne="sudo vim /etc/nginx/nginx.conf"
 }
 
+# set perfect permissions for web-browseable directories
+function webperms() {
+  if [ $# -ne 1 ]; then
+    printf "Missing parameter: directory.\n"
+    return 1
+  fi
+  printf "Setting owner and group... "
+  sudo chown -R www-data:www-data $1;
+  printf "\nSetting permissions... "
+  sudo chmod -R 770 $1;
+  printf "\nRemoving execute access on files... "
+  sudo find $1 -type f -exec chmod 660 {} \;
+  printf "\nDone!\n"
+}
+
 
 # systemctl
 user_commands=(
