@@ -12,4 +12,4 @@ else
   spanarg=""
 fi
 
-echo -n "<span$spanargs>  $number</span>"
+echo -n "<span$spanargs><b>  </b>$number</span>"

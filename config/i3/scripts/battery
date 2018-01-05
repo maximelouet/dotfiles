@@ -15,9 +15,9 @@ if [ \( "$battStatus" = "Charging" \) -o \( "$battRemain" = "discharg" \) -o \( 
 		color="#cccccc"
 	fi
 	if [ $battCapacity -lt "95" ]; then
-		echo -n "<span color='$color'>  $battCapacity<span font_size=\"small\">%</span></span>"
+		echo -n "<span color='$color'><b>  </b>$battCapacity<span font_size=\"small\">%</span></span>"
 	else
-		echo -n "<span color='$color'>  $battCapacity<span font_size=\"small\">%</span></span>"
+		echo -n "<span color='$color'><b>  </b>$battCapacity<span font_size=\"small\">%</span></span>"
 	fi
 else
 	if [ $battCapacity -lt "20" ]; then
@@ -30,5 +30,5 @@ else
 		color="#cccccc"
 		icon=""
 	fi
-	echo -n "<span color='$color'>$icon  $battCapacity<span font_size=\"small\">%</span> ($battRemain)</span>"
+	echo -n "<span color='$color'>$icon<b>  </b>$battCapacity<span font_size=\"small\">%</span> ($battRemain)</span>"
 fi
