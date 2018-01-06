@@ -101,8 +101,8 @@ hi NonText ctermfg=241 ctermbg=none
 hi SpecialKey ctermfg=241 ctermbg=none
 
 " Correct indentation (for Epitech currently)
-set softtabstop=2
-set shiftwidth=2
+set tabstop=8
+set shiftwidth=8
 
 " But still insert tab
 inoremap ² <C-V><Tab>
