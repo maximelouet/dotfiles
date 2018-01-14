@@ -1,0 +1,33 @@
+global !p
+import locale
+
+locale.setlocale(locale.LC_ALL, 'C');
+
+endglobal
+
+snippet header "Epitech standard epitech"
+//
+// EPITECH PROJECT, 2018
+// ${1}
+// File description:
+// ${2}
+//
+
+
+endsnippet
+
+snippet main "Basic main"
+int main(int ac, char **av)
+{
+	$0
+	return (0);
+}
+endsnippet
+
+snippet class "Class"
+class $1 {
+public:
+	$1();
+private:
+};
+endsnippet
