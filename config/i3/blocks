@@ -12,6 +12,7 @@ interval=once
 
 [mpd]
 interval=10
+signal=13
 
 [separator]
 
