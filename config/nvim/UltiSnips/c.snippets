@@ -8,12 +8,12 @@ endglobal
 snippet header "Epitech standard epitech"
 //
 // EPITECH PROJECT, 2018
-// ${1}
+// project
 // File description:
-// ${2}
+// file
 //
 
-
+$0
 endsnippet
 
 snippet main "Basic main"
@@ -28,6 +28,17 @@ snippet class "Class"
 class $1 {
 public:
 	$1();
+private:
+};
+endsnippet
+
+snippet cclass "Coplien Class"
+class $1 {
+public:
+	$1();
+	$1(const $1 &other);
+	~$1();
+	$1 &operator=(const $1 &other);
 private:
 };
 endsnippet
