@@ -1,2 +1,2 @@
-feh --no-fehbg --bg-fill '/data/static/loading-wallpaper'
+feh --no-fehbg --bg-fill '/home/saumon/images/current-wallpaper'
 exec i3

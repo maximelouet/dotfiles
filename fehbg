@@ -1,2 +1,2 @@
 #!/bin/sh
-'feh' '--bg-fill' '/data/static/current-wallpaper' 
+'feh' '--bg-fill' '~/images/current-wallpaper' 
