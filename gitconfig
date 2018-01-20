@@ -9,10 +9,12 @@
 	cmm = commit --verbose -m
 	st = status
 	p = pull
+	pouche = push
 	poule = pull
+	poulet = pull
 	pa = pull --all
 	c = checkout
-	amend = commit --amend --no-edit --reset-author
+	amend = commit --amend
 	tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
 	abort = rebase --abort
 	continue = rebase --continue
