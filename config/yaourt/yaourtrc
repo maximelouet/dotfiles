@@ -20,12 +20,6 @@
 #SUDONOVERIF=0      # Avoid multiple sudo checks when timestamp_timeout=0
 #SUDOREDIRECT=1     # Define to 0 in case you use a fingerprint device
 
-# ABS
-#USE_GIT=0
-# If the package "abs" is installed, those var are parsed from abs.conf
-#REPOS=()           # REPOS available at $SYNCSERVER
-#SYNCSERVER=""
-
 # AUR
 #AURURL="https://aur.archlinux.org"
 #AURCOMMENT=5
@@ -58,7 +52,7 @@ EDITFILES=0
 #TERMINALTITLE=1
 
 # Command
-#PACMAN="pacman"
+PACMAN="pacmatic"
 #MAKEPKG="makepkg"
 #DIFFEDITCMD="vimdiff"
 
