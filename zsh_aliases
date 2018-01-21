@@ -163,6 +163,10 @@ function webperms() {
   printf "\nDone!\n"
 }
 
+function wifi() {
+  nmcli dev wifi connect $1 password $2
+}
+
 
 # systemctl
 user_commands=(
