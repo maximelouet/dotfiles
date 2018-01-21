@@ -15,7 +15,7 @@ act() {
         echo -n "$status" | head -n1 | tr -d '\n'
     else
         echo -n '<span color="#999">' # music icon
-        echo -n '<b>  </p>'
+        echo -n '<b>  </b>'
         echo -n "Stopped"
     fi
     echo -n "</span>"
