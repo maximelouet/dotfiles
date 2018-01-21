@@ -9,17 +9,17 @@ set $alt Mod1
 set $super Mod4
 set $ctrl Control
 set $shift Shift
-set $ws0 " 0 "
-set $ws1 " 1 "
-set $ws2 " 2 "
-set $ws3 " 3 "
-set $ws4 " 4 "
-set $ws5 " 5 "
-set $ws6 " 6 "
-set $ws7 " 7 "
-set $ws8 " 8 "
-set $ws9 " 9 "
-set $ws10 " π "
+set $ws0 "  0  "
+set $ws1 "  1  "
+set $ws2 "  2  "
+set $ws3 "  3  "
+set $ws4 "  4  "
+set $ws5 "  5  "
+set $ws6 "  6  "
+set $ws7 "  7  "
+set $ws8 "  8  "
+set $ws9 "  9  "
+set $ws10 "  π  "
 set $terminal "termite"
 
 
@@ -140,16 +140,18 @@ bar {
     position bottom
     font pango:Noto Sans, Awesome 13
 
+    height 35
+
     colors {
-        background #1c3542
+        background #263238
         statusline #cccccc
 
-#       <colorclass> <border> <background> <text>
-        focused_workspace  #12846e #12846e #ffffff
-        active_workspace   #12846e #12846e #ffffff
-        inactive_workspace #22445a #22445a #999999
-        urgent_workspace   #902020 #902020 #ffffff
-        binding_mode       #902020 #902020 #ffffff
+#       <colorclass>    <border> <background> <text>
+        focused_workspace  #6C3FBC #6C3FBC #ffffff
+        active_workspace   #6C3FBC #6C3FBC #ffffff
+        inactive_workspace #22445a #22445a #aaaaaa
+        urgent_workspace   #E53935 #E53935 #ffffff
+        binding_mode       #EF6C00 #EF6C00 #ffffff
     }
 
 }
@@ -177,6 +179,8 @@ for_window [window_role="(?i)about"] floating enable
 for_window [title="Network Operations Manager"] floating enable
 for_window [title="Volume Control"] floating enable
 for_window [title="Segfault Simulator"] floating enable
+for_window [title="^Task Manager"] floating enable
+for_window [title="Network Connections"] floating enable
 
 
 # SHORTCUTS: misc
@@ -229,9 +233,9 @@ exec_always --no-startup-id "xset r rate 190 27"
 exec_always --no-startup-id "xset b off"
 exec_always --no-startup-id "xset m 7/4 100"
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "clipster -d -f ~/.config/clipster/clipster.ini"
-exec --no-startup-id "redshift -l 48.8075:2.2620"
 exec --no-startup-id "compton --config ~/.config/compton.conf -b"
+exec --no-startup-id "redshift -l 48.8075:2.2620"
 exec --no-startup-id "dunst"
 exec --no-startup-id "udiskie -c ~/.config/udiskie/config.yml"
+exec --no-startup-id "clipster -d -f ~/.config/clipster/clipster.ini"
 exec_always --no-startup-id "setxkbmap -option caps:swapescape"
