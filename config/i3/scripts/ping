@@ -3,7 +3,7 @@
 # Saumon i3blocks scripts : ping (display actual ping)
 
 re='^[0-9]+$'
-ping=$(ping -w 1 -c 1 8.8.8.8 | tail -n1 | awk '{print $4}' | cut -d '/' -f 2 |	awk -F. '{print $1}' | tr -d '\n')
+ping=$(ping -w 2 -c 1 8.8.8.8 | tail -n1 | awk '{print $4}' | cut -d '/' -f 2 |	awk -F. '{print $1}' | tr -d '\n')
 if ! [[ $ping =~ $re ]] ; then
     echo -n '<span color="#fa3826"></span>'
 else
