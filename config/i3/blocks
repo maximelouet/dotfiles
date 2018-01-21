@@ -18,6 +18,7 @@ signal=13
 
 [INTERNET]
 interval=5
+signal=14
 
 [separator]
 

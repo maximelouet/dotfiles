@@ -55,3 +55,9 @@
     foreground = "#aa0000"
     frame_color = "#ff0000"
     timeout = 20
+
+
+# custom
+[network]
+    appname = "NetworkManager"
+    script = /home/saumon/scripts/dunst_endpoint.sh
