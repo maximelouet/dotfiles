@@ -10,7 +10,7 @@
     ignore_newline = no
     format = "<b>%s</b>\n%b\n%p"
     icon_position = left
-    max_icon_size = 32
+    max_icon_size = 36
 
     sort = yes
     indicate_hidden = yes
