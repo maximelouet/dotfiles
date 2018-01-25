@@ -211,7 +211,7 @@ bindcode $alt+135 exec --no-startup-id "play ~/cancer/google-it.mp3"
 bindsym $super+e exec "thunar"
 bindsym $super+f exec "chromium"
 
-bindsym $super+w exec --no-startup-id zsh -c "rofi -show run"
+bindsym $super+w exec --no-startup-id "rofi -show drun -show-icons"
 
 # bindsym $mod+Return exec "gnome-calculator"
 bindsym $mod+Return exec $terminal
