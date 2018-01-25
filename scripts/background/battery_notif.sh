@@ -7,8 +7,8 @@ battRemain=$(echo $battInfo | awk '/ / {print $5}' | sed 's/...$//' | tr -d '\n'
 
 if [ \( "$battStatus" != "Charging" \) ]; then
 	if [ $battCapacity -lt "20" ]; then
-		notify-send -u critical 'Very low battery' --icon=battery-caution
+		notify-send -u critical "Very low battery" "($battCapacity%)" --icon=battery-caution
 	elif [ $battCapacity -lt "40" ]; then
-		notify-send 'Low battery' --icon=battery-low
+		notify-send "Low battery" "($battCapacity%)" --icon=battery-low
 	fi
 fi
