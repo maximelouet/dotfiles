@@ -6,13 +6,13 @@ let $VIMHOME = glob('/data/.config/nvim')
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'maximelouet/nvim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
+Plug 'w0rp/ale'
 call plug#end()
 
 " Plugins configurations
