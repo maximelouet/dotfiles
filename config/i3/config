@@ -182,6 +182,7 @@ for_window [title="Volume Control"] floating enable
 for_window [title="Segfault Simulator"] floating enable
 for_window [title="^Task Manager"] floating enable
 for_window [title="Network Connections"] floating enable
+for_window [title="Qt Configuration"] floating enable
 
 
 # SHORTCUTS: misc
