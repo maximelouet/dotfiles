@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
 battInfo=$(acpi)
 battStatus=$(echo $battInfo | awk '/ / {print $3}' | tr -d ',')
 battCapacity=$(echo $battInfo | awk '/ / {print $4}' | tr -d '%,\n')
