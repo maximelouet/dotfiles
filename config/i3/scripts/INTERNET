@@ -21,9 +21,9 @@ elif [ "$statusWIFI" = "up" ]; then
 	IPaddr=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n')
 	NetName=$(iwgetid -r | tr -d '\n')
 	if [ "$IPaddr" = "" ]; then
-		echo -n '<span color="#fa8026"><b></b>  (no IP)</span>'
+		echo -n '<span color="#fa8026">  (no IP)</span>'
 	else
-		echo -n "<span color=\"#19ef5d\"><b></b>  $IPaddr</span> <span font_size=\"small\">on</span> $NetName"
+		echo -n "<span color=\"#19ef5d\">  $IPaddr</span> <span font_size=\"small\">on</span> $NetName"
 	fi
 else
 	echo -n '<span color="#fa3826" font-weight="bold">INTERNET ?</span>'

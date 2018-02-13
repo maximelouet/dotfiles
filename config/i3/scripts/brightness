@@ -9,6 +9,6 @@ case $BLOCK_BUTTON in
 esac
 
 
-echo -n "<b>  </b>"
+echo -n "  "
 light | xargs printf %.0f
 echo -n "<span font_size=\"small\">%</span>"

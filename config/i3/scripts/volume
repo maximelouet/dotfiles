@@ -14,10 +14,10 @@ muted=$(pactl list sinks | grep "Mute: " | awk '{print $2}')
 volume=$(pactl list sinks | grep "Volume: " | head -n1 | awk '{print $5}' | tr -d '%')
 
 if [[ "$muted" == "yes" ]]; then
-	echo -n "<span color='#fa8026'><b>  </b>(muted) $volume<span font_size=\"small\">%</span></span>"
+	echo -n "<span color='#fa8026'>  (muted) $volume<span font_size=\"small\">%</span></span>"
 elif [ $volume -ge 40 ]; then
-      echo -n "<b>  </b>$volume<span font_size=\"small\">%</span>"
+      echo -n "  $volume<span font_size=\"small\">%</span>"
 else
-	echo -n "<b>  </b>$volume<span font_size=\"small\">%</span>"
+	echo -n "  $volume<span font_size=\"small\">%</span>"
 fi
 
