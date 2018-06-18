@@ -2,4 +2,4 @@
 
 # Saumon i3blocks scripts : separator (display a separator symbol)
 
-echo -n '<span color="#bbbbbb">  /  </span>'
+echo -n '<span color="#aaa">  <b>·</b>  </span>'

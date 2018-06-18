@@ -24,7 +24,7 @@ export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export CASE_SENSITIVE='true'
 export CLICOLOR=1
-export DISPLAY="${DISPLAY:-:0}"
+#export DISPLAY="${DISPLAY:-:0}"
 export TZ='Europe/Paris'
 
 export HISTFILE="$HOME/.zsh_history"
@@ -58,3 +58,5 @@ source "$HOME/.zsh_aliases"
 if [ -f "$HOME/.zsh_private" ]; then
   source "$HOME/.zsh_private"
 fi
+
+[ -f "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"

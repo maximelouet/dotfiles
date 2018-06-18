@@ -4,18 +4,18 @@ import locale
 locale.setlocale(locale.LC_ALL, 'C');
 
 def getHeaderName():
-  return snip.fn.replace(' ', '')[:-4].upper()
+  return snip.fn.replace(' ', '')[:-2].upper()
 
 endglobal
 
 
 
 snippet ifndef "Protect header double inclusion"
-#ifndef `!p snip.rv = getHeaderName()`_HPP
-	#define `!p snip.rv = getHeaderName()`_HPP
+#ifndef `!p snip.rv = getHeaderName()`_H
+	#define `!p snip.rv = getHeaderName()`_H
 
 $0
 
-#endif // !`!p snip.rv = getHeaderName()`_HPP
+#endif // !`!p snip.rv = getHeaderName()`_H
 endsnippet
 

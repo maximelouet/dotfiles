@@ -23,7 +23,7 @@ signal=14
 [separator]
 
 [ping]
-interval=2
+interval=10
 
 [separator]
 

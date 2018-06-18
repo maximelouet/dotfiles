@@ -9,10 +9,10 @@ set $alt Mod1
 set $super Mod4
 set $ctrl Control
 set $shift Shift
-set $ws0 "  0  "
-set $ws1 "  1  "
-set $ws2 "  2  "
-set $ws3 "  3  "
+set $ws0 " 0: SSH "
+set $ws1 " 1: Web "
+set $ws2 " 2: Code "
+set $ws3 " 3: Messaging "
 set $ws4 "  4  "
 set $ws5 "  5  "
 set $ws6 "  6  "
@@ -138,9 +138,10 @@ mode "resize" {
 bar {
     status_command i3blocks -c ~/.config/i3/blocks
     position bottom
+    #strip_workspace_numbers yes
     font pango:Noto Sans, Awesome 13
 
-    height 35
+    height 38
 
     colors {
         background #263238
@@ -183,6 +184,14 @@ for_window [title="Segfault Simulator"] floating enable
 for_window [title="^Task Manager"] floating enable
 for_window [title="Network Connections"] floating enable
 for_window [title="Qt Configuration"] floating enable
+for_window [title="Plugins"] floating enable
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
 
 # SHORTCUTS: misc
@@ -204,13 +213,13 @@ bindsym $super+Print exec --no-startup-id "~/scripts/fscreenshot.sh"
 # SHORTCUTS: cancer
 
 bindcode 135 exec --no-startup-id "play ~/cancer/AH.mp3"
-bindcode $ctrl+135 exec --no-startup-id "play ~/cancer/EQUILIBRE.wav"
+bindcode $ctrl+135 exec --no-startup-id "play ~/cancer/ACH.mp3"
 bindcode $alt+135 exec --no-startup-id "play ~/cancer/google-it.mp3"
 
 
 # SHORTCUTS: programs
 
-bindsym $super+e exec "thunar"
+bindsym $super+e exec "nemo"
 bindsym $super+f exec "chromium"
 
 bindsym $super+w exec --no-startup-id "rofi -show drun -show-icons"
@@ -223,21 +232,31 @@ bindsym $super+c exec "clipster -s"
 
 # ASSIGNMENTS
 
-assign [class="(?i)caprine"] $ws3
-assign [class="(?i)discord"] $ws3
-assign [class="(?i)slack"] $ws4
+#assign [class="(?i)caprine"] $ws3
+#assign [class="(?i)discord"] $ws3
+#assign [class="(?i)slack"] $ws4
 
 
 # STARTUP
 
-exec_always --no-startup-id "~/.fehbg"
-exec_always --no-startup-id "xset r rate 190 27"
+exec_always --no-startup-id "feh --no-fehbg --bg-fill '/home/saumon/images/current-wallpaper'"
+exec_always --no-startup-id "xset -dpms"
 exec_always --no-startup-id "xset b off"
 exec_always --no-startup-id "xset m 7/4 100"
+exec_always --no-startup-id "xset s 300"
+exec_always --no-startup-id "xset r rate 190 27"
+exec_always --no-startup-id "setxkbmap -option caps:swapescape"
+exec_always --no-startup-id "xautolock -time 10 -locker /home/saumon/scripts/lock.sh"
+
+exec --no-startup-id "xss-lock /home/saumon/scripts/lock.sh"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "compton --config ~/.config/compton.conf -b"
 exec --no-startup-id "redshift -l 48.8075:2.2620"
 exec --no-startup-id "dunst"
 exec --no-startup-id "udiskie -c ~/.config/udiskie/config.yml"
 exec --no-startup-id "clipster -d -f ~/.config/clipster/clipster.ini"
-exec_always --no-startup-id "setxkbmap -option caps:swapescape"
+exec --no-startup-id "i3-msg 'workspace \" 3: Messaging \"; append_layout /home/saumon/.config/i3/workspace-3.json'"
+exec --no-startup-id "i3-msg 'workspace \" 1: Web \"'; exec chromium"
+exec "caprine"
+exec "/home/saumon/software/dynalist/dynalist"
+exec "discord"

@@ -3,6 +3,7 @@
 	email = maxime@saumon.io
 [core]
 	editor = vim
+	autocrlf = input
 [alias]
 	ass = add
 	cm = commit --verbose

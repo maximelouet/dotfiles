@@ -11,8 +11,9 @@ Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'maximelouet/nvim-colors-solarized'
 Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'w0rp/ale'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " Plugins configurations
@@ -30,15 +31,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 filetype plugin indent on
 
 "Syntax check
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
+let g:ale_lint_delay = 800
+let g:ale_c_gcc_options = '-std=c17 -Wall -Wextra'
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark " or light

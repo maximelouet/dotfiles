@@ -28,7 +28,7 @@
     line_height = 0
     separator_height = 4
     padding = 20
-    horizontal_padding = 6
+    horizontal_padding = 8
     separator_color = "#ffffff"
     frame_width = 2
     frame_color = "#000000"
