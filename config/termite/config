@@ -1,5 +1,5 @@
 [options]
-font = Inconsolata-g for Powerline 15
+font = Inconsolata-g for Powerline 14
 
 audible_bell = true
 visible_bell = true

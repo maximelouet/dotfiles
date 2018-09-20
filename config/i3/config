@@ -186,6 +186,8 @@ for_window [title="Network Connections"] floating enable
 for_window [title="Qt Configuration"] floating enable
 for_window [title="Plugins"] floating enable
 
+for_window [class="babel_client"] floating enable
+
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -232,8 +234,8 @@ bindsym $super+c exec "clipster -s"
 
 # ASSIGNMENTS
 
-#assign [class="(?i)caprine"] $ws3
-#assign [class="(?i)discord"] $ws3
+assign [class="(?i)caprine"] $ws3
+assign [class="(?i)discord"] $ws3
 #assign [class="(?i)slack"] $ws4
 
 
@@ -246,7 +248,8 @@ exec_always --no-startup-id "xset m 7/4 100"
 exec_always --no-startup-id "xset s 300"
 exec_always --no-startup-id "xset r rate 190 27"
 exec_always --no-startup-id "setxkbmap -option caps:swapescape"
-exec_always --no-startup-id "xautolock -time 10 -locker /home/saumon/scripts/lock.sh"
+
+exec --no-startup-id "xautolock -time 10 -locker /home/saumon/scripts/lock.sh"
 
 exec --no-startup-id "xss-lock /home/saumon/scripts/lock.sh"
 exec --no-startup-id "nm-applet"
@@ -254,9 +257,10 @@ exec --no-startup-id "compton --config ~/.config/compton.conf -b"
 exec --no-startup-id "redshift -l 48.8075:2.2620"
 exec --no-startup-id "dunst"
 exec --no-startup-id "udiskie -c ~/.config/udiskie/config.yml"
-exec --no-startup-id "clipster -d -f ~/.config/clipster/clipster.ini"
-exec --no-startup-id "i3-msg 'workspace \" 3: Messaging \"; append_layout /home/saumon/.config/i3/workspace-3.json'"
-exec --no-startup-id "i3-msg 'workspace \" 1: Web \"'; exec chromium"
-exec "caprine"
-exec "/home/saumon/software/dynalist/dynalist"
-exec "discord"
+exec --no-startup-id "copyq"
+exec --no-startup-id "twmnd"
+#exec --no-startup-id "i3-msg 'workspace \" 3: Messaging \"; append_layout /home/saumon/.config/i3/workspace-3.json'"
+exec --no-startup-id "i3-msg 'workspace \" 1: Web \"'"
+#exec "caprine"
+#exec "/home/saumon/software/dynalist/dynalist"
+#exec "discord"

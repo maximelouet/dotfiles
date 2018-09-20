@@ -33,7 +33,7 @@ signal=11
 [separator]
 
 [volume]
-interval=30
+interval=10
 signal=10
 
 [separator]

@@ -28,7 +28,7 @@ zstyle ':prezto:module:autosuggestions:color' found 'fg=8'
 
 # Set the prompt theme to load. Set it to 'random' to load a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'saumon'
+zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'
