@@ -1,5 +1,7 @@
 # Saumon dotfiles
 
+[![GuardRails badge](https://badges.production.guardrails.io/maximelouet/dotfiles.svg)](https://www.guardrails.io)
+
 My main personal configuration files.
 
 This repo currently contains configuration files for:
