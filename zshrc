@@ -11,7 +11,7 @@ source "$HOME/.zprezto/init.zsh" # prezto
 export TERM='xterm-256color'
 export PAGER='less -X'
 export MANPAGER="$PAGER"
-export TERMINAL='termite'
+export TERMINAL='alacritty'
 export BROWSER='chromium'
 if command -v nvim > /dev/null 2>&1; then
   export EDITOR='nvim'
@@ -22,6 +22,7 @@ else
 fi
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export CASE_SENSITIVE='true'
 export CLICOLOR=1
 #export DISPLAY="${DISPLAY:-:0}"
