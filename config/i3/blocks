@@ -11,7 +11,7 @@ markup=pango
 interval=once
 
 [mpd]
-interval=10
+interval=20
 signal=13
 
 [separator]
