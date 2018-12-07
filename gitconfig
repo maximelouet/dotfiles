@@ -6,9 +6,8 @@
 	autocrlf = input
 [alias]
 	ass = add
-	cm = commit -s
-	cmm = commit -sm
-	commit = commit -s
+	cm = commit
+	cmm = commit -m
 	st = status
 	p = pull
 	pouche = push
