@@ -234,6 +234,7 @@ alias llag='lla -g'
 # package management
 if has_command yaourt; then
   alias maj='yaourt -Syua'
+  alias majf='yaourt -Syua --devel'
   alias install='yaourt -S'
   alias remove='yaourt -Rn'
   alias remover='yaourt -Rnsu'
