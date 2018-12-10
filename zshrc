@@ -61,3 +61,5 @@ if [ -f "$HOME/.zsh_private" ]; then
 fi
 
 [ -f "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
+
+eval $(thefuck --alias)
