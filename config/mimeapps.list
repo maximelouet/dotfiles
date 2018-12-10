@@ -21,6 +21,7 @@ application/pcx=gpicview.desktop
 image/svg+xml=gpicview.desktop
 image/svg-xml=gpicview.desktop
 video/mp4=org.xfce.Parole.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 
 [Added Associations]
 audio/flac=userapp-vlc-23OQCZ.desktop;vlc.desktop;
