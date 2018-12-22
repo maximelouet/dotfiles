@@ -6,8 +6,9 @@
 	autocrlf = input
 [alias]
 	ass = add
-	cm = commit
-	cmm = commit -m
+	cm = commit -S
+	cmm = commit -mS
+	commit = commit -S
 	st = status
 	p = pull
 	pouche = push
@@ -15,7 +16,7 @@
 	poulet = pull
 	pa = pull --all
 	c = checkout
-	amend = commit -s --amend
+	amend = commit -S --amend
 	tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
 	abort = rebase --abort
 	continue = rebase --continue
@@ -35,3 +36,4 @@
 	new = green
 [commit]
 	verbose = true
+	gpgsign = true
