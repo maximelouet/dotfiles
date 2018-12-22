@@ -1,14 +1,14 @@
 [user]
 	name = Maxime Louet
 	email = maxime@saumon.io
+	signingkey = 2F4128BBA7D38E0BF55DCABED2699CC1344BC51F
 [core]
 	editor = vim
 	autocrlf = input
 [alias]
 	ass = add
-	cm = commit -S
-	cmm = commit -mS
-	commit = commit -S
+	cm = commit
+	cmm = commit -m
 	st = status
 	p = pull
 	pouche = push
@@ -16,13 +16,14 @@
 	poulet = pull
 	pa = pull --all
 	c = checkout
-	amend = commit -S --amend
+	amend = commit --amend
 	tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
 	abort = rebase --abort
 	continue = rebase --continue
 	re = !git fetch && git rebase origin/master
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 	yolo = '!git log --no-merges --oneline | awk -F' ' '{print $1}' | sort -R | head -n1 | xargs git revert'
+	logs = log --show-signature
 [color]
 	ui = auto
 [color "branch"]
