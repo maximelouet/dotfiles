@@ -20,8 +20,8 @@ else
   export EDITOR='vim'
   export VISUAL='vim'
 fi
-export LANG='en_US.UTF-8'
-export LC_ALL='en_US.UTF-8'
+export LANG='en_GB.UTF-8'
+export LC_ALL='en_GB.UTF-8'
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export CASE_SENSITIVE='true'
 export CLICOLOR=1
