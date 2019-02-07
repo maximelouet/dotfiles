@@ -1,28 +1,21 @@
 " Saumon NeoVim config
 
-let $VIMHOME = glob('/data/.config/nvim')
+let $VIMHOME = glob('/home/saumon/.config/nvim')
 
 " Plug (owi)
 call plug#begin()
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
-Plug 'maximelouet/nvim-colors-solarized'
 Plug 'tpope/vim-commentary'
-" Plug 'jiangmiao/auto-pairs'
-" Plug 'w0rp/ale'
 Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " Plugins configurations
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1 " needed for powerline
-let g:airline_skip_empty_sections = 1
-let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
-let g:airline_theme = 'badwolf'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1 " needed for powerline
+"let g:airline_skip_empty_sections = 1
+"let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+"let g:airline_theme = 'badwolf'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -36,7 +29,7 @@ let g:ale_c_gcc_options = '-std=c17 -Wall -Wextra'
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark " or light
-colorscheme solarized
+"colorscheme solarized
 
 
 set termguicolors
@@ -94,9 +87,12 @@ set list
 hi NonText ctermfg=241 ctermbg=none
 hi SpecialKey ctermfg=241 ctermbg=none
 
-" Correct indentation (for Epitech currently)
-set tabstop=8
-set shiftwidth=8
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
 " But still insert tab
 inoremap ² <C-V><Tab>
