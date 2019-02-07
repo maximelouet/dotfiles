@@ -9,10 +9,10 @@ set $alt Mod1
 set $super Mod4
 set $ctrl Control
 set $shift Shift
-set $ws0 " 0: SSH "
-set $ws1 " 1: Web "
-set $ws2 " 2: Code "
-set $ws3 " 3: Messaging "
+set $ws0 "  0  "
+set $ws1 "  1  "
+set $ws2 "  2  "
+set $ws3 "  3  "
 set $ws4 "  4  "
 set $ws5 "  5  "
 set $ws6 "  6  "
@@ -20,7 +20,7 @@ set $ws7 "  7  "
 set $ws8 "  8  "
 set $ws9 "  9  "
 set $ws10 "  π  "
-set $terminal "termite"
+set $terminal "alacritty"
 
 
 # FONT
@@ -100,7 +100,7 @@ bindcode $mod+Shift+19 move container to workspace $ws10
 
 
 # Reload the configuration file
-# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload
 
 
 # RESTART i3
@@ -108,7 +108,12 @@ bindsym $mod+Shift+r restart
 
 
 # EXIT i3
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+f exit
+
+
+# Three fingers swipe
+bindsym --whole-window button19 workspace prev
+bindsym --whole-window button17 workspace next
 
 
 # RESIZE MODE
@@ -138,33 +143,31 @@ mode "resize" {
 bar {
     status_command i3blocks -c ~/.config/i3/blocks
     position bottom
-    #strip_workspace_numbers yes
     font pango:Noto Sans, Awesome 13
 
     height 38
 
     colors {
-        background #263238
-        statusline #cccccc
+        background #000000
+        statusline #ccccdc
 
 #       <colorclass>    <border> <background> <text>
-        focused_workspace  #6C3FBC #6C3FBC #ffffff
-        active_workspace   #6C3FBC #6C3FBC #ffffff
-        inactive_workspace #22445a #22445a #aaaaaa
-        urgent_workspace   #E53935 #E53935 #ffffff
+        focused_workspace  #8910e8 #8910e8 #ffffff
+        active_workspace   #8910e8 #8910e8 #ffffff
+        inactive_workspace #1f1f2f #1f1f2f #bbbbbb
+        urgent_workspace   #f44336 #f44336 #ffffff
         binding_mode       #EF6C00 #EF6C00 #ffffff
     }
-
 }
 
 
 # DESIGN
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #199c95 #199c95 #ffffff #00DA8E
+client.focused          #8910e8 #8910e8 #ffffff #00DA8E
 client.focused_inactive #333333 #5F676A #ffffff #484e50
 client.unfocused        #333333 #424242 #8f8f8f #292d2e
-client.urgent           #902020 #902020 #ffffff #900000
+client.urgent           #f44336 #f44336 #ffffff #900000
 
 # no borders on new windows
 new_window none
@@ -172,10 +175,16 @@ new_window none
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gpicview"] floating enable
+for_window [class="Gpicview"] resize set 1408 792
+for_window [class="Gpicview"] move position center
 for_window [class="Parole"] floating enable
 for_window [class="imv"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [class="Lxappearance"] floating enable
+for_window [class="nitrogen"] floating enable
+for_window [class="sun-awt-X11-XDialogPeer"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Chromium" window_role="app"] floating enable
 for_window [window_role="(?i)pop-up"] floating enable
 for_window [window_role="(?i)about"] floating enable
 for_window [title="Network Operations Manager"] floating enable
@@ -185,8 +194,7 @@ for_window [title="^Task Manager"] floating enable
 for_window [title="Network Connections"] floating enable
 for_window [title="Qt Configuration"] floating enable
 for_window [title="Plugins"] floating enable
-
-for_window [class="babel_client"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -199,17 +207,18 @@ for_window [window_type="menu"] floating enable
 # SHORTCUTS: misc
 
 bindsym $mod+Shift+A kill
-bindsym $super+l exec --no-startup-id "~/scripts/lock.sh"
 bindsym $mod+f fullscreen toggle
-# bindsym F11 fullscreen toggle
 
 bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
 bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
 bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+
 bindsym Print exec --no-startup-id "~/scripts/screenshot.sh"
-bindsym $super+Print exec --no-startup-id "~/scripts/fscreenshot.sh"
+bindsym $super+Print exec --no-startup-id "~/scripts/full-screenshot.sh"
+
+bindsym $super+l exec --no-startup-id "~/scripts/lock.sh"
 
 
 # SHORTCUTS: cancer
@@ -225,8 +234,9 @@ bindsym $super+e exec "nemo"
 bindsym $super+f exec "chromium"
 
 bindsym $super+w exec --no-startup-id "rofi -show drun -show-icons"
+bindcode $super+94 exec --no-startup-id "rofi -show window -show-icons"
+bindsym $super+x exec --no-startup-id "rofi -show run"
 
-# bindsym $mod+Return exec "gnome-calculator"
 bindsym $mod+Return exec $terminal
 bindsym $super+Return exec $terminal
 bindsym $super+c exec "clipster -s"
@@ -236,31 +246,24 @@ bindsym $super+c exec "clipster -s"
 
 assign [class="(?i)caprine"] $ws3
 assign [class="(?i)discord"] $ws3
-#assign [class="(?i)slack"] $ws4
 
 
 # STARTUP
 
-exec_always --no-startup-id "feh --no-fehbg --bg-fill '/home/saumon/images/current-wallpaper'"
-exec_always --no-startup-id "xset -dpms"
+exec_always --no-startup-id "nitrogen --restore"
 exec_always --no-startup-id "xset b off"
-exec_always --no-startup-id "xset m 7/4 100"
+#exec_always --no-startup-id "xset m 7/4 100"
 exec_always --no-startup-id "xset s 300"
 exec_always --no-startup-id "xset r rate 190 27"
 exec_always --no-startup-id "setxkbmap -option caps:swapescape"
 
-exec --no-startup-id "xautolock -time 10 -locker /home/saumon/scripts/lock.sh"
-
-exec --no-startup-id "xss-lock /home/saumon/scripts/lock.sh"
+exec --no-startup-id "i3-msg 'workspace \"  1  \"'"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "compton --config ~/.config/compton.conf -b"
 exec --no-startup-id "redshift -l 48.8075:2.2620"
-exec --no-startup-id "dunst"
+exec --no-startup-id "xautolock -time 10 -locker ~/scripts/lock.sh"
+exec --no-startup-id "blueman-applet"
 exec --no-startup-id "udiskie -c ~/.config/udiskie/config.yml"
-exec --no-startup-id "copyq"
+exec --no-startup-id "clipster -d"
 exec --no-startup-id "twmnd"
-#exec --no-startup-id "i3-msg 'workspace \" 3: Messaging \"; append_layout /home/saumon/.config/i3/workspace-3.json'"
-exec --no-startup-id "i3-msg 'workspace \" 1: Web \"'"
-#exec "caprine"
-#exec "/home/saumon/software/dynalist/dynalist"
-#exec "discord"
+exec --no-startup-id "libinput-gestures-setup start"
