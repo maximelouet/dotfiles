@@ -4,8 +4,10 @@
 
 
 case $BLOCK_BUTTON in
-	1) gsimplecal ;;
+    1) gsimplecal ;;
+    2) date +%s | tr -d '\n' | xclip -i -selection clipboard ;;
+    3) date +%s | tr -d '\n' | xclip -i -selection clipboard ;;
 esac
 
 
-date '+%a %Y-%m-%d'
+date '+%a %Y-%m-%d' | tr -d '\n'

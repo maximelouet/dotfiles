@@ -4,36 +4,42 @@
 
 
 case $BLOCK_BUTTON in
-	3) pactl set-sink-mute @DEFAULT_SINK@ toggle;; # right click : toggle mute
-	4) pactl set-sink-volume @DEFAULT_SINK@ +2% ;; # scroll up : increase vol by 2%
-	5) pactl set-sink-volume @DEFAULT_SINK@ -2%;; # scroll down : decrease vol by 2%
+    3) pactl set-sink-mute @DEFAULT_SINK@ toggle;; # right click : toggle mute
+    4) pactl set-sink-volume @DEFAULT_SINK@ +1% ;; # scroll up : increase vol by 1%
+    5) pactl set-sink-volume @DEFAULT_SINK@ -1%;; # scroll down : decrease vol by 1%
 esac
 
 
 sinks=$(pactl list sinks)
 isbluetooth=$(echo "$sinks" | grep bluez)
+isheadphone=$(echo "$sinks" | grep "Active Port: analog-output-headphone")
 ismuted=$(echo "$sinks" | grep "Mute: " | tail -1 | awk '{print $2}')
 volume=$(echo "$sinks" | grep "Volume: " | tail -2 | head -1 | awk '{print $5}' | tr -d '%')
 
 if [[ ! -z $isbluetooth ]]; then
-	color="#2896ff"
-	if [[ "$ismuted" == "yes" ]]; then
-		color="#997CC5"
-	fi
+    color="#2896ff"
+    if [[ "$ismuted" == "yes" ]]; then
+        color="#997CC5"
+    fi
+elif [[ ! -z $isheadphone ]]; then
+    color="#FCE946"
+    if [[ "$ismuted" == "yes" ]]; then
+        color="#FBC02D"
+    fi
 elif [[ "$ismuted" == "yes" ]]; then
-	color="#fa8026"
+    color="#F37416"
 else
-	color="#dddddd"
+    color="#dddddd"
 fi
 echo -n "<span color='$color'>"
 if [[ ! -z "$isbluetooth" ]]; then
-	echo -n "  "
+    echo -n "<span fallback='true'>  </span>"
 fi
 if [[ "$ismuted" == "yes" ]]; then
-	echo -n "  (muted) $volume"
+    echo -n "<span fallback='true'>  </span><span font_size='small'>(muted)</span> $volume"
 elif [ $volume -ge 40 ]; then
-	echo -n "  $volume"
+    echo -n "<span fallback='true'>  </span>$volume"
 else
-	echo -n "  $volume"
+    echo -n "<span fallback='true'>  </span>$volume"
 fi
-echo -n "<span font_size=\"small\">%</span></span>"
+echo -n "<span font_size='small'>%</span></span>"

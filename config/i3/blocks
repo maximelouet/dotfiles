@@ -1,6 +1,5 @@
 # Saumon i3blocks config file
 
-
 command=~/.config/i3/scripts/$BLOCK_NAME
 full_text=
 align=center
@@ -10,8 +9,8 @@ separator_block_width=4
 markup=pango
 interval=once
 
-[mpd]
-interval=20
+[music]
+interval=10
 signal=13
 
 [separator]
@@ -28,24 +27,25 @@ interval=10
 [separator]
 
 [brightness]
+interval=60
 signal=11
 
 [separator]
 
 [volume]
-interval=10
+interval=30
 signal=10
 
 [separator]
 
 [battery]
-interval=30
+interval=60
 signal=12
 
 [separator]
 
 [load]
-interval=10
+interval=15
 
 [separator]
 
