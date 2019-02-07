@@ -37,4 +37,3 @@
 	new = green
 [commit]
 	verbose = true
-	gpgsign = true
