@@ -232,13 +232,13 @@ alias lla='l -a'
 alias llag='lla -g'
 
 # package management
-if has_command yaourt; then
-  alias maj='yaourt -Syua'
-  alias majf='yaourt -Syua --devel'
-  alias install='yaourt -S'
-  alias remove='yaourt -Rn'
-  alias remover='yaourt -Rnsu'
-  alias search='yaourt'
+if has_command yay; then
+  alias maj='yay -Syu'
+  alias majf='yay -Syu --devel --timeupdate'
+  alias install='yay -S'
+  alias remove='yay -Rn'
+  alias remover='yay -Rnsu'
+  alias search='yay'
   alias pkclean='paccache -rk 2'
 else
   alias maj='sudo apt update && sudo apt dist-upgrade'
@@ -318,6 +318,7 @@ alias :q='exit'
 
 # useful
 alias sp='git add --all && git commit -m "Sync commit" && git push'
+alias restart-compton='killall compton && compton --config ~/.config/compton.conf -b'
 
 # shortcuts
 alias j='jobs'
@@ -325,6 +326,8 @@ alias t='task'
 alias ta='tree -a'
 alias m='make -j'
 alias e='unarchive'
+alias d='docker'
+alias docker-stop-all='docker stop $(docker ps -aq) && docker rm $(docker ps -aq)'
 
 # forecast
 alias weather='curl wttr.in'
