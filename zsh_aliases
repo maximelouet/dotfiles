@@ -328,6 +328,7 @@ alias m='make -j'
 alias e='unarchive'
 alias d='docker'
 alias docker-stop-all='docker stop $(docker ps -aq) && docker rm $(docker ps -aq)'
+alias copy='xclip -selection clipboard -i'
 
 # forecast
 alias weather='curl wttr.in'
@@ -339,6 +340,3 @@ alias ida="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/IDA\ 6.8/idaq64.exe &"
 # epitech
 alias emacs='emacs -nw'
 alias blih="blih -u $TEKLOGIN"
-
-# fix
-alias drivesync='while ! drivesync; do sleep 1s; done'
