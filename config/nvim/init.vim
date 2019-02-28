@@ -70,8 +70,8 @@ set showmatch         	" when inserting a bracket, briefly jump to its match
 
 
 " 80-character lines (= Mozilla guidelines)
-set textwidth=80      	" line length above which to break a line
-set colorcolumn=+0    	" highlight the textwidth limit
+"set textwidth=80      	" line length above which to break a line
+"set colorcolumn=+0    	" highlight the textwidth limit
 set nowrap
 
 " search settings
