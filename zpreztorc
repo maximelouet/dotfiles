@@ -32,3 +32,6 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'
+
+# Set case sensivity for all completions and history lookups
+zstyle ':prezto:*:*' case-sensitive 'yes'
