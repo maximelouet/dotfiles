@@ -8,10 +8,8 @@ export FULLNAME='Maxime Louet'
 
 source "$HOME/.zprezto/init.zsh" # prezto
 
-export TERM='xterm-256color'
 export PAGER='less -X'
 export MANPAGER="$PAGER"
-export TERMINAL='alacritty'
 export BROWSER='chromium'
 if command -v nvim > /dev/null 2>&1; then
   export EDITOR='nvim'
