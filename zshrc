@@ -11,24 +11,18 @@ source "$HOME/.zprezto/init.zsh" # prezto
 export PAGER='less -X'
 export MANPAGER="$PAGER"
 export BROWSER='chromium'
-if command -v nvim > /dev/null 2>&1; then
-  export EDITOR='nvim'
-  export VISUAL='nvim'
-else
-  export EDITOR='vim'
-  export VISUAL='vim'
-fi
+export EDITOR='vim'
+export VISUAL='vim'
 export LANG='en_GB.UTF-8'
 export LC_ALL='en_GB.UTF-8'
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export CASE_SENSITIVE='true'
 export CLICOLOR=1
-#export DISPLAY="${DISPLAY:-:0}"
 export TZ='Europe/Paris'
 
 export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=10000
-export SAVEHIST=50000
+export HISTSIZE=50000
+export SAVEHIST=99999
 
 ulimit -c 0
 export PATH="$HOME/.local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/.npm-global/bin:$HOME/.config/composer/vendor/bin"
