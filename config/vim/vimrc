@@ -4,3 +4,133 @@ set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
+" enable vim features instead of strict vi compatibility
+set nocompatible
+
+" do not wrap long lines; have them scroll off the side
+set nowrap
+
+" try to detect the filetype
+filetype on
+
+" enable syntax highlighting
+syntax on
+
+" enable loading the plugin file for specific file types
+filetype plugin on
+
+" enable loading the indent file for specific file types
+filetype indent on
+
+" reload a file when changed outside of vim
+set autoread
+
+" tell vim it's OK to use 256 colors at the terminal
+set t_Co=256
+
+" disable bell completely
+set visualbell
+set t_vb=
+
+" show matching brackets and parens
+set showmatch
+
+" use pop-up menu for tab completion of filenames
+set wildmenu
+
+" sync syntax highlighting from the start of the file
+syntax sync fromstart
+
+" set character encoding to UTF-8
+set encoding=utf-8
+
+" show 3 lines above or below cursor when scrolling
+set scrolloff=3
+
+" show insert, replace, or visual mode in last line
+set showmode
+
+" show command in last line
+set showcmd
+
+" highlight the line the cursor is on
+"set cursorline
+
+" turn on line numbers
+set number
+set relativenumber
+
+" assumes fast connection
+set ttyfast
+
+" show line and column number
+set ruler
+
+" every window gets a status line
+set laststatus=2
+
+" make command line one line high
+set ch=1
+
+" turn off mouse pointer when typing begins
+set mousehide
+
+" put mouse in command-line mode, so mouse clicks don't move cursor
+set mouse=c
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search options
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Ignore case on search
+set ignorecase
+
+" Ignore case unless there is an uppercase letter in the pattern
+set smartcase
+
+" Move cursor to the matched string
+set incsearch
+
+" Don't highlight matched strings
+set nohlsearch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation options
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" The length of a tab
+set tabstop=4
+
+" The number of spaces inserted/removed when using < or >
+set shiftwidth=2
+
+" The number of spaces inserted when you press tab.
+" -1 means the same value as shiftwidth
+set softtabstop=-1
+
+" Insert spaces instead of tabs
+set expandtab
+
+" When tabbing manually, use shiftwidth instead of tabstop and softtabstop
+set smarttab
+
+" Set basic indenting (i.e. copy the indentation of the previous line)
+" When filetype detection didn't find a fancy indentation scheme
+set autoindent
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Persistence options
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" See :h last-position-jump
+augroup last_position_jump
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
+" Persistent undo
+if version >= 703
+  set undofile
+  set undodir=$XDG_CACHE_HOME/vim/undo
+  silent !mkdir -p $XDG_CACHE_HOME/vim/undo
+endif
