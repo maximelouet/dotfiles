@@ -1,2 +1,1 @@
-eval $(ssh-agent)
-exec i3
+exec ssh-agent i3
