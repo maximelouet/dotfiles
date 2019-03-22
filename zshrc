@@ -1,10 +1,8 @@
 # Saumon
 
-# BEGIN user settings
 export USER='saumon'
 export TEKLOGIN='maxime.louet@epitech.eu'
 export FULLNAME='Maxime Louet'
-# END user settings
 
 source "$HOME/.zprezto/init.zsh" # prezto
 
