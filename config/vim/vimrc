@@ -8,6 +8,10 @@ let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 " enable vim features instead of strict vi compatibility
 set nocompatible
 
+" reset to the default in case some distro config fucks it up
+set modeline
+set modelines=5
+
 " do not wrap long lines; have them scroll off the side
 set nowrap
 
@@ -55,7 +59,8 @@ set showmode
 set showcmd
 
 " highlight the line the cursor is on
-"set cursorline
+set cursorline
+hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE
 
 " turn on line numbers
 set number
