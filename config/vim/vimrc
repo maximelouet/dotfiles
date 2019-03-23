@@ -69,6 +69,9 @@ set relativenumber
 " assumes fast connection
 set ttyfast
 
+" remember more commands and search history
+set history=500
+
 " show line and column number
 set ruler
 
@@ -84,6 +87,12 @@ set mousehide
 " put mouse in command-line mode, so mouse clicks don't move cursor
 set mouse=c
 
+" show whitespace (but not too much)
+set list
+set listchars=tab:··,eol:¬,trail:~
+hi NonText ctermfg=239 ctermbg=none
+hi SpecialKey ctermfg=239 ctermbg=none
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Search options
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -94,11 +103,11 @@ set ignorecase
 " Ignore case unless there is an uppercase letter in the pattern
 set smartcase
 
-" Move cursor to the matched string
+" Find as you type
 set incsearch
 
-" Don't highlight matched strings
-set nohlsearch
+" Highlight matched strings
+set hlsearch
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation options
@@ -138,4 +147,5 @@ if version >= 703
   set undofile
   set undodir=$XDG_CACHE_HOME/vim/undo
   silent !mkdir -p $XDG_CACHE_HOME/vim/undo
+  set undolevels=2000
 endif
