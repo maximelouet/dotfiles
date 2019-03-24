@@ -64,7 +64,8 @@ hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE
 
 " turn on line numbers
 set number
-"set relativenumber
+hi LineNr ctermfg=240
+hi CursorLineNr ctermfg=253 ctermbg=235
 
 " assumes fast connection
 set ttyfast
