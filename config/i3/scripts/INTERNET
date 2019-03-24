@@ -11,7 +11,11 @@ case $BLOCK_BUTTON in
     3) IP=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'); notify-send "IP address" $IP; echo -n $IP | xclip -i -selection clipboard ;;
 esac
 
-statusWIFI=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceWIFI/operstate)")
+if [ -n "$ifaceWIFI" ] && [ "$ifaceWIFI" != "*" ]; then
+  statusWIFI=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceWIFI/operstate)")
+else
+  statusWIFI="unknown"
+fi
 
 if [ -n "$ifaceETH" ] && [ "$ifaceETH" != "en*" ]; then
   statusETH=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceETH/operstate)")
