@@ -3,8 +3,8 @@
 # Saumon i3blocks scripts : INTERNET
 # (wired/wifi network info with external ip on middle click)
 
-ifaceWIFI=wlp2s0
-#ifaceETH=enp0s31f6
+ifaceWIFI=$(echo /sys/class/net/*/wireless | awk -F '/' '{ print $5 }')
+ifaceETH=$(echo /sys/class/net/en*/ | awk -F '/' '{ print $5 }')
 
 case $BLOCK_BUTTON in
     2) IP=$(curl -s "ifconfig.me/ip" | tr -d '\n'); notify-send "External IP address" $IP; echo -n $IP | xclip -i -selection clipboard ;;
@@ -12,14 +12,18 @@ case $BLOCK_BUTTON in
 esac
 
 statusWIFI=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceWIFI/operstate)")
-#statusETH=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceETH/operstate)")
 
-#if [ "$statusETH" = "up" ]; then
-#   echo -n '<span color="#19ef5d"><b></b>  '
-#   ip addr show enp0s31f6 | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'
-#   echo -n '</span>'
-#elif [ "$statusWIFI" = "up" ]; then
-if [ "$statusWIFI" = "up" ]; then
+if [ -n "$ifaceETH" ] && [ "$ifaceETH" != "en*" ]; then
+  statusETH=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceETH/operstate)")
+else
+  statusETH="unknown"
+fi
+
+if [ "$statusETH" = "up" ]; then
+   echo -n '<span color="#19ef5d"><b></b>  '
+   ip addr show "$ifaceETH" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'
+   echo -n '</span>'
+elif [ "$statusWIFI" = "up" ]; then
     IPaddr=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n')
     NetName=$(iwgetid -r | tr -d '\n')
     if [ "$IPaddr" = "" ]; then
