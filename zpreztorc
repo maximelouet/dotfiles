@@ -31,7 +31,7 @@ zstyle ':prezto:module:autosuggestions:color' found 'fg=8'
 zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Auto set the tab and window titles.
-zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal' auto-title 'no'
 
 # Set case sensivity for all completions and history lookups
 zstyle ':prezto:*:*' case-sensitive 'yes'
