@@ -88,6 +88,9 @@ set mousehide
 " put mouse in command-line mode, so mouse clicks don't move cursor
 set mouse=c
 
+" disable .netrwhist file
+let g:netrw_dirhistmax = 0
+
 " show whitespace (but not too much)
 set list
 set listchars=tab:··,eol:¬,trail:~
