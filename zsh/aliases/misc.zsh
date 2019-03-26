@@ -32,3 +32,12 @@ alias istheinternetonfire='dig +short txt istheinternetonfire.com'
 # forecast
 alias weather='curl wttr.in'
 alias moon='curl wttr.in/Moon'
+
+# prevent screen from locking or going off, and disable redshift
+cinema() {
+  killall redshift
+  killall xautolock
+  xset -dpms
+  xset s noblank
+  xset s off
+}
