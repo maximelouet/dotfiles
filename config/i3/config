@@ -243,8 +243,8 @@ bindsym $super+c exec "clipster -s"
 
 # ASSIGNMENTS
 
-assign [class="(?i)caprine"] $ws3
-assign [class="(?i)discord" window_role="browser-window"] $ws3
+assign [class="(?i)caprine"] $ws4
+assign [class="(?i)discord" window_role="browser-window"] $ws4
 
 
 # STARTUP
