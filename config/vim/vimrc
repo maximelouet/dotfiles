@@ -118,7 +118,7 @@ set hlsearch
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " The length of a tab
-set tabstop=4
+set tabstop=2
 
 " The number of spaces inserted/removed when using < or >
 set shiftwidth=2
