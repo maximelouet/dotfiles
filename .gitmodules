@@ -2,3 +2,6 @@
 	path = zsh/prezto
 	url = https://github.com/sorin-ionescu/prezto.git
 	branch = master
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
