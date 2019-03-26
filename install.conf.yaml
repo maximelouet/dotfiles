@@ -10,7 +10,6 @@
 - clean: ['~']
 
 - link:
-    ~/.dotfiles: ''
     ~/.config/:
       glob: true
       path: config/*
