@@ -120,44 +120,44 @@ bindsym --whole-window button17 workspace next
 
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym m resize grow width 10 px or 10 ppt
-
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym m resize grow width 10 px or 10 ppt
+ 
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+ 
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 
 # BAR
 
 bar {
-    status_command i3blocks -c ~/.config/i3/blocks
-    position bottom
-    font pango:Noto Sans, Awesome 13
+  status_command i3blocks -c ~/.config/i3/blocks
+  position bottom
+  font pango:Noto Sans, Awesome 13
 
-    height 38
+  height 38
 
-    colors {
-        background #000000
-        statusline #ccccdc
+  colors {
+    background #000000
+    statusline #ccccdc
 
-#       <colorclass>    <border> <background> <text>
-        focused_workspace  #8910e8 #8910e8 #ffffff
-        active_workspace   #8910e8 #8910e8 #ffffff
-        inactive_workspace #1f1f2f #1f1f2f #bbbbbb
-        urgent_workspace   #f44336 #f44336 #ffffff
-        binding_mode       #EF6C00 #EF6C00 #ffffff
-    }
+#   <colorclass>    <border> <background> <text>
+    focused_workspace  #8910e8 #8910e8 #ffffff
+    active_workspace   #8910e8 #8910e8 #ffffff
+    inactive_workspace #1f1f2f #1f1f2f #bbbbbb
+    urgent_workspace   #f44336 #f44336 #ffffff
+    binding_mode       #EF6C00 #EF6C00 #ffffff
+  }
 }
 
 
@@ -189,7 +189,6 @@ for_window [window_role="(?i)pop-up"] floating enable
 for_window [window_role="(?i)about"] floating enable
 for_window [title="Network Operations Manager"] floating enable
 for_window [title="Volume Control"] floating enable
-for_window [title="Segfault Simulator"] floating enable
 for_window [title="^Task Manager"] floating enable
 for_window [title="Network Connections"] floating enable
 for_window [title="Qt Configuration"] floating enable
@@ -252,7 +251,6 @@ assign [class="(?i)discord" window_role="browser-window"] $ws3
 
 exec_always --no-startup-id "nitrogen --restore"
 exec_always --no-startup-id "xset b off"
-#exec_always --no-startup-id "xset m 7/4 100"
 exec_always --no-startup-id "xset s 300"
 exec_always --no-startup-id "xset r rate 190 27"
 exec_always --no-startup-id "setxkbmap -option caps:swapescape"
