@@ -1,1 +1,6 @@
 history
+.zcompdump
+.zlogin
+.zpreztorc
+.zprofile
+.zshrc

@@ -1,0 +1,28 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.config:
+    ~/.gtkrc-2.0:
+      force: true
+    ~/.icons/default/index.theme:
+      path: icons/default/index.theme
+      create: true
+      force: true
+    ~/.npmrc:
+    ~/.tmux.conf:
+    ~/.xinitrc:
+    ~/.Xresources:
+    ~/.zsh:
+    ~/.zshenv:
+    ~/.zsh/.zlogin: ~/.zsh/zlogin
+    ~/.zsh/.zpreztorc: ~/.zsh/zpreztorc
+    ~/.zsh/.zprofile: ~/.zsh/zprofile
+    ~/.zsh/.zshrc: ~/.zsh/zshrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]

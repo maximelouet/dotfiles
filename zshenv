@@ -20,4 +20,6 @@ appendpath "$HOME/.config/yarn/global/node_modules/.bin"
 unset appendpath
 export PATH
 
-source "$HOME/.zsh/env.zsh"
+export ZDOTDIR="$HOME/.zsh"
+
+source "$ZDOTDIR/env.zsh"
