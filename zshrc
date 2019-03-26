@@ -1,63 +1,17 @@
-# Saumon
+#
+# Saumon ZSH dotfiles
+# zshrc
+#
 
-export USER='saumon'
-export TEKLOGIN='maxime.louet@epitech.eu'
-export FULLNAME='Maxime Louet'
+# prezto, a configuration framework for Zsh
+source "$HOME/.zsh/prezto/init.zsh"
 
-source "$HOME/.zprezto/init.zsh" # prezto
+# load custom dotfiles
+for file in "$HOME/.zsh/"*.zsh; do
+  source "${file}"
+done
 
-export PAGER='less -X'
-export MANPAGER="$PAGER"
-export BROWSER='chromium'
-export EDITOR='vim'
-export VISUAL='vim'
-export LANG='en_US.UTF-8'
-export LC_ALL='en_US.UTF-8'
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export CASE_SENSITIVE='true'
-export CLICOLOR=1
-export TZ='Europe/Paris'
-
-export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=50000
-export SAVEHIST=99999
-
-# Force XDG_CONFIG_HOME and XDG_CACHE_HOME to be set
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
-
-ulimit -c 0
-export PATH="$HOME/.local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/.npm-global/bin:$HOME/.config/composer/vendor/bin"
-export WATCH='all'
-
-# Ignore .o when opening files with vim
-zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o'
-
-# fg when pressing Ctrl+Z
-function fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    if [[ $(jobs | wc -l) -gt 0 ]]; then
-      BUFFER='fg'
-      zle accept-line
-    fi
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-source "$HOME/.zsh_aliases"
-
-if [ -f "$HOME/.zsh_private" ]; then
-  source "$HOME/.zsh_private"
+# fzf, command-line fuzzy finder
+if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
+  source "/usr/share/fzf/key-bindings.zsh"
 fi
-
-[ -f "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
-
-eval $(thefuck --alias)
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
