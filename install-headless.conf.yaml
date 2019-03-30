@@ -1,0 +1,25 @@
+#
+# Saumon dotfiles
+# Dotbot headless configuration file
+#
+
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/git:
+    ~/.config/vim:
+    ~/.npmrc:
+    ~/.tmux.conf:
+    ~/.zsh:
+    ~/.zshenv:
+    ~/.zsh/.zlogin: ~/.zsh/zlogin
+    ~/.zsh/.zpreztorc: ~/.zsh/zpreztorc
+    ~/.zsh/.zprofile: ~/.zsh/zprofile
+    ~/.zsh/.zshrc: ~/.zsh/zshrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
