@@ -20,4 +20,6 @@ function fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-eval $(thefuck --alias)
+if (( $+commands[thefuck] )); then
+  eval $(thefuck --alias)
+fi
