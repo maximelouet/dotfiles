@@ -11,15 +11,15 @@
 
 - link:
     ~/.config/:
-      glob: true
       create: true
+      glob: true
       path: config/*
     ~/.gtkrc-2.0:
       force: true
     ~/.icons/default/index.theme:
-      path: icons/default/index.theme
       create: true
       force: true
+      path: icons/default/index.theme
     ~/.npmrc:
     ~/.tmux.conf:
     ~/.xinitrc:
