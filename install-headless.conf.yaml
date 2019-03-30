@@ -11,7 +11,9 @@
 
 - link:
     ~/.config/git:
+      create: true
     ~/.config/vim:
+      create: true
     ~/.npmrc:
     ~/.tmux.conf:
     ~/.zsh:

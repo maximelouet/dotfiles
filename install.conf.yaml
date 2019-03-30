@@ -12,6 +12,7 @@
 - link:
     ~/.config/:
       glob: true
+      create: true
       path: config/*
     ~/.gtkrc-2.0:
       force: true
