@@ -14,6 +14,9 @@
       create: true
       glob: true
       path: config/*
+    ~/.config/fontconfig/conf.d/66-noto-mono.conf:
+      create: true
+      path: /etc/fonts/conf.avail/66-noto-mono.conf
     ~/.gtkrc-2.0:
       force: true
     ~/.icons/default/index.theme:
