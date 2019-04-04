@@ -23,3 +23,7 @@ bindkey '^Z' fancy-ctrl-z
 if (( $+commands[thefuck] )); then
   eval $(thefuck --alias)
 fi
+
+if (( $+commands[kubectl] )); then
+  source <(kubectl completion zsh)
+fi
