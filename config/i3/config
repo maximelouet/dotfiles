@@ -1,268 +1,379 @@
-# vim: set et ts=4 sts=4 sw=4:
+##################################################
+# Saumon dotfiles
+# i3 config file
+# https://github.com/maximelouet/dotfiles
+##################################################
 
-# Saumon i3 config file - https://github.com/maximelouet/dotfiles
 
+##################################################
+# Variables
+##################################################
 
-# ALIASES
-set $mod Mod1
-set $alt Mod1
-set $super Mod4
-set $ctrl Control
-set $shift Shift
-set $ws0 "  0  "
-set $ws1 "  1  "
-set $ws2 "  2  "
-set $ws3 "  3  "
-set $ws4 "  4  "
-set $ws5 "  5  "
-set $ws6 "  6  "
-set $ws7 "  7  "
-set $ws8 "  8  "
-set $ws9 "  9  "
+# Main modifiers
+set $mod    Mod1
+set $alt    Mod1
+set $super  Mod4
+set $ctrl   Control
+set $shift  Shift
+
+# Workspace names
+set $ws0  "  0  "
+set $ws1  "  1  "
+set $ws2  "  2  "
+set $ws3  "  3  "
+set $ws4  "  4  "
+set $ws5  "  5  "
+set $ws6  "  6  "
+set $ws7  "  7  "
+set $ws8  "  8  "
+set $ws9  "  9  "
 set $ws10 "  π  "
+
+# Other
 set $terminal "urxvtc"
 
 
-# FONT
+##################################################
+# Basic settings
+##################################################
+
+# Main system font
 font pango:Noto Sans 12.5
 
+# Change focus
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  focus right
 
-# CHANGE FOCUS
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+h  focus left
+bindsym $mod+j  focus down
+bindsym $mod+k  focus up
+bindsym $mod+l  focus right
 
+# Move windows
+bindsym $mod+$shift+Left   move left
+bindsym $mod+$shift+Down   move down
+bindsym $mod+$shift+Up     move up
+bindsym $mod+$shift+Right  move right
 
-# MOVE ON SCREEN
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+$shift+h  move left
+bindsym $mod+$shift+j  move down
+bindsym $mod+$shift+k  move up
+bindsym $mod+$shift+l  move right
 
+# Change workspace layout
+bindsym $mod+s  layout stacking
+bindsym $mod+z  layout tabbed
+bindsym $mod+e  layout toggle split
 
-# SPLIT MODE
-bindsym $mod+h split h
-bindsym $mod+v split v
+# Toggle floating window
+bindsym $mod+$shift+space floating toggle
 
-
-# LAYOUT
-bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
-
-
-# TOGGLE FLOATING
-bindsym $mod+Shift+space floating toggle
-# mouse+$mod to drag floating windows
+# Drag floating windows with mouse+$mod
 floating_modifier $mod
-# toggle focus between floating and tiling windows
-bindsym $mod+space focus mode_toggle
+
+# Toggle focus between floating and tiling windows
+bindsym $mod+space  focus mode_toggle
+
+# Reload i3's configuration file
+bindsym $mod+$shift+c reload
+
+# Restart i3
+bindsym $mod+$shift+r restart
+
+# Exit i3
+bindsym $mod+$shift+f exit
+
+# Close window
+bindsym $mod+Shift+A kill
+
+# Force a window fullscreen
+bindsym $mod+f fullscreen toggle
 
 
-# SWITCH TO WORKSPACE
-bindcode $mod+49 workspace $ws0
-bindcode $mod+10 workspace $ws1
-bindcode $mod+11 workspace $ws2
-bindcode $mod+12 workspace $ws3
-bindcode $mod+13 workspace $ws4
-bindcode $mod+14 workspace $ws5
-bindcode $mod+15 workspace $ws6
-bindcode $mod+16 workspace $ws7
-bindcode $mod+17 workspace $ws8
-bindcode $mod+18 workspace $ws9
-bindcode $mod+19 workspace $ws10
+##################################################
+# Workspaces navigation
+##################################################
 
-bindcode $super+49 workspace $ws0
-bindcode $super+10 workspace $ws1
-bindcode $super+11 workspace $ws2
-bindcode $super+12 workspace $ws3
-bindcode $super+13 workspace $ws4
-bindcode $super+14 workspace $ws5
-bindcode $super+15 workspace $ws6
-bindcode $super+16 workspace $ws7
-bindcode $super+17 workspace $ws8
-bindcode $super+18 workspace $ws9
-bindcode $super+19 workspace $ws10
+# Switch to workspace
+bindcode $mod+49  workspace $ws0
+bindcode $mod+10  workspace $ws1
+bindcode $mod+11  workspace $ws2
+bindcode $mod+12  workspace $ws3
+bindcode $mod+13  workspace $ws4
+bindcode $mod+14  workspace $ws5
+bindcode $mod+15  workspace $ws6
+bindcode $mod+16  workspace $ws7
+bindcode $mod+17  workspace $ws8
+bindcode $mod+18  workspace $ws9
+bindcode $mod+19  workspace $ws10
 
-# MOVE TO WORKSPACE
-bindcode $mod+Shift+49 move container to workspace $ws0
-bindcode $mod+Shift+10 move container to workspace $ws1
-bindcode $mod+Shift+11 move container to workspace $ws2
-bindcode $mod+Shift+12 move container to workspace $ws3
-bindcode $mod+Shift+13 move container to workspace $ws4
-bindcode $mod+Shift+14 move container to workspace $ws5
-bindcode $mod+Shift+15 move container to workspace $ws6
-bindcode $mod+Shift+16 move container to workspace $ws7
-bindcode $mod+Shift+17 move container to workspace $ws8
-bindcode $mod+Shift+18 move container to workspace $ws9
-bindcode $mod+Shift+19 move container to workspace $ws10
+bindcode $super+49  workspace $ws0
+bindcode $super+10  workspace $ws1
+bindcode $super+11  workspace $ws2
+bindcode $super+12  workspace $ws3
+bindcode $super+13  workspace $ws4
+bindcode $super+14  workspace $ws5
+bindcode $super+15  workspace $ws6
+bindcode $super+16  workspace $ws7
+bindcode $super+17  workspace $ws8
+bindcode $super+18  workspace $ws9
+bindcode $super+19  workspace $ws10
 
+# Move window to workspace
+bindcode $mod+$shift+49 move container to workspace $ws0
+bindcode $mod+$shift+10 move container to workspace $ws1
+bindcode $mod+$shift+11 move container to workspace $ws2
+bindcode $mod+$shift+12 move container to workspace $ws3
+bindcode $mod+$shift+13 move container to workspace $ws4
+bindcode $mod+$shift+14 move container to workspace $ws5
+bindcode $mod+$shift+15 move container to workspace $ws6
+bindcode $mod+$shift+16 move container to workspace $ws7
+bindcode $mod+$shift+17 move container to workspace $ws8
+bindcode $mod+$shift+18 move container to workspace $ws9
+bindcode $mod+$shift+19 move container to workspace $ws10
 
-# Reload the configuration file
-bindsym $mod+Shift+c reload
-
-
-# RESTART i3
-bindsym $mod+Shift+r restart
-
-
-# EXIT i3
-bindsym $mod+Shift+f exit
-
-
-# Three fingers swipe
+# Swipe three fingers to change workspace
 bindsym --whole-window button19 workspace prev
 bindsym --whole-window button17 workspace next
 
+# Alt+Tab back-and-forth navigation
+bindsym $mod+Tab workspace back_and_forth
+bindsym $super+Tab workspace back_and_forth
 
-# RESIZE MODE
 
-bindsym $mod+r mode "resize"
+##################################################
+# Resize mode
+##################################################
+
+# Enter resize mode
+bindsym $mod+r  mode "resize"
+
 mode "resize" {
-  # These bindings trigger as soon as you enter the resize mode
 
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
-  bindsym m resize grow width 10 px or 10 ppt
- 
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
- 
-  # back to normal: Enter or Escape
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
+  # Resizing keys
+  bindsym j resize shrink width   5 px or 5 ppt
+  bindsym k resize grow   height  5 px or 5 ppt
+  bindsym l resize shrink height  5 px or 5 ppt
+  bindsym m resize grow   width   5 px or 5 ppt
+
+  bindsym Left  resize shrink width   5 px or 5 ppt
+  bindsym Down  resize grow   height  5 px or 5 ppt
+  bindsym Up    resize shrink height  5 px or 5 ppt
+  bindsym Right resize grow   width   5 px or 5 ppt
+
+  # Back to normal
+  bindsym Return  mode "default"
+  bindsym Escape  mode "default"
+
 }
 
 
-# BAR
+##################################################
+# Bar
+##################################################
 
 bar {
   status_command i3blocks -c ~/.config/i3/blocks
   position bottom
   font pango:Noto Sans, Awesome 13
 
-  height 38
+  height 38 # i3gaps specific
 
   colors {
-    background #000000
-    statusline #ccccdc
+    background  #111111
+    statusline  #ccccdc
 
-#   <colorclass>    <border> <background> <text>
-    focused_workspace  #8910e8 #8910e8 #ffffff
-    active_workspace   #8910e8 #8910e8 #ffffff
-    inactive_workspace #1f1f2f #1f1f2f #bbbbbb
-    urgent_workspace   #f44336 #f44336 #ffffff
-    binding_mode       #EF6C00 #EF6C00 #ffffff
+    # Workspace names color
+    # class             border  backgr. text
+    focused_workspace   #dddddd #dddddd #000000
+    active_workspace    #ff0000 #ff0000 #000000
+    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
+    urgent_workspace    #f44336 #f44336 #ffffff
+    binding_mode        #EF6C00 #EF6C00 #ffffff
   }
 }
 
 
-# DESIGN
+##################################################
+# Design
+##################################################
 
+# Window borders color
 # class                 border  backgr. text    indicator child_border
-client.focused          #8910e8 #8910e8 #ffffff #00DA8E
-client.focused_inactive #333333 #5F676A #ffffff #484e50
-client.unfocused        #333333 #424242 #8f8f8f #292d2e
+client.focused          #FF9800 #FF9800 #ffffff #00DA8E
+client.focused_inactive #444444 #444444 #ffffff #484e50
+client.unfocused        #444444 #444444 #8f8f8f #292d2e
 client.urgent           #f44336 #f44336 #ffffff #900000
 
-# no borders on new windows
-new_window none
+# No border around windows by default
+for_window [class=".*"] border pixel 0
 
-for_window [class="Gnome-calculator"] floating enable
-for_window [class="Gedit"] floating enable
-for_window [class="Gpicview"] floating enable
-for_window [class="Gpicview"] resize set 1408 792
-for_window [class="Gpicview"] move position center
-for_window [class="Parole"] floating enable
-for_window [class="imv"] floating enable
-for_window [class="File-roller"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="nitrogen"] floating enable
-for_window [class="sun-awt-X11-XDialogPeer"] floating enable
+# Excepted terminal and floating windows
+# BUT never on fullscreen
+smart_borders on # i3gaps specific
+
+for_window [class="URxvt"] border pixel 1
+
+# Floating and borders definitions
+# TODO: script this :)
+
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Chromium" window_role="app"] floating enable
-for_window [window_role="(?i)pop-up"] floating enable
-for_window [window_role="(?i)about"] floating enable
-for_window [title="Network Operations Manager"] floating enable
-for_window [title="Volume Control"] floating enable
-for_window [title="^Task Manager"] floating enable
-for_window [title="Network Connections"] floating enable
-for_window [title="Qt Configuration"] floating enable
-for_window [title="Plugins"] floating enable
+for_window [class="Chromium" window_role="app"] border pixel 2
+for_window [class="File-roller"] floating enable
+for_window [class="File-roller"] border pixel 2
+for_window [class="Gedit"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gpicview"] floating enable
+for_window [class="Gpicview"] move position center
+for_window [class="Gpicview"] resize set 1408 792
+for_window [class="imv"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Lxappearance"] border pixel 2
+for_window [class="nitrogen"] floating enable
+for_window [class="Parole"] floating enable
+for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
+for_window [instance="sun-awt-X11-XDialogPeer"] border pixel 2
 for_window [title="Minecraft Launcher"] floating enable
-
-for_window [window_role="pop-up"] floating enable
+for_window [title="Minecraft Launcher"] border pixel 2
+for_window [title="Network Connections"] floating enable
+for_window [title="Network Connections"] border pixel 2
+for_window [title="Network Operations Manager"] floating enable
+for_window [title="Network Operations Manager"] border pixel 2
+for_window [title="Plugins"] floating enable
+for_window [title="Plugins"] border pixel 2
+for_window [title="Qt Configuration"] floating enable
+for_window [title="Qt Configuration"] border pixel 2
+for_window [title="^Task Manager"] floating enable
+for_window [title="^Task Manager"] border pixel 2
+for_window [title="Volume Control"] floating enable
+for_window [title="Volume Control"] border pixel 2
 for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
+for_window [window_role="bubble"] border pixel 2
+for_window [window_role="(?i)about"] floating enable
+for_window [window_role="(?i)about"] border pixel 2
+for_window [window_role="(?i)pop-up"] floating enable
+for_window [window_role="(?i)pop-up"] border pixel 2
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="pop-up"] border pixel 2
 for_window [window_role="Preferences"] floating enable
+for_window [window_role="Preferences"] border pixel 2
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="task_dialog"] border pixel 2
 for_window [window_type="dialog"] floating enable
+for_window [window_type="dialog"] border pixel 2
 for_window [window_type="menu"] floating enable
+for_window [window_type="menu"] border pixel 2
 
 
-# SHORTCUTS: misc
+##################################################
+# Shortcuts and launchers
+##################################################
 
-bindsym $mod+Shift+A kill
-bindsym $mod+f fullscreen toggle
+# Program shortcuts
+bindsym $mod+Return   exec $terminal
+bindsym $super+Return exec $terminal
+bindsym $super+e      exec "nemo"
+bindsym $super+f      exec "chromium"
+bindsym $super+c      exec "clipster -s"
 
-bindcode 232 exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
-bindcode 233 exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
-bindsym XF86AudioMute exec --no-startup-id "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+# Program launcher
+bindsym   $super+w    exec --no-startup-id "rofi -show drun -show-icons"
+bindsym   $super+x    exec --no-startup-id "rofi -show run"
 
-bindsym Print exec --no-startup-id "~/scripts/screenshot.sh"
-bindsym $super+Print exec --no-startup-id "~/scripts/full-screenshot.sh"
+# Window switcher
+bindcode  $super+94  exec --no-startup-id "rofi -show window -show-icons"
 
+# Lock screen
 bindsym $super+l exec --no-startup-id "~/scripts/lock.sh"
 
+# Screenshot with selection
+bindsym Print exec --no-startup-id "~/scripts/screenshot.sh"
 
-# SHORTCUTS: cancer
+# Full screenshot
+bindsym $super+Print exec --no-startup-id "~/scripts/full-screenshot.sh"
 
-bindcode 135 exec --no-startup-id "play ~/cancer/AH.mp3"
-bindcode $ctrl+135 exec --no-startup-id "play ~/cancer/ACH.mp3"
-bindcode $alt+135 exec --no-startup-id "play ~/cancer/google-it.mp3"
+# Multimedia keys
+bindsym XF86MonBrightnessUp   exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
+bindsym XF86MonBrightnessDown exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
+
+bindsym XF86AudioMute         exec --no-startup-id "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume  exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume  exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+
+bindsym XF86AudioPlay   exec --no-startup-id playerctl play
+bindsym XF86AudioPause  exec --no-startup-id playerctl pause
+bindsym XF86AudioNext   exec --no-startup-id playerctl next
+bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
+
+# Cancer
+bindcode 135        exec --no-startup-id "play ~/cancer/AH.mp3"
+bindcode $ctrl+135  exec --no-startup-id "play ~/cancer/ACH.mp3"
+bindcode $alt+135   exec --no-startup-id "play ~/cancer/google-it.mp3"
 
 
-# SHORTCUTS: programs
-
-bindsym $super+e exec "nemo"
-bindsym $super+f exec "chromium"
-
-bindsym $super+w exec --no-startup-id "rofi -show drun -show-icons"
-bindcode $super+94 exec --no-startup-id "rofi -show window -show-icons"
-bindsym $super+x exec --no-startup-id "rofi -show run"
-
-bindsym $mod+Return exec $terminal
-bindsym $super+Return exec $terminal
-bindsym $super+c exec "clipster -s"
-
-
-# ASSIGNMENTS
+##################################################
+# Workspace assignments
+##################################################
 
 assign [class="(?i)caprine"] $ws4
 assign [class="(?i)discord" window_role="browser-window"] $ws4
 
 
-# STARTUP
+##################################################
+# Startup programs
+##################################################
 
-exec_always --no-startup-id "nitrogen --restore"
+# Disable bell
 exec_always --no-startup-id "xset b off"
+
+# Turn off screen after 5 minutes
 exec_always --no-startup-id "xset s 300"
+
+# Set an acceptable keyboard rate
 exec_always --no-startup-id "xset r rate 190 27"
+
+# Swap caps lock and escape
 exec_always --no-startup-id "setxkbmap -option caps:swapescape"
 
+# Instantly switch to workspace "1" (not the first one in alphabetical order)
 exec --no-startup-id "i3-msg 'workspace \"  1  \"'"
+
+# Network Manager
 exec --no-startup-id "nm-applet"
+
+# Window compositor
 exec --no-startup-id "compton --config ~/.config/compton.conf -b"
+
+# URxvt daemon for better resource handling
 exec --no-startup-id "urxvtd -q -o -f"
+
+# Warmer screen color at night (Paris location)
 exec --no-startup-id "redshift -l 48.8075:2.2620"
+
+# Bluetooth manager
 exec --no-startup-id "blueman-applet"
+
+# Removable media manager from the tray
 exec --no-startup-id "udiskie -c ~/.config/udiskie/config.yml"
+
+# Clipboard manager daemon
 exec --no-startup-id "clipster -d"
+
+# Notification daemon
 exec --no-startup-id "twmnd"
-exec --no-startup-id "xautolock -time 10 -locker /home/saumon/scripts/i3lock.sh -notify 30 -notifier \"notify-send -u critical 'Locking soon' -- 'Screen will be locked in 30 seconds without action'\""
+
+# Auto lock screen after 10 minutes
+exec --no-startup-id \
+  xautolock \
+    -locker slock \
+    -time 10 \
+    -corners "000-" \
+    -cornersize 30 \
+    -notify 30 \
+    -notifier "notify-send -u critical 'Locking soon' -- 'Screen will be locked in 30 seconds without action'"
+
+# Touchpad gestures handling
 exec --no-startup-id "libinput-gestures-setup start"
