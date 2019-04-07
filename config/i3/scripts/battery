@@ -10,7 +10,7 @@ battRemain=$(echo $battInfo | awk '/ / {print $5}' | sed 's/...$//' | tr -d '\n'
 
 if [ \( "$battStatus" = "Charging" \) -o \( "$battRemain" = "discharg" \) -o \( ${#battRemain} -lt "1" \) ]; then
     if [ \( $battCapacity -lt "90" \) -o \( ${#battRemain} -lt "1" \) ]; then
-        color="#19ef5d"
+        color="#8BC34A"
     else
         color="#cccccc"
     fi
@@ -21,10 +21,10 @@ if [ \( "$battStatus" = "Charging" \) -o \( "$battRemain" = "discharg" \) -o \( 
     fi
 else
     if [ $battCapacity -lt "20" ]; then
-        color="#fa3826"
+        color="#f44336"
         icon=""
     elif [ $battCapacity -lt "50" ]; then
-        color="#fa8026"
+        color="#ff9800"
         icon=""
     else
         color="#cccccc"

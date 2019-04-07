@@ -8,9 +8,9 @@ load=$(cat /proc/loadavg | cut -d ' ' -f1 | tr -d '\n')
 loadC=$(echo "$load * 100" | bc -l | xargs printf "%.0f")
 
 if [ $loadC -ge 400 ]; then
-    color="#fa3826"
+    color="#f44336"
 elif [ $loadC -ge 300 ]; then
-    color="#fa8026"
+    color="#ff9800"
 else
     color="#cccccc"
 fi

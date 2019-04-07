@@ -22,7 +22,7 @@ if [[ ! -z $isbluetooth ]]; then
         color="#997CC5"
     fi
 elif [[ ! -z $isheadphone ]]; then
-    color="#FCE946"
+    color="#F8E744"
     if [[ "$ismuted" == "yes" ]]; then
         color="#FBC02D"
     fi

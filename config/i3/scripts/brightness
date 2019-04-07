@@ -5,8 +5,8 @@
 
 
 case $BLOCK_BUTTON in
-    4) light -A 1;; # scroll up : increase brightness by 5%
-    5) light -U 1;; # scroll down : decrease brightness by 5%
+    4) light -A 1;; # scroll up : increase brightness by 1%
+    5) light -U 1;; # scroll down : decrease brightness by 1%
 esac
 
 
