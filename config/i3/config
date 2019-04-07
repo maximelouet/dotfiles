@@ -46,10 +46,10 @@ bindsym $mod+Down   focus down
 bindsym $mod+Up     focus up
 bindsym $mod+Right  focus right
 
-bindsym $mod+h  focus left
-bindsym $mod+j  focus down
-bindsym $mod+k  focus up
-bindsym $mod+l  focus right
+#bindsym $mod+h  focus left
+#bindsym $mod+j  focus down
+#bindsym $mod+k  focus up
+#bindsym $mod+l  focus right
 
 # Move windows
 bindsym $mod+$shift+Left   move left
@@ -66,6 +66,10 @@ bindsym $mod+$shift+l  move right
 bindsym $mod+s  layout stacking
 bindsym $mod+z  layout tabbed
 bindsym $mod+e  layout toggle split
+
+# Change split direction
+bindsym $mod+h split h
+bindsym $mod+v split v
 
 # Toggle floating window
 bindsym $mod+$shift+space floating toggle
