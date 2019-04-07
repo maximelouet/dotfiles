@@ -17,7 +17,7 @@ ismuted=$(echo "$sinks" | grep "Mute: " | tail -1 | awk '{print $2}')
 volume=$(echo "$sinks" | grep "Volume: " | tail -2 | head -1 | awk '{print $5}' | tr -d '%')
 
 if [[ ! -z $isbluetooth ]]; then
-    color="#2896ff"
+    color="#1E88E5"
     if [[ "$ismuted" == "yes" ]]; then
         color="#997CC5"
     fi
@@ -27,7 +27,7 @@ elif [[ ! -z $isheadphone ]]; then
         color="#FBC02D"
     fi
 elif [[ "$ismuted" == "yes" ]]; then
-    color="#F37416"
+    color="#EF6C00"
 else
     color="#dddddd"
 fi
