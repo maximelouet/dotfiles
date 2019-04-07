@@ -35,8 +35,8 @@
 *.color7:       #ffffff
 
 ! urxvt settings
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=17:hinting=full
-URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=17:hinting=full:weight=bold
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16:hinting=full
+URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=16:hinting=full:weight=bold
 URxvt.letterSpace: -1
 
 URxvt.scrollBar: false
