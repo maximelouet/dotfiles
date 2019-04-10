@@ -79,6 +79,7 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias ip='ip --color'
 
 # colors FUCKING EVERYWHERE
 if (( $+commands[colormake] )); then
@@ -159,6 +160,7 @@ alias beep_disable='xset b off'
 alias beep_enable='xset b 100 600 50'
 alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
+alias ipa='ip --brief -a'
 
 # some versions of watch support color
 # but the program you're calling has to send it...
