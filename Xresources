@@ -52,9 +52,6 @@ URxvt.keysym.Control-0x2d: perl:font-size:decrease
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 0
-
 ! Disable printing the terminal contents when pressing PrintScreen.
 URxvt.print-pipe: "cat > /dev/null"
 
