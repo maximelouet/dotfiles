@@ -16,13 +16,14 @@ signal=13
 [separator]
 
 [INTERNET]
-interval=5
+interval=30
 signal=14
 
 [separator]
 
 [ping]
 interval=10
+signal=14
 
 [separator]
 

@@ -42,24 +42,21 @@ URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.transparent: false
 URxvt.internalBorder: 0
+URxvt.cursorBlink: true
+URxvt.saveLines: 50000
 ! to test:
 URxvt.urgentOnBell: true
-URxvt.cursorBlink: true
-URxvt.saveLines: 20000
-URxvt.keysym.Control-0x2b: perl:font-size:increase
-URxvt.keysym.Control-0x2d: perl:font-size:decrease
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 0
-
 ! Disable printing the terminal contents when pressing PrintScreen.
 URxvt.print-pipe: "cat > /dev/null"
 
+! "plugins"
+URxvt.perl-ext-common: default,matcher,resize-font
+
 ! Clickable URLs
-URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
