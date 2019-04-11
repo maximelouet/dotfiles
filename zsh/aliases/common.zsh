@@ -48,20 +48,13 @@ mr_clean() {
   find -name "*~" -delete -o -name "#*#" -delete -o -name "a.out" -delete -o -name ".#*" -delete
 }
 
-# better man pages
-#man() {
-#  env \
-#  LESS_TERMCAP_md=$'\e[01;31m' \
-#  LESS_TERMCAP_me=$'\e[0m' \
-#  LESS_TERMCAP_se=$'\e[0m' \
-#  LESS_TERMCAP_so=$'\e[01;44;33m' \
-#  LESS_TERMCAP_ue=$'\e[0m' \
-#  LESS_TERMCAP_us=$'\e[01;32m' \
-#  GROFF_NO_SGR=1 \
-#  PAGER="less -X" \
-#  _NROFF_U=1 \
-#  man "$@"
-#}
+diff () {
+  if (( $+commands[git] )); then
+    git --no-pager diff --color=auto --no-ext-diff --no-index "$@"
+  else
+    command diff --unified "$@"
+  fi
+}
 
 # decode base64 shortcut
 bd() {
