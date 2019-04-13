@@ -7,8 +7,8 @@ ifaceWIFI=$(echo /sys/class/net/*/wireless | awk -F '/' '{ print $5 }')
 ifaceETH=$(echo /sys/class/net/en*/ | awk -F '/' '{ print $5 }')
 
 case $BLOCK_BUTTON in
-    2) IP=$(curl -s "ifconfig.me/ip" | tr -d '\n'); notify-send "External IP address" $IP; echo -n $IP | xclip -i -selection clipboard ;;
-    3) IP=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'); notify-send "IP address" $IP; echo -n $IP | xclip -i -selection clipboard ;;
+    2) IP=$(curl -s "https://ip.saumon.io" | tr -d '\n'); notify-send "External IP address" $IP; echo -n $IP | xclip -i -selection clipboard ; exit ;;
+    3) IP=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'); notify-send "IP address" $IP; echo -n $IP | xclip -i -selection clipboard ; exit ;;
 esac
 
 if [ -n "$ifaceWIFI" ] && [ "$ifaceWIFI" != "*" ]; then
@@ -39,7 +39,12 @@ elif [ "$statusWIFI" = "up" ]; then
             10.41.*) echo -n "<span font_size='small'>10.41.</span>${IPaddr#'10.41.'}" ;;
             *) echo -n "$IPaddr" ;;
         esac
-        echo -n "</span> <span font_size='small'>on</span> $NetName"
+        echo -n "</span> <span font_size='small'>on</span> "
+        case "$NetName" in
+            *-5GHz) echo -n "${NetName%?????} <span color='#1E88E5' font_weight='bold'>5</span>" ;;
+            *-5G) echo -n "${NetName%???} <span color='#1E88E5' font_weight='bold'>5</span>" ;;
+            *) echo -n "$NetName" ;;
+        esac
     fi
 else
     echo -n "<span color='#f44336' font-weight='bold'>INTERNET ?</span>"
