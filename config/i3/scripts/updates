@@ -5,9 +5,9 @@
 number=$(checkupdates | wc -l)
 
 if [ $number -gt 5 ]; then
-    spanargs=" color='#ff9800'"
+  spanargs=" color='#ff9800'"
 else
-    spanargs=""
+  spanargs=""
 fi
 
 echo -n "<span$spanargs>  $number</span>"
