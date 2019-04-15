@@ -3,16 +3,15 @@
 # Saumon i3blocks scripts : load
 # (1 min load with colors)
 
-
 load=$(cat /proc/loadavg | cut -d ' ' -f1 | tr -d '\n')
 loadC=$(echo "$load * 100" | bc -l | xargs printf "%.0f")
 
 if [ $loadC -ge 400 ]; then
-    color="#f44336"
+  color="#f44336"
 elif [ $loadC -ge 300 ]; then
-    color="#ff9800"
+  color="#ff9800"
 else
-    color="#cccccc"
+  color="#cccccc"
 fi
 
 echo -n "<span color='$color'>  $load</span>"
