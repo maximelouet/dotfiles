@@ -18,6 +18,7 @@
       path: config/vim
     ~/.npmrc:
     ~/.tmux.conf:
+    ~/.vim:
     ~/.zsh:
     ~/.zshenv:
     ~/.zsh/.zlogin: ~/.zsh/zlogin

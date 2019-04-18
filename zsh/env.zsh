@@ -28,7 +28,6 @@ export TZ='Europe/Paris'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export ANDROID_HOME='/home/saumon/software/Android'
 
 export WATCH='all'
