@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO: refactor
+
 lockfile="/tmp/saumon-music-instance.lock"
 instance="`cat $lockfile`"
 
@@ -61,7 +63,7 @@ elif [[ "$instance" = "spotify" ]]; then
 
   if [[ "${STATUS}" = "Playing" ]]; then # TODO: check that data isn't empty (and below)
     echo -n "<span color='#8BC34A'><span fallback='true'> </span> "
-    echo -n "${DATA}" | sed -r 's/&/&amp;/g'
+    echo -n "${DATA}" | sed -r 's/&/&amp;/g' | awk -F " - " '{print $1 " - " $2}' | tr -d '\n' # awk is used to remove "- Remastered" or other shit from Spotify
   elif [[ "${STATUS}" = "Paused" ]]; then
     echo -n "<span color='#EF6C00'><span fallback='true'> </span> "
     echo -n "${DATA}" | sed -r 's/&/&amp;/g'
