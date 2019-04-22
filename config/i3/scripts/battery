@@ -1,33 +1,36 @@
 #!/bin/sh
-
-# Saumon i3blocks scripts : battery (battery percentage and state)
+#
+# Saumon i3blocks scripts
+# battery (battery percentage and state)
+#
 
 battInfo=$(acpi)
-battStatus=$(echo $battInfo | awk '/ / {print $3}' | tr -d ',')
-battCapacity=$(echo $battInfo | awk '/ / {print $4}' | tr -d '%,\n')
-battRemain=$(echo $battInfo | awk '/ / {print $5}' | sed 's/...$//' | tr -d '\n')
+battStatus=$(echo "$battInfo" | awk '/ / {print $3}' | tr -d ',')
+battCapacity=$(echo "$battInfo" | awk '/ / {print $4}' | tr -d '%,\n')
+battRemain=$(echo "$battInfo" | awk '/ / {print $5}' | sed 's/...$//' | tr -d '\n')
 
-if [ \( "$battStatus" = "Charging" \) -o \( "$battRemain" = "discharg" \) -o \( ${#battRemain} -lt "1" \) ]; then
-  if [ \( $battCapacity -lt "90" \) -o \( ${#battRemain} -lt "1" \) ]; then
+if [ "$battStatus" = "Charging" ] || [ "$battRemain" = "discharg" ] || [ ${#battRemain} -lt 1 ]; then
+  if [ "$battCapacity" -lt 90 ] || [ "${#battRemain}" -lt 1 ]; then
     color="#8BC34A"
   else
     color="#cccccc"
   fi
-  if [ $battCapacity -lt "95" ]; then
-    echo -n "<span color='$color'>  $battCapacity<span font_size='small'>%</span></span>"
+  if [ "$battCapacity" -lt 95 ]; then
+    icon=""
   else
-    echo -n "<span color='$color'>  $battCapacity<span font_size='small'>%</span></span>"
+    icon=""
   fi
+  printf "<span color='%s'>%s  %s<span font_size='small'>%%</span></span>" "$color" "$icon" "$battCapacity"
 else
-  if [ $battCapacity -lt "20" ]; then
+  if [ "$battCapacity" -lt 20 ]; then
     color="#f44336"
     icon=""
-  elif [ $battCapacity -lt "50" ]; then
+  elif [ "$battCapacity" -lt 50 ]; then
     color="#ff9800"
     icon=""
   else
     color="#cccccc"
     icon=""
   fi
-  echo -n "<span color='$color'>$icon  $battCapacity<span font_size='small'>%</span> ($battRemain)</span>"
+  printf "<span color='%s'>%s  %s<span font_size='small'>%%</span> (%s)</span>" "$color" "$icon" "$battCapacity" "$battRemain"
 fi

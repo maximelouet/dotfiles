@@ -1,7 +1,8 @@
 #!/bin/sh
-
-# Saumon i3blocks scripts : brightness
-# (display current screen brightness in % and change on scroll)
+#
+# Saumon i3blocks scripts
+# brightness (display current screen brightness in % and change on scroll)
+#
 
 case $BLOCK_BUTTON in
   4) # scroll up : increase brightness by 1%
@@ -12,6 +13,4 @@ case $BLOCK_BUTTON in
     ;;
 esac
 
-echo -n "<span fallback='true'>  </span>"
-light | xargs printf %.0f
-echo -n "<span font_size='small'>%</span>"
+printf "<span fallback='true'>  </span>%.0f<span font_size='small'>%%</span>" "$(light)"

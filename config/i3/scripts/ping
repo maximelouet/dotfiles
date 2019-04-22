@@ -1,14 +1,15 @@
 #!/bin/sh
+#
+# Saumon i3blocks scripts
+# ping (display actual ping)
+#
 
-# Saumon i3blocks scripts : ping (display actual ping)
+ping=$(ping -q -w 2 -c 1 1.1.1.1 | tail -n1 | cut -d '/' -f 5 | awk -F. '{print $1}' | tr -d '\n')
 
-re='^[0-9]+$'
-ping=$(ping -w 2 -c 1 8.8.8.8 | tail -n1 | awk '{print $4}' | cut -d '/' -f 2 |	awk -F. '{print $1}' | tr -d '\n')
-
-if ! [[ $ping =~ $re ]] ; then
-  echo -n "<span color='#f44336'></span>"
-elif [[ $ping -ge 500 ]]; then
-  echo -n "<span color='#EF6C00'>$ping <span font_size='small'>ms</span></span>"
+if [ $(expr "$ping" : "[0-9]*$") -eq 0 ]; then
+  printf "<span color='#f44336'></span>"
+elif [ "$ping" -ge 500 ]; then
+  printf "<span color='#EF6C00'>%s <span font_size='small'>ms</span></span>" "$ping"
 else
-  echo -ne "$ping <span font_size='small'>ms</span>"
+  printf "%s <span font_size='small'>ms</span>" "$ping"
 fi

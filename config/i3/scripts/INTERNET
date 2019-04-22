@@ -1,67 +1,60 @@
 #!/bin/sh
-
-# Saumon i3blocks scripts : INTERNET
-# (wired/wifi network info with external ip on middle click)
-
-set -eu
+#
+# Saumon i3blocks scripts
+# INTERNET (wired/wifi network info with external ip on middle click)
+#
 
 ifaceWIFI=$(echo /sys/class/net/*/wireless | awk -F '/' '{ print $5 }')
 ifaceETH=$(echo /sys/class/net/en*/ | awk -F '/' '{ print $5 }')
 
-set +u
-
 case $BLOCK_BUTTON in
   2)
     IP=$(curl -s "https://ip.saumon.io" | tr -d '\n')
-    notify-send "External IP address" $IP
-    echo -n $IP | xclip -i -selection clipboard
-    exit
+    notify-send "External IP address" "$IP"
+    printf "%s" "$IP" | xclip -i -selection clipboard
     ;;
   3)
     IP=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n')
-    notify-send "IP address" $IP
-    echo -n $IP | xclip -i -selection clipboard
-    exit
+    notify-send "IP address" "$IP"
+    printf "%s" "$IP" | xclip -i -selection clipboard
     ;;
 esac
 
-set -u
-
 if [ -n "$ifaceWIFI" ] && [ "$ifaceWIFI" != "*" ]; then
-  statusWIFI=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceWIFI/operstate)")
+  statusWIFI=$(cat -- "$(readlink -e -- /sys/class/net/"$ifaceWIFI"/operstate)")
 else
   statusWIFI="unknown"
 fi
 
 if [ -n "$ifaceETH" ] && [ "$ifaceETH" != "en*" ]; then
-  statusETH=$(cat -- "$(readlink -e -- /sys/class/net/$ifaceETH/operstate)")
+  statusETH=$(cat -- "$(readlink -e -- /sys/class/net/"$ifaceETH"/operstate)")
 else
   statusETH="unknown"
 fi
 
 if [ "$statusETH" = "up" ]; then
-  echo -n '<span color="#8BC34A"><b></b>  '
+  printf '<span color="#8BC34A"><b></b>  '
   ip addr show "$ifaceETH" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'
-  echo -n '</span>'
+  printf '</span>'
 elif [ "$statusWIFI" = "up" ]; then
   IPaddr=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n')
   NetName=$(iwgetid -r | tr -d '\n')
   if [ "$IPaddr" = "" ]; then
-    echo -n "<span color='#EF6C00'>  (no IP)</span>"
+    printf "<span color='#EF6C00'>  (no IP)</span>"
   else
-    echo -n "<span color='#8BC34A'>  "
+    printf "<span color='#8BC34A'>  "
     case "$IPaddr" in
-      192.168.*) echo -n "${IPaddr#'192.168.'}" ;;
-      10.41.*) echo -n "<span font_size='small'>10.41.</span>${IPaddr#'10.41.'}" ;;
-      *) echo -n "$IPaddr" ;;
+      192.168.*) printf "%s" "${IPaddr#'192.168.'}" ;;
+      10.41.*) printf "<span font_size='small'>10.41.</span>%s" "${IPaddr#'10.41.'}" ;;
+      *) printf "%s" "$IPaddr" ;;
     esac
-    echo -n "</span> <span font_size='small'>on</span> "
+    printf "</span> <span font_size='small'>on</span> "
     case "$NetName" in
-      *-5GHz) echo -n "${NetName%?????} <span color='#1E88E5' font_weight='bold'>5</span>" ;;
-      *-5G) echo -n "${NetName%???} <span color='#1E88E5' font_weight='bold'>5</span>" ;;
-      *) echo -n "$NetName" ;;
+      *-5GHz) printf "%s <span color='#1E88E5' font_weight='bold'>5</span>" "${NetName%?????}" ;;
+      *-5G) printf "%s <span color='#1E88E5' font_weight='bold'>5</span>" "${NetName%???}" ;;
+      *) printf "%s" "$NetName" ;;
     esac
   fi
 else
-  echo -n "<span color='#f44336' font-weight='bold'>INTERNET ?</span>"
+  printf "<span color='#f44336' font-weight='bold'>INTERNET ?</span>"
 fi

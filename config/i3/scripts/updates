@@ -1,13 +1,13 @@
 #!/bin/sh
-
-# Saumon i3blocks scripts : updates (display number of pending Arch updates)
+#
+# Saumon i3blocks scripts
+# updates (display number of pending Arch updates)
+#
 
 number=$(checkupdates | wc -l)
 
-if [ $number -gt 5 ]; then
-  spanargs=" color='#ff9800'"
+if [ "$number" -gt 5 ]; then
+  printf "<span color='#ff9800'>  %s</span>" "$number"
 else
-  spanargs=""
+  printf "<span>  %s</span>" "$number"
 fi
-
-echo -n "<span$spanargs>  $number</span>"

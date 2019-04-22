@@ -1,17 +1,18 @@
 #!/bin/sh
-
+#
 # Saumon i3blocks scripts : load
 # (1 min load with colors)
+#
 
-load=$(cat /proc/loadavg | cut -d ' ' -f1 | tr -d '\n')
+load=$(cut -d ' ' -f1 /proc/loadavg | tr -d '\n')
 loadC=$(echo "$load * 100" | bc -l | xargs printf "%.0f")
 
-if [ $loadC -ge 400 ]; then
+if [ "$loadC" -ge 400 ]; then
   color="#f44336"
-elif [ $loadC -ge 300 ]; then
+elif [ "$loadC" -ge 300 ]; then
   color="#ff9800"
 else
   color="#cccccc"
 fi
 
-echo -n "<span color='$color'>  $load</span>"
+printf "<span color='%s'>  %s</span>" "$color" "$load"
