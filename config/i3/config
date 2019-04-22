@@ -240,6 +240,8 @@ for_window [class="nitrogen"] floating enable
 for_window [class="Parole"] floating enable
 for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
 for_window [instance="sun-awt-X11-XDialogPeer"] border pixel 2
+for_window [title="^Page Info"] floating enable
+for_window [title="^Page Info"] border pixel 2
 for_window [title="Minecraft Launcher"] floating enable
 for_window [title="Minecraft Launcher"] border pixel 2
 for_window [title="Network Connections"] floating enable
@@ -280,7 +282,7 @@ for_window [window_type="menu"] border pixel 2
 bindsym $mod+Return   exec $terminal
 bindsym $super+Return exec $terminal
 bindsym $super+e      exec "nemo"
-bindsym $super+f      exec "chromium"
+bindsym $super+f      exec "firefox"
 bindsym $super+c      exec "clipster -s"
 
 # Program launcher
