@@ -1,6 +1,5 @@
 history
-.zcompdump
-.zcompdump.zwc
+.zcomp*
 .zlogin
 .zpreztorc
 .zprofile
