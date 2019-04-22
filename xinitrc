@@ -1,3 +1,3 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-xsetroot -solid black
+hsetroot -solid black
 exec ssh-agent i3
