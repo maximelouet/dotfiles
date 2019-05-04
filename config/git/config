@@ -1,7 +1,7 @@
 [user]
 	name = Maxime Louet
 	email = maxime@saumon.io
-	signingkey = 2F4128BBA7D38E0BF55DCABED2699CC1344BC51F
+	signingkey = 256931E633140E6227CFCEF60233462B6151CCD0
 [core]
 	editor = vim
 	autocrlf = input
@@ -37,3 +37,4 @@
 	new = green
 [commit]
 	verbose = true
+	gpgsign = true
