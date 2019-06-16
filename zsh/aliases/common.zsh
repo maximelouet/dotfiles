@@ -58,7 +58,11 @@ diff () {
 
 # decode base64 shortcut
 bd() {
-  echo -n "$1" | base64 -d && echo -n "$1" | base64 -d | xclip -selection clipboard
+  echo -n "$1" | base64 -d -w 0 && echo -n "$1" | base64 -d -w 0 | xclip -selection clipboard
+}
+# encode base64 shortcut
+be() {
+  echo -n "$1" | base64 -w 0 && echo -n "$1" | base64 -w 0 | xclip -selection clipboard
 }
 
 # open
