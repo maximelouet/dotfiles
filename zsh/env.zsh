@@ -10,6 +10,7 @@ export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less -X'
 export MANPAGER="$PAGER"
+export TERM=xterm-256color
 
 export USER='saumon'
 export TEKLOGIN='maxime.louet@epitech.eu'
