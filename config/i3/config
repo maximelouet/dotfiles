@@ -338,9 +338,6 @@ exec_always --no-startup-id "xset b off"
 # Turn off screen after 5 minutes
 exec_always --no-startup-id "xset s 300"
 
-# Set an acceptable keyboard rate
-exec_always --no-startup-id "xset r rate 190 27"
-
 # Swap caps lock and escape
 exec_always --no-startup-id "setxkbmap -option caps:swapescape"
 
