@@ -27,3 +27,7 @@ fi
 if (( $+commands[kubectl] )); then
   source <(kubectl completion zsh)
 fi
+
+export NVM_DIR="$HOME/.config"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
