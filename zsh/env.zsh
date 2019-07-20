@@ -29,6 +29,10 @@ export TZ='Europe/Paris'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export ANDROID_HOME='/home/saumon/software/Android'
-
 export WATCH='all'
+
+export ANDROID_HOME=$HOME/software/Android
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
