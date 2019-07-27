@@ -338,9 +338,6 @@ exec_always --no-startup-id "xset b off"
 # Turn off screen after 5 minutes
 exec_always --no-startup-id "xset s 300"
 
-# Swap caps lock and escape
-exec_always --no-startup-id "setxkbmap -option caps:swapescape"
-
 # Instantly switch to workspace "1" (not the first one in alphabetical order)
 exec --no-startup-id "i3-msg 'workspace \"  1  \"'"
 
