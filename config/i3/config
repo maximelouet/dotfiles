@@ -380,3 +380,6 @@ exec --no-startup-id \
 
 # Touchpad gestures handling
 exec --no-startup-id "libinput-gestures-setup start"
+
+# Force autorandr reload for correct multi-screen configuration
+exec --no-startup-id "autorandr -c"
