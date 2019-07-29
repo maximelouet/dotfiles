@@ -49,6 +49,11 @@ URxvt.urgentOnBell: true
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
+! Disable autoscroll on manual scroll
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
 ! Disable printing the terminal contents when pressing PrintScreen.
 URxvt.print-pipe: "cat > /dev/null"
 
