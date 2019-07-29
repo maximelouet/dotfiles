@@ -43,8 +43,7 @@ URxvt.scrollBar: false
 URxvt.transparent: false
 URxvt.internalBorder: 0
 URxvt.cursorBlink: true
-URxvt.saveLines: 50000
-! to test:
+URxvt.saveLines: 999999
 URxvt.urgentOnBell: true
 
 URxvt.iso14755: false
