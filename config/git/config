@@ -38,3 +38,7 @@
 [commit]
 	verbose = true
 	gpgsign = true
+[rebase]
+	autoStash = true
+[pull]
+	rebase = true
