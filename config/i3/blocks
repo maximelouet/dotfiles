@@ -7,7 +7,7 @@ color=#dddddd
 separator=false
 separator_block_width=4
 markup=pango
-interval=once
+interval=60
 
 [music]
 interval=10
@@ -16,7 +16,7 @@ signal=13
 [separator]
 
 [INTERNET]
-interval=30
+interval=20
 signal=14
 
 [separator]
@@ -28,19 +28,16 @@ signal=14
 [separator]
 
 [brightness]
-interval=60
 signal=11
 
 [separator]
 
 [volume]
-interval=30
 signal=10
 
 [separator]
 
 [battery]
-interval=60
 signal=12
 
 [separator]
