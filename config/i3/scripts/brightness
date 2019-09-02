@@ -4,12 +4,28 @@
 # brightness (display current screen brightness in % and change on scroll)
 #
 
+current=$(light)
+
+if [ -z "$current" ]; then
+  printf "<span fallback='true'>  </span>??"
+  exit 0
+fi
+
 case $BLOCK_BUTTON in
-  4) # scroll up : increase brightness by 1%
-    light -A 1
+  3) # right click: toggle min/full brightness
+    rounded=$(printf "%.*f\n" 0 $current)
+    notify_send $rounded
+    if [ "$rounded" -ge 50 ]; then
+      light -S 100
+    else
+      light -S 0.015
+    fi
     ;;
-  5) # scroll down : decrease brightness by 1%
-    light -U 1
+  4) # scroll up: increase brightness by 2%
+    light -A 2
+    ;;
+  5) # scroll down: decrease brightness by 2%
+    light -U 2
     ;;
 esac
 
