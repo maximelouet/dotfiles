@@ -11,12 +11,12 @@ case $BLOCK_BUTTON in
   2)
     IP=$(curl -s "https://ip.saumon.io" | tr -d '\n')
     notify-send "External IP address" "$IP"
-    printf "%s" "$IP" | xclip -i -selection clipboard
+    printf "%s" "$IP" | xclip -i -selection clipboard 2>/dev/null
     ;;
   3)
     IP=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n')
     notify-send "IP address" "$IP"
-    printf "%s" "$IP" | xclip -i -selection clipboard
+    printf "%s" "$IP" | xclip -i -selection clipboard 2>/dev/null
     ;;
 esac
 
