@@ -324,8 +324,10 @@ bindcode $alt+135   exec --no-startup-id "play ~/cancer/google-it.mp3"
 # Workspace assignments
 ##################################################
 
-assign [class="(?i)caprine"] $ws4
-assign [class="(?i)discord" window_role="browser-window"] $ws4
+assign [class="Caprine" window_role="browser-window"] $ws4
+assign [class="Discord" window_role="browser-window"] $ws4
+# Move to workspace for Spotify because they don't set window infos correctly
+for_window [class="Spotify"] move to workspace $ws5
 
 
 ##################################################
