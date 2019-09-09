@@ -6,6 +6,7 @@
 
 ifaceWIFI=$(echo /sys/class/net/*/wireless | awk -F '/' '{ print $5 }')
 ifaceETH=$(echo /sys/class/net/en*/ | awk -F '/' '{ print $5 }')
+ifaceVPN=$(echo /sys/class/net/ppp*/ | awk -F '/' '{ print $5 }')
 
 case $BLOCK_BUTTON in
   2)
@@ -54,6 +55,9 @@ elif [ "$statusWIFI" = "up" ]; then
       *-5G) printf "%s <span color='#1E88E5' font_weight='bold'>5</span>" "${NetName%???}" ;;
       *) printf "%s" "$NetName" ;;
     esac
+    if [ "$ifaceVPN" != "ppp*" ]; then
+      printf "<span color='#EC407A'> </span>"
+    fi
   fi
 else
   printf "<span color='#f44336' font-weight='bold'>INTERNET ?</span>"
