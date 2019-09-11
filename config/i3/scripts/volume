@@ -45,4 +45,4 @@ else
   printf "<span fallback='true'>  </span>%s" "$volume"
 fi
 
-printf "<span font_size='small'>%%</span></span>"
+echo "<span font_size='small'>%</span></span>"

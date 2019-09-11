@@ -36,12 +36,12 @@ fi
 if [ "$statusETH" = "up" ]; then
   printf '<span color="#8BC34A"><b></b>  '
   ip addr show "$ifaceETH" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'
-  printf '</span>'
+  printf '</span>\n'
 elif [ "$statusWIFI" = "up" ]; then
   IPaddr=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n')
   NetName=$(iwgetid -r | tr -d '\n')
   if [ "$IPaddr" = "" ]; then
-    printf "<span color='#EF6C00'>  (no IP)</span>"
+    printf "<span color='#EF6C00'>  (no IP)</span>\n"
   else
     printf "<span color='#8BC34A'>  "
     case "$IPaddr" in
@@ -58,7 +58,8 @@ elif [ "$statusWIFI" = "up" ]; then
     if [ "$ifaceVPN" != "ppp*" ]; then
       printf "<span color='#EC407A'> </span>"
     fi
+    printf "\n"
   fi
 else
-  printf "<span color='#f44336' font-weight='bold'>INTERNET ?</span>"
+  printf "<span color='#f44336' font-weight='bold'>INTERNET ?</span>\n"
 fi

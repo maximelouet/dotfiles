@@ -7,7 +7,7 @@
 number=$(checkupdates | wc -l)
 
 if [ "$number" -gt 5 ]; then
-  printf "<span color='#ff9800'>  %s</span>" "$number"
+  printf "<span color='#ff9800'>  %s</span>\n" "$number"
 else
-  printf "<span>  %s</span>" "$number"
+  printf "<span>  %s</span>\n" "$number"
 fi

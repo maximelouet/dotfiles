@@ -39,7 +39,7 @@ if [[ "$instance" = "mpd" ]]; then
       echo -n '<span color="#999">  ' # music icon
       echo -n "Stopped"
     fi
-    echo -n " </span>"
+    echo " </span>"
   }
 
   case $BLOCK_BUTTON in
@@ -71,10 +71,10 @@ elif [[ "$instance" = "spotify" ]]; then
     echo -n "<span fallback='true'>                            </span><span color='#999'><span fallback='true'> Stopped </span>"
   fi
 
-  echo -n "</span>"
+  echo "</span>"
 
 else
 
-  echo -n "<span fallback='true'>                               </span><span color='#999999'><span fallback='true'>  </span>Idle</span>"
+  echo "<span fallback='true'>                               </span><span color='#999999'><span fallback='true'>  </span>Idle</span>"
 
 fi

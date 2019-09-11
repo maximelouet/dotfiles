@@ -4,4 +4,4 @@
 # separator (display a separator symbol)
 #
 
-printf "<span color='#aaa'>  <b>·</b>  </span>"
+echo "<span color='#aaa'>  <b>·</b>  </span>"
