@@ -24,7 +24,7 @@ export HISTSIZE=50000
 export SAVEHIST=99999
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export TZ='Europe/Paris'
+export TZ='Europe/London'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
