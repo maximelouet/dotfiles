@@ -8,10 +8,12 @@ separator=false
 separator_block_width=4
 markup=pango
 interval=60
+align=right
 
 [music]
 interval=10
 signal=13
+min_width=300
 
 [separator]
 
