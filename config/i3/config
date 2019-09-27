@@ -337,8 +337,8 @@ for_window [class="Spotify"] move to workspace $ws5
 # Disable bell
 exec_always --no-startup-id "xset b off"
 
-# Turn off screen after 5 minutes
-exec_always --no-startup-id "xset s 300"
+# Turn off screen after 10 minutes
+exec_always --no-startup-id "xset s 600"
 
 # Instantly switch to workspace "1" (not the first one in alphabetical order)
 exec --no-startup-id "i3-msg 'workspace \"  1  \"'"
@@ -367,12 +367,12 @@ exec --no-startup-id "clipster -d"
 # Notification daemon
 exec --no-startup-id "twmnd"
 
-# Auto lock screen after 10 minutes
+# Auto lock screen after 15 minutes
 exec --no-startup-id \
   xautolock \
     -locker slock \
-    -time 10 \
-    -corners "000-" \
+    -time 15 \
+    -corners "00-0" \
     -cornersize 30 \
     -notify 30 \
     -notifier "notify-send -u critical 'Locking soon' -- 'Screen will be locked in 30 seconds without action'"
