@@ -10,4 +10,5 @@ case $BLOCK_BUTTON in
   3) date +%s | tr -d '\n' | xclip -i -selection clipboard ;;
 esac
 
+printf " "
 date '+%a  %Y-%m-%d '

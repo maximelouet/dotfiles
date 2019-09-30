@@ -28,19 +28,19 @@ min_width=130
 [ping]
 interval=10
 signal=14
-min_width=45
+min_width=52
 
 [separator]
 
 [brightness]
 signal=11
-min_width=50
+min_width=58
 
 [separator]
 
 [volume]
 signal=10
-min_width=55
+min_width=63
 
 [separator]
 

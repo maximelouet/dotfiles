@@ -34,15 +34,22 @@ fi
 
 printf "<span color='%s'>" "$color"
 
+if [ "$ismuted" = "yes" ]; then
+  printf "<s> "
+fi
 if ! [ -z "$isbluetooth" ]; then
   printf "<span fallback='true'>  </span>"
 fi
-if [ "$ismuted" = "yes" ]; then
-  printf "<span fallback='true'>  </span><span font_size='small'>(muted)</span> %s" "$volume"
-elif [ "$volume" -ge 40 ]; then
+if [ "$volume" -ge 40 ]; then
   printf "<span fallback='true'>  </span>%s" "$volume"
 else
   printf "<span fallback='true'>  </span>%s" "$volume"
 fi
 
-echo "<span font_size='small'>%</span></span>"
+printf "<small>%%</small>"
+
+if [ "$ismuted" = "yes" ]; then
+  printf " </s>"
+fi
+
+echo "</span>"

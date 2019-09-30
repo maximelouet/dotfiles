@@ -15,4 +15,4 @@ else
   color="#cccccc"
 fi
 
-printf "<span color='%s'>  %s</span>\n" "$color" "$load"
+printf "<span color='%s'>   %s</span> \n" "$color" "$load"

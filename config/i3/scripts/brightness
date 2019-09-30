@@ -7,7 +7,7 @@
 current=$(light)
 
 if [ -z "$current" ]; then
-  printf "<span fallback='true'>  </span>??\n"
+  printf " <span fallback='true'>  </span>?? \n"
   exit 0
 fi
 
@@ -29,4 +29,4 @@ case $BLOCK_BUTTON in
     ;;
 esac
 
-printf "<span fallback='true'>  </span>%.0f<span font_size='small'>%%</span>\n" "$(light)"
+printf " <span fallback='true'>  </span>%.0f<span font_size='small'>%%</span> \n" "$(light)"
