@@ -32,5 +32,5 @@ else
     color="#cccccc"
     icon=""
   fi
-  printf "<span color='%s'> %s  %s<span font_size='small'>%%</span> (%s) </span>\n" "$color" "$icon" "$battCapacity" "$battRemain"
+  printf "<span color='%s'> %s  %s<span font_size='small'>%%</span> <small>(%s)</small> </span>\n" "$color" "$icon" "$battCapacity" "$battRemain"
 fi
