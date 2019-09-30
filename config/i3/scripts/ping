@@ -8,7 +8,7 @@ ping=$(ping -q -w 2 -c 1 1.1.1.1 | tail -n1 | cut -d '/' -f 5 | awk -F. '{print 
 
 if [ $(expr "$ping" : "[0-9]*$") -eq 0 ]; then
   printf "<span color='#f44336' size='x-large'><b>···</b></span>\n"
-elif [ "$ping" -ge 500 ]; then
+elif [ "$ping" -ge 200 ]; then
   printf "<span color='#EF6C00'>%s <span font_size='small'>ms</span></span>\n" "$ping"
 else
   printf "%s <span font_size='small'>ms</span>\n" "$ping"
