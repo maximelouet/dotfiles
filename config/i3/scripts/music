@@ -9,13 +9,13 @@ if [[ $BLOCK_BUTTON -eq 2 ]]; then
 
   if [[ "$instance" = "mpd" ]]; then
     mpc pause-if-playing > /dev/null 2>&1
-    echo "spotify" > $lockfile
-    instance="spotify"
-  elif [[ "$instance" = "spotify" ]]; then
-    playerctl --player=spotify pause > /dev/null 2>&1
     echo "none" > $lockfile
     instance="none"
+  elif [[ "$instance" = "none" ]]; then
+    echo "spotify" > $lockfile
+    instance="spotify"
   else
+    playerctl --player=spotify pause > /dev/null 2>&1
     echo "mpd" > $lockfile
     instance="mpd"
   fi
@@ -49,7 +49,11 @@ if [[ "$instance" = "mpd" ]]; then
     *) act status ;;
   esac
 
-elif [[ "$instance" = "spotify" ]]; then
+elif [[ "$instance" = "none" ]]; then
+
+  echo "<span color='#999999'><span fallback='true'>  </span>Idle </span>"
+
+else
 
   case $BLOCK_BUTTON in
     3) $(playerctl --player=spotify play-pause && pkill -RTMIN+13 i3blocks) ;;  # right click, pause/unpause
@@ -72,9 +76,5 @@ elif [[ "$instance" = "spotify" ]]; then
   fi
 
   echo " </span>"
-
-else
-
-  echo "<span color='#999999'><span fallback='true'>  </span>Idle </span>"
 
 fi
