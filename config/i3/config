@@ -38,7 +38,7 @@ set $terminal "urxvtc"
 ##################################################
 
 # Main system font
-font pango:Noto Sans 12.5
+font pango:Noto Sans 12
 
 # Change focus
 bindsym $mod+Left   focus left
@@ -181,9 +181,9 @@ mode "resize" {
 bar {
   status_command i3blocks -c ~/.config/i3/blocks
   position bottom
-  font pango:Noto Sans, Awesome 13
+  font pango:Noto Sans, Awesome 12.5
 
-  height 38 # i3gaps specific
+  height 37 # i3gaps specific
 
   colors {
     background  #111111
