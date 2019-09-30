@@ -8,11 +8,12 @@ separator=false
 separator_block_width=4
 markup=pango
 interval=60
-align=right
+align=center
 
 [music]
 interval=10
 signal=13
+align=right
 min_width=300
 
 [separator]
@@ -20,22 +21,26 @@ min_width=300
 [INTERNET]
 interval=20
 signal=14
+min_width=130
 
 [separator]
 
 [ping]
 interval=10
 signal=14
+min_width=45
 
 [separator]
 
 [brightness]
 signal=11
+min_width=50
 
 [separator]
 
 [volume]
 signal=10
+min_width=55
 
 [separator]
 
