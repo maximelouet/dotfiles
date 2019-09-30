@@ -4,7 +4,7 @@
 # updates (display number of pending Arch updates)
 #
 
-number=$(checkupdates | wc -l)
+number=$(trickle -s -d500 -u200 checkupdates | wc -l)
 
 if [ "$number" -gt 5 ]; then
   printf "<span color='#ff9800'>  %s</span>\n" "$number"
