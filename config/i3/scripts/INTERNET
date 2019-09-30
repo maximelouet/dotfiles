@@ -6,7 +6,7 @@
 
 ifaceWIFI=$(echo /sys/class/net/*/wireless | awk -F '/' '{ print $5 }')
 ifaceETH=$(echo /sys/class/net/en*/ | awk -F '/' '{ print $5 }')
-ifaceVPN=$(echo /sys/class/net/ppp*/ | awk -F '/' '{ print $5 }')
+VPNStatus=$(nmcli -g type,uuid -c no connection show --active | grep "vpn:" | cut -d ':' -f 2 | xargs nmcli -f GENERAL.STATE con show | awk '{ print $2 }')
 
 case $BLOCK_BUTTON in
   2)
@@ -34,29 +34,37 @@ else
 fi
 
 if [ "$statusETH" = "up" ]; then
-  printf '<span color="#8BC34A"><b></b>  '
+  printf '<span color="#8BC34A">  '
   ip addr show "$ifaceETH" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n'
-  printf '</span>\n'
+  printf '</span>'
+  if [ "$VPNStatus" = "activated" ]; then
+    printf " <span color='#EC407A'> </span>"
+  elif [ "$VPNStatus" = "activating" ]; then
+    printf " <span color='#777777'> </span>"
+  fi
+  printf '\n'
 elif [ "$statusWIFI" = "up" ]; then
   IPaddr=$(ip addr show "$ifaceWIFI" | awk '/inet / {print $2}' | cut -d '/' -f1 | tr -d '\n')
   NetName=$(iwgetid -r | tr -d '\n')
   if [ "$IPaddr" = "" ]; then
     printf "<span color='#EF6C00'>  (no IP)</span>\n"
   else
-    printf "<span color='#8BC34A'>  "
+    printf "<span color='#8BC34A'><span font_size='small'> </span> "
     case "$IPaddr" in
       192.168.*) printf "%s" "${IPaddr#'192.168.'}" ;;
       10.41.*) printf "<span font_size='small'>10.41.</span>%s" "${IPaddr#'10.41.'}" ;;
       *) printf "%s" "$IPaddr" ;;
     esac
-    printf "</span> <span font_size='small'>on</span> "
-    case "$NetName" in
+    printf "</span> <span font_size='small' color='#cccccc'>on</span> "
+    case "$NetName" in  # yeah what a shitty way to know if the network is 5GHz, right?
       *-5GHz) printf "%s <span color='#1E88E5' font_weight='bold'>5</span>" "${NetName%?????}" ;;
       *-5G) printf "%s <span color='#1E88E5' font_weight='bold'>5</span>" "${NetName%???}" ;;
       *) printf "%s" "$NetName" ;;
     esac
-    if [ "$ifaceVPN" != "ppp*" ]; then
-      printf "<span color='#EC407A'> </span>"
+    if [ "$VPNStatus" = "activated" ]; then
+      printf " <span color='#EC407A'> </span>"
+    elif [ "$VPNStatus" = "activating" ]; then
+      printf " <span color='#777777'> </span>"
     fi
     printf "\n"
   fi
