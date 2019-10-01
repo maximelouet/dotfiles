@@ -72,7 +72,7 @@ else
     echo -n "<span color='#EF6C00'><span fallback='true'> </span> "
     echo -n "${DATA}" | sed -r 's/&/&amp;/g' | awk -F " - " '{print $1 " - " $2}' | tr -d '\n' # awk is used to remove "- Remastered" or other shit from Spotify
   else
-    echo -n "<span color='#999'><span fallback='true'> Stopped </span>"
+    echo -n "<span color='#999'><span fallback='true'>  Stopped</span>"
   fi
 
   echo " </span>"
