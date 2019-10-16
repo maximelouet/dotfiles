@@ -20,7 +20,6 @@
       create: true
       force: true
       path: icons/default/index.theme
-    ~/.npmrc:
     ~/.tmux.conf:
     ~/.vim:
     ~/.xinitrc:

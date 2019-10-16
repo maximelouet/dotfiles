@@ -13,7 +13,6 @@
     ~/.config/git:
       create: true
       path: config/git
-    ~/.npmrc:
     ~/.tmux.conf:
     ~/.vim:
     ~/.zsh:
