@@ -1,9 +1,9 @@
 " Environment
-set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set directory=$XDG_CACHE_HOME/vim,/tmp,~/
+set backupdir=$XDG_CACHE_HOME/vim,/tmp,~/
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+set runtimepath=$HOME/.vim,$XDG_CONFIG_HOME/vim,$VIM,$VIMRUNTIME
+let $MYVIMRC="$HOME/.vim/vimrc"
 
 " enable vim features instead of strict vi compatibility
 set nocompatible
@@ -138,7 +138,7 @@ set smarttab
 set autoindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Persistence options
+" Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " Persistent undo
@@ -157,3 +157,17 @@ if &term =~ "xterm\\|rxvt"
   silent !echo -ne "\033]12;gray\007"
   autocmd VimLeave * silent !echo -ne "\033]12;gray\007"
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'cespare/vim-toml'
+Plug 'hashivim/vim-terraform'
+Plug 'junegunn/goyo.vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'tpope/vim-commentary'
+
+call plug#end()
