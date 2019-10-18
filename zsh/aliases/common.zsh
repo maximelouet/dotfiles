@@ -56,6 +56,11 @@ diff () {
   fi
 }
 
+# open file in vim with Goyo
+vg () {
+  vim "$@" +Goyo
+}
+
 # decode base64 shortcut
 bd() {
   echo -n "$1" | base64 -d -w 0 && echo -n "$1" | base64 -d -w 0 | xclip -selection clipboard
