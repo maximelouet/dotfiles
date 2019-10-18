@@ -224,54 +224,54 @@ for_window [class="URxvt"] border pixel 1
 # TODO: script this :)
 
 for_window [class="Blueman-manager"] floating enable
-for_window [class="Chromium" window_role="app"] floating enable
 for_window [class="Chromium" window_role="app"] border pixel 2
-for_window [class="File-roller"] floating enable
+for_window [class="Chromium" window_role="app"] floating enable
 for_window [class="File-roller"] border pixel 2
+for_window [class="File-roller"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gpicview"] floating enable
 for_window [class="Gpicview"] move position center
 for_window [class="Gpicview"] resize set 1408 792
 for_window [class="imv"] floating enable
-for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] border pixel 2
+for_window [class="Lxappearance"] floating enable
 for_window [class="nitrogen"] floating enable
 for_window [class="Parole"] floating enable
-for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
 for_window [instance="sun-awt-X11-XDialogPeer"] border pixel 2
-for_window [title="^Page Info"] floating enable
-for_window [title="^Page Info"] border pixel 2
-for_window [title="Minecraft Launcher"] floating enable
+for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
 for_window [title="Minecraft Launcher"] border pixel 2
-for_window [title="Network Connections"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
 for_window [title="Network Connections"] border pixel 2
-for_window [title="Network Operations Manager"] floating enable
+for_window [title="Network Connections"] floating enable
 for_window [title="Network Operations Manager"] border pixel 2
-for_window [title="Plugins"] floating enable
+for_window [title="Network Operations Manager"] floating enable
+for_window [title="^Page Info"] border pixel 2
+for_window [title="^Page Info"] floating enable
 for_window [title="Plugins"] border pixel 2
-for_window [title="Qt Configuration"] floating enable
+for_window [title="Plugins"] floating enable
 for_window [title="Qt Configuration"] border pixel 2
-for_window [title="^Task Manager"] floating enable
+for_window [title="Qt Configuration"] floating enable
 for_window [title="^Task Manager"] border pixel 2
-for_window [title="Volume Control"] floating enable
+for_window [title="^Task Manager"] floating enable
 for_window [title="Volume Control"] border pixel 2
-for_window [window_role="bubble"] floating enable
+for_window [title="Volume Control"] floating enable
 for_window [window_role="bubble"] border pixel 2
-for_window [window_role="(?i)about"] floating enable
+for_window [window_role="bubble"] floating enable
 for_window [window_role="(?i)about"] border pixel 2
-for_window [window_role="(?i)pop-up"] floating enable
+for_window [window_role="(?i)about"] floating enable
 for_window [window_role="(?i)pop-up"] border pixel 2
-for_window [window_role="pop-up"] floating enable
+for_window [window_role="(?i)pop-up"] floating enable
 for_window [window_role="pop-up"] border pixel 2
-for_window [window_role="Preferences"] floating enable
+for_window [window_role="pop-up"] floating enable
 for_window [window_role="Preferences"] border pixel 2
-for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
 for_window [window_role="task_dialog"] border pixel 2
-for_window [window_type="dialog"] floating enable
+for_window [window_role="task_dialog"] floating enable
 for_window [window_type="dialog"] border pixel 2
-for_window [window_type="menu"] floating enable
+for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] border pixel 2
+for_window [window_type="menu"] floating enable
 
 
 ##################################################
