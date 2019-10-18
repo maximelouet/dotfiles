@@ -65,7 +65,7 @@ hi CursorLine cterm=NONE ctermbg=235 ctermfg=NONE
 " turn on line numbers
 set number
 hi LineNr ctermfg=240
-hi CursorLineNr ctermfg=253 ctermbg=235
+hi CursorLineNr cterm=NONE ctermfg=253 ctermbg=235
 
 " assumes fast connection
 set ttyfast
