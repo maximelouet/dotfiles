@@ -114,7 +114,7 @@ alias cp='cp -v'
 alias ln='ln -v'
 
 # edit shortcuts
-alias ve="vim $XDG_CONFIG_HOME/vim/vimrc"
+alias ve="vim $HOME/.vim/vimrc"
 alias ze="vim $HOME/.zshrc"
 alias zea="vim $HOME/.zsh_aliases"
 alias ie="vim $HOME/.config/i3/config"
