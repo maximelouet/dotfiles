@@ -301,7 +301,7 @@ bindsym   $super+x    exec --no-startup-id "rofi -show run"
 bindcode  $super+94  exec --no-startup-id "rofi -show window -show-icons"
 
 # Lock screen
-bindsym $super+l exec --no-startup-id "~/scripts/lock.sh"
+bindsym --release $super+l exec --no-startup-id "~/scripts/lock.sh"
 
 # Screenshot with selection
 bindsym Print exec --no-startup-id "~/scripts/screenshot.sh"
