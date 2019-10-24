@@ -168,7 +168,6 @@ Plug 'cespare/vim-toml'
 Plug 'ervandew/supertab'
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/goyo.vim'
-Plug 'pearofducks/ansible-vim'
 Plug 'tpope/vim-commentary'
 
 call plug#end()
