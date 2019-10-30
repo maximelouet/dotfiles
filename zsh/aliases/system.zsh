@@ -33,6 +33,12 @@ if (( $+commands[yay] )); then
   alias remover='yay -Rnsu'
   alias search='yay'
   alias pkclean='paccache -rk 2'
+elif (( $+commands[pacman] )); then
+  alias maj='sudo pacman -Syu'
+  alias install='sudo pacman -S'
+  alias remove='sudo pacman -Rn'
+  alias remover='sudo pacman -Rns'
+  alias search='sudo pacman -Q'
 else
   alias maj='sudo apt update && sudo apt dist-upgrade'
   alias install='sudo apt install'
