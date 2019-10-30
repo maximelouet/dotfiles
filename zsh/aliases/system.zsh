@@ -50,5 +50,4 @@ key-sign() {
   sudo pacman-key --lsign-key "$1"
 }
 
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias restart-compton='killall compton && compton --config ~/.config/compton.conf -b'

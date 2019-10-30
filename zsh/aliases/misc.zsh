@@ -30,8 +30,8 @@ zsh_stats() {
 alias istheinternetonfire='dig +short txt istheinternetonfire.com'
 
 # forecast
-alias weather='curl wttr.in'
-alias moon='curl wttr.in/Moon'
+alias weather='curl -s wttr.in | head -n -2'
+alias moon='curl -s wttr.in/Moon | head -n -2'
 
 # prevent screen from locking or going off, and disable redshift
 cinema() {
