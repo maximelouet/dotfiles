@@ -28,9 +28,16 @@ function fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-if (( $+commands[thefuck] )); then
-  eval $(thefuck --alias)
-fi
+# lazy load fuck because it takes >100ms to load
+function fuck() {
+  if (( $+commands[thefuck] )); then
+    eval $(thefuck --alias)
+    fuck $@
+  else
+    >&2 echo "zobsh: fuck."
+    return 127
+  fi
+}
 
 if (( $+commands[kubectl] )); then
   source <(kubectl completion zsh)
