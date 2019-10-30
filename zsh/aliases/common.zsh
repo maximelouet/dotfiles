@@ -162,7 +162,7 @@ alias beep_disable='xset b off'
 alias beep_enable='xset b 100 600 50'
 alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
-alias ipa='ip --brief -a'
+alias ipa='ip -brief a'
 
 # some versions of watch support color
 # but the program you're calling has to send it...
