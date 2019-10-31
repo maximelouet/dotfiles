@@ -44,3 +44,5 @@
 	rebase = true
 [credential]
 	helper = store
+[rerere]
+	enabled = true
