@@ -1,48 +1,48 @@
 [user]
-	name = Maxime Louet
-	email = maxime@saumon.io
-	signingkey = 256931E633140E6227CFCEF60233462B6151CCD0
+  name = Maxime Louet
+  email = maxime@saumon.io
+  signingkey = 256931E633140E6227CFCEF60233462B6151CCD0
 [core]
-	editor = vim
-	autocrlf = input
+  autocrlf = input
+  editor = vim
 [alias]
-	ass = add
-	cm = commit
-	cmm = commit -m
-	st = status
-	p = pull
-	pouche = push
-	poule = pull
-	poulet = pull
-	pa = pull --all
-	c = checkout
-	amend = commit --amend
-	tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
-	abort = rebase --abort
-	continue = rebase --continue
-	re = !git fetch && git rebase origin/master
-	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
-	yolo = '!git log --no-merges --oneline | awk -F' ' '{print $1}' | sort -R | head -n1 | xargs git revert'
-	logs = log --show-signature
+  abort = rebase --abort
+  amend = commit --amend
+  ass = add
+  c = checkout
+  cm = commit
+  cmm = commit -m
+  logs = log --show-signature
+  pa = pull --all
+  pouche = push
+  poule = pull
+  poulet = pull
+  p = pull
+  re = !git fetch && git rebase origin/master
+  r = restore
+  set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+  s = switch
+  st = status
+  tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
 [color]
-	ui = auto
+  ui = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red
-	new = green
+  frag = magenta bold
+  meta = yellow bold
+  new = green
+  old = red
 [commit]
-	verbose = true
-	gpgsign = true
+  gpgsign = true
+  verbose = true
 [rebase]
-	autoStash = true
+  autoStash = true
 [pull]
-	rebase = true
+  rebase = true
 [credential]
-	helper = store
+  helper = store
 [rerere]
-	enabled = true
+  enabled = true
