@@ -120,9 +120,9 @@ alias ln='ln -v'
 
 # edit shortcuts
 alias ve="vim $HOME/.vim/vimrc"
-alias ze="vim $HOME/.zshrc"
-alias zea="vim $HOME/.zsh_aliases"
+alias ze="vim $HOME/.zsh/zshrc"
 alias ie="vim $HOME/.config/i3/config"
+alias ge="vim $HOME/.config/git/config"
 alias pe='sudo vim /etc/pacman.conf'
 alias ne='sudo vim /etc/nginx/nginx.conf'
 alias me='sudo vim /etc/pacman.d/mirrorlist'
