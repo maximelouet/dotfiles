@@ -67,12 +67,23 @@ else
 
   if [[ "${STATUS}" = "Playing" ]]; then # TODO: check that data isn't empty (and below)
     echo -n "<span color='#8BC34A'><span fallback='true'> </span> "
-    echo -n "${DATA}" | sed -r 's/&/&amp;/g' | awk -F " - " '{print $1 " - " $2}' | tr -d '\n' # awk is used to remove "- Remastered" or other shit from Spotify
   elif [[ "${STATUS}" = "Paused" ]]; then
     echo -n "<span color='#EF6C00'><span fallback='true'> </span> "
-    echo -n "${DATA}" | sed -r 's/&/&amp;/g' | awk -F " - " '{print $1 " - " $2}' | tr -d '\n' # awk is used to remove "- Remastered" or other shit from Spotify
   else
     echo -n "<span color='#999'><span fallback='true'>  Stopped</span>"
+  fi
+  if [[ "${STATUS}" = "Playing" ]] || [[ "${STATUS}" = "Paused" ]]; then
+    LEFT=$(echo -n "${DATA}" | sed -r 's/&/&amp;/g' | awk -F " - " '{print $1 " - " $2}' | tr -d '\n') # awk is used to remove "- Remastered" or other shit from Spotify
+    RIGHT=$(echo -n "${DATA}" | sed -r 's/&/&amp;/g' | awk -F " - " '{print $3}' | tr -d '\n')
+    case "${RIGHT,,}" in # to lowercase
+      *live* | *remix* | *acoustic* | *piano*)
+        echo -n "$LEFT"
+        echo -n " - <span size='small'>$RIGHT</span>"
+        ;;
+      *)
+        echo -n "$LEFT"
+        ;;
+    esac
   fi
 
   echo " </span>"
