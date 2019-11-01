@@ -3,7 +3,7 @@
 # TODO: refactor
 
 lockfile="/tmp/saumon-music-instance.lock"
-instance="`cat $lockfile`"
+instance=$(cat "$lockfile" 2>/dev/null)
 
 if [[ $BLOCK_BUTTON -eq 2 ]]; then
 
