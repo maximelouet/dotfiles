@@ -350,9 +350,6 @@ exec_always --no-startup-id "xset b off"
 # Turn off screen after 10 minutes
 exec_always --no-startup-id "xset s 600"
 
-# Instantly switch to workspace "1" (not the first one in alphabetical order)
-exec --no-startup-id "i3-msg 'workspace \"  1  \"'"
-
 # Network Manager
 exec --no-startup-id "nm-applet"
 
@@ -392,3 +389,6 @@ exec --no-startup-id "libinput-gestures-setup start"
 
 # Force autorandr reload for correct multi-screen configuration
 exec --no-startup-id "autorandr -c"
+
+# Instantly switch to workspace "1" (not the first one in alphabetical order)
+exec --no-startup-id "sleep 1 && i3-msg 'workspace \"  1  \"'"
