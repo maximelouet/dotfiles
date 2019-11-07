@@ -4,29 +4,30 @@
 # brightness (display current screen brightness in % and change on scroll)
 #
 
-current=$(light)
+command="brightnessctl -m"
+
+case $BLOCK_BUTTON in
+  3) # right click: toggle min/full brightness
+    rounded=$($command | cut -d ',' -f4 |  tr -d '%')
+    if [ "$rounded" -ge 50 ]; then
+      command="sudo brightnessctl -m set 100%"
+    else
+      command="sudo brightnessctl -m set 1"
+    fi
+    ;;
+  4) # scroll up: increase brightness by 2%
+    command="sudo brightnessctl -m set -m +2%"
+    ;;
+  5) # scroll down: decrease brightness by 2%
+    command="sudo brightnessctl -m set -m 2%-"
+    ;;
+esac
+
+current=$($command | cut -d ',' -f4 |  tr -d '%')
 
 if [ -z "$current" ]; then
   printf " <span fallback='true'>  </span>?? \n"
   exit 0
 fi
 
-case $BLOCK_BUTTON in
-  3) # right click: toggle min/full brightness
-    rounded=$(printf "%.*f\n" 0 $current)
-    notify_send $rounded
-    if [ "$rounded" -ge 50 ]; then
-      light -S 100
-    else
-      light -S 0.015
-    fi
-    ;;
-  4) # scroll up: increase brightness by 2%
-    light -A 2
-    ;;
-  5) # scroll down: decrease brightness by 2%
-    light -U 2
-    ;;
-esac
-
-printf " <span fallback='true'>  </span>%.0f<span font_size='small'>%%</span> \n" "$(light)"
+printf " <span fallback='true'>  </span>$current<span font_size='small'>%%</span> \n"
