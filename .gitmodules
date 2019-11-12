@@ -14,3 +14,4 @@
 [submodule "config/i3/scripts"]
 	path = config/i3/scripts
 	url = git@github.com:maximelouet/i3blocks-scripts
+  branch = master
