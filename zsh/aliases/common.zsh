@@ -143,7 +143,7 @@ alias ta='tree -a'
 alias m='make -j'
 alias e='unarchive'
 alias d='docker'
-alias k='kubectl'
+#alias k='kubectl' # REPLACED by lazy-loading function in zshrc
 alias copy='xclip -selection clipboard -i'
 
 # misc
