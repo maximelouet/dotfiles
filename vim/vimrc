@@ -97,6 +97,9 @@ set listchars=tab:··,eol:¬,trail:~
 hi NonText ctermfg=239 ctermbg=none
 hi SpecialKey ctermfg=239 ctermbg=none
 
+" Wrap Markdown text at 80 characters
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Search options
 """"""""""""""""""""""""""""""""""""""""""""""""""
