@@ -392,3 +392,6 @@ exec --no-startup-id "autorandr -c"
 
 # Instantly switch to workspace "1" (not the first one in alphabetical order)
 exec --no-startup-id "sleep 1 && i3-msg 'workspace \"  1  \"'"
+
+# Laptop stats
+exec --no-startup-id "echo STARTUP $(date +%s) >> /home/saumon/git/laptop-stats/poissonnerie"
