@@ -11,10 +11,10 @@ interval=60
 align=center
 
 [music]
-interval=10
+interval=4
 signal=13
 align=right
-min_width=300
+min_width=350
 
 [separator]
 
