@@ -80,6 +80,10 @@ URxvt.keysym.C-S-Down: \033[1;6B
 URxvt.keysym.C-S-Right: \033[1;6C
 URXvt.keysym.C-S-Left: \033[1;6D
 
+! Standard paste shortcuts for espanso and strange people
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
 
 ! ROFI
 rofi.location:          0
