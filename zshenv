@@ -13,9 +13,8 @@ function appendpath () {
 }
 
 appendpath "$HOME/.local/bin"
-appendpath "$HOME/.npm-global/bin"
 appendpath "$HOME/.yarn/bin"
-appendpath "$HOME/.config/yarn/global/node_modules/.bin"
+appendpath "$HOME/.poetry/bin"
 
 unset appendpath
 export PATH
