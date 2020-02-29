@@ -53,14 +53,15 @@ function k() {
 
 # lazy load nvm because it takes 500 FUCKING MILLISECONDS to load
 function nvm {
-  echo -n "zobsh: loading nvm... "
   unset -f nvm
   export NVM_DIR="$HOME/.config/nvm"
-  if [[ -f "$NVM_DIR/nvm.sh" ]]; then
-    source "$NVM_DIR/nvm.sh"
-    source "$NVM_DIR/bash_completion"
+  if [[ ! -f "$NVM_DIR/nvm.sh" ]]; then
+    >&2 echo "zobsh: fuck."
+    return 127
   fi
-  echo "done."
+  source "$NVM_DIR/nvm.sh"
+  source "$NVM_DIR/bash_completion"
+  nvm $@
 }
 
 # fzf, command-line fuzzy finder
