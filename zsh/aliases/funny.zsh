@@ -13,4 +13,4 @@ alias bite='echo "owi bit";:'
 alias fucking='sudo'
 alias ="echo \"Moi aussi je t'aime\";:"
 alias meurs='echo "Non."'
-alias ah="play $HOME/static/cancer/AH.mp3 > /dev/null 2>&1"
+alias ah="play $HOME/cancer/AH.mp3 > /dev/null 2>&1"
