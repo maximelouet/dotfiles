@@ -233,6 +233,10 @@ for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gpicview"] floating enable
 for_window [class="Gpicview"] move position center
 for_window [class="^imv$"] floating enable
+for_window [class="java-lang-Thread" title="^win0"] border pixel 2 # jetbrains splashscreen
+for_window [class="java-lang-Thread" title="win0"] floating enable
+for_window [class="jetbrains-toolbox"] border pixel 2
+for_window [class="jetbrains-toolbox"] floating enable
 for_window [class="Lxappearance"] border pixel 2
 for_window [class="Lxappearance"] floating enable
 for_window [class="nitrogen"] floating enable
@@ -245,14 +249,14 @@ for_window [class="Skype"] border pixel 2
 for_window [class="Skype"] floating enable
 for_window [instance="file_progress"] border pixel 2 # Nemo file operations
 for_window [instance="file_progress"] floating enable
-for_window [instance="java-lang-Thread" title="^win0"] border pixel 2 # jetbrains splashscreen
-for_window [instance="java-lang-Thread" title="win0"] floating enable
 for_window [instance="jetbrains-phpstorm" title="^ $"] border pixel 2 # jetbrains phpstorm splashscreen
 for_window [instance="jetbrains-phpstorm" title="^ $"] floating enable
 for_window [instance="jetbrains-pycharm" title="^ $"] border pixel 2 # jetbrains pycharm splashscreen
 for_window [instance="jetbrains-pycharm" title="^ $"] floating enable
 for_window [instance="sun-awt-X11-XDialogPeer"] border pixel 2
 for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
+for_window [instance="sun-awt-X11-XFramePeer"] border pixel 2
+for_window [instance="sun-awt-X11-XFramePeer"] floating enable
 for_window [title="Confirm Exit"] border pixel 2 # jetbrains exit confirmation
 for_window [title="Confirm Exit"] floating enable
 for_window [title="Minecraft Launcher"] border pixel 2
