@@ -306,7 +306,7 @@ for_window [window_type="menu"] floating enable
 bindsym $mod+Return   exec $terminal
 bindsym $super+Return exec $terminal
 bindsym $super+e      exec "nemo"
-bindsym $super+f      exec "firefox"
+bindsym $super+f      exec "firefox-developer-edition"
 bindsym $super+c      exec "clipster -s"
 
 # Program launcher
