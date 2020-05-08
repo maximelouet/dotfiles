@@ -12,6 +12,7 @@
   c = checkout
   cm = commit
   cmm = commit -m
+  d = diff
   logs = log --show-signature
   pa = pull --all
   pouche = push
@@ -20,6 +21,7 @@
   p = pull
   re = !git fetch && git rebase origin/master
   r = restore
+  sd = diff --staged
   set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
   s = switch
   st = status
