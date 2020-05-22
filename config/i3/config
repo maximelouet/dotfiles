@@ -239,6 +239,8 @@ for_window [class="jetbrains-toolbox"] border pixel 2
 for_window [class="jetbrains-toolbox"] floating enable
 for_window [class="jetbrains-webstorm" title="win0"] border pixel 2
 for_window [class="jetbrains-webstorm" title="win0"] floating enable
+for_window [class="lite"] border pixel 2
+for_window [class="lite"] floating enable
 for_window [class="Lxappearance"] border pixel 2
 for_window [class="Lxappearance"] floating enable
 for_window [class="nitrogen"] floating enable
