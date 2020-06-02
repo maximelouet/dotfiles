@@ -26,7 +26,7 @@ export SAVEHIST=99999
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_QPA_PLATFORMTHEME=gtk2
 
-export TZ='Europe/London'
+export TZ='Europe/Paris'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
