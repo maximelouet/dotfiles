@@ -65,7 +65,9 @@ function nvm {
 }
 
 # https://github.com/skywind3000/z.lua
-eval "$(lua /usr/share/z.lua/z.lua --init zsh)"
+if [[ -f "/usr/share/z.lua/z.lua" ]]; then
+  eval "$(lua /usr/share/z.lua/z.lua --init zsh)"
+fi
 
 # fzf, command-line fuzzy finder
 #if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
