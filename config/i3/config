@@ -46,6 +46,8 @@ bindsym $mod+Down   focus down
 bindsym $mod+Up     focus up
 bindsym $mod+Right  focus right
 
+bindsym $mod+a      focus parent
+
 #bindsym $mod+h  focus left
 #bindsym $mod+j  focus down
 #bindsym $mod+k  focus up
@@ -406,5 +408,10 @@ exec --no-startup-id "libinput-gestures-setup start"
 # Force autorandr reload for correct multi-screen configuration
 exec --no-startup-id "autorandr -c"
 
-# Instantly switch to workspace "1" (not the first one in alphabetical order)
+# Restore workspaces layout
+exec --no-startup-id "i3-msg 'workspace \"  1  \"; append_layout ~/.dotfiles/config/i3/workspaces/1.json'"
+exec --no-startup-id "i3-msg 'workspace \"  4  \"; append_layout ~/.dotfiles/config/i3/workspaces/4.json'"
+exec --no-startup-id "i3-msg 'workspace \"  5  \"; append_layout ~/.dotfiles/config/i3/workspaces/5.json'"
+
+# Set initial workspace workspace to "  1  " (not the first one in alphabetical order)
 exec --no-startup-id "sleep 1 && i3-msg 'workspace \"  1  \"'"
