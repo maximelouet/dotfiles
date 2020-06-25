@@ -88,7 +88,9 @@
                             "swallows": [
                                 {
                                     "class": "^discord$",
-                                    "instance": "^discord$"
+                                    "instance": "^discord$",
+                                    "title": "^Discord$",
+                                    "window_role": "^browser\\-window$"
                                 }
                             ],
                             "type": "con"
