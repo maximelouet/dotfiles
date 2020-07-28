@@ -24,6 +24,7 @@
   p = pull
   re = !git fetch && git rebase origin/master
   r = restore
+  sc = !git commit -am "Sync commit" && git push # this doesn't work either??
   sd = diff --staged
   set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
   s = switch
