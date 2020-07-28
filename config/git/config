@@ -5,6 +5,8 @@
 [core]
   autocrlf = input
   editor = vim
+[init]
+  defaultBranch = main
 [alias]
   abort = rebase --abort
   amend = commit --amend
