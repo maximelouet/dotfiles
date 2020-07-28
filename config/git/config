@@ -15,6 +15,7 @@
   cm = commit
   cmm = commit -m
   d = diff
+  initial-commit = commit -m "Initial commit" --allow-empty # somehow this does not work
   logs = log --show-signature
   pa = pull --all
   pouche = push
