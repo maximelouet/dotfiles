@@ -103,3 +103,6 @@ rofi.xoffset:           0
 rofi.width:             1200
 rofi.opacity:           90
 rofi.font:              Noto Sans 14
+
+
+Xcursor.size: 17
