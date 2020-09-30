@@ -70,6 +70,12 @@ be() {
   echo -n "$1" | base64 -w 0 && echo -n "$1" | base64 -w 0 | xclip -selection clipboard
 }
 
+# close all SSH ControlMaster connections
+ssh_close_all() {
+  dir=$HOME/.ssh/sockets
+  for i in $dir/*; do ssh -o ControlPath=$i -O exit squalala; done
+}
+
 # open
 alias v='vim'
 alias vi='vim'
