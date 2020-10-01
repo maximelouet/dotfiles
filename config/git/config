@@ -15,7 +15,7 @@
   cm = commit
   cmm = commit -m
   d = diff
-  initial-commit = commit -m "Initial commit" --allow-empty # somehow this does not work
+  initial-commit = "!git commit -m \"Initial commit\" --allow-empty"
   logs = log --show-signature
   pa = pull --all
   pouche = push
@@ -24,9 +24,9 @@
   p = pull
   pushf = push --force-with-lease
   r = restore
-  sc = !git commit -am "Sync commit" && git push # this doesn't work either??
+  sc = "!git commit -am \"Sync commit\" && git push"
   sd = diff --staged
-  set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+  set-upstream = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
   s = switch
   st = status
   tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
