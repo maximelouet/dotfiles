@@ -152,6 +152,7 @@ alias d='docker'
 #alias k='kubectl' # REPLACED by lazy-loading function in zshrc
 alias copy='xclip -selection clipboard -i -r'
 alias gitroot='cd `git-root`'
+alias essh='ssh -O exit'
 
 # misc
 alias tree='tree -C'
