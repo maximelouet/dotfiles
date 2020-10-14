@@ -78,4 +78,4 @@ key-sign() {
   sudo pacman-key --lsign-key "$1"
 }
 
-alias restart-compton='killall compton && compton --config ~/.config/compton.conf -b'
+alias restart-picom='killall picom && picom -b'

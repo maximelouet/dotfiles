@@ -373,7 +373,7 @@ exec_always --no-startup-id "xset s 600"
 exec --no-startup-id "nm-applet"
 
 # Window compositor
-exec --no-startup-id "compton --config ~/.config/compton.conf -b"
+exec --no-startup-id "picom -b"
 
 # URxvt daemon for better resource handling
 exec --no-startup-id "urxvtd -q -o -f"

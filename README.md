@@ -9,7 +9,7 @@ This repo currently contains configuration files for:
 * **[vim](https://www.vim.org/)** (`config/vim/`)
 * **[git](https://git-scm.com/)** (`config/git/config`)
 * **[urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)** (`Xresources`)
-* **[compton](https://github.com/chjj/compton)** (`config/compton.conf`)
+* **[picom](https://github.com/yshui/picom)** (`config/picom.conf`)
 
 ... and other programs that I may or may not use.
 
