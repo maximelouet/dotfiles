@@ -11,7 +11,7 @@ This repo currently contains configuration files for:
 * **[urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)** (`Xresources`)
 * **[compton](https://github.com/chjj/compton)** (`config/compton.conf`)
 
-... and other programs that I may or may not use. I also included some files from /etc, located in the `etc/` directory.
+... and other programs that I may or may not use.
 
 **[Dotbot](https://git.io/dotbot)** is included and can be used to install the dotfiles.
 To symlink all the dotfiles to the correct locations in your home directory, run:
