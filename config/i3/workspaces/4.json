@@ -28,7 +28,7 @@
                             "border": "normal",
                             "floating": "auto_off",
                             "layout": "splitv",
-                            "percent": 0.471875,
+                            "percent": 0.374479166666667,
                             "type": "con",
                             "nodes": [
                                 {
@@ -84,7 +84,7 @@
                                 "y": 0
                             },
                             "name": "Discord",
-                            "percent": 0.528125,
+                            "percent": 0.625520833333333,
                             "swallows": [
                                 {
                                     "class": "^discord$",
