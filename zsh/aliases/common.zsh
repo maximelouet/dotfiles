@@ -106,7 +106,7 @@ fi
 alias ll='ls -l'
 alias l='ll'
 if (( $+commands[exa] )); then
-  alias lt='exa --sort=created -r --group-directories-first -l'
+  alias lt='exa --sort=modified --group-directories-first -l'
 else
   alias lt='ll -t'
 fi
