@@ -59,3 +59,12 @@ certificate_info() {
   address=$(echo "$1" | sed -e 's|^[^/]*//||' -e 's|/.*$||')
   openssl s_client -connect $address:443 < /dev/null
 }
+
+certificate_validity() {
+  if [ -z "$1" ]; then
+    >&2 echo "Error: please provide a domain name or URL as argument."
+    return 1
+  fi
+  address=$(echo "$1" | sed -e 's|^[^/]*//||' -e 's|/.*$||')
+  openssl s_client -showcerts -connect $address:443 < /dev/null 2>/dev/null | openssl x509 -dates -text -noout | grep -A2 Validity
+}
