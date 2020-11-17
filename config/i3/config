@@ -204,6 +204,8 @@ bar {
     urgent_workspace    #f44336 #f44336 #ffffff
     binding_mode        #EF6C00 #EF6C00 #ffffff
   }
+
+  bindsym --release button3 exec --no-startup-id "~/scripts/screenshot-currentscreen.sh && notify-send 'Screenshot taken'"
 }
 
 # Secondary screens bars
@@ -230,6 +232,8 @@ bar {
     urgent_workspace    #f44336 #f44336 #ffffff
     binding_mode        #EF6C00 #EF6C00 #ffffff
   }
+
+  bindsym --release button3 exec --no-startup-id "~/scripts/screenshot-currentscreen.sh && notify-send 'Screenshot taken'"
 }
 
 
