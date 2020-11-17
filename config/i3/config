@@ -320,6 +320,7 @@ bindsym $super+e      exec "nemo"
 bindsym $super+f      exec "firefox-developer-edition"
 bindsym $super+c      exec "clipster -s"
 bindsym $super+v      exec "rofi-pass"
+bindsym $super+q      exec "rofimoji"
 
 # Program launcher
 bindsym   $super+w    exec --no-startup-id "rofi -show drun -show-icons"
