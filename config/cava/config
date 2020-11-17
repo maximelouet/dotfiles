@@ -11,18 +11,18 @@
 
 # Sensitivity in  %. If you think the bars are to low/response is to little, try
 # increasing this value 200 means double height. Accepts only non-negative values.
-; sensitivity = 60
+sensitivity = 70
 
 # Autosens will attempt to decrease sensitivity if cava peaks. 1 = on, 0 = off
 # overshoot allows bars to overshoot (in % of terminal height) without initiating autosens
-; autosens = 1
+autosens = 0
 ; overshoot = 20
 
 # The number of bars (0-200). 0 (default) sets it to auto (fill up console).
 # width of bars and space between bars in number of characters. Default width 3 and space 1.
-; bars = 0
-; bar_width = 2
-; bar_spacing = 1
+bars = 0
+bar_width = 1
+bar_spacing = 1
 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
@@ -94,21 +94,21 @@
 
 # supported colors are: red, green, yellow, magenta, cyan, white, blue, black.
 ; background = black
-foreground = magenta
+foreground = red
 
 
 [smoothing]
 
 # multiplier for the integral smoothing calculations. Takes values from 0 - 0.99.
 # Higher values means smoother, but less precise. 0 to disable.
-; integral = 0.7 
+integral = 0.5
 
 # disables or enables the so-called "Monstercat smoothing". Default: 1. Set to 0 to disable.
-; monstercat = 1 
+monstercat = 0
 
 # Set gravity multiplier for "drop off". Higher values means bars will drop faster. 
 # Accepts only non-negative values. 0.5 means half gravity, 2 means double. Set to 0 to disable "drop off".
-; gravity = 1  
+; gravity = 1
 
 
 # In bar height, bars that would have been lower that this will not be drawn.
@@ -120,8 +120,12 @@ foreground = magenta
 # This one is tricky. You can have as much keys as you want. 
 # remember to uncomment more then one key! More keys = more precision.
 # Look at readme.md on github for further explanations and examples.
-; 1 = 1 # bass
-; 2 = 1
-; 3 = 1 # midtone
-; 4 = 1
-; 5 = 1 # treble
+1 = 3
+2 = 3
+3 = 2
+4 = 1
+5 = 1
+6 = 0.8
+7 = 0.6
+8 = 0.7
+9 = 0.8
