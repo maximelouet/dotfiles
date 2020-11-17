@@ -1,0 +1,20 @@
+# Saumon i3blocks config file
+
+command=~/.config/i3/scripts/$BLOCK_NAME
+full_text=
+align=center
+color=#dddddd
+separator=false
+separator_block_width=4
+markup=pango
+interval=60
+align=center
+
+[date]
+interval=60
+
+[time]
+command=date '+%H:%M:%S'
+interval=1
+min_width=80
+align=left
