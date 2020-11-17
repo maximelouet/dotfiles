@@ -184,6 +184,7 @@ bar {
   status_command i3blocks -c ~/.config/i3/blocks
   position bottom
   font pango:Noto Sans, Awesome 12.5
+  output primary
 
   height 37 # i3gaps specific
 
