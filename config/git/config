@@ -22,6 +22,7 @@
   poule = pull
   poulet = pull
   p = pull
+  psuh = push
   pushf = push --force-with-lease
   r = restore
   sc = "!git commit -am \"Sync commit\" && git push"
