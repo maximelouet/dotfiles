@@ -216,6 +216,9 @@ function! s:sort_by_header(bang, pat) range
 endfunction
 command! -range=% -bang -nargs=+ SortGroup <line1>,<line2>call <SID>sort_by_header(<bang>0, <q-args>)
 
+" Disable indentLine plugin quotes hiding
+let g:indentLine_setConceal = 0
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
