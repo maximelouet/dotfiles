@@ -227,7 +227,6 @@ let g:indentLine_setConceal = 0
 call plug#begin('~/.vim/plugged')
 
 Plug 'cespare/vim-toml'
-Plug 'ervandew/supertab'
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary'
