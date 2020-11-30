@@ -46,6 +46,9 @@ set wildmenu
 " sync syntax highlighting from the start of the file
 syntax sync fromstart
 
+" override syntax highlighting for some files
+au BufReadPost *rtorrent.rc set ft=dosini
+
 " set character encoding to UTF-8
 set encoding=utf-8
 
