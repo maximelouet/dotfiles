@@ -35,8 +35,10 @@
 *.color7:       #ffffff
 
 ! urxvt settings
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=14:hinting=full:antialias:false
-URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=14:hinting=full:weight=bold:antialias:false
+URxvt.font: xft:DejaVu Sans Mono:style=Regular:pixelsize=14:antialias:true:hinting=full,\
+                xft:Noto Color Emoji
+URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:pixelsize=14:antialias:true:hinting=full,\
+                xft:Noto Color Emoji
 URxvt.letterSpace: -1
 !URxvt.lineSpace: 1
 
