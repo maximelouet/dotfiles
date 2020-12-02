@@ -76,6 +76,21 @@ ssh_close_all() {
   for i in $dir/*; do ssh -o ControlPath=$i -O exit squalala; done
 }
 
+# pull all direct subdirectories
+fullpull() {
+  RED='\033[0;31m'
+  NC='\033[0m'
+  dir="${1:-.}"
+
+  for d in $dir/*/; do
+    git -C "$d" pull > /dev/null
+    branch=$(git -C "$d" branch --show-current)
+    if [[ "$branch" != "master" ]] && [[ "$branch" != "main" ]]; then
+      printf "${RED}Warning: ${d} is on branch ${branch}${NC}\n"
+    fi
+  done
+}
+
 # open
 alias v='vim'
 alias vi='vim'
