@@ -405,6 +405,9 @@ for_window [class="Spotify"] move to workspace $ws5
 # Startup programs
 ##################################################
 
+# Force autorandr reload for correct multi-screen configuration
+exec --no-startup-id "autorandr -c"
+
 # Disable bell
 exec_always --no-startup-id "xset b off"
 
@@ -448,13 +451,18 @@ exec --no-startup-id \
 # Touchpad gestures handling
 exec --no-startup-id "libinput-gestures-setup start"
 
-# Force autorandr reload for correct multi-screen configuration
-exec --no-startup-id "autorandr -c"
+
+# Workspace screen assignments
+workspace 1 output primary
+workspace 2 output primary
+workspace 4 output DP-1-1-1  # "secondary" is not yet known at this point
+workspace 5 output primary
 
 # Restore workspaces layout
-exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.dotfiles/config/i3/workspaces/1.json'"
-exec --no-startup-id "i3-msg 'workspace 4; append_layout ~/.dotfiles/config/i3/workspaces/4.json'"
-exec --no-startup-id "i3-msg 'workspace 5; append_layout ~/.dotfiles/config/i3/workspaces/5.json'"
+exec --no-startup-id "sh -c \"i3-msg 'workspace 1; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/1.json'\""
+exec --no-startup-id "sh -c \"i3-msg 'workspace 4; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/4.json'\""
+exec --no-startup-id "sh -c \"i3-msg 'workspace 5; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/5.json'\""
 
-# Set initial workspace workspace to 1 (not the first one in alphabetical order)
-exec --no-startup-id "sleep 1 && i3-msg 'workspace 1'"
+# Set initial workspace to 1 (not the first one in alphabetical order)
+exec --no-startup-id "sleep 2 && i3-msg 'workspace 1'"
+exec --no-startup-id "sleep 5 && i3-msg 'workspace 1'"
