@@ -9,11 +9,11 @@
        "y": 0
     },
     "marks": [],
-    "name": "Firefox Developer Edition",
+    "name": "Firefox",
     "percent": 1,
     "swallows": [
        {
-          "class": "^firefoxdeveloperedition$",
+          "class": "^firefox$",
           "instance": "^Navigator$",
           "window_role": "^browser$"
        }
