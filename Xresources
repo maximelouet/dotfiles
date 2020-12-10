@@ -35,10 +35,8 @@
 *.color7:       #ffffff
 
 ! urxvt settings
-URxvt.font: xft:DejaVu Sans Mono:style=Regular:pixelsize=14:antialias:true:hinting=full,\
-                xft:Noto Color Emoji
-URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:pixelsize=14:antialias:true:hinting=full,\
-                xft:Noto Color Emoji
+URxvt.font: xft:DejaVu Sans Mono:style=Regular:pixelsize=15:antialias:true:hinting=full
+URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:pixelsize=15:antialias:true:hinting=full
 URxvt.letterSpace: -1
 !URxvt.lineSpace: 1
 
@@ -105,4 +103,4 @@ rofi.xoffset:           0
 rofi.font:              Noto Sans 14
 
 ! Fix X cursor scaling on different monitors
-Xcursor.size: 17
+Xcursor.size: 18
