@@ -185,12 +185,12 @@ bar {
   output primary
   status_command i3blocks -c ~/.config/i3/blocks
   position bottom
-  font pango:Noto Sans, Awesome 12.5
+  font pango:Noto Sans, Awesome 13.5
   tray_output primary
   tray_padding 3
 
-  height 37 # i3gaps specific
-  workspace_min_width 35
+  height 39 # i3gaps specific
+  workspace_min_width 37
 
   colors {
     background  #111111
@@ -204,8 +204,6 @@ bar {
     urgent_workspace    #f44336 #f44336 #ffffff
     binding_mode        #EF6C00 #EF6C00 #ffffff
   }
-
-  bindsym --release button3 exec --no-startup-id "~/scripts/screenshot-currentscreen.sh && notify-send 'Screenshot taken'"
 }
 
 # Secondary screens bars
@@ -232,8 +230,6 @@ bar {
     urgent_workspace    #f44336 #f44336 #ffffff
     binding_mode        #EF6C00 #EF6C00 #ffffff
   }
-
-  bindsym --release button3 exec --no-startup-id "~/scripts/screenshot-currentscreen.sh && notify-send 'Screenshot taken'"
 }
 
 
@@ -395,10 +391,10 @@ bindcode $alt+135   exec --no-startup-id "play ~/cancer/google-it.mp3"
 # Workspace assignments
 ##################################################
 
-assign [class="Caprine" window_role="browser-window"] $ws4
-assign [class="discord" window_role="browser-window"] $ws4
+#assign [class="Caprine" window_role="browser-window"] $ws4
+#assign [class="discord" window_role="browser-window"] $ws4
 # Move to workspace for Spotify because they don't set window infos correctly
-for_window [class="Spotify"] move to workspace $ws5
+#for_window [class="Spotify"] move to workspace $ws5
 
 
 ##################################################
@@ -453,10 +449,12 @@ exec --no-startup-id "libinput-gestures-setup start"
 
 
 # Workspace screen assignments
-workspace 1 output primary
-workspace 2 output primary
-workspace 4 output DP-1-1-1  # "secondary" is not yet known at this point
-workspace 5 output primary
+#   Use raw screen names instead of "primary"/"secondary" because autorandr is
+#   slow af and not always loaded at this point
+workspace 1 output DP-1-1-8
+workspace 2 output DP-1-1-8
+workspace 4 output DP-1-1-1
+workspace 5 output DP-1-1-8
 
 # Restore workspaces layout
 exec --no-startup-id "sh -c \"i3-msg 'workspace 1; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/1.json'\""
