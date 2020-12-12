@@ -28,50 +28,7 @@ function fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-# lazy load fuck because it takes >100ms to load
-function fuck() {
-  if (( $+commands[thefuck] )); then
-    eval $(thefuck --alias)
-    fuck $@
-  else
-    >&2 echo "zobsh: fuck."
-    return 127
-  fi
-}
-
-# lazy load kubectl
-function k() {
-  if (( $+commands[kubectl] )); then
-    source <(kubectl completion zsh)
-    alias k=kubectl
-    kubectl $@
-  else
-    >&2 echo "zobsh: fuck."
-    return 127
-  fi
-}
-
-# lazy load nvm because it takes 500 FUCKING MILLISECONDS to load
-function nvm {
-  unset -f nvm
-  export NVM_DIR="$HOME/.config/nvm"
-  if [[ ! -f "$NVM_DIR/nvm.sh" ]]; then
-    >&2 echo "zobsh: fuck."
-    return 127
-  fi
-  source "$NVM_DIR/nvm.sh"
-  source "$NVM_DIR/bash_completion"
-  nvm $@
-}
-
 # https://github.com/skywind3000/z.lua
-if [[ -f "/usr/share/z.lua/z.lua" ]]; then
+if [ -f "/usr/share/z.lua/z.lua" ]; then
   eval "$(lua /usr/share/z.lua/z.lua --init zsh)"
 fi
-
-# fzf, command-line fuzzy finder
-#if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
-#  source "/usr/share/fzf/key-bindings.zsh"
-#fi
-
-unalias grc  # generic colouriser

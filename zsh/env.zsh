@@ -34,6 +34,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export WATCH='all'
 
 export ANDROID_HOME=$HOME/software/Android
+export NVM_DIR=$HOME/.config/nvm
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
