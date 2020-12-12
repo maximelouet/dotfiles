@@ -230,7 +230,6 @@ alias t='task'
 alias ta='tree -a'
 alias m='make -j'
 alias e='unarchive'
-alias d='docker'
 alias copy='xclip -selection clipboard -i -r'
 alias gitroot='cd `git-root`'
 alias essh='ssh -O exit'
@@ -253,6 +252,12 @@ alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
 alias ipa='ip -brief a'
 alias pdfmerge='gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=combined.pdf -dBATCH'
+
+# kitty's kittens
+if [ $commands[kitty] ]; then
+  alias catimg='kitty +kitten icat'
+  alias d='kitty +kitten diff'
+fi
 
 # some versions of watch support color
 # but the program you're calling has to send it...

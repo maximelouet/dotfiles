@@ -120,13 +120,13 @@
                        "y": 0
                     },
                     "marks": [],
-                    "name": "urxvt",
+                    "name": "kitty",
                     "percent": null,
                     "swallows": [
                        {
-                          "class": "^URxvt$",
-                          "instance": "^urxvt$",
-                          "title": "^urxvt$"
+                          "class": "^kitty$",
+                          "instance": "^kitty$",
+                          "title": "^kitty$"
                        }
                     ],
                     "type": "con"

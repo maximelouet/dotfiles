@@ -30,7 +30,7 @@ set $ws9  "9"
 set $ws10 "π"
 
 # Other
-set $terminal "urxvtc"
+set $terminal "kitty -1"
 
 
 ##################################################
@@ -247,11 +247,12 @@ client.urgent           #f44336 #f44336 #ffffff #900000
 # No border around windows by default...
 for_window [class=".*"] border pixel 0
 
-# Excepted terminal and floating windows
-# BUT never on fullscreen
-smart_borders on # i3gaps specific
+# ... except for terminal and floating windows...
+for_window [class="^URxvt$"] border pixel 1
+for_window [class="^kitty$"] border pixel 1
 
-for_window [class="URxvt"] border pixel 1
+# ... but never on fullscreen
+smart_borders on  # i3gaps specific
 
 # Floating and borders definitions
 

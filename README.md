@@ -8,7 +8,7 @@ This repo currently contains configuration files for:
 * **[zsh](https://www.zsh.org/)** (`zshenv`, `zsh/`), with **[prezto](https://github.com/sorin-ionescu/prezto/)** (`zsh/zpreztorc`)
 * **[vim](https://www.vim.org/)** (`config/vim/`)
 * **[git](https://git-scm.com/)** (`config/git/config`)
-* **[urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)** (`Xresources`)
+* **[kitty](https://sw.kovidgoyal.net/kitty/)** (`config/kitty/`)
 * **[picom](https://github.com/yshui/picom)** (`config/picom.conf`)
 
 ... and other programs that I may or may not use.
