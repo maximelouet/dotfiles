@@ -36,7 +36,7 @@
     padding = 12
 
     # Horizontal padding.
-    horizontal_padding = 20
+    horizontal_padding = 15
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
