@@ -239,12 +239,12 @@ bar {
 
 # Window borders color
 # class                 border  backgr. text    indicator child_border
-client.focused          #FF9800 #FF9800 #ffffff #00DA8E
+client.focused          #9c12ff #9c12ff #ffffff #00DA8E
 client.focused_inactive #444444 #444444 #ffffff #484e50
 client.unfocused        #444444 #444444 #8f8f8f #292d2e
 client.urgent           #f44336 #f44336 #ffffff #900000
 
-# No border around windows by default
+# No border around windows by default...
 for_window [class=".*"] border pixel 0
 
 # Excepted terminal and floating windows
@@ -254,7 +254,6 @@ smart_borders on # i3gaps specific
 for_window [class="URxvt"] border pixel 1
 
 # Floating and borders definitions
-# TODO: script this :)
 
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Chromium" window_role="app"] border pixel 2
