@@ -1,6 +1,7 @@
 #
 # Saumon ZSH dotfiles
-# lazy-load-commands
+# lazy-load-commands: source slow shell commands when they're needed, to speed
+# up shell start-up time
 #
 
 # fuck: 150ms

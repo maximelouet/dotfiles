@@ -1,6 +1,6 @@
 #
 # Saumon ZSH aliases
-# epitech
+# epitech: epilol-specific aliases
 #
 
 # prepare an epitech repo

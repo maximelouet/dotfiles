@@ -1,6 +1,6 @@
 #
 # Saumon ZSH dotfiles
-# aliases
+# aliases: source all alias files
 #
 
 for file in "$HOME"/.zsh/aliases/*.zsh; do

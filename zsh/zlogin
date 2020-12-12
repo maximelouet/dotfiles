@@ -1,6 +1,6 @@
 #
 # Saumon ZSH dotfiles
-# zlogin
+# zlogin: sourced after login
 #
 
 # Execute code in the background to not affect the current session

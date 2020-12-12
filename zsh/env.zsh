@@ -1,6 +1,6 @@
 #
 # Saumon ZSH dotfiles
-# env
+# env: export common global environment variables
 #
 
 export LANG='en_US.UTF-8'

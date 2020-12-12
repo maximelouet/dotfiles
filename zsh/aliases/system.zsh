@@ -1,6 +1,6 @@
 #
 # Saumon ZSH aliases
-# system
+# system: system-specific aliases and functions. Mostly Arch Linux specific.
 #
 
 # connect to a wifi network with NetworkManager

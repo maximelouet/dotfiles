@@ -1,6 +1,6 @@
 #
 # Saumon ZSH dotfiles
-# zprofile
+# zprofile: sourced at login
 #
 
 # Autostart X server on TTY1

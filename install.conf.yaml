@@ -3,6 +3,8 @@
 # Dotbot configuration file
 #
 
+---
+
 - defaults:
     link:
       relink: true

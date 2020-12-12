@@ -3,6 +3,8 @@
 # Dotbot headless configuration file
 #
 
+---
+
 - defaults:
     link:
       relink: true

@@ -1,6 +1,6 @@
 #
 # Saumon ZSH aliases
-# docker
+# docker: docker-specific aliases
 #
 
 alias dkps="docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}'"

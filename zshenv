@@ -1,6 +1,6 @@
 #
 # Saumon ZSH dotfiles
-# zshenv
+# zshenv: set basic env variables and source main env file
 #
 
 function appendpath () {

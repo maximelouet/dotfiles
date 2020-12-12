@@ -1,6 +1,6 @@
 #
 # Saumon ZSH dotfiles
-# Prezto options
+# zpreztorc: prezto framework configuration
 #
 
 # Color output (auto set to 'no' on dumb terminals).
@@ -21,14 +21,8 @@ zstyle ':prezto:load' pmodule \
   'autosuggestions' \
   'prompt'
 
-#
-# Autosuggestions
-#
-
-# Set the query found color.
 zstyle ':prezto:module:autosuggestions:color' found 'fg=8'
 
-# Set the prompt theme to load. Set it to 'random' to load a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'sorin'
 
