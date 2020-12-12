@@ -189,7 +189,7 @@ bar {
   tray_output primary
   tray_padding 3
 
-  height 39 # i3gaps specific
+  height 39  # i3gaps specific
   workspace_min_width 37
 
   colors {
@@ -215,7 +215,7 @@ bar {
   tray_output primary
   tray_padding 3
 
-  height 37 # i3gaps specific
+  height 37  # i3gaps specific
   workspace_min_width 35
 
   colors {
@@ -290,6 +290,8 @@ for_window [class="SimpleScreenRecorder"] border pixel 2
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Skype"] border pixel 2
 for_window [class="Skype"] floating enable
+for_window [class="spek"] border pixel 2
+for_window [class="spek"] floating enable
 for_window [class="torbrowser-launcher"] border pixel 2
 for_window [class="torbrowser-launcher"] floating enable
 for_window [instance="file_progress"] border pixel 2 # Nemo file operations
@@ -383,8 +385,6 @@ bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
 
 # Cancer
 bindcode 135        exec --no-startup-id "play ~/cancer/AH.mp3"
-bindcode $ctrl+135  exec --no-startup-id "play ~/cancer/ACH.mp3"
-bindcode $alt+135   exec --no-startup-id "play ~/cancer/google-it.mp3"
 
 
 ##################################################
@@ -420,7 +420,7 @@ exec --no-startup-id "picom -b"
 exec --no-startup-id "urxvtd -q -o -f"
 
 # Warmer screen color at night
-exec --no-startup-id "redshift -l 48.8211:2.3687" # Paris Porte d'Ivry
+exec --no-startup-id "redshift -l 48.8211:2.3687"  # Paris Porte d'Ivry
 
 # Bluetooth manager
 exec --no-startup-id "blueman-applet"
@@ -432,13 +432,13 @@ exec --no-startup-id "udiskie -c ~/.config/udiskie/config.yml"
 exec --no-startup-id "clipster -d"
 
 # Notification daemon
-exec --no-startup-id "twmnd"
+exec --no-startup-id "dunst"
 
-# Auto lock screen after 15 minutes
+# Auto lock screen after 30 minutes
 exec --no-startup-id \
   xautolock \
     -locker slock \
-    -time 15 \
+    -time 30 \
     -corners "00-0" \
     -cornersize 30 \
     -notify 30 \
