@@ -95,6 +95,7 @@ fullpull() {
 alias v='vim'
 alias vi='vim'
 alias vim='vim'
+alias b="firefox"
 
 # colors everywhere
 alias dir='dir --color=auto'
