@@ -32,3 +32,6 @@ bindkey '^Z' fancy-ctrl-z
 if [ -f "/usr/share/z.lua/z.lua" ]; then
   eval "$(lua /usr/share/z.lua/z.lua --init zsh)"
 fi
+
+# Clear screen to hide % shit when I type before the shell is fully started
+clear
