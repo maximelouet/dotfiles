@@ -243,7 +243,7 @@ alias myip='curl https://ip.saumon.io'
 alias diskspace='df -P -kHl | grep -v tmpfs | grep -v "dev " | grep -v run'
 alias riplaco='ping -i 1.5 8.8.8.8 | grep -E --only-match --color=never "[0-9\.]+ ms"'
 alias path='echo $PATH | tr -s ":" "\n"'
-alias pp="mpc toggle | tail -n2 | head -n1 | tr -d '[' | awk '{print \$1}' | tr -d ']' | tr '\n' ' ' | sed 's/playing//' | sed 's/paused//' && mpc status | head -n1 && pkill -RTMIN+13 i3blocks"
+alias pp="mpc toggle | tail -n2 | head -n1 | tr -d '[' | awk '{print \$1}' | tr -d ']' | tr '\n' ' ' | sed 's/playing/ /' | sed 's/paused/ /' && mpc status | head -n1 && pkill -RTMIN+13 i3blocks"
 alias ccat='highlight -O ansi'
 alias timestamp='date +%s'
 alias beep_disable='xset b off'
