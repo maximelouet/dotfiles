@@ -1,4 +1,4 @@
-# Saumon i3blocks config file
+# Saumon i3blocks config file for primary output
 
 command=~/.config/i3/scripts/$BLOCK_NAME
 full_text=
