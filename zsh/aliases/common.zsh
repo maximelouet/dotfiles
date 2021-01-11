@@ -233,6 +233,8 @@ alias e='unarchive'
 alias copy='xclip -selection clipboard -i -r'
 alias gitroot='cd `git-root`'
 alias essh='ssh -O exit'
+alias md5='md5sum'
+alias sha1='sha1sum'
 
 # misc
 alias tree='tree -C'
