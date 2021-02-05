@@ -1,7 +1,7 @@
 [Default Applications]
 x-scheme-handler/mailto=chromium.desktop
 audio/flac=userapp-vlc-23OQCZ.desktop
-application/pdf=chromium.desktop
+application/pdf=firefox.desktop
 text/x-c++src=userapp-gedit-EGJHCZ.desktop
 text/x-c++hdr=userapp-gedit-84AVCZ.desktop
 image/jpeg=gpicview.desktop
@@ -30,7 +30,7 @@ x-scheme-handler/webcal=chromium.desktop
 
 [Added Associations]
 audio/flac=userapp-vlc-23OQCZ.desktop;vlc.desktop;
-application/pdf=chromium.desktop;
+application/pdf=firefox.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
 text/x-c++src=userapp-gedit-EGJHCZ.desktop;org.gnome.gedit.desktop;
 text/x-c++hdr=userapp-gedit-84AVCZ.desktop;
