@@ -53,3 +53,5 @@
   helper = store
 [rerere]
   enabled = true
+[fetch]
+  prune = true
