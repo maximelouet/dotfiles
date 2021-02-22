@@ -10,6 +10,14 @@ markup=pango
 interval=60
 align=center
 
+[music]
+interval=4
+signal=13
+align=right
+min_width=400
+
+[separator]
+
 [date]
 interval=60
 
