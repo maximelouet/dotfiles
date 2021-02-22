@@ -15,6 +15,7 @@
   cm = commit
   cmm = commit -m
   d = diff
+  delete-remote-branch = push origin --delete
   initial-commit = "!git commit -m \"Initial commit\" --allow-empty"
   logs = log --show-signature
   pa = pull --all
