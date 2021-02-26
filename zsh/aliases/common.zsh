@@ -157,6 +157,25 @@ certificate_validity() {
   openssl s_client -showcerts -connect $address:443 < /dev/null 2>/dev/null | openssl x509 -dates -text -noout | grep -A2 Validity
 }
 
+# resolve A, then output the reverse DNS (PTR) of that record
+# See also: "re" alias below
+rere() {
+  echo -n "$1: "
+  ip=$(dig +short $1)
+  if [ -z "$ip" ]; then
+    echo "(no A)"
+    return 1
+  fi
+  echo $ip
+  echo -n "$ip: "
+  reverse=$(dig +short -x $ip)
+  if [ -z "$reverse" ]; then
+    echo "(no reverse)"
+    return 1
+  fi
+  echo $reverse
+}
+
 # open
 alias v='vim'
 alias vi='vim'
@@ -256,6 +275,7 @@ alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
 alias ipa='ip -brief a'
 alias pdfmerge='gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=combined.pdf -dBATCH'
+alias re='dig +short -x'  # reverse DNS PTR
 
 # kitty's kittens
 if [ $commands[kitty] ]; then
