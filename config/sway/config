@@ -1,0 +1,497 @@
+##################################################
+# Saumon dotfiles
+# Sway config file, for Wayland
+# WORK IN PROGRESS
+# https://github.com/maximelouet/dotfiles
+##################################################
+
+
+##################################################
+# Variables
+##################################################
+
+# Main modifiers
+set $mod    Mod1
+set $alt    Mod1
+set $super  Mod4
+set $ctrl   Control
+set $shift  Shift
+
+# Workspace names
+set $ws0  "0"
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "π"
+
+# Monitors
+set $primary_monitor "Dell Inc. DELL U2721DE 89GN023"
+set $secondary_monitor "Dell Inc. DELL P2219HC GWDW8P2"
+set $laptop_monitor "eDP-1"
+
+# Other
+set $terminal "kitty -1"
+
+
+##################################################
+# Basic settings
+##################################################
+
+# Main system font
+font pango:Noto Sans 12
+
+# Change focus
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  focus right
+
+bindsym $mod+a      focus parent
+
+#bindsym $mod+h  focus left
+#bindsym $mod+j  focus down
+#bindsym $mod+k  focus up
+#bindsym $mod+l  focus right
+
+# Move windows
+bindsym $mod+$shift+Left   move left
+bindsym $mod+$shift+Down   move down
+bindsym $mod+$shift+Up     move up
+bindsym $mod+$shift+Right  move right
+
+bindsym $mod+$shift+h  move left
+bindsym $mod+$shift+j  move down
+bindsym $mod+$shift+k  move up
+bindsym $mod+$shift+l  move right
+
+# Change workspace layout
+bindsym $mod+s  layout stacking
+bindsym $mod+z  layout tabbed
+bindsym $mod+e  layout toggle split
+
+# Change split direction
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Toggle floating window
+bindsym $mod+$shift+space floating toggle
+
+# Drag floating windows with mouse+$mod
+floating_modifier $mod
+
+# Toggle focus between floating and tiling windows
+bindsym $mod+space  focus mode_toggle
+
+# Reload sway
+bindsym $mod+$shift+r reload
+
+# Exit sway
+bindsym $mod+$shift+f exit
+
+# Close window
+bindsym $mod+Shift+A kill
+
+# Force a window fullscreen
+bindsym $mod+f fullscreen toggle
+
+
+##################################################
+# Workspaces navigation
+##################################################
+
+# Switch to workspace
+bindcode $mod+49  workspace $ws0
+bindcode $mod+10  workspace $ws1
+bindcode $mod+11  workspace $ws2
+bindcode $mod+12  workspace $ws3
+bindcode $mod+13  workspace $ws4
+bindcode $mod+14  workspace $ws5
+bindcode $mod+15  workspace $ws6
+bindcode $mod+16  workspace $ws7
+bindcode $mod+17  workspace $ws8
+bindcode $mod+18  workspace $ws9
+bindcode $mod+19  workspace $ws10
+
+bindcode $super+49  workspace $ws0
+bindcode $super+10  workspace $ws1
+bindcode $super+11  workspace $ws2
+bindcode $super+12  workspace $ws3
+bindcode $super+13  workspace $ws4
+bindcode $super+14  workspace $ws5
+bindcode $super+15  workspace $ws6
+bindcode $super+16  workspace $ws7
+bindcode $super+17  workspace $ws8
+bindcode $super+18  workspace $ws9
+bindcode $super+19  workspace $ws10
+
+# Move window to workspace
+bindcode $mod+$shift+49 move container to workspace $ws0
+bindcode $mod+$shift+10 move container to workspace $ws1
+bindcode $mod+$shift+11 move container to workspace $ws2
+bindcode $mod+$shift+12 move container to workspace $ws3
+bindcode $mod+$shift+13 move container to workspace $ws4
+bindcode $mod+$shift+14 move container to workspace $ws5
+bindcode $mod+$shift+15 move container to workspace $ws6
+bindcode $mod+$shift+16 move container to workspace $ws7
+bindcode $mod+$shift+17 move container to workspace $ws8
+bindcode $mod+$shift+18 move container to workspace $ws9
+bindcode $mod+$shift+19 move container to workspace $ws10
+
+# Swipe three fingers to change workspace
+# XXX: "Only buttons 1-9 are supported. For other mouse buttons, use the name of the event code."
+#bindsym --whole-window button19 workspace prev
+#bindsym --whole-window button17 workspace next
+
+# Alt+Tab back-and-forth navigation
+bindsym $mod+Tab workspace back_and_forth
+bindsym $super+Tab workspace back_and_forth
+
+
+##################################################
+# Resize mode
+##################################################
+
+# Enter resize mode
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+
+  # Resizing keys
+  bindsym j resize shrink width   5 px or 5 ppt
+  bindsym k resize grow   height  5 px or 5 ppt
+  bindsym l resize shrink height  5 px or 5 ppt
+  bindsym m resize grow   width   5 px or 5 ppt
+
+  bindsym Left  resize shrink width   5 px or 5 ppt
+  bindsym Down  resize grow   height  5 px or 5 ppt
+  bindsym Up    resize shrink height  5 px or 5 ppt
+  bindsym Right resize grow   width   5 px or 5 ppt
+
+  # Back to normal
+  bindsym Return  mode "default"
+  bindsym Escape  mode "default"
+
+}
+
+
+##################################################
+# Design
+##################################################
+
+# Window borders color
+# class                 border  backgr. text    indicator child_border
+client.focused          #9c12ff #9c12ff #ffffff #00DA8E
+client.focused_inactive #444444 #444444 #ffffff #484e50
+client.unfocused        #444444 #444444 #8f8f8f #292d2e
+client.urgent           #f44336 #f44336 #ffffff #900000
+
+# No border around windows by default...
+default_border none
+default_floating_border normal
+
+# ... except for terminal and floating windows...
+for_window [app_id="kitty"] border pixel 1
+
+# ... but never on fullscreen
+smart_borders on
+
+# Floating and borders definitions
+# XXX TODO: migrate all of these fucking X11 class to app_id or something
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Chromium" window_role="app"] floating enable
+for_window [class="File-roller"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gpicview"] floating enable
+for_window [class="Gpicview"] move position center
+for_window [class="^imv$"] floating enable
+for_window [class="java-lang-Thread" title="win0"] floating enable
+for_window [class="jetbrains-toolbox"] floating enable
+for_window [class="jetbrains-webstorm" title="win0"] floating enable
+for_window [class="lite"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Mojosetup"] floating enable
+for_window [class="nitrogen"] floating enable
+for_window [class="Parole"] floating enable
+for_window [class="Pinentry-gtk-2"] floating enable
+for_window [class="pritunl"] floating enable
+for_window [class="Qalculate-gtk"] floating enable
+for_window [class="SimpleScreenRecorder"] floating enable
+for_window [class="Skype"] floating enable
+for_window [class="spek"] floating enable
+for_window [class="torbrowser-launcher"] floating enable
+for_window [instance="file_progress"] floating enable
+for_window [instance="jetbrains-phpstorm" title="^ $"] floating enable
+for_window [instance="jetbrains-pycharm" title="^ $"] floating enable
+for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
+for_window [instance="sun-awt-X11-XFramePeer" title="Welcome to Android Studio"] floating enable
+for_window [title="^Android Emulator - "] floating enable
+for_window [title="Confirm Exit"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
+for_window [title="Network Connections"] floating enable
+for_window [title="Network Operations Manager"] floating enable
+for_window [title="^Page Info"] floating enable
+for_window [title="Plugins"] floating enable
+for_window [title="Qt Configuration"] floating enable
+for_window [title="^Task Manager"] floating enable
+for_window [title="Volume Control"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="(?i)about"] floating enable
+for_window [window_role="(?i)pop-up"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+
+##################################################
+# Shortcuts and launchers
+##################################################
+
+# Program shortcuts
+bindsym $mod+Return   exec $terminal
+bindsym $super+Return exec $terminal
+bindsym $super+e      exec "nemo"
+bindsym $super+f      exec "firefox"
+bindsym $super+c      exec "clipster -s"
+bindsym $super+v      exec "rofi-pass"
+bindsym $super+q      exec "rofimoji"
+
+# Program launcher
+# XXX: rofi doesn't always start on the currently focused monitor
+bindsym   $super+w    exec "rofi -show drun -show-icons"
+bindsym   $super+x    exec "rofi -show run"
+
+# Window switcher
+# XXX: does not switch to windows, only marks them as urgent
+bindcode  $super+94  exec "rofi -show window -show-icons"
+
+# Lock screen
+bindsym --release $super+l exec "~/scripts/wayland/lock.sh"
+
+# Screenshot with selection
+bindsym Print exec "~/scripts/wayland/screenshot.sh"
+
+# Full screenshot
+#bindsym $super+Print exec "~/scripts/screenshot-currentscreen.sh"
+
+# Multimedia keys
+bindsym XF86MonBrightnessUp   exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
+bindsym XF86MonBrightnessDown exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
+
+bindsym XF86AudioMute         exec "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume  exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume  exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+
+bindsym XF86AudioPlay   exec playerctl play
+bindsym XF86AudioPause  exec playerctl pause
+bindsym XF86AudioNext   exec playerctl next
+bindsym XF86AudioPrev   exec playerctl previous
+
+# Cancer
+# XXX: TODO: fix
+#bindcode 135        exec "play ~/cancer/AH.mp3"
+
+
+##################################################
+# Bars
+##################################################
+
+# XXX: TODO: DRY
+
+# Primary screen bar
+bar {
+  output $primary_monitor
+  status_command i3blocks -c ~/.config/i3/blocks
+  position bottom
+  font pango:Noto Sans, Awesome 13.5
+  tray_padding 3
+
+  height 39
+  # XXX: merged upstream, waiting for new release
+  #workspace_min_width 37
+
+  colors {
+    background  #111111
+    statusline  #ccccdc
+
+    # Workspace names color
+    # class             border  backgr. text
+    focused_workspace   #dddddd #dddddd #000000
+    active_workspace    #ff0000 #ff0000 #000000
+    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
+    urgent_workspace    #f44336 #f44336 #ffffff
+    binding_mode        #EF6C00 #EF6C00 #ffffff
+  }
+}
+
+# EXPERIMENT
+bar {
+  output $primary_monitor
+  status_command i3blocks -c ~/.config/i3/blocks_transient
+  position bottom
+  font pango:Noto Sans, Awesome 13.5
+
+  height 39
+
+  hidden_state hide
+  mode hide
+  modifier $super
+
+  colors {
+    background  #111111
+    statusline  #ccccdc
+
+    # Workspace names color
+    # class             border  backgr. text
+    focused_workspace   #dddddd #dddddd #000000
+    active_workspace    #ff0000 #ff0000 #000000
+    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
+    urgent_workspace    #f44336 #f44336 #ffffff
+    binding_mode        #EF6C00 #EF6C00 #ffffff
+  }
+}
+
+# Secondary screen bar
+bar {
+  output $secondary_monitor
+  status_command i3blocks -c ~/.config/i3/blocks_secondary
+  position bottom
+  font pango:Noto Sans, Awesome 12.5
+  tray_padding 3
+
+  height 37
+#  workspace_min_width 35
+
+  colors {
+    background  #111111
+    statusline  #ccccdc
+
+    # Workspace names color
+    # class             border  backgr. text
+    focused_workspace   #dddddd #dddddd #000000
+    active_workspace    #ff0000 #ff0000 #000000
+    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
+    urgent_workspace    #f44336 #f44336 #ffffff
+    binding_mode        #EF6C00 #EF6C00 #ffffff
+  }
+}
+
+# Laptop screen bar
+bar {
+  output $laptop_monitor
+  status_command i3blocks -c ~/.config/i3/blocks
+  position bottom
+  font pango:Noto Sans, Awesome 12.5
+  tray_padding 3
+
+  height 36
+#  workspace_min_width 37
+
+  colors {
+    background  #111111
+    statusline  #ccccdc
+
+    # Workspace names color
+    # class             border  backgr. text
+    focused_workspace   #dddddd #dddddd #000000
+    active_workspace    #ff0000 #ff0000 #000000
+    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
+    urgent_workspace    #f44336 #f44336 #ffffff
+    binding_mode        #EF6C00 #EF6C00 #ffffff
+  }
+}
+
+
+##################################################
+# Devices configuration
+##################################################
+
+input type:keyboard {
+    xkb_layout "fr"
+    xkb_options "caps:swapescape"
+    # makes firefox crash on sway reload :)
+    # https://bugzilla.mozilla.org/show_bug.cgi?id=1652820
+    #xkb_numlock "enabled"
+    repeat_delay 200
+    repeat_rate 30
+}
+
+input type:touchpad {
+    accel_profile "adaptive"
+    pointer_accel 0.3
+    natural_scroll enabled
+    scroll_factor 0.5
+    tap enabled
+}
+
+input type:pointer {
+    scroll_factor 1.1
+}
+
+output $laptop_monitor disable
+output * background "#111111" solid_color
+output $primary_monitor mode 2560x1440 pos 0,198
+output $secondary_monitor mode 1920x1080 pos 2560,0 transform 270
+
+##################################################
+# Workspace assignments
+##################################################
+
+workspace 1 output $primary_monitor
+workspace 2 output $primary_monitor
+workspace 3 output $primary_monitor
+workspace 4 output $secondary_monitor
+workspace 5 output $primary_monitor
+
+#assign [class="Caprine" window_role="browser-window"] $ws4
+#assign [class="discord" window_role="browser-window"] $ws4
+# Move to workspace for Spotify because they don't set window infos correctly
+#for_window [class="Spotify"] move to workspace $ws5
+
+
+##################################################
+# Startup programs
+##################################################
+
+# Network Manager
+# XXX: does not work, need to investigate
+exec "nm-applet"
+
+# Warmer screen color at night
+# (Paris Porte d'Ivry)
+exec "gammastep -l 48.8211:2.3687"
+
+# Bluetooth manager
+exec "blueman-applet"
+
+# Removable media manager from the tray
+exec "udiskie -c ~/.config/udiskie/config.yml"
+
+# GTK fixes
+# https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
+exec_always "~/scripts/wayland/fix-gtk-theme.sh"
+
+# Clipboard manager daemon
+exec "clipster -d"
+
+# Notification daemon
+# XXX: Wayland support for dunst released upstream, Arch package flagged out of date
+exec "dunst"
+
+# Touchpad gestures handling
+# XXX: does not seem to start; works after restart
+exec "libinput-gestures-setup start"
+
+# Restore workspaces layout
+# XXX: TODO
+#exec "sh -c \"i3-msg 'workspace 1; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/1.json'\""
+#exec "sh -c \"i3-msg 'workspace 4; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/4.json'\""
+#exec "sh -c \"i3-msg 'workspace 5; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/5.json'\""
