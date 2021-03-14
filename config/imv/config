@@ -1,6 +1,7 @@
 [options]
 width = 1280
 height = 900
+scaling_mode = shrink
 
 [binds]
 <Escape> = quit
