@@ -509,9 +509,11 @@ exec "dunst"
 # "start" does not work
 exec "libinput-gestures-setup restart"
 
-# Turn off screen after 15 minutes of inactivity
-exec_always swayidle -w \
-  timeout 900 'swaymsg "output * dpms off"' \
-  resume 'swaymsg "output * dpms on"'
+# Lock screen after 15 minutes of inactivity
+# Turn off screen after 1 more minute
+exec_always swayidle \
+  timeout 900 '~/scripts/wayland/lock.sh' \
+  timeout 960 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
 
 # XXX: TODO: start apps
