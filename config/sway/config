@@ -6,6 +6,11 @@
 ##################################################
 
 
+include /etc/sway/config.d/*
+
+# TODO: device-specific includes
+
+
 ##################################################
 # Variables
 ##################################################
@@ -16,19 +21,6 @@ set $alt    Mod1
 set $super  Mod4
 set $ctrl   Control
 set $shift  Shift
-
-# Workspace names
-set $ws0  "0"
-set $ws1  "1"
-set $ws2  "2"
-set $ws3  "3"
-set $ws4  "4"
-set $ws5  "5"
-set $ws6  "6"
-set $ws7  "7"
-set $ws8  "8"
-set $ws9  "9"
-set $ws10 "π"
 
 # Monitors
 set $primary_monitor "Dell Inc. DELL U2721DE 89GN023"
@@ -106,47 +98,42 @@ bindsym $mod+f fullscreen toggle
 ##################################################
 
 # Switch to workspace
-bindcode $mod+49  workspace $ws0
-bindcode $mod+10  workspace $ws1
-bindcode $mod+11  workspace $ws2
-bindcode $mod+12  workspace $ws3
-bindcode $mod+13  workspace $ws4
-bindcode $mod+14  workspace $ws5
-bindcode $mod+15  workspace $ws6
-bindcode $mod+16  workspace $ws7
-bindcode $mod+17  workspace $ws8
-bindcode $mod+18  workspace $ws9
-bindcode $mod+19  workspace $ws10
+bindcode $mod+49 workspace 0
+bindcode $mod+10 workspace 1
+bindcode $mod+11 workspace 2
+bindcode $mod+12 workspace 3
+bindcode $mod+13 workspace 4
+bindcode $mod+14 workspace 5
+bindcode $mod+15 workspace 6
+bindcode $mod+16 workspace 7
+bindcode $mod+17 workspace 8
+bindcode $mod+18 workspace 9
+bindcode $mod+19 workspace 10
 
-bindcode $super+49  workspace $ws0
-bindcode $super+10  workspace $ws1
-bindcode $super+11  workspace $ws2
-bindcode $super+12  workspace $ws3
-bindcode $super+13  workspace $ws4
-bindcode $super+14  workspace $ws5
-bindcode $super+15  workspace $ws6
-bindcode $super+16  workspace $ws7
-bindcode $super+17  workspace $ws8
-bindcode $super+18  workspace $ws9
-bindcode $super+19  workspace $ws10
+bindcode $super+49 workspace 0
+bindcode $super+10 workspace 1
+bindcode $super+11 workspace 2
+bindcode $super+12 workspace 3
+bindcode $super+13 workspace 4
+bindcode $super+14 workspace 5
+bindcode $super+15 workspace 6
+bindcode $super+16 workspace 7
+bindcode $super+17 workspace 8
+bindcode $super+18 workspace 9
+bindcode $super+19 workspace 10
 
 # Move window to workspace
-bindcode $mod+$shift+49 move container to workspace $ws0
-bindcode $mod+$shift+10 move container to workspace $ws1
-bindcode $mod+$shift+11 move container to workspace $ws2
-bindcode $mod+$shift+12 move container to workspace $ws3
-bindcode $mod+$shift+13 move container to workspace $ws4
-bindcode $mod+$shift+14 move container to workspace $ws5
-bindcode $mod+$shift+15 move container to workspace $ws6
-bindcode $mod+$shift+16 move container to workspace $ws7
-bindcode $mod+$shift+17 move container to workspace $ws8
-bindcode $mod+$shift+18 move container to workspace $ws9
-bindcode $mod+$shift+19 move container to workspace $ws10
-
-# Swipe three fingers to change workspace
-# XXX: "Only buttons 1-9 are supported. For other mouse buttons, use the name of the event code."
-#bindsym --whole-window button19 workspace prev
-#bindsym --whole-window button17 workspace next
+bindcode $mod+$shift+49 move container to workspace 0
+bindcode $mod+$shift+10 move container to workspace 1
+bindcode $mod+$shift+11 move container to workspace 2
+bindcode $mod+$shift+12 move container to workspace 3
+bindcode $mod+$shift+13 move container to workspace 4
+bindcode $mod+$shift+14 move container to workspace 5
+bindcode $mod+$shift+15 move container to workspace 6
+bindcode $mod+$shift+16 move container to workspace 7
+bindcode $mod+$shift+17 move container to workspace 8
+bindcode $mod+$shift+18 move container to workspace 9
+bindcode $mod+$shift+19 move container to workspace 10
 
 # Alt+Tab back-and-forth navigation
 bindsym $mod+Tab workspace back_and_forth
@@ -193,62 +180,83 @@ client.urgent           #f44336 #f44336 #ffffff #900000
 
 # No border around windows by default...
 default_border none
-default_floating_border normal
 
 # ... except for terminal and floating windows...
-for_window [app_id="kitty"] border pixel 1
+for_window [app_id="kitty"] border pixel 2
+default_floating_border pixel 2
 
 # ... but never on fullscreen
 smart_borders on
 
-# Floating and borders definitions
-# XXX TODO: migrate all of these fucking X11 class to app_id or something
-for_window [class="Blueman-manager"] floating enable
-for_window [class="Chromium" window_role="app"] floating enable
-for_window [class="File-roller"] floating enable
-for_window [class="Gedit"] floating enable
-for_window [class="Gnome-calculator"] floating enable
-for_window [class="Gpicview"] floating enable
-for_window [class="Gpicview"] move position center
-for_window [class="^imv$"] floating enable
-for_window [class="java-lang-Thread" title="win0"] floating enable
-for_window [class="jetbrains-toolbox"] floating enable
-for_window [class="jetbrains-webstorm" title="win0"] floating enable
-for_window [class="lite"] floating enable
+
+##################################################
+# Window rules
+##################################################
+
+# generic floating rules
+for_window [class="floating"]                   floating enable, move position center
+for_window [title="floating"]                   floating enable, move position center
+for_window [app_id="floating"]                  floating enable, move position center
+for_window [title="(?i)about"]                  floating enable
+for_window [title="(?i)preferences"]            floating enable
+for_window [title="^Android Emulator - "]       floating enable
+for_window [window_role="about"]                floating enable
+for_window [window_role="bubble"]               floating enable
+for_window [window_role="pop-up"]               floating enable
+for_window [window_role="Preferences"]          floating enable
+for_window [window_role="task_dialog"]          floating enable
+for_window [window_type="dialog"]               floating enable
+for_window [window_type="menu"]                 floating enable
+
+# floating app rules
+for_window [app_id="blueman-manager"]           floating enable
+for_window [app_id="clipster"]                  floating enable, border pixel 2
+for_window [app_id="file-roller"]               floating enable, border pixel 2
+for_window [app_id="imv"]                       floating enable, border pixel 2
+for_window [app_id="qalculate-gtk"]             floating enable, border pixel 2
+for_window [app_id="wdisplays"]                 floating enable, border pixel 2
+for_window [app_id="zenity"]                    floating enable, border pixel 2
+
+# sleep inhibition
+for_window [app_id="firefox"]     inhibit_idle fullscreen
+for_window [app_id="mpv"]         inhibit_idle
+
+# title rules
+for_window [title="Network Connections"]        floating enable, border pixel 2
+for_window [title="Network Operations Manager"] floating enable, border pixel 2
+for_window [title="^Task Manager"]              floating enable, border pixel 2
+for_window [title="Volume Control"]             floating enable, border pixel 2
+for_window [app_id="nemo" title="Properties$"]  floating enable, border pixel 2
+for_window [app_id="nemo" title="^Folder Sharing$"] floating enable, border pixel 2
+
+# X11/xwayland rules
+for_window [class="Gpicview"]                   floating enable, border pixel 2, move position center
+for_window [class="Pinentry-gtk-2"]             floating enable, border pixel 2, move position center
+for_window [class="lite"]                       floating enable, border pixel 2
+
+# all firefox windows except main window
+#   this has the side effect of making the main window floating for ~2 seconds
+#   before it sets its title, but has the benefit of not making other popups
+#   (such as Page info) jump from non-floating to floating
+for_window [app_id="firefox"]                   floating enable, border pixel 2
+for_window [title="— Mozilla Firefox$"]         floating disable, border none
+
+# TODO: finish cleaning up this
 for_window [class="Lxappearance"] floating enable
 for_window [class="Mojosetup"] floating enable
 for_window [class="nitrogen"] floating enable
 for_window [class="Parole"] floating enable
-for_window [class="Pinentry-gtk-2"] floating enable
-for_window [class="pritunl"] floating enable
 for_window [class="Qalculate-gtk"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
-for_window [class="Skype"] floating enable
 for_window [class="spek"] floating enable
 for_window [class="torbrowser-launcher"] floating enable
 for_window [instance="file_progress"] floating enable
 for_window [instance="jetbrains-phpstorm" title="^ $"] floating enable
 for_window [instance="jetbrains-pycharm" title="^ $"] floating enable
 for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
-for_window [instance="sun-awt-X11-XFramePeer" title="Welcome to Android Studio"] floating enable
-for_window [title="^Android Emulator - "] floating enable
 for_window [title="Confirm Exit"] floating enable
 for_window [title="Minecraft Launcher"] floating enable
-for_window [title="Network Connections"] floating enable
-for_window [title="Network Operations Manager"] floating enable
-for_window [title="^Page Info"] floating enable
 for_window [title="Plugins"] floating enable
-for_window [title="Qt Configuration"] floating enable
-for_window [title="^Task Manager"] floating enable
-for_window [title="Volume Control"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="(?i)about"] floating enable
-for_window [window_role="(?i)pop-up"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
 
 
 ##################################################
@@ -266,11 +274,15 @@ bindsym $super+q      exec "rofimoji"
 
 # Program launcher
 # XXX: rofi doesn't always start on the currently focused monitor
+#      => due to Xwayland
+#      => native wayland support: https://github.com/davatorium/rofi/issues/446
+#      => alternative: https://aur.archlinux.org/packages/rofi-lbonn-wayland-git/
 bindsym   $super+w    exec "rofi -show drun -show-icons"
 bindsym   $super+x    exec "rofi -show run"
 
 # Window switcher
 # XXX: does not switch to windows, only marks them as urgent
+#      => probably due to Xwayland as well :(
 bindcode  $super+94  exec "rofi -show window -show-icons"
 
 # Lock screen
@@ -279,8 +291,8 @@ bindsym --release $super+l exec "~/scripts/wayland/lock.sh"
 # Screenshot with selection
 bindsym Print exec "~/scripts/wayland/screenshot.sh"
 
-# Full screenshot
-#bindsym $super+Print exec "~/scripts/screenshot-currentscreen.sh"
+# Screenshot currently focused monitor
+bindsym $super+Print exec "~/scripts/wayland/screenshot-currentscreen.sh"
 
 # Multimedia keys
 bindsym XF86MonBrightnessUp   exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
@@ -296,15 +308,14 @@ bindsym XF86AudioNext   exec playerctl next
 bindsym XF86AudioPrev   exec playerctl previous
 
 # Cancer
-# XXX: TODO: fix
-#bindcode 135        exec "play ~/cancer/AH.mp3"
+bindcode 135 exec "play ~/cancer/AH.mp3"
 
 
 ##################################################
 # Bars
 ##################################################
 
-# XXX: TODO: DRY
+# TODO: DRY
 
 # Primary screen bar
 bar {
@@ -332,7 +343,7 @@ bar {
   }
 }
 
-# EXPERIMENT
+# Overlay bar with modifier
 bar {
   output $primary_monitor
   status_command i3blocks -c ~/.config/i3/blocks_transient
@@ -444,10 +455,16 @@ output * background "#111111" solid_color
 output $primary_monitor mode 2560x1440 pos 0,198
 output $secondary_monitor mode 1920x1080 pos 2560,0 transform 270
 
+# clamshell mode
+# XXX: TODO: test
+#bindswitch --reload --locked lid:on output $laptop_monitor disable
+#bindswitch --reload --locked lid:off output $laptop_monitor enable
+
 ##################################################
 # Workspace assignments
 ##################################################
 
+workspace 0 output $primary_monitor
 workspace 1 output $primary_monitor
 workspace 2 output $primary_monitor
 workspace 3 output $primary_monitor
@@ -465,7 +482,6 @@ workspace 5 output $primary_monitor
 ##################################################
 
 # Network Manager
-# XXX: does not work, need to investigate
 exec "nm-applet"
 
 # Warmer screen color at night
@@ -490,11 +506,12 @@ exec "clipster -d"
 exec "dunst"
 
 # Touchpad gestures handling
-# XXX: does not seem to start; works after restart
-exec "libinput-gestures-setup start"
+# "start" does not work
+exec "libinput-gestures-setup restart"
 
-# Restore workspaces layout
-# XXX: TODO
-#exec "sh -c \"i3-msg 'workspace 1; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/1.json'\""
-#exec "sh -c \"i3-msg 'workspace 4; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/4.json'\""
-#exec "sh -c \"i3-msg 'workspace 5; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/5.json'\""
+# Turn off screen after 15 minutes of inactivity
+exec_always swayidle -w \
+  timeout 900 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"'
+
+# XXX: TODO: start apps
