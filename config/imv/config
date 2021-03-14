@@ -1,0 +1,6 @@
+[options]
+width = 1280
+height = 900
+
+[binds]
+<Escape> = quit
