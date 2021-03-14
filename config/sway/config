@@ -338,6 +338,7 @@ bar {
   status_command i3blocks -c ~/.config/i3/blocks_transient
   position bottom
   font pango:Noto Sans, Awesome 13.5
+  tray_padding 3
 
   height 39
 
@@ -426,10 +427,12 @@ input type:keyboard {
 
 input type:touchpad {
     accel_profile "adaptive"
-    pointer_accel 0.3
+    pointer_accel 0.4
     natural_scroll enabled
-    scroll_factor 0.5
+    scroll_factor 0.8
     tap enabled
+    # disable "disable while typing" feature
+    dwt disabled
 }
 
 input type:pointer {
