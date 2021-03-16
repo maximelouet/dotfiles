@@ -199,27 +199,21 @@ smart_borders on
 # generic floating rules
 for_window [class="floating"]             floating enable, move position center
 for_window [app_id="floating"]            floating enable, move position center
-for_window [title="(?i)about"]            floating enable
-for_window [title="(?i)preferences"]      floating enable
+for_window [title="(?i)about$"]           floating enable, border pixel 2
+for_window [title="(?i)preferences$"]     floating enable, border pixel2
 for_window [title="^Android Emulator - "] floating enable
 for_window [window_type="dialog"]         floating enable
-for_window [window_role="popup_menu"]     floating enable
+for_window [window_role="popup_menu"]     floating enable, border pixel 2
 for_window [window_type="menu"]           floating enable
 for_window [window_type="tooltip"]        floating enable
 
 # floating app rules
-for_window [app_id="blueman-manager"]   floating enable
-for_window [app_id="file-roller"]       floating enable, border pixel 2
-for_window [app_id="imv"]               floating enable, border pixel 2
-for_window [app_id="qalculate-gtk"]     floating enable, border pixel 2
-for_window [app_id="wdisplays"]         floating enable, border pixel 2
-for_window [app_id="zenity"]            floating enable, border pixel 2
-
-# sleep inhibition
-for_window [app_id="firefox"]     inhibit_idle fullscreen
-for_window [app_id="mpv"]         inhibit_idle
-
-# title rules
+for_window [app_id="blueman-manager"]           floating enable, border pixel 2
+for_window [app_id="file-roller"]               floating enable, border pixel 2
+for_window [app_id="imv"]                       floating enable, border pixel 2
+for_window [app_id="qalculate-gtk"]             floating enable, border pixel 2
+for_window [app_id="wdisplays"]                 floating enable, border pixel 2
+for_window [app_id="zenity"]                    floating enable, border pixel 2
 for_window [title="Network Connections"]        floating enable, border pixel 2
 for_window [title="Network Operations Manager"] floating enable, border pixel 2
 for_window [title="^Task Manager"]              floating enable, border pixel 2
@@ -227,10 +221,16 @@ for_window [title="Volume Control"]             floating enable, border pixel 2
 for_window [app_id="nemo" title="Properties$"]  floating enable, border pixel 2
 for_window [app_id="nemo" title="^Folder Sharing$"] floating enable, border pixel 2
 
+# sleep inhibition
+for_window [app_id="firefox"]     inhibit_idle fullscreen
+for_window [app_id="mpv"]         inhibit_idle
+
+# title rules
+
 # X11/xwayland rules
-for_window [class="Gpicview"]                   floating enable, border pixel 2, move position center
-for_window [class="Pinentry-gtk-2"]             floating enable, border pixel 2, move position center
-for_window [class="lite"]                       floating enable, border pixel 2
+for_window [class="Gpicview"]         floating enable, border pixel 2, move position center
+for_window [class="Pinentry-gtk-2"]   floating enable, border pixel 2, move position center
+for_window [class="lite"]             floating enable, border pixel 2
 
 # Firefox
 # sooooooooo :)
@@ -302,6 +302,7 @@ bindcode 135 exec "play ~/cancer/AH.mp3"
 ##################################################
 
 # TODO: DRY
+# we cannot use `include` directives in bar{} config :(
 
 # Primary screen bar
 bar {
@@ -455,7 +456,7 @@ output $primary_monitor mode 2560x1440 pos 0,198
 output $secondary_monitor mode 1920x1080 pos 2560,0 transform 270
 
 # clamshell mode
-# XXX: TODO: test
+# TODO: test
 #bindswitch --reload --locked lid:on output $laptop_monitor disable
 #bindswitch --reload --locked lid:off output $laptop_monitor enable
 
@@ -513,8 +514,10 @@ exec "dunst"
 exec "libinput-gestures-setup restart"
 
 # Lock screen after 15 minutes of inactivity
-# Turn off screen after 1 more minute
+# But show warning 1 minute before
+# After 1 minute of locking, turn off screen via DPMS
 exec_always swayidle \
+  timeout 840 'notify-send -u low "Locking soon" "Screen will be locked in 60 seconds without action"' \
   timeout 900 '~/scripts/wayland/lock.sh' \
   timeout 960 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"'
