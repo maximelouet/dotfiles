@@ -181,11 +181,10 @@ client.focused_inactive #444444 #444444 #ffffff #484e50
 client.unfocused        #444444 #444444 #8f8f8f #292d2e
 client.urgent           #f44336 #f44336 #ffffff #900000
 
-# No border around windows by default...
-default_border none
+# No title around windows by default, only borders
+default_border pixel 2
 
-# ... except for terminal and floating windows...
-for_window [app_id="kitty"] border pixel 2
+# ... except for floating windows...
 default_floating_border pixel 2
 
 # ... but never on fullscreen
@@ -199,27 +198,27 @@ smart_borders on
 # generic floating rules
 for_window [class="floating"]             floating enable, move position center
 for_window [app_id="floating"]            floating enable, move position center
-for_window [title="(?i)about$"]           floating enable, border pixel 2
-for_window [title="(?i)preferences$"]     floating enable, border pixel2
+for_window [title="(?i)about$"]           floating enable
+for_window [title="(?i)preferences$"]     floating enable
 for_window [title="^Android Emulator - "] floating enable
 for_window [window_type="dialog"]         floating enable
-for_window [window_role="popup_menu"]     floating enable, border pixel 2
+for_window [window_role="popup_menu"]     floating enable
 for_window [window_type="menu"]           floating enable
 for_window [window_type="tooltip"]        floating enable
 
 # floating app rules
-for_window [app_id="blueman-manager"]           floating enable, border pixel 2
-for_window [app_id="file-roller"]               floating enable, border pixel 2
-for_window [app_id="imv"]                       floating enable, border pixel 2
-for_window [app_id="qalculate-gtk"]             floating enable, border pixel 2
-for_window [app_id="wdisplays"]                 floating enable, border pixel 2
-for_window [app_id="zenity"]                    floating enable, border pixel 2
-for_window [title="Network Connections"]        floating enable, border pixel 2
-for_window [title="Network Operations Manager"] floating enable, border pixel 2
-for_window [title="^Task Manager"]              floating enable, border pixel 2
-for_window [title="Volume Control"]             floating enable, border pixel 2
-for_window [app_id="nemo" title="Properties$"]  floating enable, border pixel 2
-for_window [app_id="nemo" title="^Folder Sharing$"] floating enable, border pixel 2
+for_window [app_id="blueman-manager"]           floating enable
+for_window [app_id="file-roller"]               floating enable
+for_window [app_id="imv"]                       floating enable
+for_window [app_id="qalculate-gtk"]             floating enable
+for_window [app_id="wdisplays"]                 floating enable
+for_window [app_id="zenity"]                    floating enable
+for_window [title="Network Connections"]        floating enable
+for_window [title="Network Operations Manager"] floating enable
+for_window [title="^Task Manager"]              floating enable
+for_window [title="Volume Control"]             floating enable
+for_window [app_id="nemo" title="Properties$"]  floating enable
+for_window [app_id="nemo" title="^Folder Sharing$"] floating enable
 
 # sleep inhibition
 for_window [app_id="firefox"]     inhibit_idle fullscreen
@@ -228,9 +227,9 @@ for_window [app_id="mpv"]         inhibit_idle
 # title rules
 
 # X11/xwayland rules
-for_window [class="Gpicview"]         floating enable, border pixel 2, move position center
-for_window [class="Pinentry-gtk-2"]   floating enable, border pixel 2, move position center
-for_window [class="lite"]             floating enable, border pixel 2
+for_window [class="Gpicview"]         floating enable, move position center
+for_window [class="Pinentry-gtk-2"]   floating enable, move position center
+for_window [class="lite"]             floating enable
 
 # Firefox
 # sooooooooo :)
@@ -241,8 +240,8 @@ for_window [class="lite"]             floating enable, border pixel 2
 for_window [app_id="firefox"]                                 floating enable
 for_window [app_id="firefox" title="__focused__"]             floating disable
 for_window [app_id="firefox" title="Mozilla Firefox"]         floating disable
-for_window [app_id="firefox" title="^Page Info — "]           floating enable, border pixel 2
-for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable, border pixel 2
+for_window [app_id="firefox" title="^Page Info — "]           floating enable
+for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
 
 
 ##################################################
@@ -259,17 +258,14 @@ bindsym $super+c      exec "clipman pick -t rofi"
 #bindsym $super+q      exec "rofimoji"
 
 # Program launcher
-# XXX: rofi doesn't always start on the currently focused monitor
-#      => due to Xwayland
-#      => native wayland support: https://github.com/davatorium/rofi/issues/446
-#      => alternative: https://aur.archlinux.org/packages/rofi-lbonn-wayland-git/
+# NOTE: using https://aur.archlinux.org/packages/rofi-lbonn-wayland-git/ until
+# https://github.com/davatorium/rofi/issues/446 is closed.
 bindsym   $super+w    exec "rofi -show drun -show-icons"
 bindsym   $super+x    exec "rofi -show run"
 
 # Window switcher
-# XXX: does not switch to windows, only marks them as urgent
-#      => probably due to Xwayland as well :(
-bindcode  $super+94  exec "rofi -show window -show-icons"
+# XXX: wayland fork does not have window mode
+#bindcode  $super+94  exec "rofi -show window -show-icons"
 
 # Lock screen
 bindsym --release $super+l exec "~/scripts/wayland/lock.sh"
@@ -474,9 +470,9 @@ workspace 5 output $primary_monitor
 
 # Windows workspace assignments
 assign [class="Caprine"] workspace 4
-for_window [class="Caprine"] move container to workspace 4
+#for_window [class="Caprine"] move container to workspace 4
 assign [class="discord"] workspace 4
-for_window [class="discord"] move container to workspace 4
+#for_window [class="discord"] move container to workspace 4
 assign [class="Spotify"] workspace 5
 for_window [class="Spotify"] move container to workspace 5
 
