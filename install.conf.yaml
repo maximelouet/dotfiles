@@ -16,6 +16,7 @@
       create: true
       glob: true
       path: config/*
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.gtkrc-2.0:
       force: true
     ~/.icons/default/index.theme:
