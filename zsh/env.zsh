@@ -13,8 +13,8 @@ export MANPAGER="$PAGER"
 export TERM=xterm-256color
 
 export USER='saumon'
-export TEKLOGIN='maxime.louet@epitech.eu'
-export FULLNAME='Maxime Louet'
+#export TEKLOGIN='maxime.louet@epitech.eu'
+#export FULLNAME='Maxime Louet'
 
 export CASE_SENSITIVE='true'
 export CLICOLOR=1
@@ -33,8 +33,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export WATCH='all'
 
-export ANDROID_HOME=$HOME/software/Android
 export NVM_DIR=$HOME/.config/nvm
+export ANDROID_HOME=$HOME/software/Android
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
