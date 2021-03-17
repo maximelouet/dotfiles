@@ -42,3 +42,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$HOME/software/flutter/bin
 
 export ANSIBLE_COW_SELECTION=random
+export ANSIBLE_STDOUT_CALLBACK=yaml  # https://twitter.com/svg/status/1370099072959455238
