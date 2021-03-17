@@ -43,7 +43,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#eeeeee"
+    frame_color = "#9c12ff"
 
     # Define a color for the separator.
     # possible values are:
@@ -144,7 +144,7 @@
     min_icon_size = 0
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 45
+    max_icon_size = 42
 
     # Paths to default icons.
     icon_path = /usr/share/icons/Flat-Remix-Blue/status/scalable/32/:/usr/share/icons/Flat-Remix-Blue/devices/scalable/
@@ -174,7 +174,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 1
+    corner_radius = 2
 
     ### mouse
 
@@ -215,8 +215,8 @@
     #context = ctrl+shift+space
 
 
+# IMPORTANT: colors have to be defined in quotation marks.
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
     foreground = "#dddddd"
@@ -225,8 +225,9 @@
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#1374a1"
+    background = "#0d648c"
     foreground = "#ffffff"
+    frame_color = "#dddddd"
     timeout = 8
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
@@ -234,6 +235,7 @@
 [urgency_critical]
     background = "#960808"
     foreground = "#ffffff"
+    frame_color = "#ffffff"
     timeout = 10
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
@@ -318,3 +320,13 @@
 [bluetooth]
     appname = *bluetooth*
     script = ~/scripts/refresh-i3blocks-volume.sh
+
+[lockingsoon]
+    summary = "Locking soon"
+    set_transient = true
+    timeout = 55
+
+[screenshot]
+    summary = "*reenshot saved"  # match "Full screenshot saved" etc
+    set_transient = true
+    timeout = 3
