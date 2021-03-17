@@ -313,6 +313,7 @@
 [spotify]
     appname = Spotify
     script = ~/scripts/refresh-i3blocks-music.sh
+    frame_color = "#1DB954"  # spotify green
     set_transient = true
     markup = no  # some names fuck this up
     timeout = 5
