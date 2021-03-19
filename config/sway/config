@@ -214,7 +214,7 @@ for_window [window_type="tooltip"]        floating enable
 
 # floating app rules
 for_window [app_id="blueman-manager"]           floating enable
-for_window [app_id="file-roller"]               floating enable
+for_window [app_id="file-roller"]               floating enable, border pixel 2
 for_window [app_id="imv"]                       floating enable
 for_window [app_id="qalculate-gtk"]             floating enable
 for_window [app_id="wdisplays"]                 floating enable
@@ -500,11 +500,7 @@ exec "udiskie -c ~/.config/udiskie/config.yml"
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 exec_always "~/scripts/wayland/fix-gtk-theme.sh"
 
-# Clipboard manager daemon
-exec "clipster -d"
-
 # Notification daemon
-# XXX: Wayland support for dunst released upstream, Arch package flagged out of date
 exec "dunst"
 
 # Touchpad gestures handling
