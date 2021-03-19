@@ -1,7 +1,6 @@
 ##################################################
 # Saumon dotfiles
 # Sway config file, for Wayland
-# WORK IN PROGRESS
 # https://github.com/maximelouet/dotfiles
 ##################################################
 
@@ -86,6 +85,11 @@ floating_modifier $mod
 bindsym $mod+space focus mode_toggle
 
 # Reload sway
+# Avoid if possible. Reloading sway has awful consequences, like Firefox
+# crashing or kanshi losing track of outputs (and sway not being able to
+# configure outputs background if they are re-configured by kanshi after the
+# reload). If you need to reload, pray, or close your work and exit+restart
+# sway.
 bindsym $mod+$shift+r reload
 
 # Exit sway
