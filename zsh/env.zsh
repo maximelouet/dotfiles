@@ -43,3 +43,8 @@ export PATH=$PATH:$HOME/software/flutter/bin
 
 export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_STDOUT_CALLBACK=yaml  # https://twitter.com/svg/status/1370099072959455238
+
+# Wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland
+export CLUTTER_BACKEND=wayland
