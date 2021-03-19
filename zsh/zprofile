@@ -3,7 +3,7 @@
 # zprofile: sourced at login
 #
 
-# Autostart X server on TTY1
+# Autostart graphical interface upon login on TTY1
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+  exec sway
 fi
