@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case $1 in
+  period-changed)
+    if [ "$3" = "none" ]; then
+      exec notify-send -u low "Gammastep" "Stopping..."
+    else
+      exec notify-send -u low "Gammastep" "Updating screen color for $3"
+    fi
+    ;;
+esac

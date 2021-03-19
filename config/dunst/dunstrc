@@ -326,3 +326,8 @@
     summary = "*reenshot saved"  # match "Full screenshot saved" etc
     set_transient = true
     timeout = 3
+
+[gammastep]
+    summary = Gammastep
+    set_transient = true
+    frame_color = "#A10320"

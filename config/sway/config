@@ -488,8 +488,7 @@ for_window [class="Spotify"] move container to workspace 5
 exec "nm-applet"
 
 # Warmer screen color at night
-# (Paris Porte d'Ivry)
-exec "gammastep -l 48.8211:2.3687"
+exec "gammastep"
 
 # Bluetooth manager
 exec "blueman-applet"
