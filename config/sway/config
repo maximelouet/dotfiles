@@ -265,6 +265,9 @@ bindsym $super+c      exec "clipman pick -t rofi"
 bindsym   $super+w    exec "rofi -show drun -show-icons"
 bindsym   $super+x    exec "rofi -show run"
 
+# Notifications (dunst) shortcuts
+bindsym ctrl+space exec dunstctl close
+
 # Window switcher
 # XXX: wayland fork does not have window mode
 #bindcode  $super+94  exec "rofi -show window -show-icons"
