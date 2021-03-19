@@ -18,7 +18,17 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "450x30-25-54"
+    #
+    # WAYLAND (from man 5 dunst)
+    # If you have your dunst notifications on the same side of your display as
+    # your status bar, you might notice that your notifications appear a bit
+    # higher or lower than on X11. This is because the notification cannot be
+    # placed on top of your status bar. The notifications are placed relative
+    # to your status bar, making them appear higher or lower by the height of
+    # your status bar. We cannot do anything about that behavior, so you will
+    # need to change your geometry variable accordingly.
+    #
+    geometry = "450x30-25-25"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
