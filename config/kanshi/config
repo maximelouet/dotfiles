@@ -1,0 +1,14 @@
+profile home {
+  output "eDP-1" disable
+  output "Dell Inc. DELL U2721DE 89GN023" mode 2560x1440 position 0,198
+  output "Dell Inc. DELL P2219HC GWDW8P2" mode 1920x1080 position 2560,0 transform 90
+}
+
+profile home-minimal {
+  output "eDP-1" disable
+  output "Dell Inc. DELL U2721DE 89GN023" mode 2560x1440
+}
+
+profile laptop-only {
+  output "eDP-1" enable
+}

@@ -23,6 +23,8 @@ set $ctrl   Control
 set $shift  Shift
 
 # Monitors
+# (automatic monitor configuration is done by kanshi but these variables are
+# needed to force bars on certain monitors)
 set $primary_monitor "Dell Inc. DELL U2721DE 89GN023"
 set $secondary_monitor "Dell Inc. DELL P2219HC GWDW8P2"
 set $laptop_monitor "eDP-1"
@@ -327,45 +329,43 @@ bar {
 }
 
 # Overlay bar with modifier
-bar {
-  output $primary_monitor
-  status_command i3blocks -c ~/.config/i3/blocks_transient
-  position bottom
-  font pango:Noto Sans, Awesome 13.5
-  tray_padding 3
-
-  height 39
-  # XXX: merged upstream, waiting for new release
-  #workspace_min_width 37
-
-  colors {
-    background  #111111
-    statusline  #ccccdc
-
-    # Workspace names color
-    # class             border  backgr. text
-    focused_workspace   #dddddd #dddddd #000000
-    active_workspace    #ff0000 #ff0000 #000000
-    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
-    urgent_workspace    #f44336 #f44336 #ffffff
-    binding_mode        #EF6C00 #EF6C00 #ffffff
-  }
-
-  hidden_state hide
-  mode hide
-  modifier $super
-}
+#bar {
+#  output $primary_monitor
+#  status_command i3blocks -c ~/.config/i3/blocks_transient
+#  position bottom
+#  font pango:Noto Sans, Awesome 13.5
+#  tray_padding 3
+#
+#  height 39
+#  # XXX: merged upstream, waiting for new release
+#  #workspace_min_width 37
+#
+#  colors {
+#    background  #111111
+#    statusline  #ccccdc
+#
+#    # Workspace names color
+#    # class             border  backgr. text
+#    focused_workspace   #dddddd #dddddd #000000
+#    active_workspace    #ff0000 #ff0000 #000000
+#    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
+#    urgent_workspace    #f44336 #f44336 #ffffff
+#    binding_mode        #EF6C00 #EF6C00 #ffffff
+#  }
+#
+#  hidden_state hide
+#  mode hide
+#  modifier $super
+#}
 
 # Secondary screen bar
 bar {
   output $secondary_monitor
   status_command i3blocks -c ~/.config/i3/blocks_secondary
-  font pango:Noto Sans, Awesome 12.5
   position bottom
   font pango:Noto Sans, Awesome 13.5
   tray_padding 3
 
-  height 39
   # XXX: merged upstream, waiting for new release
   #workspace_min_width 37
 
@@ -390,10 +390,8 @@ bar {
   output $laptop_monitor
   status_command i3blocks -c ~/.config/i3/blocks
   position bottom
-  font pango:Noto Sans, Awesome 13.5
   tray_padding 3
 
-  height 39
   # XXX: merged upstream, waiting for new release
   #workspace_min_width 37
 
@@ -446,10 +444,8 @@ input type:pointer {
     scroll_factor 1.1
 }
 
-output $laptop_monitor disable
+# "Desktop wallpaper" :)
 output * background "#111111" solid_color
-output $primary_monitor mode 2560x1440 pos 0,198
-output $secondary_monitor mode 1920x1080 pos 2560,0 transform 270
 
 # clamshell mode
 # TODO: test
@@ -508,6 +504,10 @@ exec "dunst"
 # Touchpad gestures handling
 # "start" does not work
 exec "libinput-gestures-setup restart"
+
+# Automatic monitor configuration
+# (autorandr for Wayland)
+exec kanshi
 
 # Lock screen after 15 minutes of inactivity
 # But show warning 1 minute before
