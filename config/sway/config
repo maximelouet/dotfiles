@@ -510,7 +510,8 @@ exec "libinput-gestures-setup restart"
 
 # Automatic monitor configuration
 # (autorandr for Wayland)
-exec kanshi
+# Somehow it fucks up on reload so exec_always :/
+exec_always kanshi
 
 # Lock screen after 15 minutes of inactivity
 # But show warning 1 minute before
