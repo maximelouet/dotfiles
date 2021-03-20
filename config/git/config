@@ -25,7 +25,10 @@
   p = pull
   psuh = push
   pushf = push --force-with-lease
+  psuhf = push --force-with-lease
+  psufh = push --force-with-lease
   r = restore
+  rs = restore --staged
   sc = "!git commit -am \"Sync commit\" && git push"
   sd = diff --staged
   set-upstream = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
