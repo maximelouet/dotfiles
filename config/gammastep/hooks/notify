@@ -5,7 +5,7 @@ case $1 in
     if [ "$3" = "none" ]; then
       exec notify-send -u low "Gammastep" "Stopping..."
     else
-      exec notify-send -u low "Gammastep" "Updating screen color for $3"
+      exec notify-send -u low "Gammastep" "$3 mode"
     fi
     ;;
 esac
