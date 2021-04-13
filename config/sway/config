@@ -216,6 +216,7 @@ for_window [window_type="tooltip"]        floating enable
 for_window [app_id="blueman-manager"]           floating enable
 for_window [app_id="file-roller"]               floating enable, border pixel 2
 for_window [app_id="imv"]                       floating enable
+for_window [app_id="nm-connection-editor"]      floating enable
 for_window [app_id="qalculate-gtk"]             floating enable
 for_window [app_id="wdisplays"]                 floating enable
 for_window [app_id="zenity"]                    floating enable
@@ -245,6 +246,7 @@ for_window [class="lite"]             floating enable
 # the fact that I match it with its title and Firefox sets its title quite late
 for_window [app_id="firefox"]                                 floating enable
 for_window [app_id="firefox" title="__focused__"]             floating disable
+for_window [app_id="firefox" title="^Opening"]                floating enable
 for_window [app_id="firefox" title="Mozilla Firefox"]         floating disable
 for_window [app_id="firefox" title="^Page Info — "]           floating enable
 for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
@@ -500,9 +502,6 @@ exec "udiskie -c ~/.config/udiskie/config.yml"
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 exec_always "~/scripts/wayland/fix-gtk-theme.sh"
 
-# Notification daemon
-exec "dunst"
-
 # Touchpad gestures handling
 # "start" does not work
 exec "libinput-gestures-setup restart"
@@ -528,12 +527,10 @@ exec wl-paste -t text --watch clipman store --notify
 # Re-copy last copied item
 exec clipman restore
 
-# Start apps and switch to workspace 1
+# Notification daemon
+exec "dunst"
+
+# Switch to primary workspace
 workspace 1
-exec caprine
-exec firefox
-exec discord
-# Spotify needs to be started as late as possible because it segfaults if
-# XWayland is not yet initialized
-exec spotify
-workspace 1
+
+exec ~/scripts/startup.sh
