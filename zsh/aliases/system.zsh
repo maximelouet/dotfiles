@@ -48,15 +48,15 @@ for c in $sudo_commands; do alias sc-$c="sudo systemctl $c"; done
 
 # package management
 if (( $+commands[yay] )); then
-  alias maj='yay -Syu'
-  alias majf='yay -Syu --devel --timeupdate'
+  alias maj='yay -Syu ; pkill -RTMIN+15 i3blocks > /dev/null 2>&1'
+  alias majf='yay -Syu --devel --timeupdate ; pkill -RTMIN+15 i3blocks > /dev/null 2>&1'
   alias install='yay -S'
   alias remove='yay -Rn'
   alias remover='yay -Rnsu'
   alias search='yay'
   alias pkclean='paccache -rk 2'
 elif (( $+commands[pacman] )); then
-  alias maj='sudo pacman -Syu'
+  alias maj='sudo pacman -Syu ; pkill -RTMIN+15 i3blocks'
   alias install='sudo pacman -S'
   alias remove='sudo pacman -Rn'
   alias remover='sudo pacman -Rns'
