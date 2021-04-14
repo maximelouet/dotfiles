@@ -7,11 +7,11 @@ color=#dddddd
 separator=false
 separator_block_width=4
 markup=pango
-interval=60
+interval=120
 align=center
 
 [music]
-interval=4
+interval=10
 signal=13
 align=right
 min_width=400
