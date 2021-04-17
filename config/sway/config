@@ -320,8 +320,7 @@ bar {
   tray_padding 3
 
   height 39
-  # XXX: merged upstream, waiting for new release
-  #workspace_min_width 37
+  workspace_min_width 35
 
   colors {
     background  #111111
@@ -337,36 +336,6 @@ bar {
   }
 }
 
-# Overlay bar with modifier
-#bar {
-#  output $primary_monitor
-#  status_command i3blocks -c ~/.config/i3/blocks_transient
-#  position bottom
-#  font pango:Noto Sans, Awesome 13.5
-#  tray_padding 3
-#
-#  height 39
-#  # XXX: merged upstream, waiting for new release
-#  #workspace_min_width 37
-#
-#  colors {
-#    background  #111111
-#    statusline  #ccccdc
-#
-#    # Workspace names color
-#    # class             border  backgr. text
-#    focused_workspace   #dddddd #dddddd #000000
-#    active_workspace    #ff0000 #ff0000 #000000
-#    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
-#    urgent_workspace    #f44336 #f44336 #ffffff
-#    binding_mode        #EF6C00 #EF6C00 #ffffff
-#  }
-#
-#  hidden_state hide
-#  mode hide
-#  modifier $super
-#}
-
 # Secondary screen bar
 bar {
   output $secondary_monitor
@@ -375,8 +344,7 @@ bar {
   font pango:Noto Sans, Awesome 13.5
   tray_padding 3
 
-  # XXX: merged upstream, waiting for new release
-  #workspace_min_width 37
+  workspace_min_width 35
 
   colors {
     background  #111111
@@ -401,8 +369,7 @@ bar {
   position bottom
   tray_padding 3
 
-  # XXX: merged upstream, waiting for new release
-  #workspace_min_width 37
+  workspace_min_width 33
 
   colors {
     background  #111111
