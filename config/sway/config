@@ -458,8 +458,8 @@ output * background "~/images/wallpapers/Own/lgbt.png" stretch
 
 # clamshell mode
 # TODO: test
-#bindswitch --reload --locked lid:on output $laptop_monitor disable
-#bindswitch --reload --locked lid:off output $laptop_monitor enable
+bindswitch --reload --locked lid:on output $laptop_monitor disable
+bindswitch --reload --locked lid:off output $laptop_monitor enable
 
 ##################################################
 # Workspace assignments
