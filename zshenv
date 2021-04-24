@@ -15,6 +15,7 @@ function appendpath () {
 appendpath "$HOME/.local/bin"
 appendpath "$HOME/.yarn/bin"
 appendpath "$HOME/.poetry/bin"
+appendpath "$HOME/scripts"
 
 unset appendpath
 export PATH
