@@ -28,9 +28,6 @@ set $primary_monitor "Dell Inc. DELL U2721DE 89GN023"
 set $secondary_monitor "Dell Inc. DELL P2219HC GWDW8P2"
 set $laptop_monitor "eDP-1"
 
-# Other
-set $terminal "kitty -1"
-
 
 ##################################################
 # Basic settings
@@ -257,8 +254,10 @@ for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
 ##################################################
 
 # Program shortcuts
-bindsym $mod+Return   exec $terminal
-bindsym $super+Return exec $terminal
+# most used shortcut: spin up kitty fast
+bindsym $mod+Return   exec "kitty -1"
+# less used shortcut: spin up a new, standalone kitty instance
+bindsym $super+Return exec "kitty"
 bindsym $super+e      exec "nemo"
 bindsym $super+f      exec "firefox"
 bindsym $super+c      exec "clipman pick -t rofi"
