@@ -475,8 +475,7 @@ exec "libinput-gestures-setup restart"
 
 # Automatic monitor configuration
 # (autorandr for Wayland)
-# Somehow it fucks up on reload so exec_always :/
-exec_always kanshi
+exec "sleep 1 && kanshi"
 
 # Lock screen after 15 minutes of inactivity
 # But show warning 1 minute before
@@ -495,7 +494,10 @@ exec wl-paste -t text --watch clipman store --notify
 exec clipman restore
 
 # Notification daemon
-exec "dunst"
+# (sleep 1 is a possible workaround for dunst not properly grabbing the screen
+# or smth (it's started but notifications are not displayed and I need to
+# restart it))
+exec "sleep 1 && dunst"
 
 # Switch to primary workspace
 workspace 1
