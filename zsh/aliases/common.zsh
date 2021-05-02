@@ -274,6 +274,7 @@ alias beep_enable='xset b 100 600 50'
 alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
 alias ipa='ip -brief a'
+unalias gs
 alias pdfmerge='gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=combined.pdf -dBATCH'
 alias re='dig +short -x'  # reverse DNS PTR
 
