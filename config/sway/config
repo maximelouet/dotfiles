@@ -36,7 +36,8 @@ set $laptop_monitor "eDP-1"
 # Main system font
 font pango:Noto Sans 12
 
-# Enable XWayland at startup because I start Spotify right away
+# Enable XWayland at startup because I start Spotify and other old electron
+# shit right away
 xwayland force
 
 # Change focus
@@ -193,6 +194,7 @@ default_floating_border pixel 2
 # ... but never on fullscreen
 smart_borders on
 
+# XXX TODO: never for firefox non-floating
 
 ##################################################
 # Window rules
@@ -227,6 +229,7 @@ for_window [app_id="nemo" title="^Folder Sharing$"] floating enable
 # sleep inhibition
 for_window [app_id="firefox"]     inhibit_idle fullscreen
 for_window [app_id="mpv"]         inhibit_idle
+for_window [class="vlc"]          inhibit_idle
 
 # title rules
 
@@ -493,10 +496,10 @@ exec wl-paste -t text --watch clipman store --notify
 exec clipman restore
 
 # Notification daemon
-# (sleep 1 is a possible workaround for dunst not properly grabbing the screen
-# or smth (it's started but notifications are not displayed and I need to
-# restart it))
-exec "sleep 1 && dunst"
+# (sleep is a possible workaround for dunst not properly grabbing the screen or
+# smth (it's started but notifications are not displayed and I need to restart
+# it))
+exec "sleep 2 && dunst"
 
 # Switch to primary workspace
 workspace 1
