@@ -248,7 +248,7 @@ for_window [class="lite"]             floating enable
 for_window [app_id="firefox"]                                 floating enable
 for_window [app_id="firefox" title="__focused__"]             floating disable
 for_window [app_id="firefox" title="^Opening"]                floating enable
-for_window [app_id="firefox" title="Mozilla Firefox"]         floating disable
+for_window [app_id="firefox" title="Mozilla Firefox"]         floating disable, border none
 for_window [app_id="firefox" title="^Page Info — "]           floating enable
 for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
 
