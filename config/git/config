@@ -23,10 +23,11 @@
   poule = pull
   poulet = pull
   p = pull
+  psufh = push --force-with-lease
+  psuhf = push --force-with-lease
   psuh = push
   pushf = push --force-with-lease
-  psuhf = push --force-with-lease
-  psufh = push --force-with-lease
+  pyll = pull
   r = restore
   rs = restore --staged
   sc = "!git commit -am \"Sync commit\" && git push"
