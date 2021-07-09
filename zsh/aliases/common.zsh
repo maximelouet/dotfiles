@@ -157,6 +157,10 @@ certificate_validity() {
   openssl s_client -showcerts -connect $address:443 < /dev/null 2>/dev/null | openssl x509 -dates -text -noout | grep -A2 Validity
 }
 
+certificate_bundle() {
+  openssl crl2pkcs7 -nocrl -certfile "$1" | openssl pkcs7 -print_certs -text -noout
+}
+
 # resolve A, then output the reverse DNS (PTR) of that record
 # See also: "re" alias below
 rere() {
