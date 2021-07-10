@@ -5,6 +5,7 @@
 [core]
   autocrlf = input
   editor = vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [init]
   defaultBranch = main
 [alias]
@@ -60,3 +61,7 @@
   enabled = true
 [fetch]
   prune = true
+[interactive]
+  diffFilter = diff-so-fancy --patch
+[diff-so-fancy]
+  rulerWidth = 47
