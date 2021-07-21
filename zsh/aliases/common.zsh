@@ -286,6 +286,10 @@ alias re='dig +short -x'  # reverse DNS PTR
 if [ $commands[kitty] ]; then
   alias catimg='kitty +kitten icat'
   alias d='kitty +kitten diff'
+  # ripgrep with hyperlinks
+  rg() {
+    kitty +kitten hyperlinked_grep "$@"
+  }
 fi
 
 # some versions of watch support color
