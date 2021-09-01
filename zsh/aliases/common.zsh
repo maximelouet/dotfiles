@@ -270,7 +270,8 @@ alias myip6='curl https://ip6.saumon.io'
 alias diskspace='df -P -kHl | grep -v tmpfs | grep -v "dev " | grep -v run'
 alias riplaco='ping -i 1.5 8.8.8.8 | grep -E --only-match --color=never "[0-9\.]+ ms"'
 alias path='echo $PATH | tr -s ":" "\n"'
-alias pp="playerctl play-pause; sleep 0.2; pkill -RTMIN+13 i3blocks"
+alias pp="playerctl play-pause; sleep 0.1; pkill -RTMIN+13 i3blocks"
+alias pn="playerctl next; sleep 0.1; pkill -RTMIN+13 i3blocks"
 alias ccat='highlight -O ansi'
 alias timestamp='date +%s'
 alias beep_disable='xset b off'
