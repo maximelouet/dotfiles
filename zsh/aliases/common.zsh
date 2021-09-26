@@ -63,11 +63,19 @@ vg() {
 
 # decode base64 shortcut
 bd() {
-  echo -n "$1" | base64 -d -w 0 && echo -n "$1" | base64 -d -w 0 | wl-copy -n
+  if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+    echo -n "$1" | base64 -d -w 0 && echo -n "$1" | base64 -d -w 0 | wl-copy -n
+  else
+    echo -n "$1" | base64 -d -w 0 && echo -n "$1" | base64 -d -w 0 | xclip -selection clipboard -r
+  fi
 }
 # encode base64 shortcut
 be() {
-  echo -n "$1" | base64 -w 0 && echo -n "$1" | base64 -w 0 | wl-copy -n
+  if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+    echo -n "$1" | base64 -w 0 && echo -n "$1" | base64 -w 0 | wl-copy -n
+  else
+    echo -n "$1" | base64 -w 0 && echo -n "$1" | base64 -w 0 | xclip -selection clipboard -r
+  fi
 }
 
 # close all SSH ControlMaster connections
@@ -253,7 +261,11 @@ alias t='task'
 alias ta='tree -a'
 alias m='make -j'
 alias e='unarchive'
-alias copy='wl-copy -n < '
+if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+  alias copy='wl-copy -n < '
+else
+  alias copy='xclip -selection clipboard -i -r'
+fi
 alias gitroot='cd `git-root`'
 alias essh='ssh -O exit'
 alias md5='md5sum'
