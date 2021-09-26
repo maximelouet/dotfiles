@@ -308,3 +308,5 @@ fi
 # some versions of watch support color
 # but the program you're calling has to send it...
 alias watch='watch --color -n1'
+
+alias cal='cal --monday'
