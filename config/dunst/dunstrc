@@ -71,11 +71,11 @@
     # Set to 0 to disable.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
-    idle_threshold = 120
+    idle_threshold = 30
 
     ### Text ###
 
-    font = Noto Sans 12
+    font = Noto Sans 11
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -157,7 +157,7 @@
     max_icon_size = 42
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Flat-Remix-Blue/status/scalable/32/:/usr/share/icons/Flat-Remix-Blue/devices/scalable/
+    icon_path = /usr/share/icons/Flat-Remix-Blue-Dark/apps/scalable/
 
     ### History ###
 
