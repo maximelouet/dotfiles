@@ -79,3 +79,8 @@ key-sign() {
 }
 
 alias restart-picom='killall picom && picom -b'
+
+alias reboot-windows='systemctl reboot --boot-loader-entry auto-windows'
+alias reboot-to-windows='systemctl reboot --boot-loader-entry auto-windows'
+alias reboot-bios='systemctl reboot --boot-loader-entry auto-reboot-to-firmware-setup'
+alias reboot-to-bios='systemctl reboot --boot-loader-entry auto-reboot-to-firmware-setup'
