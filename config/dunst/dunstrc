@@ -28,7 +28,7 @@
     # your status bar. We cannot do anything about that behavior, so you will
     # need to change your geometry variable accordingly.
     #
-    geometry = "450x40-25-15"
+    geometry = "450x40-20-55"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
