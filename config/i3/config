@@ -396,6 +396,11 @@ bindsym XF86AudioPause  exec --no-startup-id playerctl pause
 bindsym XF86AudioNext   exec --no-startup-id playerctl next
 bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
 
+# Notifications control
+bindsym $ctrl+space exec dunstctl close
+bindsym $ctrl+$shift+space exec dunstctl close-all
+bindsym $ctrl+$alt+space exec dunstctl action
+
 # Cancer
 bindcode 135        exec --no-startup-id "play ~/cancer/AH.mp3"
 
