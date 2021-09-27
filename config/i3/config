@@ -177,6 +177,19 @@ mode "resize" {
 
 
 ##################################################
+# Excel mode
+# https://twitter.com/chaignc/status/1329527487156654081
+##################################################
+
+bindsym $mod+g mode "excel"
+
+mode "excel" {
+  bindsym Escape  mode "default"
+  bindsym $mod+g  mode "default"
+}
+
+
+##################################################
 # Bars
 ##################################################
 
