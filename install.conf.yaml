@@ -23,6 +23,7 @@
       create: true
       force: true
       path: icons/default/index.theme
+    ~/.local/share/nemo: local/share/nemo
     ~/.tmux.conf:
     ~/.vim:
     ~/.xinitrc:

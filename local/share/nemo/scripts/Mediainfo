@@ -1,0 +1,7 @@
+#!/bin/sh
+
+filename="$(echo -n $NEMO_SCRIPT_SELECTED_FILE_PATHS | tr -d '\n')"
+
+mediainfo -f "$filename" > /tmp/oui
+
+zenity --text-info --width=900 --height=500 --font=monospace --filename=/tmp/oui

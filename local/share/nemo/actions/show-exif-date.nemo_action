@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Show EXIF datetime
+Comment=Print the image EXIF DateTime value
+Exec=<show-exif.sh %F>
+Icon-Name=emblem-photos
+Selection=s
+Quote=double
+Extensions=png;jpg;jpeg;
