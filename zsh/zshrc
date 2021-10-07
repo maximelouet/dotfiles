@@ -32,3 +32,6 @@ bindkey '^Z' fancy-ctrl-z
 if [ -f "/usr/share/z.lua/z.lua" ]; then
   eval "$(lua /usr/share/z.lua/z.lua --init zsh)"
 fi
+
+# Do not save commands beginning with space
+setopt HIST_IGNORE_SPACE
