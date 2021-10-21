@@ -5,37 +5,28 @@
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
+    # do not follow mouse
+    follow = none
 
-    # The geometry of the window:
-    #   [{width}]x{height}[+/-{x}+/-{y}]
-    # The geometry of the message window.
-    # The height is measured in number of notifications everything else
-    # in pixels.  If the width is omitted but the height is given
-    # ("-geometry x2"), the message window expands over the whole screen
-    # (dmenu-like).  If width is 0, the window expands to the longest
-    # message displayed.  A positive x is measured from the left, a
-    # negative from the right side of the screen.  Y is measured from
-    # the top and down respectively.
-    # The width can be negative.  In this case the actual width is the
-    # screen width minus the width defined in within the geometry option.
-    #
-    # WAYLAND (from man 5 dunst)
-    # If you have your dunst notifications on the same side of your display as
-    # your status bar, you might notice that your notifications appear a bit
-    # higher or lower than on X11. This is because the notification cannot be
-    # placed on top of your status bar. The notifications are placed relative
-    # to your status bar, making them appear higher or lower by the height of
-    # your status bar. We cannot do anything about that behavior, so you will
-    # need to change your geometry variable accordingly.
-    #
-    geometry = "450x40-20-55"
+    ### Geometry ###
+
+    # dynamic width from 0 to 300
+    # width = (0, 300)
+    # constant width of 300
+    width = 440
+
+    # The maximum height of a single notification, excluding the frame.
+    #height = 300
+
+    # Position the notification in the top right corner
+    origin = bottom-right
+
+    # Offset from the origin
+    offset = 20x54
+
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
-
-    # Shrink window if it's smaller than the width.  Will be ignored if
-    # width is 0.
-    shrink = yes
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -48,9 +39,12 @@
     # Horizontal padding.
     horizontal_padding = 15
 
+    # Padding between text and icon.
+    text_icon_padding = 0
+
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     frame_color = "#9c12ff"
@@ -99,7 +93,8 @@
     #
     # It's important to note that markup inside the format option will be parsed
     # regardless of what this is set to.
-    markup = full
+    # markup = full
+    markup = no  # some Spotify song names fuck this up
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -191,10 +186,14 @@
     # Defines list of actions for each mouse event
     # Possible values are:
     # * none: Don't do anything.
-    # * do_action: If the notification has exactly one action, or one is marked as default,
-    #              invoke it. If there are multiple and no default, open the context menu.
+    # * do_action: Invoke the action determined by the action_name rule. If there is no
+    #              such action, open the context menu.
+    # * open_url: If the notification has exactly one url, open it. If there are multiple
+    #             ones, open the context menu.
     # * close_current: Close current notification.
     # * close_all: Close all notifications.
+    # * context: Open context menu for the notification.
+    # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
     mouse_left_click = close_current
@@ -202,17 +201,11 @@
     mouse_right_click = close_all
 
 
-#[shortcuts]
-# Global hotkeys: migrated to sway config
-# from man 5 dunst:
-# "dunst on Wayland cannot use global hotkeys (they are deprecated anyways, use
-# dunstctl)"
-
-
 
 # IMPORTANT: colors have to be defined in quotation marks.
+# Otherwise the "#" and following would be interpreted as a comment.
+
 [urgency_low]
-    # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
     foreground = "#dddddd"
     timeout = 7
@@ -261,6 +254,7 @@
 #    set_transient
 #    timeout
 #    urgency
+#    action_name
 #
 # Shell-like globbing will get expanded.
 #
@@ -275,34 +269,8 @@
 #   script appname summary body icon urgency
 # where urgency can be "LOW", "NORMAL" or "CRITICAL".
 #
-# NOTE: if you don't want a notification to be displayed, set the format
-# to "".
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
-
-# Disable the transient hint so that idle_threshold cannot be bypassed from the
-# client
-#[transient_disable]
-#    match_transient = yes
-#    set_transient = no
-#
-# Make the handling of transient notifications more strict by making them not
-# be placed in history.
-#[transient_history_ignore]
-#    match_transient = yes
-#    history_ignore = yes
-
-# fullscreen values
-# show: show the notifications, regardless if there is a fullscreen window opened
-# delay: displays the new notification, if there is no fullscreen window active
-#        If the notification is already drawn, it won't get undrawn.
-# pushback: same as delay, but when switching into fullscreen, the notification will get
-#           withdrawn from screen again and will get delayed like a new notification
-#[fullscreen_delay_everything]
-#    fullscreen = pushback
-#[fullscreen_show_critical]
-#    msg_urgency = critical
-#    fullscreen = show
 
 
 [spotify]
@@ -310,7 +278,6 @@
     script = ~/scripts/refresh-i3blocks-music.sh
     frame_color = "#1DB954"  # spotify green
     set_transient = true
-    markup = no  # some names fuck this up
     timeout = 5
 
 [bluetooth]
@@ -326,8 +293,3 @@
     summary = "*reenshot saved"  # match "Full screenshot saved" etc
     set_transient = true
     timeout = 3
-
-[gammastep]
-    summary = Gammastep
-    set_transient = true
-    frame_color = "#A10320"
