@@ -236,5 +236,6 @@ Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'jvirtanen/vim-hcl'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
