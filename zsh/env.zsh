@@ -44,6 +44,9 @@ export PATH=$PATH:$HOME/software/flutter/bin
 export ANSIBLE_NOCOWS=1
 export ANSIBLE_STDOUT_CALLBACK=yaml  # https://twitter.com/svg/status/1370099072959455238
 
+# https://github.com/nvbn/thefuck/issues/1207#issuecomment-864671223
+export THEFUCK_PRIORITY="git_hook_bypass=1100"
+
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
   export MOZ_ENABLE_WAYLAND=1
   export QT_QPA_PLATFORM=wayland
