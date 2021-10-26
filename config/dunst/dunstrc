@@ -94,7 +94,7 @@
     # It's important to note that markup inside the format option will be parsed
     # regardless of what this is set to.
     # markup = full
-    markup = no  # some Spotify song names fuck this up
+    markup = full
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -279,6 +279,9 @@
     frame_color = "#1DB954"  # spotify green
     set_transient = true
     timeout = 5
+    markup = no  # some Spotify song names fuck this up
+    # XXX ^ does not work since 1.7.0
+    # https://github.com/dunst-project/dunst/issues/955
 
 [bluetooth]
     appname = *bluetooth*
