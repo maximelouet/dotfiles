@@ -284,6 +284,7 @@ alias riplaco='ping -i 1.5 8.8.8.8 | grep -E --only-match --color=never "[0-9\.]
 alias path='echo $PATH | tr -s ":" "\n"'
 alias pp="playerctl play-pause; sleep 0.1; pkill -RTMIN+13 i3blocks"
 alias pn="playerctl next; sleep 0.1; pkill -RTMIN+13 i3blocks"
+alias ppr="playerctl previous; sleep 0.1; pkill -RTMIN+13 i3blocks"
 alias ccat='highlight -O ansi'
 alias timestamp='date +%s'
 alias beep_disable='xset b off'
