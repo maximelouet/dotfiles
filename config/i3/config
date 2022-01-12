@@ -92,7 +92,8 @@ bindsym $mod+$shift+r restart
 bindsym $mod+$shift+f exit
 
 # Close window
-bindsym $mod+Shift+A kill
+bindsym $mod+Shift+a kill
+bindsym $mod+Shift+q kill
 
 # Force a window fullscreen
 bindsym $mod+f fullscreen toggle
