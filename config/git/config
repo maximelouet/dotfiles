@@ -66,3 +66,5 @@
   diffFilter = diff-so-fancy --patch
 [diff-so-fancy]
   rulerWidth = 47
+[help]
+  autocorrect = 20
