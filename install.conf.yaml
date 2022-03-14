@@ -27,6 +27,7 @@
     ~/.tmux.conf:
     ~/.vim:
     ~/.xinitrc:
+    ~/.Xmodmap:
     ~/.Xresources:
     ~/.zsh:
     ~/.zshenv:
