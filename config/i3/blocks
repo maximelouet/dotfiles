@@ -49,6 +49,11 @@ signal=12
 
 [separator]
 
+[ram]
+interval=15
+
+[separator]
+
 [load]
 interval=15
 
