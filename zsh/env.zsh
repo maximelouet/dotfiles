@@ -34,12 +34,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export WATCH='all'
 
 export NVM_DIR=$HOME/.config/nvm
-export ANDROID_HOME=$HOME/software/Android
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$HOME/software/flutter/bin
 
 export ANSIBLE_NOCOWS=1
 export ANSIBLE_STDOUT_CALLBACK=yaml  # https://twitter.com/svg/status/1370099072959455238
