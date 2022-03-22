@@ -93,7 +93,7 @@ fullpull() {
   for d in $dir/*/; do
     git -C "$d" pull > /dev/null
     branch=$(git -C "$d" branch --show-current)
-    if [[ "$branch" != "master" ]] && [[ "$branch" != "main" ]]; then
+    if [[ "$branch" != "master" ]] && [[ "$branch" != "main" ]] && [[ "$branch" != "production" ]]; then
       printf "${RED}Warning: ${d} is on branch ${branch}${NC}\n"
     fi
   done
