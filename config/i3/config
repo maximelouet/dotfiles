@@ -370,6 +370,7 @@ bindsym $super+q      exec "rofimoji"
 
 # Program launcher
 bindsym   $super+w    exec --no-startup-id "rofi -show drun -show-icons"
+bindsym   $super+z    exec --no-startup-id "rofi -show drun -show-icons"
 bindsym   $super+x    exec --no-startup-id "rofi -show run"
 
 # Window switcher
