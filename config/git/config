@@ -1,7 +1,7 @@
 [user]
   name = Maxime Louet
-  email = maxime@saumon.io
-  signingkey = 256931E633140E6227CFCEF60233462B6151CCD0
+[include]
+  path = local-config
 [core]
   autocrlf = input
   editor = vim
