@@ -35,3 +35,11 @@ fi
 
 # Do not save commands beginning with space
 setopt HIST_IGNORE_SPACE
+
+if [ -f "/usr/share/doc/fzf/examples/key-bindings.zsh" ]; then
+  source "/usr/share/doc/fzf/examples/key-bindings.zsh"
+fi
+
+# cd to directory when just typing its name
+# useful for fzf
+setopt auto_cd

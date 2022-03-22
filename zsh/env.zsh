@@ -48,3 +48,5 @@ if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
   # Setting this globally breaks apps
   #export GDK_BACKEND=wayland
 fi
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
