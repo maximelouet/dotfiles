@@ -438,8 +438,6 @@ exec --no-startup-id "nm-applet"
 # Window compositor
 exec --no-startup-id "picom -b"
 
-# URxvt daemon for better resource handling
-exec --no-startup-id "urxvtd -q -o -f"
 
 # Warmer screen color at night
 exec --no-startup-id "redshift -l 48.8211:2.3687"  # Paris Porte d'Ivry
