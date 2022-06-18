@@ -188,6 +188,28 @@ rere() {
   echo $reverse
 }
 
+unalias gs  # ghostscript, aliased to git something by prezto
+pdfextract() {
+  #gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage="$1" -dLastPage="$2" -sOutputFile=out.pdf "$3"
+  date=$(date +%Y-%m-%d_%H-%M-%S)
+  pdftk "$3" cat "$1"-"$2" output "out-$date.pdf"
+  echo "out-$date.pdf"
+}
+pdfsplit() {
+  #gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage=1 -dLastPage=1 -sOutputFile=out-1.pdf "$1"
+  #gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage=2 -dLastPage=2 -sOutputFile=out-2.pdf "$1"
+  date=$(date +%Y-%m-%d_%H-%M-%S)
+  pdftk "$1" burst output "page_%02d-$date.pdf"
+  rm -f doc_data.txt
+  find . -maxdepth 1 -name "page_*-$date.pdf" | sort | sed 's!.*/!!'
+}
+pdfmerge() {
+  #gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -sOUTPUTFILE=combined.pdf $@
+  date=$(date +%Y-%m-%d_%H-%M-%S)
+  pdftk $@ cat output "combined-$date.pdf"
+  echo "combined-$date.pdf"
+}
+
 # open
 alias v='vim'
 alias vi='vim'
@@ -292,8 +314,6 @@ alias beep_enable='xset b 100 600 50'
 alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
 alias ipa='ip -brief a'
-unalias gs
-alias pdfmerge='gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=combined.pdf -dBATCH'
 alias re='dig +short -x'  # reverse DNS PTR
 
 # kitty's kittens
