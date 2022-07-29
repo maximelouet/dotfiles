@@ -1,28 +1,6 @@
 // vim:ts=4:sw=4:et
 {
     "border": "pixel",
-    "current_border_width": 1,
-    "floating": "auto_off",
-    "geometry": {
-       "height": 371,
-       "width": 1078,
-       "x": 0,
-       "y": 0
-    },
-    "marks": [],
-    "name": "kitty",
-    "percent": 0.201837846629259,
-    "swallows": [
-       {
-          "class": "^kitty$",
-          "instance": "^kitty$"
-       }
-    ],
-    "type": "con"
-}
-
-{
-    "border": "pixel",
     "current_border_width": 0,
     "floating": "auto_off",
     "geometry": {
@@ -33,7 +11,7 @@
     },
     "marks": [],
     "name": "Discord",
-    "percent": 0.524839441386319,
+    "percent": 0.667650201050827,
     "swallows": [
        {
           "class": "^discord$",
@@ -57,7 +35,7 @@
     },
     "marks": [],
     "name": "Signal",
-    "percent": 0.273322711984422,
+    "percent": 0.332349798949173,
     "swallows": [
        {
           "class": "^Signal$",
@@ -68,3 +46,4 @@
     ],
     "type": "con"
 }
+
