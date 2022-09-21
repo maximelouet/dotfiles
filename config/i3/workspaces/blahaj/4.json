@@ -16,7 +16,7 @@
        {
           "class": "^discord$",
           "instance": "^discord$",
-          "title": "^Discord$",
+          "title": "Discord$",
           "window_role": "^browser\\-window$"
        }
     ],
