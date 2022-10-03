@@ -18,6 +18,24 @@ min_width=400
 
 [separator]
 
+[volume]
+signal=10
+min_width=65
+
+[separator]
+
+[desktopbrightness]
+instance=9
+interval=600
+
+[separator]
+
+[temperature]
+instance=k10temp-pci-00c3
+interval=5
+
+[separator]
+
 [date]
 interval=60
 
