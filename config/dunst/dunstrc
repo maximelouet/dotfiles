@@ -24,7 +24,6 @@
     # Offset from the origin
     offset = 20x54
 
-
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
 
@@ -47,7 +46,7 @@
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#9c12ff"
+    frame_color = "#9d00ff"
 
     # Define a color for the separator.
     # possible values are:
@@ -69,7 +68,7 @@
 
     ### Text ###
 
-    font = Noto Sans 11
+    font = Noto Sans 10
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -119,7 +118,7 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 10
+    show_age_threshold = 20
 
     # Split notifications into multiple lines if they don't fit into
     # geometry.
@@ -196,9 +195,9 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
+    mouse_left_click   = close_current
     mouse_middle_click = do_action, close_current
-    mouse_right_click = close_all
+    mouse_right_click  = close_all
 
 
 
@@ -206,25 +205,28 @@
 # Otherwise the "#" and following would be interpreted as a comment.
 
 [urgency_low]
-    background = "#222222"
-    foreground = "#dddddd"
-    timeout = 7
+    background  = "#222222"
+    foreground  = "#dddddd"
+    highlight   = "#9d00ff"
+    timeout     = 8
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#0d648c"
-    foreground = "#ffffff"
+    background  = "#640575"
+    foreground  = "#ffffff"
     frame_color = "#ffffff"
-    timeout = 8
+    highlight   = "#eeeeee"
+    timeout     = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#960808"
-    foreground = "#ffffff"
+    background  = "#960808"
+    foreground  = "#ffffff"
     frame_color = "#ffffff"
-    timeout = 10
+    highlight   = "#eeeeee"
+    timeout     = 14
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
 
