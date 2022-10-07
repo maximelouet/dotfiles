@@ -151,7 +151,7 @@
     max_icon_size = 42
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Flat-Remix-Blue-Dark/apps/scalable/
+    icon_path = /usr/share/icons/Flat-Remix-Blue-Dark/apps/scalable/:/usr/share/icons/Flat-Remix-Blue-Dark/emblems/scalable/:/usr/share/icons/Flat-Remix-Blue-Dark/actions/24/:/usr/share/icons/Flat-Remix-Blue-Dark/panel/:/usr/share/icons/Flat-Remix-Blue-Dark/mimetypes/scalable/
 
     ### History ###
 
