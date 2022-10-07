@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Show FLAC info
+Comment=Display FLAC bit depth and sample rate
+Exec=/home/saumon/scripts/music/show-flac-info.sh %F
+Icon-Name=view-reveal
+Selection=s
+Extensions=flac;
+Quote=double
+Dependencies=metaflac;

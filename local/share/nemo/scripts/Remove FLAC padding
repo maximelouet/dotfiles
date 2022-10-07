@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
+  if [ -z "$filename" ]; then
+    continue
+  fi
+  basename=$(basename "$filename")
+  if [ -d "$filename" ]; then
+    id=$(dunstify --printid --timeout 30000 -u low "Removing padding in FLAC files" "Removing padding in $basename..")
+    pushd "$filename" || continue
+    if "$HOME/scripts/music/remove-flac-padding.sh"; then
+      dunstify --replace="$id" --timeout 5000 "Padding removed" "Padding blocks removed for $basename"
+    else
+      dunstify --replace="$id" -u critical "Padding removal failed" "$basename"
+    fi
+  else
+    notify-send -u critical "Padding removal failed" "Removing padding of individual files through Nemo is not yet supported."
+  fi
+done

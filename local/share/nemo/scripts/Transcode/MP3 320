@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
+  if [ -z "$filename" ]; then
+    continue
+  fi
+  basename=$(basename "$filename")
+  if [ -d "$filename" ]; then
+    id=$(dunstify --printid --timeout 30000 -u low "Transcoding MP3 320" "Trancoding $basename to MP3 320 CBR")
+    pushd "$filename" || continue
+    if "$HOME/scripts/music/transcode-flac-mp3-320.sh"; then
+      dunstify --replace="$id" "Transcoding successful" "$basename"
+    else
+      dunstify --replace="$id" -u critical "Transcoding failed" "$basename"
+    fi
+  else
+    notify-send -u critical "Transcoding failed" "Transcoding files through Nemo is not yet supported."
+  fi
+done

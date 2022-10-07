@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
+  if [ -z "$filename" ]; then
+    continue
+  fi
+  basename=$(basename "$filename")
+  id=$(dunstify --printid --timeout 100000 -u low --icon cloud-upload "Checking torrent consistency" "Checking $basename...")
+  res=$(~/scripts/torrent/check-torrent-consistency.py "$filename" 2>&1)
+  if [ "$res" == "OK" ]; then
+    dunstify --replace="$id" --timeout 4000 "Torrent consistency OK" "Consistency check passed for $basename"
+  else
+    dunstify --replace="$id" -u critical "Torrent consistency check failed" "Consistency check failed for $basename"
+    echo "$res" > /tmp/torrent-consistency-check-result.txt
+    zenity --text-info --height=500 --width=900 --title="$basename" --filename="/tmp/torrent-consistency-check-result.txt"
+  fi
+done

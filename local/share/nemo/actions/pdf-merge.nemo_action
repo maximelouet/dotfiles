@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Merge PDFs
+Comment=Concatenate PDF files onto a single one
+Exec=<scripts/pdf-merge.sh %F>
+Icon-Name=gpdftext
+Selection=m
+Extensions=pdf;
+Quote=double
+Dependencies=pdftk;

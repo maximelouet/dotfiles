@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Archive torrent files
+Comment=Move uploaded torrent files to archive directory
+Exec=<scripts/archive-torrent-files.sh %F>
+Icon-Name=document-import
+Selection=notnone
+Extensions=torrent;
+Quote=double

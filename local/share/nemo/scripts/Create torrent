@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
+  if [ -z "$filename" ]; then
+    continue
+  fi
+  if [ ! -d "$filename" ]; then
+    notify-send -u critical "Torrent creation failed" "Torrent source must be a directory."
+    continue
+  fi
+  "$HOME/scripts/torrent/create-torrent.sh" "$filename"
+done

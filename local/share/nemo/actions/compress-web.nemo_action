@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Compress for Web
+Comment=Compress and resize images for Web distribution
+Exec=<scripts/compress-web.sh %F>
+Icon-Name=document-send
+Selection=notnone
+Extensions=png;jpg;jpeg;dir;
+Quote=double
+Dependencies=convert;exiftool;exiv2;jpegoptim;

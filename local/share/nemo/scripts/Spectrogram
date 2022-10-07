@@ -1,7 +1,29 @@
-#!/bin/sh
+#!/bin/bash
 
-filename="$(echo -n $NEMO_SCRIPT_SELECTED_FILE_PATHS | tr -d '\n')"
+set -e
 
-sox "$filename" -n spectrogram -o /tmp/spectrogram.png && imv /tmp/spectrogram.png
+dest_dir_root="/tmp/spectrograms"
 
-rm /tmp/spectrogram.png
+echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
+  if [ -z "$filename" ]; then
+    continue
+  fi
+  basename=$(basename "$filename")
+  if [ -d "$filename" ]; then
+    notify-send -u low -t 20000 "Generating spectrograms" "Opening target directory for $filename"
+    dest_dir="$dest_dir_root/$basename"
+    mkdir -p "$dest_dir"
+    xdg-open "$dest_dir"
+    pushd "$filename" || continue
+    for f in *.flac; do
+      sox "$f" -n spectrogram -o "$dest_dir/${f%.flac}.png"
+    done
+    notify-send -t 2000 "Spectrograms generated" "All spectrograms generated for $filename"
+  else
+    mkdir -p "$dest_dir_root"
+    id=$(md5sum "$filename" | awk '{ print $1 }')
+    dest_file="$dest_dir_root/$id.png"
+    sox "$filename" -n spectrogram -o "$dest_file" && xdg-open "$dest_file"
+    rm "$dest_file"
+  fi
+done

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
+  if [ -z "$filename" ]; then
+    continue
+  fi
+  basename=$(basename "$filename")
+  if [ -d "$filename" ]; then
+    id=$(dunstify --printid --timeout 30000 -u low "Re-encoding FLAC files" "Re-encoding $basename...")
+    pushd "$filename" || continue
+    if "$HOME/scripts/music/reencode-flac.sh"; then
+      dunstify --replace="$id" --timeout 5000 "Re-encoding successful" "$basename successfully re-encoded with \`flac\` and padding blocks removed"
+    else
+      dunstify --replace="$id" -u critical "Re-encoding failed" "$basename"
+    fi
+  else
+    notify-send -u critical "Re-encoding failed" "Re-encoding files through Nemo is not yet supported."
+  fi
+done
