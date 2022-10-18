@@ -4,26 +4,39 @@ set -e
 
 dest_dir_root="/tmp/spectrograms"
 
-echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
-  if [ -z "$filename" ]; then
-    continue
+run_index=$(date +%Y-%m-%d_%H-%M-%S)
+
+sox_params=(-n remix 1 spectrogram -x 1600 -y 513 -z 120 -w Kaiser)
+
+files=()
+while read -r filename; do
+  if [ -n "$filename" ]; then
+    files+=("$filename")
   fi
+done < <(printf "%s" "$NEMO_SCRIPT_SELECTED_FILE_PATHS")
+
+for filename in "${files[@]}"; do
   basename=$(basename "$filename")
   if [ -d "$filename" ]; then
-    notify-send -u low -t 20000 "Generating spectrograms" "Opening target directory for $filename"
     dest_dir="$dest_dir_root/$basename"
+    pushd "$filename" || continue
     mkdir -p "$dest_dir"
     xdg-open "$dest_dir"
-    pushd "$filename" || continue
     for f in *.flac; do
-      sox "$f" -n spectrogram -o "$dest_dir/${f%.flac}.png"
+      sox "$f" "${sox_params[@]}" -o "$dest_dir/${f%.flac}.png" &
+      sleep 0.2
     done
-    notify-send -t 2000 "Spectrograms generated" "All spectrograms generated for $filename"
   else
-    mkdir -p "$dest_dir_root"
-    id=$(md5sum "$filename" | awk '{ print $1 }')
-    dest_file="$dest_dir_root/$id.png"
-    sox "$filename" -n spectrogram -o "$dest_file" && xdg-open "$dest_file"
-    rm "$dest_file"
+    basename=$(basename "$filename")
+    dest_dir="$dest_dir_root/$run_index"
+    mkdir -p "$dest_dir"
+    dest_file="$dest_dir/${basename%.flac}.png"
+    if [ ${#files[@]} -eq 1 ]; then
+      sox "$filename" "${sox_params[@]}" -o "$dest_file" && xdg-open "$dest_file" &
+    else
+      sox "$filename" "${sox_params[@]}" -o "$dest_file" &
+    fi
+    # zoom version:
+    #sox "$filename" -n remix 1 spectrogram -X 500 -y 1025 -z 120 -w Kaiser -S 1:00 -d 0:02 -o "$dest_file_zoom"
   fi
 done
