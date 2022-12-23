@@ -382,7 +382,7 @@ for_window [window_type="menu"] floating enable
 
 # Program shortcuts
 bindsym $mod+Return   exec $terminal
-bindsym $super+Return exec $terminal
+bindsym $super+Return exec "kitty"
 bindsym $super+e      exec "nemo"
 bindsym $super+f      exec "firefox"
 bindsym $super+c      exec "clipster -s"
