@@ -10,12 +10,17 @@ wifi() {
 
 # change PIA IP
 chip () {
+  if ! piactl -t 1 get protocol >/dev/null 2>&1; then
+    echo "starting piavpn.service..."
+    sudo systemctl start piavpn.service
+    sleep 1
+  fi
   echo -n "changing IP.."
   piactl disconnect
   piactl connect
   while [[ "$(piactl get connectionstate)" != "Connected" ]]; do echo -n '.'; sleep 1; done
   echo
-  curl ip.saumon.io
+  curl --retry 2 ip.saumon.io
 }
 
 dns_from_the_fucking_network_im_connected_to() {
