@@ -8,6 +8,16 @@ wifi() {
   nmcli dev wifi connect "$1" password "$2"
 }
 
+# change PIA IP
+chip () {
+  echo -n "changing IP.."
+  piactl disconnect
+  piactl connect
+  while [[ "$(piactl get connectionstate)" != "Connected" ]]; do echo -n '.'; sleep 1; done
+  echo
+  curl ip.saumon.io
+}
+
 dns_from_the_fucking_network_im_connected_to() {
   dns_normal "silent"
   found=$(sudo dhcpcd -T wlp2s0 2> /dev/null)
