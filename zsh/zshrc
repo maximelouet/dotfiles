@@ -3,6 +3,10 @@
 # zshrc: main file for interactive shells
 #
 
+# Custom completions path
+# (must be sourced before prezto as prezto runs compinit)
+fpath=("$ZDOTDIR/completions" $fpath)
+
 # prezto, a configuration framework for Zsh
 source "$HOME/.zsh/prezto/init.zsh"
 
