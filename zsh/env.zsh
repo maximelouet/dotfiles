@@ -50,3 +50,6 @@ if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
 fi
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+# https://github.com/python-poetry/poetry/issues/1917
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
