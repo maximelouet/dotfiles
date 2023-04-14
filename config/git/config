@@ -11,6 +11,7 @@
 [alias]
   abort = rebase --abort
   amend = commit --amend
+  addd = add
   ass = add
   c = checkout
   cm = commit
@@ -29,7 +30,9 @@
   psuhf = push --force-with-lease
   psuh = push
   pushf = push --force-with-lease
+  puyll = pull
   pyll = pull
+  pyull = pull
   r = restore
   rs = restore --staged
   sc = "!git commit -am \"Sync commit\" && git push"
