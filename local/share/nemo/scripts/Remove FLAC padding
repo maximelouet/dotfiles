@@ -1,9 +1,13 @@
 #!/bin/bash
 
-echo "$NEMO_SCRIPT_SELECTED_FILE_PATHS" | while read -r filename; do
-  if [ -z "$filename" ]; then
-    continue
+files=()
+while read -r filename; do
+  if [ -n "$filename" ]; then
+    files+=("$filename")
   fi
+done < <(printf "%s" "$NEMO_SCRIPT_SELECTED_FILE_PATHS")
+
+for filename in "${files[@]}"; do
   basename=$(basename "$filename")
   if [ -d "$filename" ]; then
     id=$(dunstify --printid --timeout 30000 -u low "Removing padding in FLAC files" "Removing padding in $basename..")
