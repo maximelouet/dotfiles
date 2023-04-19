@@ -22,6 +22,7 @@
   delete-remote-tag = push origin --delete
   initial-commit = "!git commit -m \"Initial commit\" --allow-empty"
   logs = log --show-signature
+  main = "!git switch `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`"
   pa = pull --all
   pouche = push
   poule = pull
