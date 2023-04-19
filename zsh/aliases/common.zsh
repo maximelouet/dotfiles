@@ -37,6 +37,7 @@ u() {
 c() {
   cd "$@" && ls
 }
+compdef c=cd
 
 # give execute rights to files
 cx() {
