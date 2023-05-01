@@ -14,7 +14,7 @@
 [submodule "config/i3/scripts"]
 	path = config/i3/scripts
 	url = git@github.com:maximelouet/i3blocks-scripts
-  branch = master
+  branch = main
 [submodule "config/kitty/kitty_search"]
 	path = config/kitty/kitty_search
 	url = https://github.com/trygveaa/kitty-kitten-search
