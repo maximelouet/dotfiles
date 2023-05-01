@@ -200,6 +200,7 @@ fi
 # directory listing
 if [ $+commands[lsd] ]; then
   alias ls='lsd'
+  alias lf='lsd -l --date=date'
 else
   alias ls='ls --color=always --group-directories-first -h --hyperlink=auto'
 fi
