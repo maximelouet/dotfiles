@@ -3,42 +3,6 @@
 # common: main aliases and functions
 #
 
-# go up in directory tree
-up() {
-  local d=""
-  limit=$1
-  for ((i=1 ; i <= limit ; i++))
-  do
-    d=$d/..
-  done
-  d=$(echo $d | sed -e 's/^\///')
-  if [ -z "$d" ]; then
-    d=..
-  fi
-  cd $d
-}
-# go up in directory tree and list its content
-u() {
-  local d=""
-  limit=$1
-  for ((i=1 ; i <= limit ; i++))
-  do
-    d=$d/..
-  done
-  d=$(echo $d | sed -e 's/^\///')
-  if [ -z "$d" ]; then
-    d=..
-  fi
-  cd $d || return
-  ls
-}
-
-# cd and ls
-c() {
-  cd "$@" && ls
-}
-compdef c=cd
-
 # give execute rights to files
 cx() {
   chmod +x "$@"
@@ -252,6 +216,44 @@ alias lag='la -g'
 alias llg='ll -g'
 alias lla='l -a'
 alias llag='lla -g'
+
+# Easier navigation
+
+# go up in directory tree
+up() {
+  local d=""
+  limit=$1
+  for ((i=1 ; i <= limit ; i++))
+  do
+    d=$d/..
+  done
+  d=$(echo $d | sed -e 's/^\///')
+  if [ -z "$d" ]; then
+    d=..
+  fi
+  cd $d
+}
+# go up in directory tree and list its content
+u() {
+  local d=""
+  limit=$1
+  for ((i=1 ; i <= limit ; i++))
+  do
+    d=$d/..
+  done
+  d=$(echo $d | sed -e 's/^\///')
+  if [ -z "$d" ]; then
+    d=..
+  fi
+  cd $d || return
+  ls
+}
+
+# cd and ls
+c() {
+  cd "$@" && ls
+}
+compdef c=cd
 
 
 # verbose operations
