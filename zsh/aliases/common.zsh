@@ -198,18 +198,14 @@ if [ $commands[colour-valgrind] ]; then
 fi
 
 # directory listing
-if [ $+commands[exa] ]; then
-  alias ls='exa --sort=Name --group-directories-first'
+if [ $+commands[lsd] ]; then
+  alias ls='lsd'
 else
-  alias ls='ls --color=always --group-directories-first -h'
+  alias ls='ls --color=always --group-directories-first -h --hyperlink=auto'
 fi
 alias ll='ls -l'
 alias l='ll'
-if [ $+commands[exa] ]; then
-  alias lt='exa --sort=modified --group-directories-first -l'
-else
-  alias lt='ll -t'
-fi
+alias lt='ll -tr'
 alias lg='l -g'
 alias la='ls -a'
 alias lag='la -g'

@@ -1,0 +1,11 @@
+---
+
+sorting:
+  column: name
+  dir-grouping: first
+
+date: relative
+
+indicators: true
+
+hyperlink: auto
