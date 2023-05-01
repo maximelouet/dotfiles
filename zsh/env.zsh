@@ -13,8 +13,6 @@ export MANPAGER="$PAGER"
 export TERM=xterm-256color
 
 export USER='saumon'
-#export TEKLOGIN='maxime.louet@epitech.eu'
-#export FULLNAME='Maxime Louet'
 
 export CASE_SENSITIVE='true'
 export CLICOLOR=1
