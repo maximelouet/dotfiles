@@ -390,7 +390,7 @@ bindsym $super+v      exec "rofi-pass"
 bindsym $super+q      exec "rofimoji"
 
 # Program launcher
-bindsym   $super+w    exec --no-startup-id "rofi -show drun -show-icons"
+bindsym   $super+w    exec --no-startup-id "rofi -show window"
 bindsym   $super+z    exec --no-startup-id "rofi -show drun -show-icons"
 bindsym   $super+x    exec --no-startup-id "rofi -show run"
 

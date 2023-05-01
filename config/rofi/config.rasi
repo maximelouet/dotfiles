@@ -1,0 +1,102 @@
+configuration {
+  font: "Noto Sans 14";
+  terminal: "kitty";
+  modes: [ combi, drun ];
+  combi-modes: [ drun, run ];
+}
+
+@theme "/dev/null"
+
+* {
+  red      : #f26d4f;
+  lred     : #d18777;
+  green    : #a5dd4f;
+  lgreen   : #a0b77c;
+  yellow   : #ddc14d;
+  lyellow  : #c6bc75;
+  blue     : #4d8ee2;
+  lblue    : #6e8db5;
+  magenta  : #b46dce;
+  lmagenta : #a589af;
+  cyan     : #4bc6c0;
+  lcyan    : #80b5b2;
+
+  fg       : #e5e0c9;
+  bg       : #1c1b17;
+
+  prompt-color: #aaaaaa;
+
+  disabled : #8c8775;
+
+  background-color: @bg;
+  text-color: @fg;
+
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 35%;
+  padding: 12;
+
+  border: 4;
+  border-color: @lred;
+  border-radius: 6;
+}
+
+element {
+  padding: 5;
+}
+
+element selected {
+  text-color: #000000;
+  background-image: linear-gradient(#e5e0c9, #e5e0c9, #1c1b17);
+}
+
+element-text {
+  background-color: #00000000;
+  text-color: inherit;
+  vertical-align: 0.5;
+  padding: 0 10;
+}
+
+element-icon {
+  size: 38;
+}
+
+entry {
+  background-color: @bg;
+  padding: 10;
+  text-color: @fg;
+
+  margin-bottom: 50;
+}
+
+prompt {
+  background-color: @bg;
+  padding: 10 0 10 5;
+  text-color: @prompt-color;
+
+  margin-bottom: 50;
+}
+
+inputbar {
+  children: [prompt, textbox-prompt-colon, entry, num-rows];
+}
+textbox-prompt-colon {
+  expand:     false;
+  str:        ":";
+  padding: 10 3 20 0;
+  text-color: @prompt-color;
+}
+num-rows {
+  text-color: @prompt-color;
+  padding: 10 3 10 0;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 9;
+}
