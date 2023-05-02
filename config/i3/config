@@ -38,7 +38,7 @@ set $terminal "kitty -1"
 ##################################################
 
 # Main system font
-font pango:Noto Sans 12
+font pango:Noto Sans 10
 
 # Change focus
 bindsym $mod+Left   focus left
@@ -208,12 +208,12 @@ bar {
   output primary
   status_command i3blocks -c ~/.config/i3/blocks
   position bottom
-  font pango:Noto Sans, Awesome 13.5
+  font pango:Noto Sans, Awesome 11
   tray_output primary
   tray_padding 3
 
-  height 39  # i3gaps specific
-  workspace_min_width 37
+  height 39
+  workspace_min_width 39
 
   colors {
     background  #111111
@@ -221,8 +221,8 @@ bar {
 
     # Workspace names color
     # class             border  backgr. text
-    focused_workspace   #dddddd #dddddd #000000
-    active_workspace    #ff0000 #ff0000 #000000
+    focused_workspace   #c42bbd #c42bbd #ffffff
+    active_workspace    #c42bbd #2f2f3f #c42bbd
     inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
     urgent_workspace    #f44336 #f44336 #ffffff
     binding_mode        #EF6C00 #EF6C00 #ffffff
@@ -234,12 +234,11 @@ bar {
   output nonprimary
   status_command i3blocks -c ~/.config/i3/blocks_secondary
   position bottom
-  font pango:Noto Sans, Awesome 12.5
-  tray_output primary
-  tray_padding 3
+  font pango:Noto Sans, Awesome 10
+  tray_output none
 
-  height 37  # i3gaps specific
-  workspace_min_width 35
+  height 37
+  workspace_min_width 37
 
   colors {
     background  #111111
@@ -247,8 +246,8 @@ bar {
 
     # Workspace names color
     # class             border  backgr. text
-    focused_workspace   #dddddd #dddddd #000000
-    active_workspace    #ff0000 #ff0000 #000000
+    focused_workspace   #c42bbd #c42bbd #ffffff
+    active_workspace    #c42bbd #2f2f3f #c42bbd
     inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
     urgent_workspace    #f44336 #f44336 #ffffff
     binding_mode        #EF6C00 #EF6C00 #ffffff
@@ -262,117 +261,70 @@ bar {
 
 # Window borders color
 # class                 border  backgr. text    indicator child_border
-client.focused          #9c12ff #9c12ff #ffffff #00DA8E
-client.focused_inactive #444444 #444444 #ffffff #484e50
+client.focused          #c42bbd #c42bbd #ffffff #00DA8E
+client.focused_inactive #75005c #75005c #ffffff #484e50
 client.unfocused        #444444 #444444 #8f8f8f #292d2e
 client.urgent           #f44336 #f44336 #ffffff #900000
 
-# No border around windows by default...
-for_window [class=".*"] border pixel 0
+default_border pixel 2
+default_floating_border pixel 3
 
-# ... except for terminal and floating windows...
-for_window [class="^URxvt$"] border pixel 1
-for_window [class="^kitty$"] border pixel 1
-
-# ... but never on fullscreen
-smart_borders on  # i3gaps specific
+smart_borders on
 
 # Floating and borders definitions
 
 for_window [class="Blueman-manager"] floating enable
-for_window [class="Chromium" window_role="app"] border pixel 2
 for_window [class="Chromium" window_role="app"] floating enable
-for_window [class="File-roller"] border pixel 2
 for_window [class="File-roller"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gnome-calculator"] floating enable
-for_window [class="Ghb"] border pixel 2  # HandBrake
 for_window [class="Ghb"] floating enable
-for_window [class="Gnome-system-monitor"] border pixel 2
 for_window [class="Gnome-system-monitor"] floating enable
-for_window [class="Gucharmap"] border pixel 2
 for_window [class="Gucharmap"] floating enable
 #for_window [class="Gpicview"] floating enable
 #for_window [class="Gpicview"] move position center
 #for_window [class="^imv$"] floating enable
-for_window [class="java-lang-Thread" title="^win0"] border pixel 2 # jetbrains splashscreen
 for_window [class="java-lang-Thread" title="win0"] floating enable
-for_window [class="jetbrains-toolbox"] border pixel 2
 for_window [class="jetbrains-toolbox"] floating enable
-for_window [class="jetbrains-webstorm" title="win0"] border pixel 2
-for_window [class="jetbrains-webstorm" title="win0"] floating enable
-for_window [class="lite"] border pixel 2
+for_window [class="jetbrains-" title="^Welcome to "] floating enable
 for_window [class="lite"] floating enable
-for_window [class="Lxappearance"] border pixel 2
 for_window [class="Lxappearance"] floating enable
-for_window [class="Mediainfo-gui"] border pixel 2
 for_window [class="Mediainfo-gui"] floating enable
-for_window [class="Mojosetup"] border pixel 2
 for_window [class="Mojosetup"] floating enable
 for_window [class="nitrogen"] floating enable
-for_window [class="org.remmina.Remmina"] border pixel 2
 for_window [class="org.remmina.Remmina"] floating enable
-#for_window [class="Image Lounge"] border pixel 2  # nomacs
 #for_window [class="Image Lounge"] floating enable  # nomacs
 for_window [class="Parole"] floating enable
-for_window [class="Pinentry-gtk-2"] border pixel 2
 for_window [class="Pinentry-gtk-2"] floating enable
-for_window [class="pritunl"] border pixel 2
 for_window [class="pritunl"] floating enable
-for_window [class="Qalculate-gtk"] border pixel 2
 for_window [class="Qalculate-gtk"] floating enable
-for_window [class="SimpleScreenRecorder"] border pixel 2
 for_window [class="SimpleScreenRecorder"] floating enable
-for_window [class="Skype"] border pixel 2
 for_window [class="Skype"] floating enable
-for_window [class="spek"] border pixel 2
 for_window [class="spek"] floating enable
-for_window [class="torbrowser-launcher"] border pixel 2
 for_window [class="torbrowser-launcher"] floating enable
-for_window [instance="file_progress"] border pixel 2 # Nemo file operations
+for_window [instance="file_progress"] border normal
 for_window [instance="file_progress"] floating enable
-for_window [instance="jetbrains-phpstorm" title="^ $"] border pixel 2 # jetbrains phpstorm splashscreen
-for_window [instance="jetbrains-phpstorm" title="^ $"] floating enable
-for_window [instance="jetbrains-pycharm" title="^ $"] border pixel 2 # jetbrains pycharm splashscreen
-for_window [instance="jetbrains-pycharm" title="^ $"] floating enable
-for_window [instance="sun-awt-X11-XDialogPeer"] border pixel 2
 for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
-for_window [instance="sun-awt-X11-XFramePeer" title="Welcome to Android Studio"] border pixel 2
 for_window [instance="sun-awt-X11-XFramePeer" title="Welcome to Android Studio"] floating enable
-for_window [title="^Android Emulator - "] floating enable
-for_window [title="Confirm Exit"] border pixel 2 # jetbrains exit confirmation
-for_window [title="Confirm Exit"] floating enable
-for_window [title="Minecraft Launcher"] border pixel 2
-for_window [title="Minecraft Launcher"] floating enable
-for_window [title="Network Connections"] border pixel 2
-for_window [title="Network Connections"] floating enable
-for_window [title="Network Operations Manager"] border pixel 2
-for_window [title="Network Operations Manager"] floating enable
-for_window [title="^Page Info"] border pixel 2
-for_window [title="^Page Info"] floating enable
-for_window [title="Plugins$"] border pixel 2  # end with this, otherwise matches Firefox on some pages
-for_window [title="Plugins$"] floating enable
-for_window [title="Qt Configuration"] border pixel 2
-for_window [title="Qt Configuration"] floating enable
-for_window [title="^Task Manager"] border pixel 2
-for_window [title="^Task Manager"] floating enable
-for_window [title="Volume Control"] border pixel 2
-for_window [title="Volume Control"] floating enable
-for_window [window_role="bubble"] border pixel 2
+# rofi is configured to launch commands with kitty set to this title
+for_window [title="^_saumon_from_rofi$"] floating enable
+for_window [title="^Android Emulator - " class="^(?!firefox)"] floating enable
+for_window [title="Confirm Exit" class="^(?!firefox)"] floating enable
+for_window [title="Minecraft Launcher" class="^(?!firefox)"] floating enable
+for_window [title="Network Connections" class="^(?!firefox)"] floating enable
+for_window [title="Network Operations Manager" class="^(?!firefox)"] floating enable
+for_window [title="^Page Info" class="^(?!firefox)"] floating enable
+for_window [title="Plugins$" class="^(?!firefox)"] floating enable
+for_window [title="Qt Configuration" class="^(?!firefox)"] floating enable
+for_window [title="^Task Manager" class="^(?!firefox)"] floating enable
+for_window [title="Volume Control" class="^(?!firefox)"] floating enable
 for_window [window_role="bubble"] floating enable
-for_window [window_role="(?i)about"] border pixel 2
 for_window [window_role="(?i)about"] floating enable
-for_window [window_role="(?i)pop-up"] border pixel 2
 for_window [window_role="(?i)pop-up"] floating enable
-for_window [window_role="pop-up"] border pixel 2
 for_window [window_role="pop-up"] floating enable
-for_window [window_role="Preferences"] border pixel 2
 for_window [window_role="Preferences"] floating enable
-for_window [window_role="task_dialog"] border pixel 2
 for_window [window_role="task_dialog"] floating enable
-for_window [window_type="dialog"] border pixel 2
 for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] border pixel 2
 for_window [window_type="menu"] floating enable
 
 
@@ -457,9 +409,8 @@ exec --no-startup-id "nm-applet"
 # Window compositor
 exec --no-startup-id "picom -b"
 
-
 # Warmer screen color at night
-exec --no-startup-id "redshift -l 48.8211:2.3687"  # Paris Porte d'Ivry
+exec --no-startup-id "redshift -l 48.8211:2.3687 -t 6500:3500"  # Paris Porte d'Ivry
 
 # Bluetooth manager
 exec --no-startup-id "blueman-applet"
