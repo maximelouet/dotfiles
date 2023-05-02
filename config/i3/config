@@ -373,7 +373,7 @@ bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
 
 # Notifications control
 bindsym $ctrl+space exec dunstctl close
-bindsym $ctrl+$shift+space exec dunstctl close-all
+bindsym $ctrl+$shift+space exec dunstctl history-pop
 bindsym $ctrl+$alt+space exec dunstctl action
 
 # Cancer
