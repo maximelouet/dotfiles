@@ -27,10 +27,8 @@
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
 
-    # Draw a line of "separator_height" pixel height between two
-    # notifications.
-    # Set to 0 to disable.
-    separator_height = 2
+    # Spacing between two notifications
+    gap_size = 4
 
     # Padding between text and separator.
     padding = 12
@@ -43,10 +41,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#9d00ff"
+    frame_color = "#c42bbd"
 
     # Define a color for the separator.
     # possible values are:
@@ -148,10 +146,13 @@
     min_icon_size = 0
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 42
+    max_icon_size = 48
 
-    # Paths to default icons.
+    # Icon theme
     icon_path = /usr/share/icons/Flat-Remix-Blue-Dark/apps/scalable/:/usr/share/icons/Flat-Remix-Blue-Dark/emblems/scalable/:/usr/share/icons/Flat-Remix-Blue-Dark/actions/24/:/usr/share/icons/Flat-Remix-Blue-Dark/panel/:/usr/share/icons/Flat-Remix-Blue-Dark/mimetypes/scalable/
+    # TODO: make this work
+    #enable_recursive_icon_lookup = true
+    #icon_theme = "Flat-Remix-Blue-Dark, hicolor"
 
     ### History ###
 
@@ -165,7 +166,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/rofi
+    dmenu = /usr/bin/rofi -dmenu -p dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/firefox -new-tab
@@ -178,7 +179,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 2
+    corner_radius = 0
 
     ### mouse
 
@@ -200,22 +201,21 @@
     mouse_right_click  = close_all
 
 
-
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
 
 [urgency_low]
-    background  = "#222222"
-    foreground  = "#dddddd"
+    background  = "#333333"
+    foreground  = "#ffffff"
+    frame_color = "#eeeeee"
     highlight   = "#9d00ff"
     timeout     = 8
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background  = "#640575"
+    background  = "#222222"
     foreground  = "#ffffff"
-    frame_color = "#ffffff"
     highlight   = "#eeeeee"
     timeout     = 10
     # Icon for notifications with normal urgency, uncomment to enable
@@ -280,10 +280,8 @@
     script = ~/scripts/refresh-i3blocks-music.sh
     frame_color = "#1DB954"  # spotify green
     set_transient = true
-    timeout = 5
+    timeout = 6
     markup = no  # some Spotify song names fuck this up
-    # XXX ^ does not work since 1.7.0
-    # https://github.com/dunst-project/dunst/issues/955
 
 [bluetooth]
     appname = *bluetooth*
@@ -297,4 +295,5 @@
 [screenshot]
     summary = "*reenshot saved"  # match "Full screenshot saved" etc
     set_transient = true
-    timeout = 3
+    timeout = 4
+    new_icon = gnome-screenshot
