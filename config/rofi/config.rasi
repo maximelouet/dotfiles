@@ -9,7 +9,7 @@ configuration {
 
 * {
   red      : #f26d4f;
-  lred     : #d18777;
+  lred     : #c42bbd;
   green    : #a5dd4f;
   lgreen   : #a0b77c;
   yellow   : #ddc14d;
@@ -37,12 +37,17 @@ configuration {
 }
 
 window {
-  width: 35%;
+  width: 900;
   padding: 12;
 
   border: 4;
   border-color: @lred;
-  border-radius: 6;
+}
+
+@media ( max-width: 1200 ) {
+  window {
+    width: 800;
+  }
 }
 
 element {
@@ -50,8 +55,8 @@ element {
 }
 
 element selected {
-  text-color: #000000;
-  background-image: linear-gradient(#e5e0c9, #e5e0c9, #1c1b17);
+  text-color: #ffffff;
+  background-image: linear-gradient(#c42bbd, #c42bbd, #c42bbd, #c42bbd, #1c1b17);
 }
 
 element-text {
@@ -98,5 +103,5 @@ num-rows {
 listview {
   background-color: @bg;
   columns: 1;
-  lines: 9;
+  lines: 10;
 }
