@@ -48,3 +48,5 @@ if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
 fi
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
