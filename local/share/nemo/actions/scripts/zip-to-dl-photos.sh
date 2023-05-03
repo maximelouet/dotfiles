@@ -1,0 +1,1 @@
+/home/saumon/scripts/zip-to-dl-photos.sh

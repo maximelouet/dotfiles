@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Set GPS location from file
+Comment=Change file(s) EXIF datetime to those of the selected file
+Exec=<scripts/set-exif-gps.sh %F>
+Icon-Name=map-globe
+Selection=notnone
+Dependencies=exiftool;
+Extensions=png;jpg;jpeg;
+Quote=double

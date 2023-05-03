@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Set EXIF datetime
+Comment=Change file(s) modified datetime and EXIF datetime to specified value
+Exec=<scripts/set-exif-datetime.sh %F>
+Icon-Name=calendar-go-today
+Selection=notnone
+Dependencies=exiv2;
+Extensions=png;jpg;jpeg;
+Quote=double

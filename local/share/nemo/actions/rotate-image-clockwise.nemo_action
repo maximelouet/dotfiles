@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Rotate clockwise
+Comment=Rotate JPEG images clockwise losslessly using EXIF data
+Exec=<scripts/rotate-image-clockwise.sh %F>
+Icon-Name=object-rotate-right
+Selection=notnone
+Dependencies=jpegtran;
+Extensions=jpg;jpeg;
+Quote=double

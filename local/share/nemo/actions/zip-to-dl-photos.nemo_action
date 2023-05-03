@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Zip to dl:photos
+Comment=Zip directory and scp it to aelita:/srv/dl/photos/
+Exec=<scripts/zip-to-dl-photos.sh %F>
+Icon-Name=archive-extract
+Selection=s
+Extensions=dir;
+Quote=double
