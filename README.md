@@ -9,7 +9,9 @@ This repo currently contains configuration files for:
 * **[vim](https://www.vim.org/)** (`config/vim/`)
 * **[git](https://git-scm.com/)** (`config/git/config`)
 * **[kitty](https://sw.kovidgoyal.net/kitty/)** (`config/kitty/`)
-* **[picom](https://github.com/yshui/picom)** (`config/picom.conf`)
+* **[picom](https://github.com/yshui/picom)** (`config/picom/`)
+* **[dunst](https://dunst-project.org/)** (`config/dunst/`)
+* **[rofi](https://davatorium.github.io/rofi/)** (`config/rofi/`)
 
 ... and other programs that I may or may not use.
 
@@ -20,6 +22,6 @@ To symlink all the dotfiles to the correct locations in your home directory, run
 ./install
 ```
 
-Running Dotbot will NOT delete existing files/directories in your home directory, excepted:
+Running Dotbot will NOT delete existing files/directories in your home directory, except:
 * `.gtkrc-2.0`
 * `.icons/default/index.theme`
