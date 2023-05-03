@@ -1,6 +1,6 @@
 configuration {
-  font: "Noto Sans 14";
-  terminal: "kitty";
+  font: "Noto Sans 13";
+  terminal: "kitty -T _saumon_from_rofi";
   modes: [ combi, drun ];
   combi-modes: [ drun, run ];
 }
@@ -38,7 +38,7 @@ configuration {
 
 window {
   width: 900;
-  padding: 12;
+  padding: 10;
 
   border: 4;
   border-color: @lred;
@@ -72,7 +72,7 @@ element-icon {
 
 entry {
   background-color: @bg;
-  padding: 10;
+  padding: 8;
   text-color: @fg;
 
   margin-bottom: 50;
@@ -80,7 +80,7 @@ entry {
 
 prompt {
   background-color: @bg;
-  padding: 10 0 10 5;
+  padding: 8 0 14 5;
   text-color: @prompt-color;
 
   margin-bottom: 50;
@@ -92,16 +92,16 @@ inputbar {
 textbox-prompt-colon {
   expand:     false;
   str:        ":";
-  padding: 10 3 20 0;
+  padding: 8 3 14 0;
   text-color: @prompt-color;
 }
 num-rows {
   text-color: @prompt-color;
-  padding: 10 3 10 0;
+  padding: 8 3 14 0;
 }
 
 listview {
   background-color: @bg;
   columns: 1;
-  lines: 10;
+  lines: 11;
 }
