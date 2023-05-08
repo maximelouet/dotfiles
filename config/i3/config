@@ -10,7 +10,6 @@
 ##################################################
 
 # Main modifiers
-set $mod    Mod1
 set $alt    Mod1
 set $super  Mod4
 set $ctrl   Control
@@ -41,62 +40,61 @@ set $terminal "kitty -1"
 font pango:Noto Sans 10
 
 # Change focus
-bindsym $mod+Left   focus left
-bindsym $mod+Down   focus down
-bindsym $mod+Up     focus up
-bindsym $mod+Right  focus right
+bindsym $super+Left   focus left
+bindsym $super+Down   focus down
+bindsym $super+Up     focus up
+bindsym $super+Right  focus right
 
-bindsym $mod+a      focus parent
+bindsym $super+a      focus parent
 
-#bindsym $mod+h  focus left
-#bindsym $mod+j  focus down
-#bindsym $mod+k  focus up
-#bindsym $mod+l  focus right
+#bindsym $super+h  focus left
+#bindsym $super+j  focus down
+#bindsym $super+k  focus up
+#bindsym $super+l  focus right
 
 # Move windows
-bindsym $mod+$shift+Left   move left
-bindsym $mod+$shift+Down   move down
-bindsym $mod+$shift+Up     move up
-bindsym $mod+$shift+Right  move right
+bindsym $super+$shift+Left   move left
+bindsym $super+$shift+Down   move down
+bindsym $super+$shift+Up     move up
+bindsym $super+$shift+Right  move right
 
-bindsym $mod+$shift+h  move left
-bindsym $mod+$shift+j  move down
-bindsym $mod+$shift+k  move up
-bindsym $mod+$shift+l  move right
+#bindsym $super+$shift+h  move left
+#bindsym $super+$shift+j  move down
+#bindsym $super+$shift+k  move up
+#bindsym $super+$shift+l  move right
 
 # Change workspace layout
-bindsym $mod+s  layout stacking
-bindsym $mod+z  layout tabbed
-bindsym $mod+e  layout toggle split
+bindsym $super+s layout toggle split
+bindsym $super+t layout tabbed
 
 # Change split direction
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $super+h split h
+bindsym $super+v split v
 
 # Toggle floating window
-bindsym $mod+$shift+space floating toggle
+bindsym $super+$shift+space floating toggle
 
-# Drag floating windows with mouse+$mod
-floating_modifier $mod
+# use Mouse+Super to drag floating windows to their wanted position
+floating_modifier $super
 
 # Toggle focus between floating and tiling windows
-bindsym $mod+space  focus mode_toggle
+bindsym $super+space  focus mode_toggle
 
 # Reload i3's configuration file
-bindsym $mod+$shift+c reload
+bindsym $super+$shift+c reload
 
 # Restart i3
-bindsym $mod+$shift+r restart
+bindsym $super+$shift+r restart
 
 # Exit i3
-bindsym $mod+$shift+f exit
+bindsym $super+$shift+f exit
 
 # Close window
-bindsym $mod+Shift+a kill
-bindsym $mod+Shift+q kill
+bindsym $super+Shift+a kill
+bindsym $alt+Shift+a kill
 
 # Force a window fullscreen
-bindsym $mod+f fullscreen toggle
+bindsym $super+f fullscreen toggle
 
 
 ##################################################
@@ -104,18 +102,6 @@ bindsym $mod+f fullscreen toggle
 ##################################################
 
 # Switch to workspace
-bindcode $mod+49  workspace $ws0
-bindcode $mod+10  workspace $ws1
-bindcode $mod+11  workspace $ws2
-bindcode $mod+12  workspace $ws3
-bindcode $mod+13  workspace $ws4
-bindcode $mod+14  workspace $ws5
-bindcode $mod+15  workspace $ws6
-bindcode $mod+16  workspace $ws7
-bindcode $mod+17  workspace $ws8
-bindcode $mod+18  workspace $ws9
-bindcode $mod+19  workspace $ws10
-
 bindcode $super+49  workspace $ws0
 bindcode $super+10  workspace $ws1
 bindcode $super+11  workspace $ws2
@@ -128,35 +114,56 @@ bindcode $super+17  workspace $ws8
 bindcode $super+18  workspace $ws9
 bindcode $super+19  workspace $ws10
 
-# Move window to workspace
-bindcode $mod+$shift+49 move container to workspace $ws0
-bindcode $mod+$shift+10 move container to workspace $ws1
-bindcode $mod+$shift+11 move container to workspace $ws2
-bindcode $mod+$shift+12 move container to workspace $ws3
-bindcode $mod+$shift+13 move container to workspace $ws4
-bindcode $mod+$shift+14 move container to workspace $ws5
-bindcode $mod+$shift+15 move container to workspace $ws6
-bindcode $mod+$shift+16 move container to workspace $ws7
-bindcode $mod+$shift+17 move container to workspace $ws8
-bindcode $mod+$shift+18 move container to workspace $ws9
-bindcode $mod+$shift+19 move container to workspace $ws10
+bindcode $alt+49  workspace $ws0
+bindcode $alt+10  workspace $ws1
+bindcode $alt+11  workspace $ws2
+bindcode $alt+12  workspace $ws3
+bindcode $alt+13  workspace $ws4
+bindcode $alt+14  workspace $ws5
+bindcode $alt+15  workspace $ws6
+bindcode $alt+16  workspace $ws7
+bindcode $alt+17  workspace $ws8
+bindcode $alt+18  workspace $ws9
+bindcode $alt+19  workspace $ws10
 
-# Swipe three fingers to change workspace
-bindsym --whole-window button19 workspace prev
-bindsym --whole-window button17 workspace next
+# Move window to workspace
+bindcode $super+$shift+49 move container to workspace $ws0
+bindcode $super+$shift+10 move container to workspace $ws1
+bindcode $super+$shift+11 move container to workspace $ws2
+bindcode $super+$shift+12 move container to workspace $ws3
+bindcode $super+$shift+13 move container to workspace $ws4
+bindcode $super+$shift+14 move container to workspace $ws5
+bindcode $super+$shift+15 move container to workspace $ws6
+bindcode $super+$shift+16 move container to workspace $ws7
+bindcode $super+$shift+17 move container to workspace $ws8
+bindcode $super+$shift+18 move container to workspace $ws9
+bindcode $super+$shift+19 move container to workspace $ws10
+
+bindcode $alt+$shift+49 move container to workspace $ws0
+bindcode $alt+$shift+10 move container to workspace $ws1
+bindcode $alt+$shift+11 move container to workspace $ws2
+bindcode $alt+$shift+12 move container to workspace $ws3
+bindcode $alt+$shift+13 move container to workspace $ws4
+bindcode $alt+$shift+14 move container to workspace $ws5
+bindcode $alt+$shift+15 move container to workspace $ws6
+bindcode $alt+$shift+16 move container to workspace $ws7
+bindcode $alt+$shift+17 move container to workspace $ws8
+bindcode $alt+$shift+18 move container to workspace $ws9
+bindcode $alt+$shift+19 move container to workspace $ws10
 
 # Alt+Tab back-and-forth navigation
-bindsym $mod+Tab workspace back_and_forth
 bindsym $super+Tab workspace back_and_forth
+bindsym $alt+Tab workspace back_and_forth
 
 # Move workspace to next monitor
-bindsym $mod+x move workspace to output next
+bindsym $super+n move workspace to output next
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $super+Shift+minus move scratchpad
+bindsym $alt+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+bindsym $super+minus scratchpad show
 
 
 ##################################################
@@ -164,7 +171,7 @@ bindsym $mod+minus scratchpad show
 ##################################################
 
 # Enter resize mode
-bindsym $mod+r  mode "resize"
+bindsym $super+r  mode "resize"
 
 mode "resize" {
 
@@ -191,11 +198,11 @@ mode "resize" {
 # https://twitter.com/chaignc/status/1329527487156654081
 ##################################################
 
-bindsym $mod+g mode "excel"
+bindsym $super+g mode "excel"
 
 mode "excel" {
   bindsym Escape  mode "default"
-  bindsym $mod+g  mode "default"
+  bindsym $super+g  mode "default"
 }
 
 
@@ -333,12 +340,11 @@ for_window [window_type="menu"] floating enable
 ##################################################
 
 # Program shortcuts
-bindsym $mod+Return   exec $terminal
+bindsym $alt+Return   exec $terminal
 bindsym $super+Return exec "kitty"
 bindsym $super+e      exec "nemo"
-bindsym $super+f      exec "firefox"
+bindsym $super+b      exec "firefox"
 bindsym $super+c      exec "clipster -s"
-bindsym $super+v      exec "rofi-pass"
 bindsym $super+q      exec "rofimoji"
 
 # Program launcher
