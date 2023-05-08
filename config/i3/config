@@ -349,12 +349,15 @@ bindsym $super+c      exec "clipster -s"
 bindsym $super+q      exec "rofimoji"
 
 # Program launcher
-bindsym   $super+w    exec --no-startup-id "rofi -show window"
-bindsym   $super+z    exec --no-startup-id "rofi -show drun -show-icons"
-bindsym   $super+x    exec --no-startup-id "rofi -show run"
+set $launcher "rofi -show drun -show-icons"
+bindsym $super+z    exec --no-startup-id $launcher
+bindsym XF86Search  exec --no-startup-id $launcher
+bindsym XF86LaunchA exec --no-startup-id $launcher
+bindsym XF86LaunchB exec --no-startup-id $launcher
+bindsym $super+x    exec --no-startup-id "rofi -show run"
 
 # Window switcher
-bindcode  $super+94  exec --no-startup-id "rofi -show window -show-icons"
+bindsym $super+w  exec --no-startup-id "rofi -show window -show-icons"
 
 # Lock screen
 bindsym --release $super+l exec --no-startup-id "~/scripts/lock.sh"
@@ -381,20 +384,7 @@ bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
 # Notifications control
 bindsym $ctrl+space        exec dunstctl close
 bindsym $ctrl+$shift+space exec dunstctl history-pop
-bindsym $ctrl+$alt+space exec dunstctl action
-
-# Cancer
-bindcode 135        exec --no-startup-id "play ~/cancer/AH.mp3"
-
-
-##################################################
-# Workspace assignments
-##################################################
-
-#assign [class="Caprine" window_role="browser-window"] $ws4
-#assign [class="discord" window_role="browser-window"] $ws4
-# Move to workspace for Spotify because they don't set window infos correctly
-#for_window [class="Spotify"] move to workspace $ws5
+bindsym $ctrl+$alt+space   exec dunstctl action
 
 
 ##################################################
@@ -446,12 +436,10 @@ exec --no-startup-id "libinput-gestures-setup start"
 
 
 # Workspace screen assignments
-#   Use raw screen names instead of "primary"/"secondary" because autorandr is
-#   slow af and not always loaded at this point
-workspace 1 output DP-1-1-8
-workspace 2 output DP-1-1-8
-workspace 4 output DP-1-1-1
-workspace 5 output DP-1-1-8
+workspace 1 output primary
+workspace 2 output primary
+workspace 4 output nonprimary
+workspace 5 output primary
 
 # Restore workspaces layout
 exec --no-startup-id "sh -c \"i3-msg 'workspace 1; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/1.json'\""
@@ -459,5 +447,6 @@ exec --no-startup-id "sh -c \"i3-msg 'workspace 4; append_layout ~/.dotfiles/con
 exec --no-startup-id "sh -c \"i3-msg 'workspace 5; append_layout ~/.dotfiles/config/i3/workspaces/$(hostname)/5.json'\""
 
 # Set initial workspace to 1 (not the first one in alphabetical order)
-exec --no-startup-id "sleep 2 && i3-msg 'workspace 1'"
-exec --no-startup-id "sleep 5 && i3-msg 'workspace 1'"
+exec --no-startup-id "sleep 1 && i3-msg 'workspace 1'"
+
+exec --no-startup-id "~/scripts/startup-$(hostname).sh"
