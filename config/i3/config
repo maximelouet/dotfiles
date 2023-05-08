@@ -195,15 +195,15 @@ mode "resize" {
 
 
 ##################################################
-# Excel mode
-# https://twitter.com/chaignc/status/1329527487156654081
+# Inhibit mode
+# This disables most i3 shortcuts, should we need to use one in a focused app
 ##################################################
 
-bindsym $super+g mode "excel"
+bindsym $super+i mode "inhibit"
 
-mode "excel" {
+mode "inhibit" {
   bindsym Escape  mode "default"
-  bindsym $super+g  mode "default"
+  bindsym $super+i  mode "default"
 }
 
 
