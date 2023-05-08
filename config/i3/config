@@ -71,15 +71,15 @@ bindsym $super+v split v
 # Toggle floating window
 bindsym $super+$shift+space floating toggle
 
-# use Mouse+Super to drag floating windows to their wanted position
+# Use Mouse+Super to drag floating windows to their wanted position
 floating_modifier $super
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
+# Move tiling windows via drag & drop by left-clicking into the title bar, or
+#   left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
 # Toggle focus between floating and tiling windows
-bindsym $super+space  focus mode_toggle
+bindsym $super+space focus mode_toggle
 
 # Reload i3's configuration file
 bindsym $super+$shift+c reload
@@ -154,14 +154,14 @@ bindcode $alt+$shift+19 move container to workspace $ws10
 
 # Alt+Tab back-and-forth navigation
 bindsym $super+Tab workspace back_and_forth
-bindsym $alt+Tab workspace back_and_forth
+bindsym $alt+Tab   workspace back_and_forth
 
 # Move workspace to next monitor
 bindsym $super+n move workspace to output next
 
 # Make the currently focused window a scratchpad
 bindsym $super+Shift+minus move scratchpad
-bindsym $alt+Shift+minus move scratchpad
+bindsym $alt+Shift+minus   move scratchpad
 
 # Show the first scratchpad window
 bindsym $super+minus scratchpad show
@@ -274,7 +274,7 @@ client.focused_inactive #75005c #75005c #ffffff #484e50
 client.unfocused        #444444 #444444 #8f8f8f #292d2e
 client.urgent           #f44336 #f44336 #ffffff #900000
 
-default_border pixel 2
+default_border          pixel 2
 default_floating_border pixel 3
 
 smart_borders on
@@ -379,7 +379,7 @@ bindsym XF86AudioNext   exec --no-startup-id playerctl next
 bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
 
 # Notifications control
-bindsym $ctrl+space exec dunstctl close
+bindsym $ctrl+space        exec dunstctl close
 bindsym $ctrl+$shift+space exec dunstctl history-pop
 bindsym $ctrl+$alt+space exec dunstctl action
 
