@@ -24,8 +24,8 @@ min_width=65
 
 [separator]
 
-[desktopbrightness]
-instance=9
+[brightness]
+desktop_monitor=P2219HC
 interval=600
 
 [separator]

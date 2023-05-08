@@ -38,8 +38,8 @@ min_width=65
 
 [separator]
 
-[desktopbrightness]
-instance=8
+[brightness]
+desktop_monitor=U2721DE
 interval=600
 signal=11
 min_width=62
