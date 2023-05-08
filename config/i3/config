@@ -28,9 +28,6 @@ set $ws8  "8"
 set $ws9  "9"
 set $ws10 "π"
 
-# Other
-set $terminal "kitty -1"
-
 
 ##################################################
 # Basic settings
@@ -76,6 +73,10 @@ bindsym $super+$shift+space floating toggle
 
 # use Mouse+Super to drag floating windows to their wanted position
 floating_modifier $super
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
 
 # Toggle focus between floating and tiling windows
 bindsym $super+space  focus mode_toggle
@@ -340,7 +341,7 @@ for_window [window_type="menu"] floating enable
 ##################################################
 
 # Program shortcuts
-bindsym $alt+Return   exec $terminal
+bindsym $alt+Return   exec "kitty -1"
 bindsym $super+Return exec "kitty"
 bindsym $super+e      exec "nemo"
 bindsym $super+b      exec "firefox"
