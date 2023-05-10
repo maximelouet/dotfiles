@@ -32,6 +32,7 @@
   psuhf = push --force-with-lease
   psuh = push
   pushf = push --force-with-lease
+  pusj = push
   puyll = pull
   pyll = pull
   pyull = pull
