@@ -337,6 +337,17 @@ for_window [window_type="menu"] floating enable
 
 
 ##################################################
+# Special window conditions
+##################################################
+
+# Hide Gkraken at startup cause usually we just start/stop it to apply some config
+for_window [class="Gkraken"] move window to scratchpad
+
+# Spotify is dumb
+for_window [class="Spotify"] move container to workspace $ws5
+
+
+##################################################
 # Shortcuts and launchers
 ##################################################
 
