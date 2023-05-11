@@ -380,8 +380,8 @@ bindsym Print exec --no-startup-id "~/scripts/screenshot.sh"
 bindsym $super+Print exec --no-startup-id "~/scripts/screenshot-currentscreen.sh"
 
 # Multimedia keys
-bindsym XF86MonBrightnessUp   exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness"
-bindsym XF86MonBrightnessDown exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness"
+bindsym XF86MonBrightnessUp   exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
+bindsym XF86MonBrightnessDown exec --no-startup-id "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
 
 bindsym XF86AudioMute         exec --no-startup-id "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume"
 bindsym XF86AudioRaiseVolume  exec --no-startup-id "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume"
