@@ -280,6 +280,7 @@
     script = ~/scripts/refresh-i3blocks-music.sh
     frame_color = "#1DB954"  # spotify green
     set_transient = true
+    history_ignore = true
     timeout = 6
     markup = no  # some Spotify song names fuck this up
 
@@ -290,5 +291,6 @@
 [screenshot]
     summary = "*reenshot saved"  # match "Full screenshot saved" etc
     set_transient = true
+    history_ignore = true
     timeout = 4
     new_icon = gnome-screenshot
