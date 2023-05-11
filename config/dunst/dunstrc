@@ -287,11 +287,6 @@
     appname = *bluetooth*
     script = ~/scripts/refresh-i3blocks-volume.sh
 
-[lockingsoon]
-    summary = "Locking soon"
-    set_transient = true
-    timeout = 55
-
 [screenshot]
     summary = "*reenshot saved"  # match "Full screenshot saved" etc
     set_transient = true
