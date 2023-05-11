@@ -24,7 +24,10 @@
     # Offset from the origin
     offset = 20x54
 
-    # Show how many messages are currently hidden (because of geometry).
+    # Maximum number of notification (0 means no limit)
+    notification_limit = 10
+
+    # Show how many messages are currently hidden (because of notification_limit).
     indicate_hidden = yes
 
     # Spacing between two notifications
