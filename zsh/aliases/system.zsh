@@ -25,14 +25,14 @@ chip () {
 
 dns_from_the_fucking_network_im_connected_to() {
   dns_normal "silent"
-  found=$(sudo dhcpcd -T wlp2s0 2> /dev/null)
-  dns_servers=$(echo "$found" | grep "new_domain_name_servers" | cut -d "'" -f 2)
-  if [[ -z "$dns_servers" ]]; then
-    >&2 echo "No DNS servers found. dhcpcd reply:"
+  echo "Sending DHCP Discover request with nmap..."
+  found=$(sudo nmap --script broadcast-dhcp-discover 2>&1)
+  dns_server=$(echo "$found" | grep "Domain Name Server" | awk '{print $5}')
+  if [[ -z "$dns_server" ]]; then
+    >&2 echo "No DNS servers found. nmap reply:"
     >&2 echo $found
     return 1
   fi
-  dns_server=$(echo $dns_servers | awk '{ print $1 }')
   sudo sed -i "1s/^/nameserver $dns_server # TMP dhcp_dns\n/" /etc/resolv.conf
   echo "Added $dns_server as the first nameserver in /etc/resolv.conf"
   echo "Run dns_normal at any time to remove this entry."
