@@ -150,8 +150,8 @@ set autoindent
 " Persistent undo
 if version >= 703
   set undofile
-  set undodir=$XDG_CACHE_HOME/vim/undo
-  silent !mkdir -p $XDG_CACHE_HOME/vim/undo
+  set undodir=$HOME/.cache/vim/undo
+  silent !mkdir -p $HOME/.cache/vim/undo
   set undolevels=2000
 endif
 
@@ -235,7 +235,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
-Plug 'jvirtanen/vim-hcl'
 Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
