@@ -1,0 +1,28 @@
+#!/bin/bash
+
+files=()
+while read -r filename; do
+  if [ -n "$filename" ]; then
+    files+=("$filename")
+  fi
+done < <(printf "%s" "$NEMO_SCRIPT_SELECTED_FILE_PATHS")
+
+for filename in "${files[@]}"; do
+  basename=$(basename "$filename")
+  if [ -d "$filename" ]; then
+    id=$(dunstify --printid -u low "Cleanup and set tags from folder" "Cleaning up tags in $basename…")
+    pushd "$filename" || continue
+    if "$HOME/scripts/music/cleanup-tags.sh"; then
+      dunstify --replace="$id" -u low "Cleanup and set tags from folder" "Settings tags from folder in $basename…"
+      if "$HOME/scripts/music/set-tags-from-folder.sh"; then
+        dunstify --replace="$id" "Cleanup and set tags from folder" "Successfully cleaned up and set tags for $basename"
+      else
+        dunstify --replace="$id" -u critical "Setting tags failed" "$basename"
+      fi
+    else
+      dunstify --replace="$id" -u critical "Tags cleanup failed" "$basename"
+    fi
+  else
+    notify-send -u critical "Cleanup & set tags failed" "Handling individual files through Nemo is not yet supported."
+  fi
+done

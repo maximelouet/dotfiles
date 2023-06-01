@@ -1,0 +1,17 @@
+#!/bin/bash
+
+files=()
+while read -r filename; do
+  if [ -n "$filename" ]; then
+    files+=("$filename")
+  fi
+done < <(printf "%s" "$NEMO_SCRIPT_SELECTED_FILE_PATHS")
+
+for filename in "${files[@]}"; do
+  if [ -d "$filename" ]; then
+    pushd "$filename" || continue
+    "$HOME/scripts/music/fetch-set-coverart.sh"
+  else
+    notify-send -u critical "Cleanup & set tags failed" "Handling individual files through Nemo is not yet supported."
+  fi
+done
