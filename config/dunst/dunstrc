@@ -280,7 +280,7 @@
 
 [spotify]
     appname = Spotify
-    script = ~/scripts/refresh-i3blocks-music.sh
+    script = ~/scripts/i3blocks-refresh-music.sh
     frame_color = "#1DB954"  # spotify green
     set_transient = true
     history_ignore = true
@@ -289,7 +289,7 @@
 
 [bluetooth]
     appname = *bluetooth*
-    script = ~/scripts/refresh-i3blocks-volume.sh
+    script = ~/scripts/i3blocks-refresh-volume.sh
 
 [screenshot]
     summary = "*reenshot saved"  # match "Full screenshot saved" etc
