@@ -19,6 +19,7 @@ chip () {
   piactl disconnect
   piactl connect
   while [[ "$(piactl get connectionstate)" != "Connected" ]]; do echo -n '.'; sleep 1; done
+  sudo ip route flush 1.1.1.1
   echo
   curl --retry 2 ip.saumon.io
 }
