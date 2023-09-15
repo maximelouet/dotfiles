@@ -280,7 +280,7 @@
 
 [spotify]
     appname = Spotify
-    script = ~/scripts/i3blocks-refresh-music.sh
+    script = ~/scripts/i3blocks-refresh-from-dunst.sh
     frame_color = "#1DB954"  # spotify green
     set_transient = true
     history_ignore = true
@@ -288,8 +288,12 @@
     markup = no  # some Spotify song names fuck this up
 
 [bluetooth]
-    appname = *bluetooth*
-    script = ~/scripts/i3blocks-refresh-volume.sh
+    appname = *blue*
+    script = ~/scripts/i3blocks-refresh-from-dunst.sh
+
+[network]
+    appname = *network*
+    script = ~/scripts/i3blocks-refresh-from-dunst.sh
 
 [screenshot]
     summary = "*reenshot saved"  # match "Full screenshot saved" etc
