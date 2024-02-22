@@ -7,7 +7,7 @@ color=#dddddd
 separator=false
 separator_block_width=4
 markup=pango
-interval=600
+interval=3600
 align=center
 
 [music]
@@ -19,7 +19,7 @@ min_width=500
 [separator]
 
 [INTERNET]
-interval=30
+interval=60
 signal=14
 min_width=75
 
@@ -40,7 +40,6 @@ min_width=65
 
 [brightness]
 desktop_monitor=U2721DE
-interval=600
 signal=11
 min_width=62
 
@@ -57,7 +56,6 @@ interval=15
 [separator]
 
 [temperature]
-instance=k10temp-pci-00c3
 interval=5
 
 [separator]
