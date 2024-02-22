@@ -1,6 +1,6 @@
 configuration {
   font: "Noto Sans 13";
-  terminal: "kitty -T _saumon_from_rofi";
+  terminal: "kitty";
   modes: [ combi, drun ];
   combi-modes: [ drun, run ];
 }
