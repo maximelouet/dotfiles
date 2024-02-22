@@ -66,6 +66,12 @@ signal=15
 
 [separator]
 
+[dunst]
+interval=once
+min_width=20
+
+[separator]
+
 [date]
 interval=60
 
@@ -73,4 +79,6 @@ interval=60
 command=date '+%H:%M:%S'
 interval=1
 
-[separator]
+[capslock]
+interval=once
+signal=12
