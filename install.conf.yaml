@@ -27,6 +27,10 @@
       create: true
       glob: true
       path: local/share/*
+    ~/.mozilla/firefox/:
+      create: true
+      glob: true
+      path: mozilla/firefox/*
     ~/.tmux.conf:
     ~/.vim:
     ~/.xinitrc:
