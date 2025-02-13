@@ -15,7 +15,6 @@ include /etc/sway/config.d/*
 ##################################################
 
 # Main modifiers
-set $mod    Mod1
 set $alt    Mod1
 set $super  Mod4
 set $ctrl   Control
@@ -23,7 +22,7 @@ set $shift  Shift
 
 # Monitors
 # (automatic monitor configuration is done by kanshi but these variables are
-# used later on for bar config)
+# used later on for workspace assignments)
 set $primary_monitor "Dell Inc. DELL U2721DE 89GN023"
 set $secondary_monitor "Dell Inc. DELL P2219HC GWDW8P2"
 set $laptop_monitor "eDP-1"
@@ -41,46 +40,46 @@ font pango:Noto Sans 12
 xwayland force
 
 # Change focus
-bindsym $mod+Left   focus left
-bindsym $mod+Down   focus down
-bindsym $mod+Up     focus up
-bindsym $mod+Right  focus right
+bindsym $super+Left   focus left
+bindsym $super+Down   focus down
+bindsym $super+Up     focus up
+bindsym $super+Right  focus right
 
-bindsym $mod+a      focus parent
+bindsym $super+a      focus parent
 
-#bindsym $mod+h  focus left
-#bindsym $mod+j  focus down
-#bindsym $mod+k  focus up
-#bindsym $mod+l  focus right
+#bindsym $super+h  focus left
+#bindsym $super+j  focus down
+#bindsym $super+k  focus up
+#bindsym $super+l  focus right
 
 # Move windows
-bindsym $mod+$shift+Left   move left
-bindsym $mod+$shift+Down   move down
-bindsym $mod+$shift+Up     move up
-bindsym $mod+$shift+Right  move right
+bindsym $super+$shift+Left   move left
+bindsym $super+$shift+Down   move down
+bindsym $super+$shift+Up     move up
+bindsym $super+$shift+Right  move right
 
-bindsym $mod+$shift+h  move left
-bindsym $mod+$shift+j  move down
-bindsym $mod+$shift+k  move up
-bindsym $mod+$shift+l  move right
+bindsym $super+$shift+h  move left
+bindsym $super+$shift+j  move down
+bindsym $super+$shift+k  move up
+bindsym $super+$shift+l  move right
 
 # Change workspace layout
-bindsym $mod+s  layout stacking
-bindsym $mod+z  layout tabbed
-bindsym $mod+e  layout toggle split
+#bindsym $super+s  layout stacking
+bindsym $super+s  layout toggle split
+bindsym $super+t  layout tabbed
 
 # Change split direction
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $super+h split h
+bindsym $super+v split v
 
 # Toggle floating window
-bindsym $mod+$shift+space floating toggle
+bindsym $super+$shift+space floating toggle
 
-# Drag floating windows with mouse+$mod
-floating_modifier $mod
+# Drag floating windows with mouse+$super
+floating_modifier $super
 
 # Toggle focus between floating and tiling windows
-bindsym $mod+space focus mode_toggle
+bindsym $super+space focus mode_toggle
 
 # Reload sway
 # Avoid if possible. Reloading sway has awful consequences, like Firefox
@@ -88,16 +87,16 @@ bindsym $mod+space focus mode_toggle
 # configure outputs background if they are re-configured by kanshi after the
 # reload). If you need to reload, pray, or close your work and exit+restart
 # sway.
-bindsym $mod+$shift+r reload
+bindsym $super+$shift+r reload
 
 # Exit sway
-bindsym $mod+$shift+f exit
+bindsym $super+$shift+f exit
 
 # Close window
-bindsym $mod+Shift+A kill
+bindsym $super+Shift+A kill
 
 # Force a window fullscreen
-bindsym $mod+f fullscreen toggle
+bindsym $super+f fullscreen toggle
 
 
 ##################################################
@@ -105,18 +104,6 @@ bindsym $mod+f fullscreen toggle
 ##################################################
 
 # Switch to workspace
-bindcode $mod+49 workspace 0
-bindcode $mod+10 workspace 1
-bindcode $mod+11 workspace 2
-bindcode $mod+12 workspace 3
-bindcode $mod+13 workspace 4
-bindcode $mod+14 workspace 5
-bindcode $mod+15 workspace 6
-bindcode $mod+16 workspace 7
-bindcode $mod+17 workspace 8
-bindcode $mod+18 workspace 9
-bindcode $mod+19 workspace 10
-
 bindcode $super+49 workspace 0
 bindcode $super+10 workspace 1
 bindcode $super+11 workspace 2
@@ -129,21 +116,45 @@ bindcode $super+17 workspace 8
 bindcode $super+18 workspace 9
 bindcode $super+19 workspace 10
 
+bindcode $alt+49 workspace 0
+bindcode $alt+10 workspace 1
+bindcode $alt+11 workspace 2
+bindcode $alt+12 workspace 3
+bindcode $alt+13 workspace 4
+bindcode $alt+14 workspace 5
+bindcode $alt+15 workspace 6
+bindcode $alt+16 workspace 7
+bindcode $alt+17 workspace 8
+bindcode $alt+18 workspace 9
+bindcode $alt+19 workspace 10
+
 # Move window to workspace
-bindcode $mod+$shift+49 move container to workspace 0
-bindcode $mod+$shift+10 move container to workspace 1
-bindcode $mod+$shift+11 move container to workspace 2
-bindcode $mod+$shift+12 move container to workspace 3
-bindcode $mod+$shift+13 move container to workspace 4
-bindcode $mod+$shift+14 move container to workspace 5
-bindcode $mod+$shift+15 move container to workspace 6
-bindcode $mod+$shift+16 move container to workspace 7
-bindcode $mod+$shift+17 move container to workspace 8
-bindcode $mod+$shift+18 move container to workspace 9
-bindcode $mod+$shift+19 move container to workspace 10
+bindcode $super+$shift+49 move container to workspace 0
+bindcode $super+$shift+10 move container to workspace 1
+bindcode $super+$shift+11 move container to workspace 2
+bindcode $super+$shift+12 move container to workspace 3
+bindcode $super+$shift+13 move container to workspace 4
+bindcode $super+$shift+14 move container to workspace 5
+bindcode $super+$shift+15 move container to workspace 6
+bindcode $super+$shift+16 move container to workspace 7
+bindcode $super+$shift+17 move container to workspace 8
+bindcode $super+$shift+18 move container to workspace 9
+bindcode $super+$shift+19 move container to workspace 10
+
+bindcode $alt+$shift+49 move container to workspace 0
+bindcode $alt+$shift+10 move container to workspace 1
+bindcode $alt+$shift+11 move container to workspace 2
+bindcode $alt+$shift+12 move container to workspace 3
+bindcode $alt+$shift+13 move container to workspace 4
+bindcode $alt+$shift+14 move container to workspace 5
+bindcode $alt+$shift+15 move container to workspace 6
+bindcode $alt+$shift+16 move container to workspace 7
+bindcode $alt+$shift+17 move container to workspace 8
+bindcode $alt+$shift+18 move container to workspace 9
+bindcode $alt+$shift+19 move container to workspace 10
 
 # Alt+Tab back-and-forth navigation
-bindsym $mod+Tab workspace back_and_forth
+bindsym $alt+Tab workspace back_and_forth
 bindsym $super+Tab workspace back_and_forth
 
 
@@ -152,7 +163,7 @@ bindsym $super+Tab workspace back_and_forth
 ##################################################
 
 # Enter resize mode
-bindsym $mod+r mode "resize"
+bindsym $super+r mode "resize"
 
 mode "resize" {
 
@@ -180,51 +191,72 @@ mode "resize" {
 
 # Window borders color
 # class                 border  backgr. text    indicator child_border
-client.focused          #9c12ff #9c12ff #ffffff #00DA8E
-client.focused_inactive #444444 #444444 #ffffff #484e50
+client.focused          #00a5dd #00a5dd #ffffff #00DA8E
+client.focused_inactive #095d7a #095d7a #ffffff #484e50
 client.unfocused        #444444 #444444 #8f8f8f #292d2e
 client.urgent           #f44336 #f44336 #ffffff #900000
 
 # No title around windows by default, only borders
-default_border pixel 2
+default_border pixel 3
 
 # ... except for floating windows...
-default_floating_border pixel 2
+default_floating_border pixel 3
 
 # ... but never on fullscreen
 smart_borders on
 
-# XXX TODO: never for firefox non-floating
 
 ##################################################
 # Window rules
 ##################################################
 
+# set specific title to XWayland apps
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
 # generic floating rules
-for_window [class="floating"]             floating enable, move position center
-for_window [app_id="floating"]            floating enable, move position center
-for_window [title="(?i)about$"]           floating enable
-for_window [title="(?i)preferences$"]     floating enable
-for_window [title="^Android Emulator - "] floating enable
-for_window [window_type="dialog"]         floating enable
-for_window [window_role="popup_menu"]     floating enable
-for_window [window_type="menu"]           floating enable
+for_window [class="floating"]             floating enable, move position center, border pixel 3
+for_window [window_type="dialog"]         floating enable, border pixel 3
+for_window [window_role="popup_menu"]     floating enable, border pixel 3
+for_window [window_role="bubble"]         floating enable, border pixel 3
+for_window [window_role="dialog"]         floating enable, border pixel 3
+for_window [window_role="pop-up"]         floating enable, border pixel 3
+for_window [window_role="task_dialog"]    floating enable, border pixel 3
+for_window [window_role="Preferences"]    floating enable, border pixel 3
+for_window [window_type="menu"]           floating enable, border pixel 3
 for_window [window_type="tooltip"]        floating enable
+for_window [title="(?:Open|Save) (?:File|Folder|As)(...)?"] floating enable, border pixel 3
+for_window [app_id="xdg-desktop-portal-gtk"] floating enable, border pixel 3
 
 # floating app rules
-for_window [app_id="blueman-manager"]           floating enable
-for_window [app_id="file-roller"]               floating enable, border pixel 2
-for_window [app_id="imv"]                       floating enable
-for_window [app_id="nm-connection-editor"]      floating enable
-for_window [app_id="qalculate-gtk"]             floating enable
-for_window [app_id="wdisplays"]                 floating enable
-for_window [app_id="zenity"]                    floating enable
-for_window [title="Network Connections"]        floating enable
-for_window [title="Network Operations Manager"] floating enable
-for_window [title="^Task Manager"]              floating enable
-for_window [title="Volume Control"]             floating enable
-for_window [app_id="nemo" title="Properties$"]  floating enable
-for_window [app_id="nemo" title="^Folder Sharing$"] floating enable
+for_window [app_id="blueman-manager"]           floating enable, border pixel 3
+for_window [app_id="file-roller"]               floating enable, border pixel 3
+for_window [app_id="org.gnome.FileRoller"]      floating enable, border pixel 3
+for_window [app_id="imv"]                       floating enable, border pixel 3
+for_window [app_id="nm-connection-editor"]      floating enable, border pixel 3
+for_window [app_id="qalculate-gtk"]             floating enable, border pixel 3
+for_window [app_id="wdisplays"]                 floating enable, border pixel 3
+for_window [app_id="zenity"]                    floating enable, border pixel 3
+for_window [app_id="org.gnome.SystemMonitor"]   floating enable, border pixel 3
+for_window [app_id="gkraken"]                   floating enable, border pixel 3
+for_window [app_id="nemo" title="Properties$"]  floating enable, border pixel 3
+for_window [app_id="nemo" title="^Folder Sharing$"] floating enable, border pixel 3
+for_window [app_id="thunar" title="^File Operation Progress$"] floating enable, border pixel 3
+for_window [app_id="thunar" title="^Confirm to replace files$"] floating enable, border pixel 3
+#for_window [app_id="code" title="(?!.* - Visual Studio Code)$"] floating enable, border pixel 3
+for_window [title="^Network Connections$"]        floating enable, border pixel 3
+for_window [title="^Network Operations Manager$"] floating enable, border pixel 3
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, border pixel 3
+for_window [title="^Android Emulator - "]       floating enable, border pixel 3
+for_window [title="^Open File$"]                floating enable, border pixel 3
+for_window [title="^Open Folder"]               floating enable, border pixel 3
+for_window [title="^Open Workspace from File$"] floating enable, border pixel 3
+for_window [title="^Add Folder to Workspace$"] floating enable, border pixel 3
+
+for_window [title="^clipse clipboard picker$"] floating enable, border pixel 3, resize set width 40 ppt, resize set height 45 ppt
+
+for_window [class="Gpicview"]         floating enable, move position center, border pixel 3
+for_window [class="Pinentry-gtk-2"]   floating enable, move position center, border pixel 3
+for_window [class="lite"]             floating enable, border pixel 3
 
 # sleep inhibition
 for_window [app_id="firefox"]     inhibit_idle fullscreen
@@ -232,12 +264,6 @@ for_window [app_id="mpv"]         inhibit_idle
 for_window [class="vlc"]          inhibit_idle
 for_window [class="Spotify"]      inhibit_idle fullscreen
 
-# title rules
-
-# X11/xwayland rules
-for_window [class="Gpicview"]         floating enable, move position center
-for_window [class="Pinentry-gtk-2"]   floating enable, move position center
-for_window [class="lite"]             floating enable
 
 # Firefox
 # sooooooooo :)
@@ -250,7 +276,8 @@ for_window [app_id="firefox" title="__focused__"]             floating disable
 for_window [app_id="firefox" title="^Opening"]                floating enable
 for_window [app_id="firefox" title="Mozilla Firefox"]         floating disable, border none
 for_window [app_id="firefox" title="^Page Info — "]           floating enable
-for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
+for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable, border pixel 3
+for_window [app_id="firefox" title="^Save As$"]               floating enable, border pixel 3
 
 
 ##################################################
@@ -258,138 +285,50 @@ for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
 ##################################################
 
 # Program shortcuts
-# most used shortcut: spin up kitty fast
-bindsym $mod+Return   exec "kitty -1"
-# less used shortcut: spin up a new, standalone kitty instance
 bindsym $super+Return exec "kitty"
-bindsym $super+e      exec "nemo"
-bindsym $super+f      exec "firefox"
-bindsym $super+c      exec "clipman pick -t rofi"
-#bindsym $super+v      exec "rofi-pass"
-#bindsym $super+q      exec "rofimoji"
+bindsym $alt+Return   exec "kitty -1"
+bindsym $super+e      exec "thunar"
+bindsym $super+b      exec "firefox"
+bindsym $super+c      exec "kitty --title 'clipse clipboard picker' --override confirm_os_window_close=0 clipse"
+bindsym $super+q      exec "rofimoji"
 
 # Program launcher
 # NOTE: using https://aur.archlinux.org/packages/rofi-lbonn-wayland-git/ until
 # https://github.com/davatorium/rofi/issues/446 is closed.
-bindsym   $super+w    exec "rofi -show drun -show-icons"
-bindsym   $super+x    exec "rofi -show run"
+bindsym $super+z exec "rofi -show drun -show-icons"
+bindsym $super+x exec "rofi -show run"
 
 # Notifications (dunst) shortcuts
-bindsym ctrl+space exec dunstctl close
+bindsym $ctrl+space        exec "dunstctl close"
+bindsym $ctrl+$shift+space exec "dunstctl history-pop"
 
 # Window switcher
-# XXX: wayland fork does not have window mode
-#bindcode  $super+94  exec "rofi -show window -show-icons"
+bindsym $super+w  exec "rofi -show window -show-icons"
 
 # Lock screen
-bindsym --release $super+l exec "~/scripts/wayland/lock.sh"
+bindsym $super+l exec "~/scripts/lock.sh"
 
 # Screenshot with selection
-bindsym Print exec "~/scripts/wayland/screenshot.sh"
+bindsym Print exec "~/scripts/screenshot.sh"
 
 # Screenshot currently focused monitor
-bindsym $super+Print exec "~/scripts/wayland/screenshot-currentscreen.sh"
+bindsym $super+Print exec "~/scripts/screenshot-currentscreen.sh"
 
 # Multimedia keys
-bindsym XF86MonBrightnessUp   exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
-bindsym XF86MonBrightnessDown exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/brightness && pkill -RTMIN+11 i3blocks"
+bindsym XF86MonBrightnessUp   exec "echo '+' > /tmp/waybar-ddc-module-rx"
+bindsym XF86MonBrightnessDown exec "echo '-' > /tmp/waybar-ddc-module-rx"
 
-bindsym XF86AudioMute         exec "BLOCK_BUTTON=3 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioRaiseVolume  exec "BLOCK_BUTTON=4 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume  exec "BLOCK_BUTTON=5 ~/.config/i3/scripts/volume && pkill -RTMIN+10 i3blocks"
+bindsym --locked XF86AudioMute         exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym --locked XF86AudioRaiseVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ +4%"
+bindsym --locked XF86AudioLowerVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ -4%"
 
-bindsym XF86AudioPlay   exec playerctl play
-bindsym XF86AudioPause  exec playerctl pause
-bindsym XF86AudioNext   exec playerctl next
-bindsym XF86AudioPrev   exec playerctl previous
+bindsym --locked XF86AudioPlay   exec playerctl play-pause
+bindsym --locked XF86AudioPause  exec playerctl pause
+bindsym --locked XF86AudioNext   exec playerctl next
+bindsym --locked XF86AudioPrev   exec playerctl previous
 
 # Cancer
 bindcode 135 exec "play ~/cancer/AH.mp3"
-
-
-##################################################
-# Bars
-##################################################
-
-# TODO: DRY
-# we cannot use `include` directives in bar{} config :(
-
-# Primary screen bar
-bar {
-  output $primary_monitor
-  status_command i3blocks -c ~/.config/i3/blocks
-  position bottom
-  font pango:Noto Sans, Awesome 13.5
-  tray_padding 3
-
-  height 39
-  workspace_min_width 35
-
-  colors {
-    background  #111111
-    statusline  #ccccdc
-
-    # Workspace names color
-    # class             border  backgr. text
-    focused_workspace   #dddddd #dddddd #000000
-    active_workspace    #ff0000 #ff0000 #000000
-    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
-    urgent_workspace    #f44336 #f44336 #ffffff
-    binding_mode        #EF6C00 #EF6C00 #ffffff
-  }
-}
-
-# Secondary screen bar
-bar {
-  output $secondary_monitor
-  status_command i3blocks -c ~/.config/i3/blocks_secondary
-  position bottom
-  font pango:Noto Sans, Awesome 13.5
-  tray_padding 3
-
-  workspace_min_width 35
-
-  colors {
-    background  #111111
-    statusline  #ccccdc
-
-    # Workspace names color
-    # class             border  backgr. text
-    focused_workspace   #dddddd #dddddd #000000
-    active_workspace    #ff0000 #ff0000 #000000
-    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
-    urgent_workspace    #f44336 #f44336 #ffffff
-    binding_mode        #EF6C00 #EF6C00 #ffffff
-  }
-
-  height 37
-}
-
-# Laptop screen bar
-bar {
-  output $laptop_monitor
-  status_command i3blocks -c ~/.config/i3/blocks
-  position bottom
-  tray_padding 3
-
-  workspace_min_width 33
-
-  colors {
-    background  #111111
-    statusline  #ccccdc
-
-    # Workspace names color
-    # class             border  backgr. text
-    focused_workspace   #dddddd #dddddd #000000
-    active_workspace    #ff0000 #ff0000 #000000
-    inactive_workspace  #2f2f3f #2f2f3f #aaaaaa
-    urgent_workspace    #f44336 #f44336 #ffffff
-    binding_mode        #EF6C00 #EF6C00 #ffffff
-  }
-
-  font pango:Noto Sans, Awesome 12.5
-  height 36
-}
 
 
 ##################################################
@@ -397,13 +336,12 @@ bar {
 ##################################################
 
 input type:keyboard {
-    xkb_layout "fr"
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
     xkb_options "caps:swapescape"
-    # XXX: makes firefox crash on sway reload :)
-    # https://bugzilla.mozilla.org/show_bug.cgi?id=1652820
-    #xkb_numlock "enabled"
+    xkb_numlock "enabled"
     repeat_delay 200
-    repeat_rate 30
+    repeat_rate 32
 }
 
 input type:touchpad {
@@ -447,8 +385,23 @@ workspace 5 output $primary_monitor
 assign [class="Caprine"] workspace 4
 #for_window [class="Caprine"] move container to workspace 4
 assign [class="discord"] workspace 4
+assign [app_id="discord"] workspace 4
+assign [class="Signal"] workspace 4
+assign [app_id="signal"] workspace 4
 #for_window [class="discord"] move container to workspace 4
 assign [class="Spotify"] workspace 5
+assign [app_id="spotify"] workspace 5
+assign [title="^Spotify Premium$"] workspace 5
+
+
+##################################################
+# Special window conditions
+##################################################
+
+# Hide Gkraken at startup cause usually we just start/stop it to apply some config
+for_window [app_id="gkraken"] move window to scratchpad
+
+# Spotify is dumb
 for_window [class="Spotify"] move container to workspace 5
 
 
@@ -456,17 +409,9 @@ for_window [class="Spotify"] move container to workspace 5
 # Startup programs
 ##################################################
 
-# Network Manager
-exec "nm-applet"
 
-# Warmer screen color at night
-exec "gammastep"
-
-# Bluetooth manager
-exec "blueman-applet"
-
-# Removable media manager from the tray
-exec "udiskie -c ~/.config/udiskie/config.yml"
+# Notify other systemd services we started
+exec "systemd-notify --ready --no-block"
 
 # GTK fixes
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
@@ -474,35 +419,18 @@ exec_always "~/scripts/wayland/fix-gtk-theme.sh"
 
 # Touchpad gestures handling
 # "start" does not work
-exec "libinput-gestures-setup restart"
+# TODO: laptop only
+#exec "libinput-gestures-setup restart"
 
-# Automatic monitor configuration
-# (autorandr for Wayland)
-exec "sleep 1 && kanshi"
+# kanshi is started by a systemd user service, but reload is needed when
+# reloading sway, because of https://todo.sr.ht/~emersion/kanshi/35
+exec_always "kanshictl reload"
 
-# Lock screen after 15 minutes of inactivity
-# But show warning 1 minute before
-# After 1 minute of locking, turn off screen via DPMS
-exec_always swayidle \
-  timeout 840 'notify-send -u low "Locking soon" "Screen will be locked in 60 seconds without action"' \
-  timeout 900 '~/scripts/wayland/lock.sh' \
-  timeout 960 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"'
-
-# Clipboard manager
-# (hook to store all copied text items)
-exec wl-paste -t text --watch clipman store --notify
-
-# Re-copy last copied item
-exec clipman restore
-
-# Notification daemon
-# (sleep is a possible workaround for dunst not properly grabbing the screen or
-# smth (it's started but notifications are not displayed and I need to restart
-# it))
-exec "sleep 2 && dunst"
+exec_always "xrandr --output $(xrandr | grep 'connected 2560' | awk '{print $1}') --primary"
 
 # Switch to primary workspace
 workspace 1
+exec 'sleep 1; swaymsg workspace 1'
+exec 'sleep 2; swaymsg workspace 1'
 
 exec ~/scripts/startup.sh
