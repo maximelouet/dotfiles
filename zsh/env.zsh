@@ -5,10 +5,13 @@
 
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
+# Currency in Euros
+export LC_MONETARY="fr_FR.UTF-8"
 
 export EDITOR='vim'
 export VISUAL='vim'
-export PAGER='less -X'
+# bat highlights some languages. -p (plain) skips borders and line numbers.
+export PAGER="bat -p"
 export MANPAGER="$PAGER"
 export TERM=xterm-256color
 
@@ -17,17 +20,22 @@ export USER='saumon'
 export CASE_SENSITIVE='true'
 export CLICOLOR=1
 
-export HISTFILE="$HOME/.zsh/history"
-export HISTSIZE=500000
-export SAVEHIST=$HISTSIZE
-
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_QPA_PLATFORMTHEME=gtk2
 
 export TZ='Europe/Paris'
 
-export XDG_CONFIG_HOME="$HOME/.config"
+# Default XDG values
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# Sensible storage locations
+export PSQL_HISTORY=$XDG_DATA_HOME/psql_history
+export LESSHISTFILE=$XDG_DATA_HOME/less_history
+export IPYTHONDIR=$XDG_DATA_HOME/ipython
+export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
 export WATCH='all'
 
@@ -42,7 +50,9 @@ export THEFUCK_PRIORITY="git_hook_bypass=1100"
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
   export MOZ_ENABLE_WAYLAND=1
   export QT_QPA_PLATFORM=wayland
+  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
   export CLUTTER_BACKEND=wayland
+  export ELECTRON_OZONE_PLATFORM_HINT=wayland
   # Setting this globally breaks apps
   #export GDK_BACKEND=wayland
 fi

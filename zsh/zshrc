@@ -15,6 +15,41 @@ for file in "$HOME/.zsh/"*.zsh; do
   source "${file}"
 done
 
+
+
+# History settings
+
+export HISTFILE="$HOME/.zsh/history"
+# TODO: migrate
+#export HISTFILE="$XDG_DATA_HOME/.zsh/history"
+export HISTSIZE=500000
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_dups  # Collapse two consecutive idential commands.
+setopt hist_find_no_dups  # Ignore duplicates when searching history.
+setopt share_history  # Share across concurrent sessions (append immediately, read from files, add timestamps).
+setopt hist_ignore_space  # Lines that begin with space are not recorded.
+setopt hist_verify  # Don't auto-execute selected history entry.
+setopt hist_ignore_all_dups  # If a history entry would be duplicate, delete older copies.
+
+# History navigation
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey '^P' up-line-or-beginning-search
+
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^N' down-line-or-beginning-search
+
+
+# Scroll instead of clearing the screen
+function clear-screen-keep-sb() {
+    print -n ${(pl:LINES-BUFFERLINES::\n:)}
+    zle .clear-screen
+}
+zle -N clear-screen clear-screen-keep-sb
+
+
+
 ulimit -c 0
 
 # fg when pressing Ctrl+Z
@@ -32,17 +67,9 @@ function fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-# Do not save commands beginning with space
-setopt HIST_IGNORE_SPACE
-
 # cd to directory when just typing its name
 # useful for fzf
 setopt auto_cd
-
-# https://github.com/skywind3000/z.lua
-if [ -f "/usr/share/z.lua/z.lua" ]; then
-  eval "$(lua /usr/share/z.lua/z.lua --init zsh)"
-fi
 
 if [ -f "/usr/share/doc/fzf/examples/key-bindings.zsh" ]; then
   source "/usr/share/doc/fzf/examples/key-bindings.zsh"
