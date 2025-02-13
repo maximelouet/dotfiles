@@ -11,6 +11,7 @@
 [alias]
   abort = rebase --abort
   amend = commit --amend
+  amend-time = "!GIT_COMMITTER_DATE=\"`date`\" git commit --amend --no-edit --date \"`date`\""
   addd = add
   ass = add
   b = branch
