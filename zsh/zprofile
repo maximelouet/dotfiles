@@ -8,6 +8,6 @@ source /etc/zsh/zprofile
 source "$ZDOTDIR/env.zsh"
 
 # Autostart graphical interface upon login on TTY1
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec ~/scripts/sway-user-service.sh
 fi
