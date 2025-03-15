@@ -44,6 +44,9 @@ export NVM_DIR=$HOME/.config/nvm
 export ANSIBLE_NOCOWS=1
 export ANSIBLE_STDOUT_CALLBACK=yaml  # https://twitter.com/svg/status/1370099072959455238
 
+# Use gnome-keyring-daemon as ssh agent (needs gcr-4 package)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
 # https://github.com/nvbn/thefuck/issues/1207#issuecomment-864671223
 export THEFUCK_PRIORITY="git_hook_bypass=1100"
 
@@ -60,3 +63,24 @@ fi
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
+
+# Used by i3-sensible-terminal
+export TERMINAL="kitty"
+
+
+# Path additions
+
+addtopath() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="${PATH:+"$PATH:"}$1"
+  fi
+}
+
+addtopath "$HOME/go/bin"
+addtopath "$HOME/.local/bin"
+addtopath "$HOME/.poetry/bin"
+addtopath "$HOME/.yarn/bin"
+addtopath "$HOME/.cargo/bin"
+addtopath "$HOME/.local/share/JetBrains/Toolbox/scripts"
+
+source "$HOME/.cargo/env"
