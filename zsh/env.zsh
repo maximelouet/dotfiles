@@ -42,7 +42,6 @@ export WATCH='all'
 export NVM_DIR=$HOME/.config/nvm
 
 export ANSIBLE_NOCOWS=1
-export ANSIBLE_STDOUT_CALLBACK=yaml  # https://twitter.com/svg/status/1370099072959455238
 
 # Use gnome-keyring-daemon as ssh agent (needs gcr-4 package)
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
