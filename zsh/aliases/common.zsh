@@ -262,6 +262,8 @@ alias ln='ln -v'
 alias ve="vim $HOME/.vim/vimrc"
 alias ze="vim $HOME/.zsh/zshrc"
 alias ie="vim $HOME/.config/i3/config"
+alias se="vim $HOME/.config/sway/config"
+alias we="vim $HOME/.config/waybar/config.jsonc"
 alias ge="vim $HOME/.config/git/config"
 alias pe='sudo vim /etc/pacman.conf'
 alias ne='sudo vim /etc/nginx/nginx.conf'
@@ -314,6 +316,7 @@ alias i3-info='i3-msg -t get_tree | jq'
 alias :q='exit'
 alias ipa='ip -brief a'
 alias re='dig +short -x'  # reverse DNS PTR
+alias bat='bat -p'  # bat but scrollable (without line numbers, idc)
 
 # kitty's kittens
 if [ $commands[kitty] ]; then
