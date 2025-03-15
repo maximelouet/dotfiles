@@ -3,6 +3,10 @@
 # zprofile: sourced at login
 #
 
+source /etc/zsh/zprofile
+
+source "$ZDOTDIR/env.zsh"
+
 # Autostart graphical interface upon login on TTY1
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
