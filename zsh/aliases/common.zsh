@@ -45,8 +45,7 @@ be() {
 
 # close all SSH ControlMaster connections
 ssh_close_all() {
-  dir=$HOME/.ssh/sockets
-  for i in $dir/*; do ssh -o ControlPath=$i -O exit squalala; done
+  for sock in /tmp/ssh-control-*; do ssh -o ControlPath=$sock -O exit squalala; done
 }
 
 # pull all direct subdirectories
