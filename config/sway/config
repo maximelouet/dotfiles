@@ -99,10 +99,10 @@ bindsym $super+space focus mode_toggle
 bindsym $super+$shift+r reload
 
 # Exit sway
-bindsym $super+$shift+f exit
+bindsym $super+$shift+f exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Close window
-bindsym $super+Shift+A kill
+bindsym $super+$shift+A kill
 
 # Force a window fullscreen
 bindsym $super+f fullscreen toggle
