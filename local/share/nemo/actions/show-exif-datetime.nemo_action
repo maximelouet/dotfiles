@@ -1,9 +1,0 @@
-[Nemo Action]
-Name=Show EXIF datetime
-Comment=Print the image EXIF DateTime value
-Exec=/home/saumon/scripts/photo/show-exif-datetime.sh %F
-Icon-Name=view-reveal
-Selection=s
-Quote=double
-Dependencies=exiv2;
-Extensions=png;jpg;jpeg;

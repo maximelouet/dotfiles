@@ -1,9 +1,0 @@
-[Nemo Action]
-Name=Make executable
-Comment=Mark file as executable (chmod +x)
-Exec=<scripts/make-executable.sh %F>
-Icon-Name=application-x-executable
-Selection=notnone
-Extensions=none;sh;
-Conditions=exec <scripts/check-is-executable.sh %F>;
-Quote=double

@@ -1,9 +1,0 @@
-[Nemo Action]
-Name=Split PDF
-Comment=Explode PDF file into one file for each of its pages
-Exec=<scripts/pdf-split.sh %F>
-Icon-Name=split
-Selection=s
-Extensions=pdf;
-Quote=double
-Dependencies=pdftk;

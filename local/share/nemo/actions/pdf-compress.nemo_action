@@ -1,9 +1,0 @@
-[Nemo Action]
-Name=Compress PDF
-Comment=Compress and downscale PDF file using ghostscript
-Exec=<scripts/pdf-compress.sh %F>
-Icon-Name=pdf
-Selection=s
-Extensions=pdf;
-Quote=double
-Dependencies=gs;
