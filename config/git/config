@@ -10,19 +10,23 @@
   defaultBranch = main
 [alias]
   abort = rebase --abort
+  addd = add
   amend = commit --amend
   amend-time = "!GIT_COMMITTER_DATE=\"`date`\" git commit --amend --no-edit --date \"`date`\""
-  addd = add
   ass = add
   b = branch
   c = checkout
   cm = commit
   cmm = commit -m
+  dd = -c core.pager=less diff
   d = diff
   delete-remote-branch = push origin --delete
   delete-remote-tag = push origin --delete
+  difft = -c diff.external=difft diff
+  dt = -c diff.external=difft diff
   initial-commit = "!git commit -m \"Initial commit\" --allow-empty"
   logs = log --show-signature
+  lt = -c diff.external=difft log -p --ext-diff
   main = "!git switch `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`"
   pa = pull --all
   pouche = push
