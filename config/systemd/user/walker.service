@@ -1,0 +1,11 @@
+[Unit]
+Description=Walker application launcher
+PartOf=wayland-session.target
+After=sway.service
+
+[Service]
+ExecStart=/usr/bin/walker --gapplication-service
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target

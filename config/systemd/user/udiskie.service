@@ -1,0 +1,11 @@
+[Unit]
+Description=udiskie tray disk helper
+PartOf=wayland-session.target
+After=sway.service
+
+[Service]
+ExecStart=/usr/bin/udiskie
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target

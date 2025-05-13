@@ -1,0 +1,11 @@
+[Unit]
+Description=Display colour temperature adjustment
+PartOf=wayland-session.target
+After=sway.service
+
+[Service]
+ExecStart=/usr/bin/gammastep
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target

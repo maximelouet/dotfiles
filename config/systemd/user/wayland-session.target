@@ -1,0 +1,6 @@
+[Unit]
+Description=Wayland user session
+Documentation=man:systemd.special(7)
+Requires=default.target
+After=default.target
+StopWhenUnneeded=yes

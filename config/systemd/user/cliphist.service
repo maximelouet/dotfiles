@@ -1,0 +1,11 @@
+[Unit]
+Description=Cliphist clipboard manager
+PartOf=wayland-session.target
+After=sway.service
+
+[Service]
+ExecStart=/usr/bin/wl-paste --watch cliphist store
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target

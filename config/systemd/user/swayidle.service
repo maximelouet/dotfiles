@@ -1,0 +1,17 @@
+[Unit]
+Description=Idle manager for Wayland
+Documentation=man:swayidle(1)
+PartOf=wayland-session.target
+After=sway.service
+
+[Service]
+ExecStart=/usr/bin/swayidle -w \
+                            timeout 15  'if pgrep --exact waylock; then swaymsg "output * power off"; fi' \
+                                 resume 'swaymsg "output * power on";' \
+                            timeout 900 'if ! pgrep --exact waylock; then dunstctl set-paused true; (waylock -init-color "0x331111" -input-color "0x7B1FA2" -fail-color "0xFF5722" && dunstctl set-paused false && swaymsg "output * power on") & fi' \
+                            timeout 910 'swaymsg "output * power off"' \
+                                 resume 'swaymsg "output * power on";'
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target

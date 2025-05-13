@@ -1,0 +1,11 @@
+[Unit]
+Description=wl-clip-persist
+PartOf=wayland-session.target
+After=sway.service
+
+[Service]
+ExecStart=/usr/bin/wl-clip-persist --clipboard regular
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target
