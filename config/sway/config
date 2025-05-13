@@ -298,7 +298,7 @@ bindsym $super+Return exec "kitty"
 bindsym $alt+Return   exec "kitty -1"
 bindsym $super+e      exec "thunar"
 bindsym $super+b      exec "firefox"
-bindsym $super+c      exec "kitty --title 'clipse clipboard picker' --override confirm_os_window_close=0 clipse"
+bindsym $super+c      exec "rofi -modi clipboard:~/.config/cliphist/cliphist-rofi -show clipboard"
 bindsym $super+q      exec "rofimoji"
 
 # Program launcher
@@ -406,7 +406,6 @@ for_window [class="Spotify"] move container to workspace 5
 ##################################################
 # Startup programs
 ##################################################
-
 
 # Notify other systemd services we started
 exec "systemd-notify --ready --no-block"
