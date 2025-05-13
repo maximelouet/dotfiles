@@ -47,7 +47,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#c42bbd"
+    frame_color = "#00a5dd"
 
     # Define a color for the separator.
     # possible values are:
@@ -210,7 +210,7 @@
 [urgency_low]
     background  = "#333333"
     foreground  = "#ffffff"
-    frame_color = "#eeeeee"
+    frame_color = "#dddddd"
     highlight   = "#9d00ff"
     timeout     = 8
     # Icon for notifications with low urgency, uncomment to enable
@@ -280,7 +280,6 @@
 
 [spotify]
     appname = Spotify
-    script = ~/scripts/i3blocks-refresh-from-dunst.sh
     frame_color = "#1DB954"  # spotify green
     set_transient = true
     history_ignore = true
