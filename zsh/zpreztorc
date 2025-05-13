@@ -21,8 +21,6 @@ zstyle ':prezto:load' pmodule \
   'autosuggestions' \
   'prompt'
 
-zstyle ':prezto:module:autosuggestions:color' found 'fg=8'
-
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'sorin'
 
