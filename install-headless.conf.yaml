@@ -12,12 +12,10 @@
 - clean: ['~']
 
 - link:
-    ~/.config/git:
+    ~/.config/:
       create: true
-      path: config/git
-    ~/.config/htop:
-      create: true
-      path: config/htop
+      glob: true
+      path: config/*
     ~/.tmux.conf:
     ~/.vim:
     ~/.zsh:

@@ -36,7 +36,6 @@
       path: mozilla/firefox/*
     ~/.tmux.conf:
     ~/.vim:
-    ~/.xinitrc:
     ~/.Xmodmap:
     ~/.Xresources:
     ~/.zsh:
