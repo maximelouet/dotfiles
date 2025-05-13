@@ -22,7 +22,7 @@
     origin = bottom-right
 
     # Offset from the origin
-    offset = 20x24
+    offset = (20, 24)
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 10
