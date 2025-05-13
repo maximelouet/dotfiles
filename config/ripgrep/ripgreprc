@@ -1,5 +1,6 @@
 # Hide matches for files like minified Web assets or other random shit
---max-columns=200
+--max-columns=9999
 #--max-columns-preview
 
+--color=auto
 --smart-case
