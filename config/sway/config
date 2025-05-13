@@ -32,7 +32,6 @@ output $secondary_monitor mode 1920x1080 pos 2560 0 transform 90
 output * background "~/images/wallpapers/Own/lgbt.png" stretch
 
 # clamshell mode
-# TODO: test
 bindswitch --reload --locked lid:on output $laptop_monitor disable
 bindswitch --reload --locked lid:off output $laptop_monitor enable
 
@@ -321,8 +320,8 @@ bindsym Print exec "~/scripts/screenshot.sh"
 bindsym $super+Print exec "~/scripts/screenshot-currentscreen.sh"
 
 # Multimedia keys
-bindsym XF86MonBrightnessUp   exec "echo '+' > /tmp/waybar-ddc-module-rx"
-bindsym XF86MonBrightnessDown exec "echo '-' > /tmp/waybar-ddc-module-rx"
+bindsym XF86MonBrightnessUp   exec "echo '+' > /tmp/waybar-laptop-brightness-module-rx"
+bindsym XF86MonBrightnessDown exec "echo '-' > /tmp/waybar-laptop-brightness-module-rx"
 
 bindsym --locked XF86AudioMute         exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym --locked XF86AudioRaiseVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ +4%"
