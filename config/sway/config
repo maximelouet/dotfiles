@@ -302,10 +302,7 @@ bindsym $super+c      exec "kitty --title 'clipse clipboard picker' --override c
 bindsym $super+q      exec "rofimoji"
 
 # Program launcher
-# NOTE: using https://aur.archlinux.org/packages/rofi-lbonn-wayland-git/ until
-# https://github.com/davatorium/rofi/issues/446 is closed.
-bindsym $super+z exec "rofi -show drun -show-icons"
-bindsym $super+x exec "rofi -show run"
+bindsym $super+z exec "walker --modules applications,bookmarks,emojis,calc,windows,symbols,websearch"
 
 # Notifications (dunst) shortcuts
 bindsym $ctrl+space        exec "dunstctl close"

@@ -1,0 +1,151 @@
+theme = "saumon"
+timeout = 0
+as_window = false
+force_keyboard_focus = true
+
+[keys]
+accept_typeahead = ["tab", "right"]
+trigger_labels = "lalt"
+next = ["down"]
+prev = ["up"]
+close = ["esc"]
+remove_from_history = ["shift backspace"]
+resume_query = ["ctrl r"]
+toggle_exact_search = ["ctrl m"]
+
+[keys.activation_modifiers]
+keep_open = "shift"
+alternate = "alt"
+
+[list]
+dynamic_sub = true
+max_entries = 50
+show_initial_entries = false
+single_click = true
+visibility_threshold = 30
+placeholder = "No results"
+
+[search]
+argument_delimiter = "#"
+placeholder = "Search anything…"
+delay = 0
+resume_last_query = false
+
+[activation_mode]
+labels = "jkl;asdf"
+
+[builtins.applications]
+weight = 5
+name = "applications"
+placeholder = "Applications"
+prioritize_new = true
+hide_actions_with_empty_query = true
+context_aware = true
+refresh = true
+show_sub_when_single = true
+show_icon_when_single = true
+show_generic = true
+history = true
+
+[builtins.applications.actions]
+enabled = false
+hide_category = false
+hide_without_query = true
+
+[builtins.bookmarks]
+weight = 10
+placeholder = "Bookmarks"
+name = "bookmarks"
+icon = "bookmark"
+switcher_only = true
+
+[[builtins.bookmarks.entries]]
+label = "Google Maps"
+url = "https://www.google.com/maps"
+keywords = ["m", "maps"]
+
+[[builtins.bookmarks.entries]]
+label = "OpenStreetMap"
+url = "https://www.openstreetmap.org"
+keywords = ["osm", "maps"]
+
+[[builtins.bookmarks.entries]]
+label = "Météo Angoulême"
+url = "https://www.lameteoagricole.net/meteo-heure-par-heure/Angouleme-16000.html"
+keywords = ["w", "weather", "meteo"]
+
+[[builtins.bookmarks.entries]]
+label = "Photos"
+url = "/data/Photos/"
+keywords = ["photos"]
+
+[builtins.calc]
+require_number = true
+weight = 5
+name = "calc"
+icon = "accessories-calculator"
+placeholder = "Calculator"
+min_chars = 4
+
+[builtins.windows]
+weight = 5
+icon = "view-restore"
+prefix = "w "
+name = "windows"
+placeholder = "Windows"
+show_icon_when_single = true
+
+[builtins.commands]
+weight = 5
+icon = "utilities-terminal"
+switcher_only = true
+name = "commands"
+placeholder = "Commands"
+
+[builtins.emojis]
+exec = "wl-copy"
+weight = 5
+name = "emojis"
+placeholder = "Emojis"
+switcher_only = true
+history = true
+typeahead = true
+show_unqualified = true
+on_select = "wtype -"
+
+[builtins.symbols]
+after_copy = ""
+weight = 5
+name = "symbols"
+placeholder = "Symbols"
+switcher_only = true
+history = true
+typeahead = true
+on_select = "wtype -"
+
+[builtins.websearch]
+keep_selection = true
+weight = 5
+icon = "applications-internet"
+name = "websearch"
+placeholder = "Websearch"
+
+[[builtins.websearch.entries]]
+name = "Kagi"
+url = "https://kagi.com/search?q=%TERM%"
+prefix = "s "
+
+[[builtins.websearch.entries]]
+name = "SNCF Connect"
+url = "https://www.sncf-connect.com/app/home/search?userInput=%TERM%"
+prefix = "sncf "
+
+[[builtins.websearch.entries]]
+name = "YouTube"
+url = "https://www.youtube.com/results?search_query=%TERM%"
+prefix = "yt "
+
+[[builtins.websearch.entries]]
+name = "Google Maps"
+url = "https://www.google.com/maps/search/%TERM%/"
+prefix = "m "
