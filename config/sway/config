@@ -21,11 +21,20 @@ set $ctrl   Control
 set $shift  Shift
 
 # Monitors
-# (automatic monitor configuration is done by kanshi but these variables are
-# used later on for workspace assignments)
 set $primary_monitor "Dell Inc. DELL U2721DE 89GN023"
 set $secondary_monitor "Dell Inc. DELL P2219HC GWDW8P2"
 set $laptop_monitor "eDP-1"
+
+output $primary_monitor mode 2560x1440 pos 0 198
+output $secondary_monitor mode 1920x1080 pos 2560 0 transform 90
+
+# Desktop wallpaper
+output * background "~/images/wallpapers/Own/lgbt.png" stretch
+
+# clamshell mode
+# TODO: test
+bindswitch --reload --locked lid:on output $laptop_monitor disable
+bindswitch --reload --locked lid:off output $laptop_monitor enable
 
 
 ##################################################
@@ -361,14 +370,6 @@ input type:pointer {
     scroll_factor 1.1
 }
 
-# Desktop wallpaper
-output * background "~/images/wallpapers/Own/lgbt.png" stretch
-
-# clamshell mode
-# TODO: test
-bindswitch --reload --locked lid:on output $laptop_monitor disable
-bindswitch --reload --locked lid:off output $laptop_monitor enable
-
 ##################################################
 # Workspace assignments
 ##################################################
@@ -421,10 +422,6 @@ exec_always "~/scripts/wayland/fix-gtk-theme.sh"
 # "start" does not work
 # TODO: laptop only
 #exec "libinput-gestures-setup restart"
-
-# kanshi is started by a systemd user service, but reload is needed when
-# reloading sway, because of https://todo.sr.ht/~emersion/kanshi/35
-exec_always "kanshictl reload"
 
 exec_always "xrandr --output $(xrandr | grep 'connected 2560' | awk '{print $1}') --primary"
 
