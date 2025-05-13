@@ -62,7 +62,7 @@
         "max-length": 50
     },
     "custom/ping": {
-        "exec": "~/.config/waybar-scripts/ping",
+        "exec": "~/.dotfiles/waybar-scripts/ping",
         "return-type": "json"
     },
     "pulseaudio": {
@@ -84,7 +84,7 @@
     },
     "custom/ddc_brightness": {
         "format": "  {}%",
-        "exec": "~/.config/waybar-scripts/brightness-desktop U2721DE",
+        "exec": "~/.dotfiles/waybar-scripts/brightness-desktop U2721DE",
         "return-type": "json",
         "on-scroll-up": "echo '+' > /tmp/waybar-ddc-module-U2721DE-rx",
         "on-scroll-down": "echo '-' > /tmp/waybar-ddc-module-U2721DE-rx",
@@ -138,7 +138,7 @@
         "on-click-right": "xdg-open https://www.lameteoagricole.net/previsions-meteo-agricole/Angouleme-16000.html"
     },
     "custom/dunst": {
-        "exec": "~/.config/waybar-scripts/dunst",
+        "exec": "~/.dotfiles/waybar-scripts/dunst",
         "return-type": "json",
         "on-click": "dunstctl history-pop",
         "on-click-right": "dunstctl set-paused toggle",
