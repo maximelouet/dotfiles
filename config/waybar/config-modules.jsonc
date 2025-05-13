@@ -1,0 +1,177 @@
+{
+    "sway/workspaces": {
+        "disable-scroll-wraparound": true
+    },
+    "sway/mode": {
+        "format": "  {}",
+        "max-length": 50
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "  CAPS LOCK",
+            "unlocked": ""
+        },
+        "binding-keys": [1]
+    },
+    "systemd-failed-units": {
+        "format": "  {nr_failed} failed units",
+        "hide-on-ok": true
+    },
+    "mpris": {
+        "format": "{player_icon}  {dynamic}",
+        "player": "spotify",
+        "dynamic-order": ["artist", "title"],
+        "player-icons": {
+            "default": "▶",
+            "spotify": "",
+            "mpv": "🎵"
+        },
+        "on-click": "swaymsg '[class=\"Spotify\"] focus'",
+        "on-click-middle": "",
+        "on-click-right": "playerctl play-pause",
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next"
+    },
+    "bluetooth": {
+        "on-click": "blueman-manager",
+        "on-click-right": "rfkill toggle bluetooth",
+        "min-length": 2,
+        "format": "",
+        "format-off": "",
+        "format-disabled": "",
+        "format-connected": "  <span font_size='small'>{device_alias}</span>",
+        "format-connected-battery": "  <span font_size='small'>{device_alias} ({device_battery_percentage}%)</span>",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "exec-if": "which blueman-manager"
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "  <span font_size='small'>{essid}</span>",
+        "format-linked": "  (no IP) ",
+        "format-ethernet": "󰊗  {ipaddr}/{cidr}",
+        "format-disconnected": "(no network)",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": " <tt>{essid}</tt> ({frequency} GHz) on <tt>{ifname}</tt>\n {signalStrength}% ({signaldBm} dBm)\n <tt>{ipaddr}/{cidr}</tt> (right click for all IPs)\n <tt>{gwaddr}</tt>",
+        "tooltip-format-ethernet": "󰊗 {ifname}: {ipaddr}",
+        "tooltip-format-disconnected": "(no network)",
+        "on-click-right": "ip -color=never -brief a > /tmp/network-waybar-status && echo -en '\nExternal IPv4: ' >> /tmp/network-waybar-status && curl -sS ipv4.saumon.io >> /tmp/network-waybar-status ; echo -en '\nExternal IPv6: ' >> /tmp/network-waybar-status && curl -sS ipv6.saumon.io >> /tmp/network-waybar-status ; zenity --text-info --filename=/tmp/network-waybar-status --title='Network IPs' --width=700 --height=400 --font=monospace",
+        "max-length": 50
+    },
+    "custom/ping": {
+        "exec": "~/.config/waybar-scripts/ping",
+        "return-type": "json"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": " {icon}  {volume}%",
+        "format-muted": "{icon}  {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "scroll-step": 4,
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "custom/ddc_brightness": {
+        "format": "  {}%",
+        "exec": "~/.config/waybar-scripts/brightness-desktop U2721DE",
+        "return-type": "json",
+        "on-scroll-up": "echo '+' > /tmp/waybar-ddc-module-U2721DE-rx",
+        "on-scroll-down": "echo '-' > /tmp/waybar-ddc-module-U2721DE-rx",
+        // "on-click": "echo 'min' > /tmp/waybar-ddc-module-U2721DE-rx",
+        // "on-click-right": "echo 'max' > /tmp/waybar-ddc-module-U2721DE-rx",
+        "exec-if": "which ddcutil"
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "cpu": {
+        "interval": 7,
+        "states": {
+            "medium": 50,
+            "high": 70
+        },
+        "format": "  "
+    },
+    "temperature": {
+        "interval": 10,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", // AMD CPU
+        "critical-threshold": 70,
+        "format": "  ",
+        "format-critical": "  ",
+        "tooltip-format": "Temperature: {temperatureC}°C"
+    },
+    "memory": {
+        "on-click": "gnome-system-monitor",
+        "states": {
+            "medium": 60,
+            "high": 80
+        },
+        "format": "  ",
+        "tooltip-format": "RAM: {percentage}% used ({used:0.1f}G/{total:0.1f}G)\nSwap: {swapPercentage}% used ({swapUsed:0.1f}G/{swapTotal:0.1f}G)"
+    },
+    "custom/updates": {
+        "format": "  {}",
+        "return-type": "json",
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 600"
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec-if": "which wttrbar",
+        "exec": "wttrbar --location 'Angoulême,FR'",
+        "return-type": "json",
+        "on-click": "wttrbar --location 'Angoulême,FR' | jq -r '.tooltip' | zenity --text-info --title Weather --width 500 --height 740",
+        "on-click-right": "xdg-open https://www.lameteoagricole.net/previsions-meteo-agricole/Angouleme-16000.html"
+    },
+    "custom/dunst": {
+        "exec": "~/.config/waybar-scripts/dunst",
+        "return-type": "json",
+        "on-click": "dunstctl history-pop",
+        "on-click-right": "dunstctl set-paused toggle",
+        "exec-if": "which dunst",
+        "tooltip": false
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "clock": {
+        "format": "{:L%F  %H:%M}",
+        "locale": "fr_FR.UTF-8",
+        "format-alt": "{:L%a %F  %H:%M:%S}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "on-click-right": "xdg-open https://time.is/",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "right",
+            "format": {
+                "months":   "<span color='#ffead3'><b>{}</b></span>",
+                "days":     "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":    "<span color='#888888'>W{}</span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+}

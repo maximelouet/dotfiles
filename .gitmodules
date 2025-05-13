@@ -11,10 +11,9 @@
 [submodule "vim/pack/plugins/start/vim-toml"]
 	path = vim/pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml.git
-[submodule "config/i3/scripts"]
-	path = config/i3/scripts
-	url = git@github.com:maximelouet/i3blocks-scripts
-  branch = main
+[submodule "waybar-scripts"]
+	path = waybar-scripts
+	url = git@github.com:maximelouet/waybar-scripts
 [submodule "config/kitty/kitty_search"]
 	path = config/kitty/kitty_search
 	url = https://github.com/trygveaa/kitty-kitten-search

@@ -1,0 +1,70 @@
+[{
+    "output": "!DP-2",
+    "layer": "top",
+    "position": "bottom",
+    "height": 40,
+    "spacing": 0,
+    "fixed-center": false,
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "sway/mode",
+        "keyboard-state",
+        "systemd-failed-units"
+    ],
+    "modules-right": [
+        "mpris",
+        "bluetooth",
+        "network",
+        "custom/ping",
+        "pulseaudio",
+        "custom/ddc_brightness",
+        "battery",
+        "cpu",
+        "temperature",
+        "memory",
+        "custom/updates",
+        "custom/weather",
+        "custom/dunst",
+        "idle_inhibitor",
+        "clock",
+        "privacy",
+        "tray"
+    ],
+    "include": [
+        "~/.config/waybar/config-modules.jsonc"
+    ]
+}, {
+    "output": "DP-2",
+    "layer": "top",
+    "position": "bottom",
+    "height": 38,
+    "spacing": 0,
+    "fixed-center": false,
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "sway/mode",
+        "keyboard-state"
+    ],
+    "modules-right": [
+        "mpris",
+        "pulseaudio",
+        "custom/ddc_brightness",
+        "clock",
+        "privacy"
+    ],
+    "include": [
+        "~/.config/waybar/config-modules.jsonc"
+    ],
+    "mpris": {
+        "format": "{player_icon}  "
+    },
+    "custom/ddc_brightness": {
+        "exec": "~/.dotfiles/waybar-scripts/brightness-desktop P2219HC",
+        "on-scroll-up": "echo '+' > /tmp/waybar-ddc-module-P2219HC-rx",
+        "on-scroll-down": "echo '-' > /tmp/waybar-ddc-module-P2219HC-rx"
+    }
+}]

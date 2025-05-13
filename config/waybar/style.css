@@ -1,0 +1,275 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Noto Sans, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15.5px;
+}
+
+window.DP-2 * {
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: #111;
+    color: #ddd;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #fff;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000;
+    border: none;
+}
+
+
+.modules-right label.module {
+    border-right: 1px solid #444;
+}
+
+.module {
+    padding: 0 16px;
+    color: #dddddd;
+}
+
+window.DP-2 .module {
+    padding: 0 12px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    padding-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    padding-right: 0;
+}
+
+button {
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces {
+    padding-right: 300px;
+}
+#workspaces button {
+    padding: 0 5px;
+    background: none;
+    box-shadow: none;
+    color: #ddd;
+    border-right: 1px solid #444;
+    transition: none;
+}
+
+#workspaces button:hover {
+    background: #333;
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+#workspaces button.focused {
+    background-color: #00a5dd;
+    color: #fff;
+}
+
+#workspaces button.urgent {
+    background-color: #f44336;
+}
+
+#mode {
+    background-color: #d76100;
+    color: #fff;
+    margin-right: 15px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #fff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #fff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #fff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network.disconnected {
+    color: #EF6C00;
+}
+
+#custom-ping {
+    min-width: 20px;
+    font-size: 1.1em;
+}
+#custom-ping.fast {
+    color: #66BB6A;
+}
+#custom-ping.slow {
+    color: #EF6C00;
+}
+#custom-ping.failing {
+    color: #fff;
+    background-color: #b81512;
+}
+
+#pulseaudio {
+    min-width: 53px;
+}
+#pulseaudio.muted {
+    color: #EF6C00;
+    text-decoration: line-through;
+}
+
+
+#mpris {
+    padding-left: 200px;
+}
+window.DP-2 #mpris {
+    padding-left: 100px;
+}
+#mpris.playing {
+    color: #8BC34A;
+}
+#mpris.paused {
+    color: #c7610c;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    transition: background-color .8s;
+    background-color: #eb4d4b;
+}
+
+
+#idle_inhibitor.activated {
+    background-color: #1E88E5;
+    color: #fff;
+}
+
+#keyboard-state {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+#keyboard-state > label.locked {
+    background: #d76100;
+    padding: 0 14px;
+}
+
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 8px;
+    color: #fff;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #009661;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
+
+#bluetooth {
+    color: #aaa;
+    transition: background-color .8s;
+}
+#bluetooth.on {
+    color: #fff;
+}
+#bluetooth.connected {
+    color: #1E88E5;
+}
+
+#bluetooth.discoverable {
+    color: #fff;
+    background: #009661;
+}
+
+#bluetooth.discovering {
+    animation: bluetoothDiscovering 2s infinite;
+}
+@keyframes bluetoothDiscovering {
+    0% {
+        background: initial;
+    }
+    50% {
+        background: #1E88E5;
+    }
+    100% {
+        background: initial;
+    }
+}
+
+#custom-dunst {
+    min-width: 18px;
+}
+#custom-dunst.disabled {
+    color: #f44336;
+}
+
+
+#custom-ddc_brightness {
+    min-width: 52px;
+}
+
+
+#cpu.medium, #memory.medium {
+    color: #EF6C00;
+}
+#cpu.high, #temperature.critical, #memory.high {
+    color: #eb4d4b;
+}
+
+
+#systemd-failed-units {
+    color: #eb4d4b;
+}
