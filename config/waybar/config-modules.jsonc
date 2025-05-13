@@ -92,6 +92,14 @@
         // "on-click-right": "echo 'max' > /tmp/waybar-ddc-module-U2721DE-rx",
         "exec-if": "which ddcutil"
     },
+    "custom/brightness_laptop": {
+        "format": "  {}%",
+        "exec": "~/.dotfiles/waybar-scripts/brightness-laptop",
+        "return-type": "json",
+        "on-scroll-up": "echo '+' > /tmp/waybar-laptop-brightness-module-rx",
+        "on-scroll-down": "echo '-' > /tmp/waybar-laptop-brightness-module-rx",
+        "exec-if": "which brightnessctl"
+    },
     "battery": {
         "format": "{icon} {capacity}%",
         "format-icons": ["", "", "", "", ""]
