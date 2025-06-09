@@ -65,14 +65,22 @@
   verbose = true
 [rebase]
   autoStash = true
+  # force update branches pointing to commits that are being rebased
+  updateRefs = true
 [pull]
   rebase = true
 [credential]
   helper = store
 [rerere]
   enabled = true
+  # auto-stage resolved conflicts
+  autoupdate = true
 [fetch]
+  # auto-prune remotely deleted stuff
   prune = true
+  pruneTags = true
+  # fetch all remotes every time
+  all = true
 [interactive]
   diffFilter = diff-so-fancy --patch
 [diff-so-fancy]
@@ -84,3 +92,26 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+[column]
+  # display lists (branches etc) with columns to fit more on screen
+  ui = auto
+[branch]
+  # sort branches by last commit instead of alpha order
+  sort = -committerdate
+[tag]
+  # sort tags numerically (i.e. properly)
+  sort = version:refname
+[diff]
+  # use better algorithm by default
+  algorithm = histogram
+  # use special color for moved lines
+  colorMoved = plain
+  # prefix with i/ (index), w/ (working dir) and c/ (commit) instead of a/ and b/
+  mnemonicPrefix = true
+  # detect renames
+  renames = true
+[push]
+  # auto set upstream branch on first push
+  autoSetupRemote = true
+  # auto push all local tags every time
+  followTags = true
