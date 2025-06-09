@@ -1,12 +1,17 @@
 [user]
   name = Maxime Louet
 [include]
+  # device-specific config (notably e-mail address and signing key)
   path = local-config
 [core]
+  # convert CRLF to LF on commit, otherwise leave untouched
   autocrlf = input
+  # use preferred editor for interactive operations (commit, etc)
   editor = vim
+  # better diff
   pager = diff-so-fancy | less --tabs=4 -RFX
 [init]
+  # woke
   defaultBranch = main
 [alias]
   abort = rebase --abort
@@ -22,6 +27,7 @@
   d = diff
   delete-remote-branch = push origin --delete
   delete-remote-tag = push origin --delete
+  # difft is pretty awesome but I prefer to keep a more simple/stable default
   difft = -c diff.external=difft diff
   dt = -c diff.external=difft diff
   initial-commit = "!git commit -m \"Initial commit\" --allow-empty"
@@ -49,8 +55,7 @@
   s = switch
   st = status
   tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
-[color]
-  ui = auto
+# better colors for various operations
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -61,19 +66,25 @@
   new = green
   old = red
 [commit]
+  # always sign commits
   gpgsign = true
+  # show diff below commit message
   verbose = true
 [rebase]
+  # auto stash working tree before a rebase, and try unstashing afterwards
   autoStash = true
   # force update branches pointing to commits that are being rebased
   updateRefs = true
 [pull]
+  # always rebase local changes on top of the fetched ones when pulling
   rebase = true
 [credential]
+  # store creds on disk
   helper = store
 [rerere]
+  # enable recording of resolved conflicts to auto-apply them again if needed
   enabled = true
-  # auto-stage resolved conflicts
+  # auto-stage auto-resolved conflicts
   autoupdate = true
 [fetch]
   # auto-prune remotely deleted stuff
@@ -82,10 +93,13 @@
   # fetch all remotes every time
   all = true
 [interactive]
+  # use diff-so-fancy for interactive operations as well (such as git add -p)
   diffFilter = diff-so-fancy --patch
 [diff-so-fancy]
+  # limit diff-so-fancy screen width, otherwise it takes up all space and makes terminal resizes awfuls
   rulerWidth = 47
 [help]
+  # auto-run a suggestion in case of typo after 2 seconds
   autocorrect = 20
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
@@ -93,7 +107,7 @@
   required = true
   clean = git-lfs clean -- %f
 [column]
-  # display lists (branches etc) with columns to fit more on screen
+  # display lists (branches etc) with columns to fit more on screen, during interactive use only
   ui = auto
 [branch]
   # sort branches by last commit instead of alpha order
