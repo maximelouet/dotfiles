@@ -247,3 +247,7 @@ user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 1800);
 user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 8000);
 
 user_pref("view_source.wrap_long_lines", true)
+
+user_pref("security.dialog_enable_delay", 200);
+
+user_pref("pdfjs.forcePageColors", true)
