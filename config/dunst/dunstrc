@@ -286,6 +286,15 @@
     timeout = 6
     markup = no  # some Spotify song names fuck this up
 
+[tidal]
+    appname = tidal-hifi
+    background  = "#000"
+    frame_color = "#fff"
+    set_transient = true
+    history_ignore = true
+    timeout = 6
+    markup = no  # some song names fuck this up
+
 [bluetooth]
     appname = *blue*
     script = ~/scripts/i3blocks-refresh-from-dunst.sh
