@@ -317,6 +317,7 @@ alias :q='exit'
 alias ipa='ip -brief a'
 alias re='dig +short -x'  # reverse DNS PTR
 alias bat='bat -p'  # bat but scrollable (without line numbers, idc)
+alias s='kitten ssh'
 
 # kitty's kittens
 if [ $commands[kitty] ]; then
