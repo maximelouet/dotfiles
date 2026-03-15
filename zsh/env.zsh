@@ -81,5 +81,6 @@ addtopath "$HOME/.poetry/bin"
 addtopath "$HOME/.yarn/bin"
 addtopath "$HOME/.cargo/bin"
 addtopath "$HOME/.local/share/JetBrains/Toolbox/scripts"
+addtopath "$HOME/.local/share/pnpm"
 
 source "$HOME/.cargo/env"
