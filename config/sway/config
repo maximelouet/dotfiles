@@ -43,8 +43,7 @@ bindswitch --reload --locked lid:off output $laptop_monitor enable
 # Main system font
 font pango:Noto Sans 12
 
-# Enable XWayland at startup because I start Spotify and other old electron
-# shit right away
+# Enable XWayland at startup because I start some old electron shit right away
 xwayland force
 
 # Change focus
@@ -231,6 +230,8 @@ for_window [window_role="pop-up"]         floating enable, border pixel 3
 for_window [window_role="task_dialog"]    floating enable, border pixel 3
 for_window [window_role="Preferences"]    floating enable, border pixel 3
 for_window [window_type="menu"]           floating enable, border pixel 3
+for_window [app_id="floating"]            floating enable, border pixel 3
+for_window [app_id="floating_update"]     floating enable, border pixel 3
 for_window [window_type="tooltip"]        floating enable
 for_window [title="(?:Open|Save) (?:File|Folder|As)(...)?"] floating enable, border pixel 3
 for_window [app_id="xdg-desktop-portal-gtk"] floating enable, border pixel 3
@@ -250,17 +251,15 @@ for_window [app_id="nemo" title="Properties$"]  floating enable, border pixel 3
 for_window [app_id="nemo" title="^Folder Sharing$"] floating enable, border pixel 3
 for_window [app_id="thunar" title="^File Operation Progress$"] floating enable, border pixel 3
 for_window [app_id="thunar" title="^Confirm to replace files$"] floating enable, border pixel 3
+for_window [app_id="thunar" title="^Rename "] floating enable, border pixel 3
 #for_window [app_id="code" title="(?!.* - Visual Studio Code)$"] floating enable, border pixel 3
 for_window [title="^Network Connections$"]        floating enable, border pixel 3
 for_window [title="^Network Operations Manager$"] floating enable, border pixel 3
-for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, border pixel 3
-for_window [title="^Android Emulator - "]       floating enable, border pixel 3
+for_window [app_id="com.saivert.pwvucontrol"] floating enable, border pixel 3
 for_window [title="^Open File$"]                floating enable, border pixel 3
-for_window [title="^Open Folder"]               floating enable, border pixel 3
+for_window [title="^Open Folder$"]               floating enable, border pixel 3
 for_window [title="^Open Workspace from File$"] floating enable, border pixel 3
 for_window [title="^Add Folder to Workspace$"] floating enable, border pixel 3
-
-for_window [title="^clipse clipboard picker$"] floating enable, border pixel 3, resize set width 40 ppt, resize set height 45 ppt
 
 for_window [class="Gpicview"]         floating enable, move position center, border pixel 3
 for_window [class="Pinentry-gtk-2"]   floating enable, move position center, border pixel 3
@@ -271,6 +270,8 @@ for_window [app_id="firefox"]     inhibit_idle fullscreen
 for_window [app_id="mpv"]         inhibit_idle
 for_window [class="vlc"]          inhibit_idle
 for_window [class="Spotify"]      inhibit_idle fullscreen
+for_window [app_id="tidal-hifi"]  inhibit_idle fullscreen
+for_window [class="tidal-hifi"]   inhibit_idle fullscreen
 
 
 # Firefox
@@ -287,6 +288,8 @@ for_window [app_id="firefox" title="^Page Info — "]           floating enable
 for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable, border pixel 3
 for_window [app_id="firefox" title="^Save As$"]               floating enable, border pixel 3
 
+for_window [title="Firefox - Sharing Indicator"] floating enable
+for_window [title="Firefox — Sharing Indicator"] floating enable
 
 ##################################################
 # Shortcuts and launchers
@@ -312,6 +315,8 @@ bindsym $super+w  exec "rofi -show window -show-icons"
 
 # Lock screen
 bindsym $super+l exec "~/scripts/lock.sh"
+# Suspend
+bindsym $super+p exec "~/scripts/suspend.sh"
 
 # Screenshot with selection
 bindsym Print exec "~/scripts/screenshot.sh"
@@ -320,8 +325,12 @@ bindsym Print exec "~/scripts/screenshot.sh"
 bindsym $super+Print exec "~/scripts/screenshot-currentscreen.sh"
 
 # Multimedia keys
-bindsym XF86MonBrightnessUp   exec "echo '+' > /tmp/waybar-laptop-brightness-module-rx"
-bindsym XF86MonBrightnessDown exec "echo '-' > /tmp/waybar-laptop-brightness-module-rx"
+# laptop
+#bindsym XF86MonBrightnessUp   exec "echo '+' > /tmp/waybar-laptop-brightness-module-rx"
+#bindsym XF86MonBrightnessDown exec "echo '-' > /tmp/waybar-laptop-brightness-module-rx"
+# desktop
+bindsym XF86MonBrightnessUp   exec "~/scripts/brightness-current-screen.sh +"
+bindsym XF86MonBrightnessDown   exec "~/scripts/brightness-current-screen.sh -"
 
 bindsym --locked XF86AudioMute         exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym --locked XF86AudioRaiseVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ +4%"
@@ -389,7 +398,8 @@ assign [app_id="signal"] workspace 4
 #for_window [class="discord"] move container to workspace 4
 assign [class="Spotify"] workspace 5
 assign [app_id="spotify"] workspace 5
-assign [title="^Spotify Premium$"] workspace 5
+assign [class="tidal-hifi"] workspace 5
+assign [app_id="tidal-hifi"] workspace 5
 
 
 ##################################################
@@ -399,8 +409,9 @@ assign [title="^Spotify Premium$"] workspace 5
 # Hide Gkraken at startup cause usually we just start/stop it to apply some config
 for_window [app_id="gkraken"] move window to scratchpad
 
-# Spotify is dumb
-for_window [class="Spotify"] move container to workspace 5
+# Electron shit at startup
+#for_window [class="Spotify"] move container to workspace 5
+#for_window [class="tidal-hifi"] move container to workspace 5
 
 
 ##################################################
@@ -408,7 +419,7 @@ for_window [class="Spotify"] move container to workspace 5
 ##################################################
 
 # Notify other systemd services we started
-exec "systemd-notify --ready --no-block"
+exec "sleep 1 && systemd-notify --ready --no-block"
 
 # GTK fixes
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
