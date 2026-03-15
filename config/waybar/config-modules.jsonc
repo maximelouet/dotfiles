@@ -38,6 +38,11 @@
         "on-scroll-up": "playerctl previous",
         "on-scroll-down": "playerctl next"
     },
+    "custom/mpris-toggles": {
+        "exec": "~/.dotfiles/waybar-scripts/mpris-toggles",
+        "return-type": "json",
+        "on-click-right": "playerctl shuffle toggle"
+    },
     "bluetooth": {
         "on-click": "blueman-manager",
         "on-click-right": "rfkill toggle bluetooth",

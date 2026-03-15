@@ -15,6 +15,7 @@
     ],
     "modules-right": [
         "mpris",
+        "custom/mpris-toggles",
         "bluetooth",
         "network",
         "custom/ping",
@@ -83,6 +84,7 @@
     ],
     "modules-right": [
         "mpris",
+        "custom/mpris-toggles",
         "bluetooth",
         "network",
         "custom/ping",

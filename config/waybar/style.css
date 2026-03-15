@@ -151,6 +151,7 @@ button {
 
 #mpris {
     padding-left: 200px;
+    border-right: 0;
 }
 window.DP-2 #mpris {
     padding-left: 100px;
@@ -160,6 +161,12 @@ window.DP-2 #mpris {
 }
 #mpris.paused {
     color: #c7610c;
+}
+#custom-mpris-toggles.shuffle {
+    padding-left: 0;
+    margin-left: -3px;
+    font-size: .8em;
+    color: #bbb;
 }
 
 #tray > .passive {
@@ -221,6 +228,7 @@ window.DP-2 #mpris {
 #bluetooth {
     color: #aaa;
     transition: background-color .8s;
+    border-left: 1px solid #444;
 }
 #bluetooth.on {
     color: #fff;
