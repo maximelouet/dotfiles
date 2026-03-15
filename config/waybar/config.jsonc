@@ -49,7 +49,7 @@
         "keyboard-state"
     ],
     "modules-right": [
-        "mpris",
+        //"mpris",
         "pulseaudio",
         "custom/ddc_brightness",
         "clock",
@@ -102,8 +102,5 @@
     ],
     "include": [
         "~/.config/waybar/config-modules.jsonc"
-    ],
-    "mpris": {
-        "format": "{player_icon}  "
-    }
+    ]
 }]

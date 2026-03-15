@@ -21,14 +21,18 @@
     },
     "mpris": {
         "format": "{player_icon}  {dynamic}",
-        "player": "spotify",
         "dynamic-order": ["artist", "title"],
         "player-icons": {
-            "default": "▶",
+            "tidal-hifi": "",
+            "default": "", // Tidal as well, because Tidal stops announcing itself for a half second during state changes
             "spotify": "",
-            "mpv": "🎵"
+            "firefox": "",
+            "deezer": "",
+            "mpv": "🎵",
+            "vlc": "🎵",
+            "mpd": "🎵"
         },
-        "on-click": "swaymsg '[class=\"Spotify\"] focus'",
+        "on-click": "swaymsg '[app_id=\"tidal-hifi\"] focus'",
         "on-click-middle": "",
         "on-click-right": "playerctl play-pause",
         "on-scroll-up": "playerctl previous",
