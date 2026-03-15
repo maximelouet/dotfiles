@@ -304,7 +304,7 @@ bindsym $super+c      exec "rofi -modi clipboard:~/.config/cliphist/cliphist-rof
 bindsym $super+q      exec "rofimoji"
 
 # Program launcher
-bindsym $super+z exec "walker --modules applications,bookmarks,emojis,calc,windows,symbols,websearch"
+bindsym $super+z exec "~/scripts/toggle-launcher.sh"
 
 # Notifications (dunst) shortcuts
 bindsym $ctrl+space        exec "dunstctl close"
