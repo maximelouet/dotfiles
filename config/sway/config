@@ -54,10 +54,10 @@ bindsym $super+Right  focus right
 
 bindsym $super+a      focus parent
 
-#bindsym $super+h  focus left
-#bindsym $super+j  focus down
-#bindsym $super+k  focus up
-#bindsym $super+l  focus right
+# bindsym $super+h  focus left
+# bindsym $super+j  focus down
+# bindsym $super+k  focus up
+# bindsym $super+l  focus right
 
 # Move windows
 bindsym $super+$shift+Left   move left
@@ -65,10 +65,10 @@ bindsym $super+$shift+Down   move down
 bindsym $super+$shift+Up     move up
 bindsym $super+$shift+Right  move right
 
-bindsym $super+$shift+h  move left
-bindsym $super+$shift+j  move down
-bindsym $super+$shift+k  move up
-bindsym $super+$shift+l  move right
+# bindsym $super+$shift+h  move left
+# bindsym $super+$shift+j  move down
+# bindsym $super+$shift+k  move up
+# bindsym $super+$shift+l  move right
 
 # Change workspace layout
 #bindsym $super+s  layout stacking
