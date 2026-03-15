@@ -60,12 +60,12 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "  <span font_size='small'>{essid}</span>",
-        "format-linked": "  (no IP) ",
-        "format-ethernet": "󰊗  {ipaddr}/{cidr}",
+        "format-linked": "  (no IP) ",
+        "format-ethernet": "  <span color='#aaa'></span>",
         "format-disconnected": "(no network)",
         "tooltip-format": "{ifname}",
         "tooltip-format-wifi": " <tt>{essid}</tt> ({frequency} GHz) on <tt>{ifname}</tt>\n {signalStrength}% ({signaldBm} dBm)\n <tt>{ipaddr}/{cidr}</tt> (right click for all IPs)\n <tt>{gwaddr}</tt>",
-        "tooltip-format-ethernet": "󰊗 {ifname}: {ipaddr}",
+        "tooltip-format-ethernet": " {ifname}: {ipaddr}/{cidr} (gateway {gwaddr})",
         "tooltip-format-disconnected": "(no network)",
         "on-click-right": "ip -color=never -brief a > /tmp/network-waybar-status && echo -en '\nExternal IPv4: ' >> /tmp/network-waybar-status && curl -sS ipv4.saumon.io >> /tmp/network-waybar-status ; echo -en '\nExternal IPv6: ' >> /tmp/network-waybar-status && curl -sS ipv6.saumon.io >> /tmp/network-waybar-status ; zenity --text-info --filename=/tmp/network-waybar-status --title='Network IPs' --width=700 --height=400 --font=monospace",
         "max-length": 50
