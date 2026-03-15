@@ -88,7 +88,7 @@
             "default": ["", ""]
         },
         "scroll-step": 4,
-        "on-click": "pavucontrol",
+        "on-click": "pwvucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "custom/ddc_brightness": {
