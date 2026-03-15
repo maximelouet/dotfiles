@@ -12,5 +12,10 @@
     "width": 1074,
     "height": 1040
   },
-  "chromiumSwitches": {}
+  "chromiumSwitches": {},
+  "offloadAdmControls": true,
+  "enableHardwareAcceleration": true,
+  "asyncVideoInputDeviceInit": false,
+  "enableLibOpenH264Electron": false,
+  "openH264Enabled": true
 }
