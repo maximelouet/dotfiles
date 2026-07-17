@@ -106,9 +106,6 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
-[column]
-  # display lists (branches etc) with columns to fit more on screen, during interactive use only
-  ui = auto
 [branch]
   # sort branches by last commit instead of alpha order
   sort = -committerdate
