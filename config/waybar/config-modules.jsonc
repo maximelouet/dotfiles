@@ -21,6 +21,7 @@
     },
     "mpris": {
         "format": "{player_icon}  {dynamic}",
+        "max-length": 300,
         "dynamic-order": ["artist", "title"],
         "player-icons": {
             "tidal-hifi": "",
