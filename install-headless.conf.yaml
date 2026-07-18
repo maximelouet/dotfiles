@@ -9,21 +9,25 @@
     link:
       relink: true
 
-- clean: ['~']
+- create:
+    ~/.ssh:
+      mode: 0700
 
 - link:
-    ~/.config/:
-      create: true
-      glob: true
-      path: config/*
+    ~/.config/fish:
+    ~/.config/bat:
+    ~/.config/git:
+    ~/.config/htop:
+    ~/.config/lsd:
+    ~/.config/ripgrep:
     ~/.tmux.conf:
     ~/.vim:
-    ~/.zsh:
-    ~/.zshenv:
-    ~/.zsh/.zlogin: ~/.zsh/zlogin
-    ~/.zsh/.zpreztorc: ~/.zsh/zpreztorc
-    ~/.zsh/.zprofile: ~/.zsh/zprofile
-    ~/.zsh/.zshrc: ~/.zsh/zshrc
+
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
 
 - shell:
     - [git submodule update --init --recursive, Updating git submodules]
+    - [vim "+PlugInstall" "+PlugUpdate" +qa, Updating vim plugins]
