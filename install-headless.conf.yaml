@@ -31,4 +31,5 @@
 
 - shell:
     - [git submodule update --init --recursive, Updating git submodules]
+    - [fisher update, Updating fish plugins]
     - [vim "+PlugInstall" "+PlugUpdate" +qa, Updating vim plugins]
