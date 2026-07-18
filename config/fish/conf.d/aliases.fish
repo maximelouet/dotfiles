@@ -10,6 +10,7 @@ alias rg "rg -uu"
 abbr g git
 abbr v vim
 abbr k kubectl
+abbr b bat
 
 abbr diff difft
 

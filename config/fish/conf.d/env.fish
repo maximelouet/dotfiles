@@ -58,6 +58,10 @@ set -gx RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 # l'espoir fait vivre
 set -gx DO_NOT_TRACK 1
 
+# pager
+set -gx PAGER "less"
+set -gx MANPAGER "bat -plman --paging always"
+
 # LESS settings
 set -gx LESS "--buffers=128 --use-color --color=Hr --RAW-CONTROL-CHARS --HILITE-UNREAD --incsearch"
 
