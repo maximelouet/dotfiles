@@ -237,6 +237,9 @@ user_pref("general.smoothScroll.msdPhysics.enabled", true);
 user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 1800);
 user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 8000);
 
+// pinch-to-zoom with alt-scroll
+user_pref("mousewheel.with_alt.action", 5);
+
 user_pref("view_source.wrap_long_lines", true)
 
 user_pref("security.dialog_enable_delay", 200);
