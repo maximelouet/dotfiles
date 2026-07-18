@@ -1,4 +1,4 @@
-# Common commands
+# common commands
 alias ls "lsd"
 alias l "ls -lh"
 alias lt "ls -lhrt"
@@ -6,7 +6,7 @@ alias lla "ls -lha"
 function c; cd $argv && ls; end
 alias rg "rg -uu"
 
-# Abbreviations are replaced by their full form on-the-fly
+# abbreviations are replaced by their full form on-the-fly
 abbr g git
 abbr v vim
 abbr k kubectl
@@ -14,29 +14,27 @@ abbr b bat
 
 abbr diff difft
 
-# Make some commands more verbose
+# make some commands more verbose
 alias mv "mv -v"
 alias rm "rm -v"
 alias cp "cp -v"
 
-# Typos
+# typos
 abbr gti git
 abbr --command systemctl sttaus status
 
-# Shortcuts
+# misc
 abbr cx "chmod +x"
 abbr copy "wl-copy -n <"
 abbr open "xdg-open"
 
+# quick file edits
 abbr ve "vim ~/.vim/vimrc"
 abbr ze "vim ~/.zsh/zshrc"
 abbr ie "vim ~/.config/i3/config"
 abbr se "vim ~/.config/sway/config"
 abbr we "vim ~/.config/waybar/config.jsonc"
 abbr ge "vim ~/.config/git/config"
-
-alias maj "yay -Syu --devel --sudoloop"
-alias pkclean "paccache -rk 2; yay -Sc"
 
 # https://fishshell.com/docs/current/interactive.html#abbreviations
 function multicd
@@ -45,8 +43,18 @@ end
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 function u; cd .. && ls; end
 
-# systemctl shortcuts
+# system maintenance
+alias maj "yay -Syu --devel --sudoloop"
+alias pkclean "paccache -rk 2; yay -Sc"
+
+# systemctl
 abbr -a -g sc systemctl
 abbr -a -g scu systemctl --user
-abbr -a -g jr journalctl
-abbr -a -g jru journalctl --user
+abbr -a -g jc journalctl
+abbr -a -g jcu journalctl --user
+
+# docker
+alias dkps "docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}'"
+alias docker-clean "docker system prune --all"
+alias docker-clean-all "docker system prune --all --volumes"
+alias docker-stop-all "docker stop $(docker container ls -a -q)"
