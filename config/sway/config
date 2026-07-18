@@ -89,12 +89,7 @@ floating_modifier $super
 bindsym $super+space focus mode_toggle
 
 # Reload sway
-# Avoid if possible. Reloading sway has awful consequences, like Firefox
-# crashing or kanshi losing track of outputs (and sway not being able to
-# configure outputs background if they are re-configured by kanshi after the
-# reload). If you need to reload, pray, or close your work and exit+restart
-# sway.
-bindsym $super+$shift+r reload
+bindsym $super+$shift+r restart
 
 # Exit sway
 bindsym $super+$shift+f exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
