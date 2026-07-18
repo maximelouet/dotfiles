@@ -7,6 +7,7 @@
 
 - defaults:
     link:
+      create: true
       relink: true
 
 - create:
@@ -14,12 +15,12 @@
       mode: 0700
 
 - link:
-    ~/.config/fish:
-    ~/.config/bat:
-    ~/.config/git:
-    ~/.config/htop:
-    ~/.config/lsd:
-    ~/.config/ripgrep:
+    ~/.config/bat: config/bat
+    ~/.config/fish: config/fish
+    ~/.config/git: config/git
+    ~/.config/htop: config/htop
+    ~/.config/lsd: config/lsd
+    ~/.config/ripgrep: config/ripgrep
     ~/.tmux.conf:
     ~/.vim:
 

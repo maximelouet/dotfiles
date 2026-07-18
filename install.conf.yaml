@@ -7,6 +7,7 @@
 
 - defaults:
     link:
+      create: true
       relink: true
 
 - create:
