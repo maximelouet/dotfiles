@@ -33,7 +33,7 @@
   difft = -c diff.external=difft diff
   dt = -c diff.external=difft diff
   initial-commit = "!git commit -m \"Initial commit\" --allow-empty"
-  l = log --topo-order --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
+  l = "log --topo-order --pretty=format:\"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B\""
   logs = log --show-signature
   lt = -c diff.external=difft log -p --ext-diff
   main = "!git switch `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`"
