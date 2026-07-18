@@ -1,7 +1,8 @@
 # Common commands
 alias ls "lsd"
-alias l  "ls -lh"
+alias l "ls -lh"
 alias lt "ls -lhrt"
+alias lla "ls -lha"
 function c; cd $argv && ls; end
 alias rg "rg -uu"
 
@@ -19,11 +20,19 @@ alias cp "cp -v"
 
 # Typos
 abbr gti git
+abbr --command systemctl sttaus status
 
 # Shortcuts
 abbr cx "chmod +x"
 abbr copy "wl-copy -n <"
 abbr open "xdg-open"
+
+abbr ve "vim ~/.vim/vimrc"
+abbr ze "vim ~/.zsh/zshrc"
+abbr ie "vim ~/.config/i3/config"
+abbr se "vim ~/.config/sway/config"
+abbr we "vim ~/.config/waybar/config.jsonc"
+abbr ge "vim ~/.config/git/config"
 
 alias maj "yay -Syu --devel --sudoloop"
 alias pkclean "paccache -rk 2; yay -Sc"
