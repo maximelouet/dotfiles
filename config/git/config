@@ -1,18 +1,21 @@
 [user]
   name = Maxime Louet
+
 [include]
   # device-specific config (notably e-mail address and signing key)
-  path = local-config
+  path = local.config
+  path = colors.config
+
 [core]
   # convert CRLF to LF on commit, otherwise leave untouched
   autocrlf = input
   # use preferred editor for interactive operations (commit, etc)
   editor = vim
-  # better diff
-  pager = diff-so-fancy | less --tabs=4 -RFX
+
 [init]
   # woke
   defaultBranch = main
+
 [alias]
   abort = rebase --abort
   addd = add
@@ -23,7 +26,6 @@
   c = checkout
   cm = commit
   cmm = commit -m
-  dd = -c core.pager=less diff
   d = diff
   delete-remote-branch = push origin --delete
   delete-remote-tag = push origin --delete
@@ -31,6 +33,7 @@
   difft = -c diff.external=difft diff
   dt = -c diff.external=difft diff
   initial-commit = "!git commit -m \"Initial commit\" --allow-empty"
+  l = log --topo-order --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"
   logs = log --show-signature
   lt = -c diff.external=difft log -p --ext-diff
   main = "!git switch `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`"
@@ -49,80 +52,79 @@
   pyull = pull
   r = restore
   rs = restore --staged
-  sc = "!git pull && git commit -am \"Sync commit\" && git push"
+  sc = "!git pull && git commit -am \"sync commit\" && git push"
   sd = diff --staged
   set-upstream = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
   s = switch
   st = status
   tree = log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
-# better colors for various operations
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "diff"]
-  frag = magenta bold
-  meta = yellow bold
-  new = green
-  old = red
+
 [commit]
-  # always sign commits
-  gpgsign = true
   # show diff below commit message
   verbose = true
+
 [rebase]
   # auto stash working tree before a rebase, and try unstashing afterwards
   autoStash = true
   # force update branches pointing to commits that are being rebased
   updateRefs = true
+
 [pull]
   # always rebase local changes on top of the fetched ones when pulling
   rebase = true
+
 [credential]
   # store creds on disk
   helper = store
+
 [rerere]
   # enable recording of resolved conflicts to auto-apply them again if needed
   enabled = true
   # auto-stage auto-resolved conflicts
   autoupdate = true
+
 [fetch]
   # auto-prune remotely deleted stuff
   prune = true
   pruneTags = true
   # fetch all remotes every time
   all = true
-[interactive]
-  # use diff-so-fancy for interactive operations as well (such as git add -p)
-  diffFilter = diff-so-fancy --patch
-[diff-so-fancy]
-  # limit diff-so-fancy screen width, otherwise it takes up all space and makes terminal resizes awfuls
-  rulerWidth = 47
+
 [help]
   # auto-run a suggestion in case of typo after 2 seconds
   autocorrect = 20
+
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+
 [branch]
   # sort branches by last commit instead of alpha order
   sort = -committerdate
+
 [tag]
   # sort tags numerically (i.e. properly)
   sort = version:refname
+
 [diff]
   # use better algorithm by default
   algorithm = histogram
   # use special color for moved lines
-  colorMoved = plain
+  colorMoved = zebra
   # prefix with i/ (index), w/ (working dir) and c/ (commit) instead of a/ and b/
   mnemonicPrefix = true
   # detect renames
   renames = true
+  # fancy
+  #external = difft --display inline
+  #tool = difftastic
+
 [push]
   # auto set upstream branch on first push
   autoSetupRemote = true
   # auto push all local tags every time
   followTags = true
+
+# vim: set ft=gitconfig:
