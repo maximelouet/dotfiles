@@ -23,6 +23,7 @@ Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -50,6 +51,11 @@ set termguicolors
 " let g:sonokai_better_performance = 1
 colorscheme eldar
 
+" Airline: show tab bar on top
+let g:airline#extensions#tabline#enabled = 1
+" Airline: load powerline fonts into the symbols map thing
+let g:airline_powerline_fonts = 1
+
 " enable loading the plugin file for specific file types
 filetype plugin on
 
@@ -62,7 +68,7 @@ set autoread
 " tell vim it's OK to use 256 colors at the terminal
 set t_Co=256
 
-" disable bell completely
+" disable bell completely as the flashing is terrible
 set visualbell
 set t_vb=
 
@@ -267,3 +273,4 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
