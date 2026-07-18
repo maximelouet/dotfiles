@@ -57,4 +57,4 @@ abbr -a -g jcu journalctl --user
 alias dkps "docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}'"
 alias docker-clean "docker system prune --all"
 alias docker-clean-all "docker system prune --all --volumes"
-alias docker-stop-all "docker stop $(docker container ls -a -q)"
+function docker-stop-all; docker stop $(docker container ls -a -q); end
