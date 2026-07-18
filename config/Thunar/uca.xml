@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>document-send</icon>
+	<name>Compress for Web</name>
+	<submenu></submenu>
+	<unique-id>1724270951911583-1</unique-id>
+	<command>/home/saumon/scripts/thunar/compress-for-web.sh %F</command>
+	<description>Compress and resize images for Web distribution</description>
+	<range>*</range>
+	<patterns>*.jpg;*.JPG;*.jpeg;*.JPEG</patterns>
+	<directories/>
+	<image-files/>
+</action>
+<action>
+	<icon>document-import</icon>
+	<name>Archive torrent files</name>
+	<submenu></submenu>
+	<unique-id>1724271900102076-1</unique-id>
+	<command>/home/saumon/scripts/thunar/archive-torrent-files.sh %F</command>
+	<description>Move uploaded torrent files to archive directory</description>
+	<range>*</range>
+	<patterns>*.torrent</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>upload-media</icon>
+	<name>SCP to dl:</name>
+	<submenu></submenu>
+	<unique-id>1724272026958361-2</unique-id>
+	<command>/home/saumon/scripts/thunar/scp-to-dl.sh %f</command>
+	<description>SCP this file to aelita:/srv/dl/</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Compress PDF</name>
+	<submenu></submenu>
+	<unique-id>1724311257301993-1</unique-id>
+	<command>/home/saumon/scripts/thunar/compress-pdf.sh %F</command>
+	<description>Compress and downscale PDF file using ghostscript</description>
+	<range>*</range>
+	<patterns>*.pdf;*.PDF</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Compress PDF (aggressive)</name>
+	<submenu></submenu>
+	<unique-id>1724311257301994-1</unique-id>
+	<command>/home/saumon/scripts/thunar/compress-pdf-aggressive.sh %F</command>
+	<description>Compress and downscale PDF file using ghostscript, higher compression</description>
+	<range>*</range>
+	<patterns>*.pdf;*.PDF</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Compress PDF (light)</name>
+	<submenu></submenu>
+	<unique-id>1778683861386104-1</unique-id>
+	<command>/home/saumon/scripts/thunar/compress-pdf-light.sh %F</command>
+	<description>Compress and downscale PDF file using ghostscript (screen setting)</description>
+	<range>*</range>
+	<patterns>*.pdf;*.PDF</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>acrobat</icon>
+	<name>Merge PDFs</name>
+	<submenu></submenu>
+	<unique-id>1724311681206145-1</unique-id>
+	<command>/home/saumon/scripts/thunar/merge-pdf.sh %F</command>
+	<description>Concatenate PDF files onto a single one</description>
+	<range>2-999</range>
+	<patterns>*.pdf;*.PDF</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>split</icon>
+	<name>Split PDF</name>
+	<submenu></submenu>
+	<unique-id>1724317688180721-1</unique-id>
+	<command>/home/saumon/scripts/thunar/split-pdf.sh %F</command>
+	<description>Split PDF file into one file for each of its pages</description>
+	<range>*</range>
+	<patterns>*.pdf;*.PDF</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>view-visible</icon>
+	<name>Show EXIF datetime</name>
+	<submenu></submenu>
+	<unique-id>1724318514224025-1</unique-id>
+	<command>/home/saumon/scripts/thunar/show-exif-datetime.sh %f</command>
+	<description>Print the image EXIF DateTime value</description>
+	<range>1</range>
+	<patterns>*.jpg;*.JPG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>globe</icon>
+	<name>Set GPS location from file</name>
+	<submenu></submenu>
+	<unique-id>1724319237201542-1</unique-id>
+	<command>/home/saumon/scripts/thunar/set-gps-location-from-file.sh %F</command>
+	<description>Change file(s) GPS location data to those of the selected file</description>
+	<range>*</range>
+	<patterns>SLM*.jpg;SLM*.JPG;SLM*.jpeg;SLM*.JPEG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>globe</icon>
+	<name>Set GPS location from file with GPS datetime</name>
+	<submenu></submenu>
+	<unique-id>1724319237201562-1</unique-id>
+	<command>/home/saumon/scripts/thunar/set-gps-location-from-file-with-gps-datetime.sh %F</command>
+	<description>Change file(s) GPS location data to those of the selected file, including the GPSDateStamp and GPSTimeStamp</description>
+	<range>*</range>
+	<patterns>SLM*.jpg;SLM*.JPG;SLM*.jpeg;SLM*.JPEG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>searching</icon>
+	<name>Check torrent consistency</name>
+	<submenu>Torrent</submenu>
+	<unique-id>1724335758973137-2</unique-id>
+	<command>/home/saumon/scripts/thunar/torrent/check-torrent-consistency.sh %f</command>
+	<description>Check a directory for compliance with Redacted upload rules and run other media sanity checks</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>text-field-framed</icon>
+	<name>Annotate photo border</name>
+	<submenu></submenu>
+	<unique-id>1730736980768481-1</unique-id>
+	<command>/home/saumon/scripts/thunar/annotate-photo-border.sh %F</command>
+	<description>Add a white border around the photo, with EXIF metadata at the bottom</description>
+	<range>*</range>
+	<patterns>*.jpg;*.JPG;*.jpeg;*.JPEG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>transform-crop</icon>
+	<name>Squarify image</name>
+	<submenu></submenu>
+	<unique-id>1731167440468878-1</unique-id>
+	<command>/home/saumon/scripts/thunar/squarify-image.sh %F</command>
+	<description>Add white padding to make the image square</description>
+	<range>*</range>
+	<patterns>*.jpg;*.JPG;*.jpeg;*.JPEG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>transform-crop</icon>
+	<name>Squarify image + pad</name>
+	<submenu></submenu>
+	<unique-id>1731167440468178-2</unique-id>
+	<command>/home/saumon/scripts/thunar/squarify-image-pad.sh %F</command>
+	<description>Add white padding to make the image square, with some more padding to avoid the image touching two borders</description>
+	<range>*</range>
+	<patterns>*.jpg;*.JPG;*.jpeg;*.JPEG</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>folder-new</icon>
+	<name>Create torrent</name>
+	<submenu>Torrent</submenu>
+	<unique-id>1724335030558578-1</unique-id>
+	<command>/home/saumon/scripts/thunar/torrent/create-torrent.sh %f</command>
+	<description>Create RED &amp; OPS torrent from this directory and upload it to aelita for seeding</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>exifcleaner</icon>
+	<name>From Qobuz</name>
+	<submenu>Torrent</submenu>
+	<unique-id>1724336602932220-3</unique-id>
+	<command>/home/saumon/scripts/thunar/torrent/from-qobuz.sh %f</command>
+	<description>Ensure MD5, set tags, generate spectrograms, and check torrent consistency</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>exifcleaner</icon>
+	<name>Cleanup</name>
+	<submenu>Media/Tag</submenu>
+	<unique-id>1724354531479875-1</unique-id>
+	<command>/home/saumon/scripts/thunar/media/tag/cleanup.sh %f</command>
+	<description>Remove extraneous FLAC metadata tags</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>view-barcode-add</icon>
+	<name>Cleanup &amp; set from folder</name>
+	<submenu>Media/Tag</submenu>
+	<unique-id>1724354872647678-2</unique-id>
+	<command>/home/saumon/scripts/thunar/media/tag/cleanup-set-from-folder.sh %f</command>
+	<description>Remove extraneous tags and set Title, Artist and Album from folder name</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>insert-image</icon>
+	<name>Fetch &amp; set cover art</name>
+	<submenu>Media/Tag</submenu>
+	<unique-id>1724355356141450-3</unique-id>
+	<command>/home/saumon/scripts/thunar/media/tag/fetch-set-cover-art.sh %f</command>
+	<description>Find album cover art from folder name and prompt for confirmation before applying it to all FLAC files in the directory</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>view-sort-ascending-name</icon>
+	<name>Rename from tags</name>
+	<submenu>Media/Tag</submenu>
+	<unique-id>1724355928034612-4</unique-id>
+	<command>/home/saumon/scripts/thunar/media/tag/rename-from-tags.sh %f</command>
+	<description>Rename FLAC files from their metadata tags following standard format</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>timeline-overwrite</icon>
+	<name>Ensure MD5 in STREAMINFO</name>
+	<submenu>Media</submenu>
+	<unique-id>1724337124534967-4</unique-id>
+	<command>/home/saumon/scripts/thunar/media/ensure-md5-streaminfo.sh %f</command>
+	<description>Ensure all FLAC files have a non-zero MD5 in the STREAMINFO block, re-encode them using flac if needed, and remove padding in their metadata</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>svgcleaner</icon>
+	<name>Remove FLAC padding</name>
+	<submenu>Media</submenu>
+	<unique-id>1724337242728422-5</unique-id>
+	<command>/home/saumon/scripts/thunar/media/remove-flac-padding.sh %f</command>
+	<description>Remove all PADDING blocks from the FLAC files metadata using metaflac</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>send_signal</icon>
+	<name>Downsample FLAC to 16 bits</name>
+	<submenu>Media</submenu>
+	<unique-id>1724337336053324-6</unique-id>
+	<command>/home/saumon/scripts/thunar/media/downsample-flac.sh %f</command>
+	<description>Transcode all files in the directory to FLAC 16 bits with downsampler-threaded</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>send_signal</icon>
+	<name>Transcode to MP3 320</name>
+	<submenu>Media</submenu>
+	<unique-id>1724337336169168-7</unique-id>
+	<command>/home/saumon/scripts/thunar/media/transcode-to-mp3-320.sh %f</command>
+	<description>Transcode all files in the directory to MP3 320 CBR</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>send_signal</icon>
+	<name>Transcode to MP3 V0</name>
+	<submenu>Media</submenu>
+	<unique-id>1724337336217208-8</unique-id>
+	<command>/home/saumon/scripts/thunar/media/transcode-to-mp3-v0.sh %f</command>
+	<description>Transcode all files in the directory to MP3 V0</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>gtkwave</icon>
+	<name>Spectrogram</name>
+	<submenu>Media</submenu>
+	<unique-id>1724338345595881-1</unique-id>
+	<command>/home/saumon/scripts/thunar/media/spectrogram.sh %F</command>
+	<description>Generate spectrograms for media files with sox and open them</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+</action>
+<action>
+	<icon>archive-extract</icon>
+	<name>Zip to dl:</name>
+	<submenu></submenu>
+	<unique-id>1724272205821579-3</unique-id>
+	<command>/home/saumon/scripts/thunar/zip-to-dl.sh %f</command>
+	<description>Zip directory and scp it to aelita:/srv/dl/</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>archive-extract</icon>
+	<name>Zip to dl:photos</name>
+	<submenu></submenu>
+	<unique-id>1724272341858104-4</unique-id>
+	<command>/home/saumon/scripts/thunar/zip-to-dl-photos.sh %f</command>
+	<description>Zip directory and scp it to aelita:/srv/dl/photos/</description>
+	<range>1</range>
+	<patterns>20* - *</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>terminal</icon>
+	<name>Open terminal here</name>
+	<submenu></submenu>
+	<unique-id>1724328289037077-1</unique-id>
+	<command>/home/saumon/scripts/thunar/open-terminal-here.sh %f</command>
+	<description>Open default terminal in the current directory</description>
+	<range>1</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>music-note-16th</icon>
+	<name>Show FLAC info</name>
+	<submenu>Media</submenu>
+	<unique-id>1725004195450841-1</unique-id>
+	<command>/home/saumon/scripts/music/show-flac-info.sh %f</command>
+	<description>Print FLAC bit depth and sample rate</description>
+	<range>1</range>
+	<patterns>*.flac;*.FLAC</patterns>
+	<audio-files/>
+</action>
+<action>
+	<icon>mail-send-receive</icon>
+	<name>PTPimg</name>
+	<submenu></submenu>
+	<unique-id>1732564209027733-1</unique-id>
+	<command>/home/saumon/scripts/thunar/ptpimg.sh %F</command>
+	<description>Compress the image, upload it to ptpimg.me, and copy the resulting URL</description>
+	<range>1</range>
+	<patterns>cover.jpg;cover.png</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>kt-set-max-upload-speed</icon>
+	<name>Photoshare</name>
+	<submenu></submenu>
+	<unique-id>1755018981870414-1</unique-id>
+	<command>/home/saumon/scripts/photo/photoshare.sh %f</command>
+	<description>Zip and upload to local photoshare</description>
+	<range>1</range>
+	<patterns>20* - *</patterns>
+	<directories/>
+</action>
+</actions>
