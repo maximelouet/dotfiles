@@ -5,15 +5,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "vim/pack/plugins/start/vim-terraform"]
-	path = vim/pack/plugins/start/vim-terraform
-	url = https://github.com/hashivim/vim-terraform.git
-[submodule "vim/pack/plugins/start/vim-toml"]
-	path = vim/pack/plugins/start/vim-toml
-	url = https://github.com/cespare/vim-toml.git
 [submodule "waybar-scripts"]
 	path = waybar-scripts
 	url = git@github.com:maximelouet/waybar-scripts
-[submodule "config/kitty/kitty_search"]
-	path = config/kitty/kitty_search
-	url = https://github.com/trygveaa/kitty-kitten-search
