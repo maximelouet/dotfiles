@@ -3,10 +3,9 @@ alias ls "lsd"
 alias l "ls -lh"
 alias lt "ls -lhrt"
 alias lla "ls -lha"
-function c; cd $argv && ls; end
-alias rg "rg -uu"
 
 # abbreviations are replaced by their full form on-the-fly
+abbr c cd
 abbr g git
 abbr v vim
 abbr k kubectl
@@ -41,7 +40,7 @@ function multicd
   echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
 abbr -a dotdot --regex '^\.\.+$' --function multicd
-function u; cd .. && ls; end
+abbr u cd ../
 
 # system maintenance
 alias maj "yay -Syu --devel --sudoloop"
