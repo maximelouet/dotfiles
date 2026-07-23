@@ -7,4 +7,4 @@
 	url = https://github.com/anishathalye/dotbot
 [submodule "waybar-scripts"]
 	path = waybar-scripts
-	url = git@github.com:maximelouet/waybar-scripts
+	url = https://github.com/maximelouet/waybar-scripts
