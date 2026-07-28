@@ -43,8 +43,33 @@ abbr -a dotdot --regex '^\.\.+$' --function multicd
 abbr u cd ../
 
 # system maintenance
-alias maj "yay -Syu --devel --sudoloop"
-alias pkclean "paccache -rk 2; yay -Sc"
+if type -q yay
+  # arch
+  function maj --wraps yay
+    yay -Syu --devel --sudoloop $argv
+  end
+  function install --wraps yay
+    yay -S $argv
+  end
+  function remove --wraps yay
+    yay -Rns $argv
+  end
+  function pkclean
+    paccache -rk 2
+    yay -Sc
+  end
+else
+  # debian
+  function maj
+    sudo apt update ; sudo apt dist-upgrade
+  end
+  function install --wraps apt
+    sudo apt install $argv
+  end
+  function remove --wraps apt
+    sudo apt remove --purge $argv
+  end
+end
 
 # systemctl
 abbr -a -g sc systemctl
@@ -60,3 +85,7 @@ function docker-stop-all; docker stop $(docker container ls -a -q); end
 
 # kitty kittens
 alias s "kitten ssh"
+
+# boot
+alias reboot-bios "systemctl reboot --boot-loader-entry auto-reboot-to-firmware-setup"
+alias reboot-to-bios reboot-bios
