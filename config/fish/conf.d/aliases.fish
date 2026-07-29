@@ -30,7 +30,15 @@ abbr open "xdg-open"
 if type -q totp
   function totp --wraps totp
     if [ (count $argv) -eq 1 ]
-      command totp $argv | LC_ALL=fr_FR.UTF-8 xargs printf "%'d\n"
+      set --local output $(command totp $argv)
+      set --local resultstatus $status
+      if test $resultstatus -ne 0
+        echo $output
+        return $resultstatus
+      end
+      set --local first_part $(echo $output | cut -c 1-3)
+      set --local second_part $(echo $output | cut -c 4-6)
+      echo "$first_part $second_part"
     else
       command totp $argv
     end
