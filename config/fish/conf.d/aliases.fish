@@ -27,6 +27,16 @@ abbr cx "chmod +x"
 abbr copy "wl-copy -n <"
 abbr open "xdg-open"
 
+if type -q totp
+  function totp --wraps totp
+    if [ (count $argv) -eq 1 ]
+      command totp $argv | LC_ALL=fr_FR.UTF-8 xargs printf "%'d\n"
+    else
+      command totp $argv
+    end
+  end
+end
+
 # quick file edits
 abbr ve "vim ~/.vim/vimrc"
 abbr ze "vim ~/.zsh/zshrc"
