@@ -316,14 +316,10 @@ bindsym $super+p exec "~/scripts/suspend.sh"
 # Screenshot with selection
 bindsym Print exec "~/scripts/screenshot.sh"
 
-# Screenshot currently focused monitor
 bindsym $super+Print exec "~/scripts/screenshot-currentscreen.sh"
 
-# Multimedia keys
-# laptop
-#bindsym XF86MonBrightnessUp   exec "echo '+' > /tmp/waybar-laptop-brightness-module-rx"
-#bindsym XF86MonBrightnessDown exec "echo '-' > /tmp/waybar-laptop-brightness-module-rx"
-# desktop
+bindsym XF86Display exec "wdisplays"
+
 bindsym XF86MonBrightnessUp   exec "~/scripts/brightness-current-screen.sh +"
 bindsym XF86MonBrightnessDown   exec "~/scripts/brightness-current-screen.sh -"
 
@@ -356,9 +352,9 @@ input type:keyboard {
 
 input type:touchpad {
     accel_profile "adaptive"
-    pointer_accel 0.4
+    pointer_accel 0.2
     natural_scroll enabled
-    scroll_factor 0.8
+    scroll_factor 0.5
     tap enabled
     # disable "disable while typing" feature
     dwt disabled
