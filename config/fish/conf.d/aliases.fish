@@ -63,13 +63,13 @@ abbr u cd ../
 # system maintenance
 if type -q yay
   # arch
-  function maj --wraps yay
+  function maj --wraps "yay -Syu"
     yay -Syu --devel --sudoloop $argv
   end
-  function install --wraps yay
+  function install --wraps "yay -S"
     yay -S $argv
   end
-  function remove --wraps yay
+  function remove --wraps "yay -Rns"
     yay -Rns $argv
   end
   function pkclean
