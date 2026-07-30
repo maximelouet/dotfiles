@@ -344,7 +344,6 @@ bindcode 135 exec "play ~/cancer/AH.mp3"
 input type:keyboard {
     xkb_layout "us"
     xkb_variant "altgr-intl"
-    xkb_options "caps:swapescape"
     xkb_numlock "enabled"
     repeat_delay 200
     repeat_rate 32
