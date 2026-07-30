@@ -240,8 +240,11 @@ user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 8000);
 // pinch-to-zoom with alt-scroll
 user_pref("mousewheel.with_alt.action", 5);
 
-user_pref("view_source.wrap_long_lines", true)
+user_pref("view_source.wrap_long_lines", true);
 
 user_pref("security.dialog_enable_delay", 200);
 
-user_pref("pdfjs.forcePageColors", true)
+user_pref("pdfjs.forcePageColors", true);
+
+// disable new sidebar on the left of the sidebar
+user_pref("sidebar.revamp", false);

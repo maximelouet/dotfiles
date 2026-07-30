@@ -5,6 +5,9 @@
 
 ---
 
+- plugins:
+    dotbot-plugins:
+
 - defaults:
     link:
       create: true
@@ -37,14 +40,14 @@
     ~/.local/share/gnupg/gpg-agent.conf:
       create: true
       path: local/share/gnupg/gpg-agent.conf
-    ~/.mozilla/firefox/:
-      create: true
-      glob: true
-      path: mozilla/firefox/*
     ~/.tmux.conf:
     ~/.vim:
     ~/.Xmodmap:
     ~/.Xresources:
+
+- firefox:
+    user.js: firefox/user.js
+    userChrome.css: firefox/chrome/userChrome.css
 
 - clean:
     ~/:
