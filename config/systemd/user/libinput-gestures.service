@@ -1,0 +1,11 @@
+[Unit]
+Description=Touchpad gestures handler
+PartOf=wayland-session.target
+After=sway.service
+
+[Service]
+ExecStart=/usr/bin/libinput-gestures
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target
