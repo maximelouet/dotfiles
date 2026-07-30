@@ -21,6 +21,7 @@ alias cp "cp -v"
 # typos
 abbr gti git
 abbr --command systemctl sttaus status
+abbr ma, man
 
 # misc
 abbr cx "chmod +x"
@@ -45,13 +46,33 @@ if type -q totp
   end
 end
 
+function essh --description "terminate all SSH ControlMaster connections"
+  for sock in /tmp/ssh-control-*
+      ssh -o ControlPath=$sock -O exit squalala
+  end
+end
+
+function path --description "pretty-print \$PATH"
+  for p in $PATH
+    echo $p
+  end
+end
+
+function env --description "pretty-print environment and allow searching in it"
+  if [ -n "$argv[1]" ]
+    command env | sort | grep -i "$argv[1]"
+  else
+    command env | sort | bat -l sh
+  end
+end
+
 # quick file edits
 abbr ve "vim ~/.vim/vimrc"
 abbr ze "vim ~/.zsh/zshrc"
-abbr ie "vim ~/.config/i3/config"
 abbr se "vim ~/.config/sway/config"
 abbr we "vim ~/.config/waybar/config.jsonc"
 abbr ge "vim ~/.config/git/config"
+abbr he "sudo vim /etc/hosts"
 
 # https://fishshell.com/docs/current/interactive.html#abbreviations
 function multicd
@@ -103,6 +124,7 @@ function docker-stop-all; docker stop $(docker container ls -a -q); end
 
 # kitty kittens
 alias s "kitten ssh"
+alias catimg "kitty +kitten icat"
 
 # boot
 alias reboot-bios "systemctl reboot --boot-loader-entry auto-reboot-to-firmware-setup"
