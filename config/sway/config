@@ -290,7 +290,7 @@ for_window [title="Firefox — Sharing Indicator"] floating enable
 ##################################################
 
 # Program shortcuts
-bindsym $super+Return exec "kitty"
+bindsym $super+Return exec "kitty -1"
 bindsym $alt+Return   exec "kitty -1"
 bindsym $super+e      exec "thunar"
 bindsym $super+b      exec "firefox"
