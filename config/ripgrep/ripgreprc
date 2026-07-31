@@ -8,3 +8,5 @@
 
 --no-ignore
 --hidden
+
+--hyperlink-format=kitty
