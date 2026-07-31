@@ -1,6 +1,6 @@
 [General]
 memoryDecay=0.88
-showTray=true
+showTray=false
 telemetry=false
 
 [applications]
@@ -31,9 +31,6 @@ enabled=true
 
 [python.wikipedia]
 enabled=false
-
-[spotify]
-enabled=true
 
 [system]
 enabled=false
