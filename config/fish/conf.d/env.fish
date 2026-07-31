@@ -68,4 +68,10 @@ set -gx LESS "--buffers=128 --use-color --color=Hr --RAW-CONTROL-CHARS --HILITE-
 # path configuration
 fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/go/bin"
-fish_add_path "$HOME/.local/bin"
+fish_add_path "/usr/lib/rustup/bin"
+fish_add_path --prepend "$HOME/.local/bin"
+fish_add_path --append "/usr/sbin/"
+fish_add_path --append "/usr/lib/jvm/default/bin"
+fish_add_path --append "/usr/bin/site_perl"
+fish_add_path --append "/usr/bin/vendor_perl"
+fish_add_path --append "/usr/bin/core_perl"
