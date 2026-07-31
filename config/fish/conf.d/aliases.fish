@@ -53,6 +53,11 @@ function essh --description "terminate all SSH ControlMaster connections"
 end
 
 function path --description "pretty-print \$PATH"
+  # safeguard cause path is a builtin used in some internal fish code
+  if [ -n "$argv[1]" ]
+    builtin path $argv
+    return $status
+  end
   for p in $PATH
     echo $p
   end
