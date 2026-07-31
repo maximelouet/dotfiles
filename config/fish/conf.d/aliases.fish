@@ -48,7 +48,7 @@ end
 
 function essh --description "terminate all SSH ControlMaster connections"
   for sock in /tmp/ssh-control-*
-      ssh -o ControlPath=$sock -O exit squalala
+    ssh -o ControlPath=$sock -O exit squalala
   end
 end
 
@@ -113,6 +113,11 @@ else
   function remove --wraps apt
     sudo apt remove --purge $argv
   end
+end
+
+# debian
+if type -q fdfind;
+  alias fd fdfind
 end
 
 # systemctl
