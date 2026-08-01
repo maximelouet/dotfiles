@@ -4,6 +4,7 @@ PartOf=wayland-session.target
 After=sway.service
 
 [Service]
+Environment=ALBERT_APPLICATIONS_COMMAND_PREFIX=/home/saumon/scripts/systemd-run.sh
 ExecStart=/usr/bin/albert
 Restart=on-failure
 

@@ -292,8 +292,8 @@ for_window [title="Firefox — Sharing Indicator"] floating enable
 # Program shortcuts
 bindsym $super+Return exec "kitty -1"
 bindsym $alt+Return   exec "kitty -1"
-bindsym $super+e      exec "thunar"
-bindsym $super+b      exec "firefox"
+bindsym $super+e      exec "~/scripts/systemd-run.sh thunar"
+bindsym $super+b      exec "~/scripts/systemd-run.sh firefox"
 bindsym $super+c      exec "rofi -modi clipboard:~/.config/cliphist/cliphist-rofi -show clipboard"
 bindsym $super+q      exec "rofimoji"
 
