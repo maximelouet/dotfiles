@@ -406,8 +406,9 @@ for_window [app_id="gkraken"] move window to scratchpad
 # Startup programs
 ##################################################
 
-# Notify other systemd services we started
-exec "sleep 1 && systemd-notify --ready --no-block"
+# Update global env with sway-defined variables,
+# then notify other systemd services we started
+exec "dbus-update-activation-environment --systemd --all && sleep 0.5 && systemd-notify --ready"
 
 # GTK fixes
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
