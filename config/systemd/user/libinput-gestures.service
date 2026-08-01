@@ -2,6 +2,8 @@
 Description=Touchpad gestures handler
 PartOf=wayland-session.target
 After=sway.service
+# only on laptops
+ConditionPathExistsGlob=/sys/class/power_supply/BAT*
 
 [Service]
 ExecStart=/usr/bin/libinput-gestures
