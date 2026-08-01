@@ -11,7 +11,8 @@ set -gx TZ "Europe/Paris"
 
 set -gx EDITOR "vim"
 set -gx VISUAL "vim"
-set -gx TERM "xterm-256color"
+set -gx PAGER "less"
+set -gx MANPAGER "bat -plman --paging always"
 
 # used by i3-sensible-terminal
 set -gx TERMINAL "kitty"
@@ -19,7 +20,6 @@ set -gx TERMINAL "kitty"
 set -gx USER "saumon"
 
 set -gx CLICOLOR 1
-
 
 # default XDG values, explicit them
 set -gx XDG_CACHE_HOME "$HOME/.cache"
@@ -43,8 +43,10 @@ set -gx ANSIBLE_NOCOWS 1
 # use gnome-keyring-daemon as ssh agent (needs gcr-4 package)
 set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
 
+# https://github.com/electron/electron/issues/39789#issuecomment-3433810585
+set -gx GNOME_DESKTOP_SESSION_ID "this-is-deprecated"
+
 # wayland
-set -gx MOZ_ENABLE_WAYLAND 1
 set -gx QT_QPA_PLATFORM wayland
 set -gx QT_WAYLAND_DISABLE_WINDOWDECORATION 1
 set -gx CLUTTER_BACKEND wayland
@@ -57,10 +59,6 @@ set -gx RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 
 # l'espoir fait vivre
 set -gx DO_NOT_TRACK 1
-
-# pager
-set -gx PAGER "less"
-set -gx MANPAGER "bat -plman --paging always"
 
 # LESS settings
 set -gx LESS "--buffers=128 --use-color --color=Hr --RAW-CONTROL-CHARS --HILITE-UNREAD --incsearch"
