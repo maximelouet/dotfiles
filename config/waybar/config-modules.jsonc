@@ -112,7 +112,17 @@
     },
     "battery": {
         "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "full-at": 80,
+        "states": {
+            "low": 30,
+            "warning": 20,
+            "critical": 8
+        },
+        "events": {
+            "on-discharging-warning": "notify-send -u low 'Low battery'",
+            "on-discharging-critical": "notify-send -u critical 'Very low battery'",
+        },
     },
     "cpu": {
         "interval": 7,
