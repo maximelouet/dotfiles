@@ -28,6 +28,7 @@ def _get_profile_directories() -> typing.Iterable[pathlib.Path]:
     defaults: list[str] = []
 
     defaults.append("~/.mozilla/firefox")
+    defaults.append("~/.config/mozilla/firefox")
 
     for default in defaults:
         path = pathlib.Path(os.path.expandvars(os.path.expanduser(default)))
