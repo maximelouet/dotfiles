@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Color Picker
+Comment=On-screen color picker, using hyprpicker
+Icon=color-picker
+Exec=hyprpicker -n -a

@@ -36,10 +36,14 @@
       create: true
       glob: true
       path: local/share/*
-      exclude: [local/share/gnupg]
+      exclude: [local/share/gnupg, local/share/applications]
     ~/.local/share/gnupg/gpg-agent.conf:
       create: true
       path: local/share/gnupg/gpg-agent.conf
+    ~/.local/share/applications/:
+      create: true
+      glob: true
+      path: local/share/applications/*
     ~/.tmux.conf:
     ~/.vim:
     ~/.Xmodmap:

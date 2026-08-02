@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Color chooser
+Comment=Graphical color code chooser, in hexadecimal form, using yad
+Icon=colorpicker
+Exec=sh -c "yad --color > /tmp/yad-color-picker && wl-copy -n < /tmp/yad-color-picker && cat /tmp/yad-color-picker | xargs notify-send -i document-edit 'Color chooser' && rm /tmp/yad-color-picker || rm /tmp/yad-color-picker"

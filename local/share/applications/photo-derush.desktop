@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Photo derush
+Icon=camera-photo
+Exec=sh -c "/home/saumon/scripts/photo/derush.sh; read -p '\n'"
+Terminal=true
