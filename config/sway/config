@@ -29,7 +29,7 @@ output $primary_monitor mode 2560x1440 pos 0 198
 output $secondary_monitor mode 1920x1080 pos 2560 0 transform 90
 
 # Desktop wallpaper
-output * background "~/images/wallpapers/Own/lgbt.png" stretch
+output * background "~/images/wallpaper.png" stretch
 
 # clamshell mode
 bindswitch --reload --locked lid:on output $laptop_monitor disable
