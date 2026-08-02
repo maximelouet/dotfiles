@@ -113,7 +113,6 @@
     "battery": {
         "format": "{icon} {capacity}%",
         "format-icons": ["", "", "", "", ""],
-        "full-at": 80,
         "states": {
             "low": 30,
             "warning": 20,
