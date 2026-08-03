@@ -116,8 +116,11 @@ else
 end
 
 # debian
-if type -q fdfind;
+if type -q fdfind
   alias fd fdfind
+end
+if type -q batcat
+  alias bat batcat
 end
 
 # systemctl
