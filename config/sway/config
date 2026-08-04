@@ -92,7 +92,7 @@ bindsym $super+space focus mode_toggle
 bindsym $super+$shift+r restart
 
 # Exit sway
-bindsym $super+$shift+f exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $super+$shift+f exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'systemctl --user stop wayland-session.target'
 
 # Close window
 bindsym $super+$shift+A kill
@@ -425,5 +425,7 @@ exec_always "xrandr --output $(xrandr | grep 'connected 2560' | awk '{print $1}'
 workspace 1
 exec 'sleep 1; swaymsg workspace 1'
 exec 'sleep 2; swaymsg workspace 1'
+
+exec "~/scripts/systemd-run.sh kitty --start-as=hidden -1"
 
 exec ~/scripts/startup.sh
