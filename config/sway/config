@@ -278,7 +278,7 @@ for_window [app_id="firefox"]                                 floating enable
 for_window [app_id="firefox" title="__focused__"]             floating disable
 for_window [app_id="firefox" title="^Opening"]                floating enable
 for_window [app_id="firefox" title="Mozilla Firefox"]         floating disable, border none
-for_window [app_id="firefox" title="^Page Info — "]           floating enable
+for_window [app_id="firefox" title="^Page Info — http"]       floating enable
 for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable, border pixel 3
 for_window [app_id="firefox" title="^Save As$"]               floating enable, border pixel 3
 
@@ -332,9 +332,6 @@ bindsym --locked XF86AudioPause  exec "playerctl pause"
 bindsym --locked XF86AudioNext   exec "playerctl next"
 bindsym --locked XF86AudioPrev   exec "playerctl previous"
 
-# Cancer
-bindcode 135 exec "play ~/cancer/AH.mp3"
-
 
 ##################################################
 # Devices configuration
@@ -356,9 +353,6 @@ input type:touchpad {
     tap enabled
     # disable "disable while typing" feature
     dwt disabled
-    # TODO: find a way to disable kinetic scrolling globally
-    # (ideally, set scroll source to "continous". see
-    # http://who-t.blogspot.com/2015/03/libinput-scroll-sources.html)
 }
 
 input type:pointer {
@@ -378,15 +372,10 @@ workspace 4 output $secondary_monitor
 workspace 5 output $primary_monitor
 
 # Windows workspace assignments
-assign [class="Caprine"] workspace 4
-#for_window [class="Caprine"] move container to workspace 4
 assign [class="discord"] workspace 4
 assign [app_id="discord"] workspace 4
 assign [class="Signal"] workspace 4
 assign [app_id="signal"] workspace 4
-#for_window [class="discord"] move container to workspace 4
-assign [class="Spotify"] workspace 5
-assign [app_id="spotify"] workspace 5
 assign [app_id="sone"] workspace 5
 
 
@@ -396,10 +385,6 @@ assign [app_id="sone"] workspace 5
 
 # Hide Gkraken at startup cause usually we just start/stop it to apply some config
 for_window [app_id="gkraken"] move window to scratchpad
-
-# Electron shit at startup
-#for_window [class="Spotify"] move container to workspace 5
-#for_window [class="tidal-hifi"] move container to workspace 5
 
 
 ##################################################
@@ -413,11 +398,6 @@ exec "dbus-update-activation-environment --systemd --all && sleep 0.5 && systemd
 # GTK fixes
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 exec_always "~/scripts/wayland/fix-gtk-theme.sh"
-
-# Touchpad gestures handling
-# "start" does not work
-# TODO: laptop only
-#exec "libinput-gestures-setup restart"
 
 exec_always "xrandr --output $(xrandr | grep 'connected 2560' | awk '{print $1}') --primary"
 
