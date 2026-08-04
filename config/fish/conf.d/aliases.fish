@@ -64,8 +64,11 @@ function path --description "pretty-print \$PATH"
 end
 
 function env --description "pretty-print environment and allow searching in it"
-  if [ -n "$argv[1]" ]
+  if [ (count $argv) -eq 1 ]
     command env | sort | grep -i "$argv[1]"
+  else if [ (count $argv) -gt 1 ]
+    command env $argv
+    return $status
   else
     command env | sort | bat -l sh
   end
