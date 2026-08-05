@@ -27,6 +27,7 @@ abbr ma, man
 abbr cx "chmod +x"
 abbr copy "wl-copy -n <"
 abbr open "xdg-open"
+abbr :q "exit"
 
 if type -q totp
   function totp --wraps totp
